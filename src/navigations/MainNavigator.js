@@ -3,10 +3,21 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../configs/colors';
 import appRoutes from './appRoutes';
-import HomeScreen from '../screens/Home/HomeScreen';
 import DetailsScreen from '../screens/Details/DetailsScreen';
+import HomeNavigator from './HomeNavigator';
 
 const Tab = createBottomTabNavigator();
+
+const ROOT_ROUTES = [appRoutes.HOME];
+
+const isOneOfRootRoutes = (currentRoute) => {
+    return ROOT_ROUTES.find(route => currentRoute.name === route) !== undefined;
+};
+
+const TabBarVisibleOnRootScreenOptions = ({route}) => {
+    const currentRoute = route.state && route.state.routes[route.state.index];
+    return {tabBarVisible: currentRoute && isOneOfRootRoutes(currentRoute)};
+};
 
 class MainNavigator extends React.Component {
     render() {
@@ -16,10 +27,11 @@ class MainNavigator extends React.Component {
                 tabBarOptions={{
                     activeTintColor: colors.color1,
                 }}
+                screenOptions={TabBarVisibleOnRootScreenOptions}
             >
                 <Tab.Screen
                     name={appRoutes.HOME}
-                    component={HomeScreen}
+                    component={HomeNavigator}
                     options={{
                         tabBarLabel: appRoutes.HOME,
                         tabBarIcon: ({color, size}) => (
@@ -35,7 +47,6 @@ class MainNavigator extends React.Component {
                         tabBarIcon: ({color, size}) => (
                             <MaterialCommunityIcons name="bell" color={color} size={size}/>
                         ),
-                        tabBarVisible: false,
                     }}
                 />
             </Tab.Navigator>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Button} from 'react-native';
-import appRoutes from '../../navigations/appRoutes';
+import appRoutes from '../../../navigations/appRoutes';
 
 class SignInScreen extends React.Component {
     render() {
