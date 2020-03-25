@@ -8,10 +8,7 @@ class HotelBlockViewScreen extends React.Component {
         return (
             <View>
                 <Text>HotelBlockView Screen</Text>
-                <Button
-                    title="Go to Details"
-                    onPress={() => navigation.navigate('Details')}
-                />
+                <Button title="Back" onPress={() => navigation.goBack()}/>
             </View>
         );
     }

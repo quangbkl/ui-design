@@ -1,31 +1,25 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {Button as ReactButton} from 'react-native-elements';
-import colors from '../configs/colors';
-import {white} from 'color-name';
+import {ViewPropTypes} from 'react-native';
+import PropTypes from 'prop-types';
+import {Button as NativeBaseButton} from 'native-base';
+
 
 class Button extends React.Component {
     render() {
-        const {type, ...rest} = this.props;
-        const style = styles[type || 'primary'] || styles.primary;
-
-        console.log(style);
-
         return (
-            <ReactButton {...rest} containerStyle={style}/>
+            <NativeBaseButton {...this.props}/>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    primary: {
-        backgroundColor: colors.color2,
-        color: 'white',
-    },
-    light: {
-        backgroundColor: 'white',
-        color: colors.color2,
-    },
-});
+Button.propTypes = {
+    full: PropTypes.bool,
+    round: PropTypes.bool,
+    outline: PropTypes.bool,
+    icon: PropTypes.element,
+    style: ViewPropTypes.style,
+    loading: PropTypes.bool,
+    onPress: PropTypes.func,
+};
 
 export default Button;
