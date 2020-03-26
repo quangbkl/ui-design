@@ -1,17 +1,22 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import PropTypes from 'prop-types';
 import {Button} from '../../../components';
 import {Text} from '../../../components';
 import {BaseColor} from '../../../config/color';
 
-const AuthForm = () => {
+const AuthForm = (props) => {
+    const {goToSignIn, goToMain} = props;
+
     return (
         <View style={styles.main}>
             <Button style={{backgroundColor: '#3B5998'}}>Login with Facebook</Button>
-            <Button style={{marginTop: 20}}>Sign In</Button>
+            <Button style={{marginTop: 20}} onPress={goToSignIn}>Sign In</Button>
             <View style={styles.joinNow}>
                 <Text>Haven't registered yet?</Text>
-                <Text style={styles.joinNowText}>Join Now</Text>
+                <TouchableOpacity onPress={goToMain}>
+                    <Text style={styles.joinNowText}>Join Now</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -32,5 +37,10 @@ const styles = StyleSheet.create({
         color: BaseColor.primaryColor,
     },
 });
+
+AuthForm.propTypes = {
+    goToSignIn: PropTypes.func.isRequired,
+    goToMain: PropTypes.func.isRequired,
+};
 
 export default AuthForm;

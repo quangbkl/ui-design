@@ -2,12 +2,23 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import ImageSlider from './ImageSlider';
 import AuthForm from './AuthForm';
+import appRoutes from '../../../navigations/appRoutes';
 
-const WalkthroughScreen = () => {
+const WalkthroughScreen = (props) => {
+    const {navigation} = props;
+
+    const goToSignIn = () => {
+        return navigation.navigate(appRoutes.SIGN_IN);
+    };
+
+    const goToMain = () => {
+        return navigation.navigate(appRoutes.MAIN);
+    };
+
     return (
         <View style={styles.container}>
             <ImageSlider/>
-            <AuthForm/>
+            <AuthForm goToSignIn={goToSignIn} goToMain={goToMain}/>
         </View>
     );
 };

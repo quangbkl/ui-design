@@ -15,7 +15,7 @@ const Button = (props) => {
             style={[styles.main, style]}
             onPress={onPress || handlePressButton}
         >
-            <Text style={{color: style.color || 'white', fontSize: 14}}>{children}</Text>
+            <Text style={{color: (style && style.color) || 'white', fontSize: 14}}>{children}</Text>
         </TouchableOpacity>
     );
 };

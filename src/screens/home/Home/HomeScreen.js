@@ -1,17 +1,19 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text} from 'react-native';
 import appRoutes from '../../../navigations/appRoutes';
+import {Button} from '../../../components';
 
-const HomeScreen = () => {
-    const {navigation} = this.props;
+const HomeScreen = (props) => {
+    const {navigation} = props;
 
     return (
         <View>
             <Text>Home Screen</Text>
             <Button
-                title="Hotel Block View"
                 onPress={() => navigation.navigate(appRoutes.HOTEL_BLOCK_VIEW)}
-            />
+            >
+                Hotel Block View
+            </Button>
         </View>
     );
 };

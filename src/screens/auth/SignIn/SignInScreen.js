@@ -12,10 +12,7 @@ const SignInScreen = (props) => {
 
             <Input style={{height: 40, borderColor: 'gray', borderWidth: 1}} placeholder="AAAA"/>
 
-            <Button
-                title="HOME"
-                onPress={() => navigation.navigate(appRoutes.MAIN)}
-            />
+            <Button onPress={() => navigation.navigate(appRoutes.MAIN)}>HOME</Button>
         </View>
     );
 };
