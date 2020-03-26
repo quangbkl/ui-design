@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import appRoutes from '../../../navigations/appRoutes';
-import {Button, CarItem} from '../../../components';
+import {Button, Input} from '../../../components';
 
 class SignInScreen extends React.Component {
     render() {
@@ -12,7 +12,9 @@ class SignInScreen extends React.Component {
         return (
             <View>
                 <Text>Sign In Screen</Text>
-                <CarItem/>
+
+                <Input style={{height: 40, borderColor: 'gray', borderWidth: 1}} placeholder="AAAA"/>
+
                 <Button
                     title="HOME"
                     onPress={() => navigation.navigate(appRoutes.MAIN)}

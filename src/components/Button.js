@@ -1,16 +1,37 @@
 import React from 'react';
-import {ViewPropTypes} from 'react-native';
+import {Text, TouchableOpacity, ViewPropTypes, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
-import {Button as NativeBaseButton} from 'native-base';
-
+import {BaseColor} from '../config/color';
 
 class Button extends React.Component {
+    handlePressButton = () => {
+        console.log('Button pressed!');
+    };
+
     render() {
+        const {onPress, style, children} = this.props;
+
         return (
-            <NativeBaseButton {...this.props}/>
+            <TouchableOpacity
+                style={[styles.main, style]}
+                onPress={onPress || this.handlePressButton}
+            >
+                <Text style={{color: style.color || 'white', fontSize: 14}}>{children}</Text>
+            </TouchableOpacity>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    main: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: BaseColor.primaryColor,
+        padding: 10,
+        height: 55,
+        borderRadius: 10,
+    },
+});
 
 Button.propTypes = {
     full: PropTypes.bool,
