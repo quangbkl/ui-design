@@ -5,12 +5,11 @@ const LeftComponent = () => {
 
 };
 
-class Header extends React.Component {
-    render() {
-        return (
-            <HeaderReact/>
-        );
-    }
+const Header = () => {
+    return (
+        <HeaderReact/>
+    );
+};
 }
 
 export default Header;

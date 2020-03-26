@@ -2,13 +2,11 @@ import React from 'react';
 import {ViewPropTypes, Text} from 'react-native';
 import PropTypes from 'prop-types';
 
-class CommentItem extends React.Component {
-    render() {
-        return (
-            <Text>CommentItem</Text>
-        );
-    }
-}
+const CommentItem = () => {
+    return (
+        <Text>CommentItem</Text>
+    );
+};
 
 CommentItem.propTypes = {
     image: PropTypes.string.isRequired,

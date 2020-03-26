@@ -3,16 +3,14 @@ import {ViewPropTypes, Text, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {CardItem} from 'native-base';
 
-class CarItem extends React.Component {
-    render() {
-        return (
-            <CardItem cardBody>
-                <View><Text>AAAA</Text></View>
-                <View><Text>BBBB</Text></View>
-            </CardItem>
-        );
-    }
-}
+const CarItem = () => {
+    return (
+        <CardItem cardBody>
+            <View><Text>AAAA</Text></View>
+            <View><Text>BBBB</Text></View>
+        </CardItem>
+    );
+};
 
 CarItem.propTypes = {
     style: ViewPropTypes.style,

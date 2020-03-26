@@ -21,64 +21,62 @@ const TabBarVisibleOnRootScreenOptions = ({route}) => {
     return {tabBarVisible: currentRoute && isOneOfRootRoutes(currentRoute)};
 };
 
-class MainNavigator extends React.Component {
-    render() {
-        return (
-            <Tab.Navigator
-                initialRouteName={appRoutes.HOME}
-                screenOptions={TabBarVisibleOnRootScreenOptions}
-                tabBarOptions={{
-                    activeTintColor: BaseColor.primaryColor,
-                    inactiveTintColor: BaseColor.grayColor,
-                    style: {
-                        backgroundColor: BaseColor.fieldColor,
-                    },
+const MainNavigator = () => {
+    return (
+        <Tab.Navigator
+            initialRouteName={appRoutes.HOME}
+            screenOptions={TabBarVisibleOnRootScreenOptions}
+            tabBarOptions={{
+                activeTintColor: BaseColor.primaryColor,
+                inactiveTintColor: BaseColor.grayColor,
+                style: {
+                    backgroundColor: BaseColor.fieldColor,
+                },
+            }}
+        >
+            <Tab.Screen
+                name={appRoutes.HOME}
+                component={HomeNavigator}
+                options={{
+                    tabBarLabel: appRoutes.HOME,
+                    tabBarIcon: ({color, size}) => (
+                        <FontAwesome5 name="home" color={color} size={size} solid/>
+                    ),
                 }}
-            >
-                <Tab.Screen
-                    name={appRoutes.HOME}
-                    component={HomeNavigator}
-                    options={{
-                        tabBarLabel: appRoutes.HOME,
-                        tabBarIcon: ({color, size}) => (
-                            <FontAwesome5 name="home" color={color} size={size} solid/>
-                        ),
-                    }}
-                />
-                <Tab.Screen
-                    name={appRoutes.BOOKING}
-                    component={BookingNavigator}
-                    options={{
-                        tabBarLabel: appRoutes.BOOKING,
-                        tabBarIcon: ({color, size}) => (
-                            <FontAwesome5 name="bookmark" color={color} size={size} solid/>
-                        ),
-                    }}
-                />
-                <Tab.Screen
-                    name={appRoutes.NEWS}
-                    component={NewsNavigator}
-                    options={{
-                        tabBarLabel: appRoutes.NEWS,
-                        tabBarIcon: ({color, size}) => (
-                            <FontAwesome5 name="copy" color={color} size={size} solid/>
-                        ),
-                    }}
-                />
-                <Tab.Screen
-                    name={appRoutes.ACCOUNT}
-                    component={AccountNavigator}
-                    options={{
-                        tabBarLabel: appRoutes.ACCOUNT,
-                        tabBarIcon: ({color, size}) => (
-                            <FontAwesome5 name="user-circle" color={color} size={size} solid/>
-                        ),
-                    }}
-                />
+            />
+            <Tab.Screen
+                name={appRoutes.BOOKING}
+                component={BookingNavigator}
+                options={{
+                    tabBarLabel: appRoutes.BOOKING,
+                    tabBarIcon: ({color, size}) => (
+                        <FontAwesome5 name="bookmark" color={color} size={size} solid/>
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name={appRoutes.NEWS}
+                component={NewsNavigator}
+                options={{
+                    tabBarLabel: appRoutes.NEWS,
+                    tabBarIcon: ({color, size}) => (
+                        <FontAwesome5 name="copy" color={color} size={size} solid/>
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name={appRoutes.ACCOUNT}
+                component={AccountNavigator}
+                options={{
+                    tabBarLabel: appRoutes.ACCOUNT,
+                    tabBarIcon: ({color, size}) => (
+                        <FontAwesome5 name="user-circle" color={color} size={size} solid/>
+                    ),
+                }}
+            />
 
-            </Tab.Navigator>
-        );
-    }
-}
+        </Tab.Navigator>
+    );
+};
 
 export default MainNavigator;

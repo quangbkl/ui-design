@@ -7,17 +7,15 @@ import MainNavigator from './MainNavigator';
 
 const Stack = createStackNavigator();
 
-class RootNavigator extends React.Component {
-    render() {
-        return (
-            <NavigationContainer>
-                <Stack.Navigator headerMode='none'>
-                    <Stack.Screen name={appRoutes.AUTH} component={AuthNavigator}/>
-                    <Stack.Screen name={appRoutes.MAIN} component={MainNavigator}/>
-                </Stack.Navigator>
-            </NavigationContainer>
-        );
-    }
-}
+const RootNavigator = () => {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator headerMode='none'>
+                <Stack.Screen name={appRoutes.AUTH} component={AuthNavigator}/>
+                <Stack.Screen name={appRoutes.MAIN} component={MainNavigator}/>
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
+};
 
 export default RootNavigator;

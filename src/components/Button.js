@@ -3,24 +3,22 @@ import {Text, TouchableOpacity, ViewPropTypes, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {BaseColor} from '../config/color';
 
-class Button extends React.Component {
-    handlePressButton = () => {
-        console.log('Button pressed!');
-    };
+const handlePressButton = () => {
+    console.log('Button pressed!');
+};
 
-    render() {
-        const {onPress, style, children} = this.props;
+const Button = (props) => {
+    const {onPress, style, children} = props;
 
-        return (
-            <TouchableOpacity
-                style={[styles.main, style]}
-                onPress={onPress || this.handlePressButton}
-            >
-                <Text style={{color: style.color || 'white', fontSize: 14}}>{children}</Text>
-            </TouchableOpacity>
-        );
-    }
-}
+    return (
+        <TouchableOpacity
+            style={[styles.main, style]}
+            onPress={onPress || handlePressButton}
+        >
+            <Text style={{color: style.color || 'white', fontSize: 14}}>{children}</Text>
+        </TouchableOpacity>
+    );
+};
 
 const styles = StyleSheet.create({
     main: {

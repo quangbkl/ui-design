@@ -5,14 +5,12 @@ import ProfileSettingScreen from '../screens/account/ProfileSetting/ProfileSetti
 
 const Stack = createStackNavigator();
 
-class AccountNavigator extends React.Component {
-    render() {
-        return (
-            <Stack.Navigator headerMode='none'>
-                <Stack.Screen name={appRoutes.PROFILE_SETTING} component={ProfileSettingScreen}/>
-            </Stack.Navigator>
-        );
-    }
-}
+const AccountNavigator = () => {
+    return (
+        <Stack.Navigator headerMode='none'>
+            <Stack.Screen name={appRoutes.PROFILE_SETTING} component={ProfileSettingScreen}/>
+        </Stack.Navigator>
+    );
+};
 
 export default AccountNavigator;

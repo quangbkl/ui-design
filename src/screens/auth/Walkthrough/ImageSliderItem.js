@@ -3,21 +3,19 @@ import {View, Image, StyleSheet, Dimensions} from 'react-native';
 import PropTypes from 'prop-types';
 import Text from '../../../components/Text';
 
-class ImageSliderItem extends React.Component {
-    render() {
-        const {image, text} = this.props;
+const ImageSliderItem = (props) => {
+    const {image, text} = props;
 
-        return (
-            <View style={styles.main}>
-                <Image
-                    style={styles.image}
-                    source={{uri: image}}
-                />
-                <Text style={styles.text} type="title3">{text}</Text>
-            </View>
-        );
-    }
-}
+    return (
+        <View style={styles.main}>
+            <Image
+                style={styles.image}
+                source={{uri: image}}
+            />
+            <Text style={styles.text} type="title3">{text}</Text>
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
     main: {

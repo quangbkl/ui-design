@@ -18,24 +18,21 @@ const slides = [
         text: 'Picking your travel destinations',
     },
 ];
+const _renderItem = ({item}) => <ImageSliderItem {...item}/>;
 
-class ImageSlider extends React.Component {
-    _renderItem = ({item}) => <ImageSliderItem {...item}/>;
-
-    render() {
-        return (
-            <AppIntroSlider
-                style={styles.main}
-                slides={slides}
-                renderItem={this._renderItem}
-                showDoneButton={false}
-                showNextButton={false}
-                activeDotStyle={{backgroundColor: BaseColor.primaryColor}}
-                dotStyle={{backgroundColor: BaseColor.dividerColor}}
-            />
-        );
-    }
-}
+const ImageSlider = () => {
+    return (
+        <AppIntroSlider
+            style={styles.main}
+            slides={slides}
+            renderItem={_renderItem}
+            showDoneButton={false}
+            showNextButton={false}
+            activeDotStyle={{backgroundColor: BaseColor.primaryColor}}
+            dotStyle={{backgroundColor: BaseColor.dividerColor}}
+        />
+    );
+};
 
 const styles = StyleSheet.create({
     main: {

@@ -6,15 +6,13 @@ import HotelBlockViewScreen from '../screens/home/HotelBlockView/HotelBlockViewS
 
 const Stack = createStackNavigator();
 
-class HomeNavigator extends React.Component {
-    render() {
-        return (
-            <Stack.Navigator headerMode='none'>
-                <Stack.Screen name={appRoutes.HOME} component={HomeScreen}/>
-                <Stack.Screen name={appRoutes.HOTEL_BLOCK_VIEW} component={HotelBlockViewScreen}/>
-            </Stack.Navigator>
-        );
-    }
-}
+const HomeNavigator = () => {
+    return (
+        <Stack.Navigator headerMode='none'>
+            <Stack.Screen name={appRoutes.HOME} component={HomeScreen}/>
+            <Stack.Screen name={appRoutes.HOTEL_BLOCK_VIEW} component={HotelBlockViewScreen}/>
+        </Stack.Navigator>
+    );
+};
 
 export default HomeNavigator;

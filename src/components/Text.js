@@ -1,19 +1,17 @@
 import React from 'react';
-import {Text as ReactText, ViewPropTypes} from 'react-native';
+import {Text as ReactText} from 'react-native';
 import PropTypes from 'prop-types';
 import {Typography} from '../config/typography';
 import {BaseColor} from '../config/color';
 
-class Text extends React.Component {
-    render() {
-        const {type, style: propStyle, ...rest} = this.props;
-        const style = Typography[type || 'title3'] || {};
+const Text = (props) => {
+    const {type, style: propStyle, ...rest} = props;
+    const style = Typography[type || 'title3'] || {};
 
-        return (
-            <ReactText style={[{color: BaseColor.darkBlueColor}, style, propStyle]} {...rest}/>
-        );
-    }
-}
+    return (
+        <ReactText style={[{color: BaseColor.darkBlueColor}, style, propStyle]} {...rest}/>
+    );
+};
 
 Text.propTypes = {
     type: PropTypes.oneOf([
@@ -31,7 +29,7 @@ Text.propTypes = {
         'caption2',
         'overline',
     ]),
-    style: ViewPropTypes.style,
+    style: ReactText.propTypes.style,
 };
 
 export default Text;

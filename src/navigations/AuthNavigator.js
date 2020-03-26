@@ -8,17 +8,15 @@ import WalkthroughScreen from '../screens/auth/Walkthrough/WalkthroughScreen';
 
 const Stack = createStackNavigator();
 
-class AuthNavigator extends React.Component {
-    render() {
-        return (
-            <Stack.Navigator headerMode='none'>
-                <Stack.Screen name={appRoutes.WALKTHROUGH} component={WalkthroughScreen}/>
-                <Stack.Screen name={appRoutes.SIGN_IN} component={SignInScreen}/>
-                <Stack.Screen name={appRoutes.SIGN_UP} component={SignUpScreen}/>
-                <Stack.Screen name={appRoutes.RESET_PASSWORD} component={ResetPasswordScreen}/>
-            </Stack.Navigator>
-        );
-    }
-}
+const AuthNavigator = () => {
+    return (
+        <Stack.Navigator headerMode='none'>
+            <Stack.Screen name={appRoutes.WALKTHROUGH} component={WalkthroughScreen}/>
+            <Stack.Screen name={appRoutes.SIGN_IN} component={SignInScreen}/>
+            <Stack.Screen name={appRoutes.SIGN_UP} component={SignUpScreen}/>
+            <Stack.Screen name={appRoutes.RESET_PASSWORD} component={ResetPasswordScreen}/>
+        </Stack.Navigator>
+    );
+};
 
 export default AuthNavigator;

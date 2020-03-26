@@ -4,20 +4,18 @@ import {Button} from '../../../components';
 import {Text} from '../../../components';
 import {BaseColor} from '../../../config/color';
 
-class AuthForm extends React.Component {
-    render() {
-        return (
-            <View style={styles.main}>
-                <Button style={{backgroundColor: '#3B5998'}}>Login with Facebook</Button>
-                <Button style={{marginTop: 20}}>Sign In</Button>
-                <View style={styles.joinNow}>
-                    <Text>Haven't registered yet?</Text>
-                    <Text style={styles.joinNowText}>Join Now</Text>
-                </View>
+const AuthForm = () => {
+    return (
+        <View style={styles.main}>
+            <Button style={{backgroundColor: '#3B5998'}}>Login with Facebook</Button>
+            <Button style={{marginTop: 20}}>Sign In</Button>
+            <View style={styles.joinNow}>
+                <Text>Haven't registered yet?</Text>
+                <Text style={styles.joinNowText}>Join Now</Text>
             </View>
-        );
-    }
-}
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
     main: {
