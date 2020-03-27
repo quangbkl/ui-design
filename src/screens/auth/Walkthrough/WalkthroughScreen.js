@@ -7,6 +7,10 @@ import appRoutes from '../../../navigations/appRoutes';
 const WalkthroughScreen = (props) => {
     const {navigation} = props;
 
+    const goToSignUp = () => {
+        return navigation.navigate(appRoutes.SIGN_UP);
+    };
+
     const goToSignIn = () => {
         return navigation.navigate(appRoutes.SIGN_IN);
     };
@@ -18,7 +22,7 @@ const WalkthroughScreen = (props) => {
     return (
         <View style={styles.container}>
             <ImageSlider/>
-            <AuthForm goToSignIn={goToSignIn} goToMain={goToMain}/>
+            <AuthForm goToSignIn={goToSignIn} goToMain={goToMain} goToSignUp={goToSignUp}/>
         </View>
     );
 };

@@ -1,14 +1,26 @@
 import React from 'react';
-import {TextInput as TextInputReact} from 'react-native';
+import {TextInput as TextInputReact, StyleSheet} from 'react-native';
+import {BaseColor} from '../config/color';
 
-const TextInput = () => {
+const TextInput = (props) => {
+    const {style, ...rest} = props;
+
     return (
         <TextInputReact
-            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-            onChangeText={text => onChangeText(text)}
-            value={value}
+            style={[styles.main, style]}
+            {...rest}
         />
     );
 };
+
+const styles = StyleSheet.create({
+    main: {
+        height: 55,
+        backgroundColor: BaseColor.fieldColor,
+        borderRadius: 5,
+        fontSize: 14,
+        padding: 10,
+    },
+});
 
 export default TextInput;

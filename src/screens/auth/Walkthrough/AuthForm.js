@@ -6,14 +6,16 @@ import {Text} from '../../../components';
 import {BaseColor} from '../../../config/color';
 
 const AuthForm = (props) => {
-    const {goToSignIn, goToMain} = props;
+    const {goToSignIn, goToMain, goToSignUp} = props;
 
     return (
         <View style={styles.main}>
             <Button style={{backgroundColor: '#3B5998'}}>Login with Facebook</Button>
             <Button style={{marginTop: 20}} onPress={goToSignIn}>Sign In</Button>
             <View style={styles.joinNow}>
-                <Text>Haven't registered yet?</Text>
+                <TouchableOpacity onPress={goToSignUp}>
+                    <Text>Haven't registered yet?</Text>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={goToMain}>
                     <Text style={styles.joinNowText}>Join Now</Text>
                 </TouchableOpacity>
@@ -39,6 +41,7 @@ const styles = StyleSheet.create({
 });
 
 AuthForm.propTypes = {
+    goToSignUp: PropTypes.func.isRequired,
     goToSignIn: PropTypes.func.isRequired,
     goToMain: PropTypes.func.isRequired,
 };

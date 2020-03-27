@@ -1,21 +1,30 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import appRoutes from '../../../navigations/appRoutes';
-import {Button} from '../../../components';
+import {View, StyleSheet} from 'react-native';
+import HeaderImage from './HeaderImage';
+import SearchMenu from './SearchMenu';
 
 const HomeScreen = (props) => {
-    const {navigation} = props;
-
     return (
-        <View>
-            <Text>Home Screen</Text>
-            <Button
-                onPress={() => navigation.navigate(appRoutes.HOTEL_BLOCK_VIEW)}
-            >
-                Hotel Block View
-            </Button>
+        <View style={styles.container}>
+            <HeaderImage/>
+            <View style={styles.content}>
+                <SearchMenu/>
+            </View>
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
+    content: {
+        paddingLeft: 20,
+        paddingRight: 20,
+        flex: 1,
+        backgroundColor: '#635DB7',
+    },
+});
 
 export default HomeScreen;

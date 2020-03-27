@@ -6,7 +6,7 @@ import {BaseColor} from '../config/color';
 
 const Text = (props) => {
     const {type, style: propStyle, ...rest} = props;
-    const style = Typography[type || 'title3'] || {};
+    const style = Typography[type || 'body1'] || {};
 
     return (
         <ReactText style={[{color: BaseColor.darkBlueColor}, style, propStyle]} {...rest}/>
