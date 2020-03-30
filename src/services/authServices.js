@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const signIn = () => {
-    return axios.get('https://jsonplaceholder.typicode.com/users');
+export const signIn = (data) => {
+    return axios.post('/auth/sign-in', data);
 };
 
 export default {

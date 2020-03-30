@@ -8,7 +8,7 @@ const SignInScreen = (props) => {
     const {navigation} = props;
 
     const handleClickSignIn = async () => {
-        const data = await signIn();
+        const data = await signIn({email: 'test1@gmail.com', password: '123456789'});
         console.log(data);
         navigation.navigate(appRoutes.MAIN);
     };
