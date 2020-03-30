@@ -1,13 +1,15 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import appRoutes from '../../../navigations/appRoutes';
-import {Button, TextInput, Text} from '../../../components';
-import Header from '../../../components/Header';
+import {Button, TextInput, Text, Header} from '../../../components';
+import {signIn} from '../../../services/authServices';
 
 const SignInScreen = (props) => {
     const {navigation} = props;
 
-    const handleClickSignIn = () => {
+    const handleClickSignIn = async () => {
+        const data = await signIn({email: 'test1@gmail.com', password: '123456789'});
+        console.log(data);
         navigation.navigate(appRoutes.MAIN);
     };
 

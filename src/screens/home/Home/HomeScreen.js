@@ -1,16 +1,18 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import HeaderImage from './HeaderImage';
 import SearchMenu from './SearchMenu';
+import Tours from './Tours';
 
-const HomeScreen = (props) => {
+const HomeScreen = () => {
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <HeaderImage/>
             <View style={styles.content}>
                 <SearchMenu/>
+                <Tours/>
             </View>
-        </View>
+        </ScrollView>
     );
 };
 
