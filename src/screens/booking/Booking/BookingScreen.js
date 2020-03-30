@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
+// Use BookingHistory component
 const BookingScreen = () => {
     return (
         <View>
