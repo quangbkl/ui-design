@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Button} from 'react-native';
 
-const HotelBlockViewScreen = (props) => {
+const HotelsScreen = (props) => {
     const {navigation} = props;
 
     return (
@@ -12,4 +12,4 @@ const HotelBlockViewScreen = (props) => {
     );
 };
 
-export default HotelBlockViewScreen;
+export default HotelsScreen;

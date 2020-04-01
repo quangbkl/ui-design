@@ -9,7 +9,7 @@ export default {
     BOOKING: 'Booking',
     NEWS: 'News',
     ACCOUNT: 'Account',
-    POST_LIST: 'Post List',
+    POSTS: 'Posts',
     PROFILE_SETTING: 'Profile Setting',
     HOTEL_BLOCK_VIEW: 'Hotel Block View',
 };

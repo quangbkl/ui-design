@@ -5,7 +5,7 @@ import Header from '../../../components/Header';
 import PostItem from './PostItem';
 import Separator from '../../../components/Separator';
 
-const PostListScreen = () => {
+const PostsScreen = () => {
     const [list, setList] = useState([]);
 
     useEffect(() => {
@@ -27,4 +27,4 @@ const PostListScreen = () => {
     );
 };
 
-export default PostListScreen;
+export default PostsScreen;
