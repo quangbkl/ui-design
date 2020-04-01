@@ -1,28 +1,54 @@
-import React, {useState, useEffect} from 'react';
-import {ScrollView, FlatList} from 'react-native';
+import React, { useEffect } from 'react';
+import { FlatList } from 'react-native';
 import {Container} from 'native-base';
 import Header from '../../../components/Header';
-import PostItem from './PostItem';
+import PostItem from '../../../components/PostItem';
 import Separator from '../../../components/Separator';
+import { getPosts } from '../../../services/postServices';
+import { useFilterDynamic } from '../../../hooks/common';
 
-const PostListScreen = () => {
-    const [list, setList] = useState([]);
+const PostListScreen = (props) => {
+    const { navigation } = props;
+    const defaultFilters = {
+        page: 1,
+        limit: 10,
+    }
+    const loadDataPosts = (params) => getPosts(params)
+        .then(res => res.data.posts);
+    const {
+        loading: loadingPosts,
+        list: listPosts,
+        fetchData,
+        refreshPage,
+        fetchNext,
+    } = useFilterDynamic(defaultFilters, loadDataPosts);
+
+    const renderListItem = ({ item }) => {
+        return (
+            <PostItem
+                item={item}
+                onPress={() => navigation.navigate("PostItem", { postId: item.id })}
+            />
+        )
+    }
 
     useEffect(() => {
-        setList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
+        fetchData();
     }, []);
 
     return (
         <Container>
             <Header title="Post"/>
-            <ScrollView>
-                <FlatList
-                    data={list}
-                    renderItem={() => <PostItem/>}
-                    keyExtractor={item => item}
-                    ItemSeparatorComponent={Separator}
-                />
-            </ScrollView>
+            <FlatList
+                data={listPosts}
+                renderItem={renderListItem}
+                refreshing={loadingPosts}
+                onRefresh={refreshPage}
+                onEndReached={fetchNext}
+                onEndReachedThreshold={0.5}
+                keyExtractor={item => item.id.toString()}
+                ItemSeparatorComponent={Separator}
+            />
         </Container>
     );
 };
