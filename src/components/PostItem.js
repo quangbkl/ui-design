@@ -1,27 +1,64 @@
 /**
  * Preview: http://passionui.com/wp-content/uploads/2019/07/2019-07-21_1556-573x1024.png
  * */
+import React from 'react';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import ProfileAuthor from './ProfileAuthor';
 
-// let item = {
-//     image: "assets/images/trip-1.jpg",
-//     title: "Overseas Adventure Travel In Nepal",
-//     description: "Lorem ipsum dolor sit amet, velit tamquam eum et, pro agam sanctus minimum ut. Usu prompta invidunt at, noluisse ponderum nec ne. ",
-//     authorImage: require("@assets/images/profile-1.jpg"),
-//     name: "Steve Garrett",
-//     detail: "5 hours ago | 100k views",
-//     date: "Jun 2018"
-// }
-//
-// <PostItem
-//     image={item.image}
-//     title={item.title}
-//     description={item.description}
-//     onPress={() => navigation.navigate("PostDetail")}
-// >
-//     <ProfileAuthor
-//         image={item.authorImage}
-//         name={item.name}
-//         detail={item.detail}
-//         style={{ paddingHorizontal: 20 }}
-//     />
-// </PostItem>
+const PostItem = (props) => {
+    const {onPress, item} = props;
+    const {title, description, image, view, publishDate, author} = item;
+    return (
+        <TouchableOpacity onPress={onPress}>
+            <ProfileAuthor
+                name={author.name}
+                image={author.image}
+                view={view}
+                publishDate={publishDate}
+            />
+            <View style={styles.imageContainer}>
+                <Image
+                    style={styles.largeImage}
+                    source={{
+                        uri: image,
+                    }}
+                />
+                <FontAwesome5Icon style={styles.iconAddToFavorite} name="bookmark"/>
+            </View>
+            <View style={styles.contentContainer}>
+                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.content}>{description}</Text>
+            </View>
+        </TouchableOpacity>
+    );
+};
+const styles = StyleSheet.create({
+    imageContainer: {
+        marginTop: 10,
+    },
+    largeImage: {
+        width: '100%',
+        height: 200,
+    },
+    iconAddToFavorite: {
+        color: '#fff',
+        fontSize: 20,
+        position: 'absolute',
+        top: 10,
+        right: 10,
+    },
+    contentContainer: {
+        marginTop: 10,
+        marginLeft: 10,
+    },
+    title: {
+        fontSize: 16,
+    },
+    content: {
+        fontSize: 14,
+    },
+});
+
+export default PostItem;
+
