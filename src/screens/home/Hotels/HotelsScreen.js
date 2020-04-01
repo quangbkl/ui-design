@@ -6,7 +6,7 @@ const HotelsScreen = (props) => {
 
     return (
         <View>
-            <Text>HotelBlockView Screen</Text>
+            <Text>Hotels Screen</Text>
             <Button title="Back" onPress={() => navigation.goBack()}/>
         </View>
     );

@@ -1,16 +1,22 @@
 import React from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
-import HeaderImage from './HeaderImage';
+import Banner from './Banner';
 import SearchMenu from './SearchMenu';
-import Tours from './Tours';
+import PromosToday from './PromosToday';
+import Tour from './Tour';
+import UpcomingEvents from './UpcomingEvents';
+import Promotion from './Promotion';
 
 const HomeScreen = () => {
     return (
         <ScrollView style={styles.container}>
-            <HeaderImage/>
+            <Banner/>
             <View style={styles.content}>
                 <SearchMenu/>
-                <Tours/>
+                <PromosToday/>
+                <Tour/>
+                <UpcomingEvents/>
+                <Promotion/>
             </View>
         </ScrollView>
     );

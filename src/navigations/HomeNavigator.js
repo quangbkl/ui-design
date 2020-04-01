@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import appRoutes from './appRoutes';
 import HomeScreen from '../screens/home/Home/HomeScreen';
-import HotelsScreen from '../screens/home/Hotels/HotelBlockViewScreen';
+import HotelsScreen from '../screens/home/Hotels/HotelsScreen';
 
 const Stack = createStackNavigator();
 

@@ -12,6 +12,7 @@ const TourItem = () => {
     );
 };
 
+// TODO: Delete Component
 const Tours = () => {
     return (
         <View>

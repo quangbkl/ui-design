@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Dimensions, Image} from 'react-native';
 
-const HeaderImage = () => {
+const Banner = () => {
     const image = 'https://lh3.googleusercontent.com/proxy/pQUnypEQcb4Dcy6it8biKPYqQg2zEnD5ofsN2T5uql6so9jStGwUpEh62eLmPWbDWCvLdljpEjgeNr7biAKA4BgXQ_w1ftm8kkNhxy7NnksZcaB8slUYgA';
 
     return (
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HeaderImage;
+export default Banner;
