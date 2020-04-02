@@ -10,7 +10,7 @@ const HomeNavigator = () => {
     return (
         <Stack.Navigator headerMode='none'>
             <Stack.Screen name={appRoutes.HOME} component={HomeScreen}/>
-            <Stack.Screen name={appRoutes.HOTEL_BLOCK_VIEW} component={HotelsScreen}/>
+            <Stack.Screen name={appRoutes.HOTELS} component={HotelsScreen}/>
         </Stack.Navigator>
     );
 };

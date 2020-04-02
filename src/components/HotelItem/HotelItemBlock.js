@@ -43,9 +43,10 @@
 
 
 import React from 'react';
+import {Text, View} from 'react-native';
 
 const HotelItemBlock = () => {
-
+    return <View><Text>HotelItemBlock</Text></View>;
 };
 
 export default HotelItemBlock;

@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
-import {Button} from '../../../components';
-import {Text} from '../../../components';
 import {BaseColor} from '../../../config/color';
+import Button from '../../../components/Button/Button';
+import Text from '../../../components/Text/Text';
 
 const AuthForm = (props) => {
     const {goToSignIn, goToMain, goToSignUp} = props;

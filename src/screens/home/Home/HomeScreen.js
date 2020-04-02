@@ -27,13 +27,12 @@ const HomeScreen = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#f2f2f2',
     },
     content: {
         paddingLeft: 20,
         paddingRight: 20,
         flex: 1,
-        backgroundColor: '#635DB7',
     },
 });
 

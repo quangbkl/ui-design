@@ -4,7 +4,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-import ProfileAuthor from './ProfileAuthor';
+import ProfileAuthor from '../ProfileAuthor/ProfileAuthor';
 
 const PostItem = (props) => {
     const {onPress, item} = props;

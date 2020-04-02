@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {Container} from 'native-base';
-import Header from '../../../components/Header';
-import PostItem from '../../../components/PostItem';
-import Separator from '../../../components/Separator';
+import Header from '../../../components/Header/Header';
+import PostItem from '../../../components/PostItem/PostItem';
+import Separator from '../../../components/Separator/Separator';
 import {getPosts} from '../../../services/postServices';
 import {useFilterDynamic} from '../../../hooks/common';
 

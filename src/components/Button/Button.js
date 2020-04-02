@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, TouchableOpacity, ViewPropTypes, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
-import {BaseColor} from '../config/color';
+import {BaseColor} from '../../config/color';
 
 const handlePressButton = () => {
     console.log('Button pressed!');
