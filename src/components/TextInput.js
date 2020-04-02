@@ -8,6 +8,7 @@ const TextInput = (props) => {
     return (
         <TextInputReact
             style={[styles.main, style]}
+            placeholderTextColor={BaseColor.grayColor}
             {...rest}
         />
     );
