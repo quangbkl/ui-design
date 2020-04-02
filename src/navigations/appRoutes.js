@@ -1,4 +1,4 @@
-export default {
+const appRoutes = {
     AUTH: 'Auth',
     MAIN: 'Main',
     WALKTHROUGH: 'Walkthrough',
@@ -9,7 +9,11 @@ export default {
     BOOKING: 'Booking',
     NEWS: 'News',
     ACCOUNT: 'Account',
-    POST_LIST: 'Post List',
+    POSTS: 'Posts',
+    POST_DETAIL: 'Post Detail',
     PROFILE_SETTING: 'Profile Setting',
-    HOTEL_BLOCK_VIEW: 'Hotel Block View',
+    HOTELS: 'Hotels',
+    HOTEL_DETAIL: 'Hotel Detail',
 };
+
+export default appRoutes;

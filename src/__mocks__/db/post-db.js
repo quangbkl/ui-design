@@ -13,7 +13,7 @@ const userDB = {
                 name: 'Steve Garrett',
             },
             view: 112545,
-            publishDate: "2020-03-10 03:08:10",
+            publishDate: '2020-03-10 03:08:10',
         },
         {
             id: 2,
@@ -26,7 +26,7 @@ const userDB = {
                 name: 'Steve Garrett',
             },
             view: 100000,
-            publishDate: "2020-03-10 03:08:10",
+            publishDate: '2020-03-10 03:08:10',
         },
         {
             id: 3,
@@ -39,7 +39,7 @@ const userDB = {
                 name: 'Steve Garrett',
             },
             view: 100000,
-            publishDate: "2020-03-10 03:08:10",
+            publishDate: '2020-03-10 03:08:10',
         },
         {
             id: 4,
@@ -52,7 +52,7 @@ const userDB = {
                 name: 'Steve Garrett',
             },
             view: 100000,
-            publishDate: "2020-03-10 03:08:10",
+            publishDate: '2020-03-10 03:08:10',
         },
         {
             id: 5,
@@ -65,7 +65,7 @@ const userDB = {
                 name: 'Steve Garrett',
             },
             view: 100000,
-            publishDate: "2020-03-10 03:08:10",
+            publishDate: '2020-03-10 03:08:10',
         },
     ],
 };

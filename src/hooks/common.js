@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 
 export const useFilterDynamic = (defaultFilters, callApi) => {
     const [filters, setFilters] = useState(defaultFilters);
@@ -9,7 +9,7 @@ export const useFilterDynamic = (defaultFilters, callApi) => {
     const updateFilters = (data) => {
         setFilters({
             ...filters,
-            ...data
+            ...data,
         });
     };
 
@@ -23,14 +23,14 @@ export const useFilterDynamic = (defaultFilters, callApi) => {
             .finally(() => {
                 updateFilters(otherFilters);
                 setLoading(false);
-            })
-    }
+            });
+    };
 
     const fetchData = async (otherFilters = {}) => {
         if (!hasMore) {
             return;
         }
-        const updateList = await fetch(otherFilters)
+        const updateList = await fetch(otherFilters);
         if (updateList.length < filters.limit) {
             setHasMore(false);
         }
@@ -40,7 +40,7 @@ export const useFilterDynamic = (defaultFilters, callApi) => {
     };
 
     const refreshPage = async () => {
-        const updateList = await fetch({ page: 1 });
+        const updateList = await fetch({page: 1});
         if (updateList.length < filters.limit) {
             setHasMore(false);
         }
@@ -48,8 +48,8 @@ export const useFilterDynamic = (defaultFilters, callApi) => {
     };
 
     const fetchNext = async () => {
-        const { page } = filters;
-        await fetchData({ page: page + 1 })
+        const {page} = filters;
+        await fetchData({page: page + 1});
     };
 
     return {
@@ -65,4 +65,4 @@ export const useFilterDynamic = (defaultFilters, callApi) => {
 
 export default {
     useFilterDynamic,
-}
+};
