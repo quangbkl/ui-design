@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import {Typography} from '../../config/typography';
 import {BaseColor} from '../../config/color';
 
+r
+
 const Text = (props) => {
     const {type, style: propStyle, ...rest} = props;
     const style = Typography[type || 'body1'] || {};

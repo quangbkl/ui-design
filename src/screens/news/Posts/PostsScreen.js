@@ -6,6 +6,7 @@ import PostItem from '../../../components/PostItem/PostItem';
 import Separator from '../../../components/Separator/Separator';
 import {getPosts} from '../../../services/postServices';
 import {useFilterDynamic} from '../../../hooks/common';
+import appRoutes from '../../../navigations/appRoutes';
 
 const PostListScreen = (props) => {
     const {navigation} = props;
@@ -27,7 +28,7 @@ const PostListScreen = (props) => {
         return (
             <PostItem
                 item={item}
-                onPress={() => navigation.navigate('PostItem', {postId: item.id})}
+                onPress={() => navigation.navigate(appRoutes.POST_DETAIL, {postId: item.id})}
             />
         );
     };

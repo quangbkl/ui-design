@@ -37,7 +37,7 @@
 //         index % 2 ? { marginLeft: 15 } : {}
 //     }
 //     onPress={() =>
-//         navigation.navigate("HotelDetail") // call internal function
+//         navigation.navigate("HotelDetailScreen") // call internal function
 //     }
 // />
 

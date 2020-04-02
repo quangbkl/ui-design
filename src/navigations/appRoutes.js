@@ -10,8 +10,10 @@ const appRoutes = {
     NEWS: 'News',
     ACCOUNT: 'Account',
     POSTS: 'Posts',
+    POST_DETAIL: 'Post Detail',
     PROFILE_SETTING: 'Profile Setting',
     HOTELS: 'Hotels',
+    HOTEL_DETAIL: 'Hotel Detail',
 };
 
 export default appRoutes;
