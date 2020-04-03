@@ -14,7 +14,7 @@ const CustomIcon = (props) => {
 };
 
 CustomIcon.propTypes = {
-    type: PropTypes.bool,
+    type: PropTypes.string,
     color: PropTypes.string,
     size: PropTypes.number,
     onPress: PropTypes.func,
