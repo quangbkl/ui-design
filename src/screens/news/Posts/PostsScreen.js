@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {Container} from 'native-base';
-import Header from '../../../components/Header/Header';
+import CustomHeader from '../../../components/Header/CustomHeader';
 import PostItem from '../../../components/PostItem/PostItem';
 import Separator from '../../../components/Separator/Separator';
 import {getPosts} from '../../../services/postServices';
@@ -39,7 +39,7 @@ const PostListScreen = (props) => {
 
     return (
         <Container>
-            <Header title="Post"/>
+            <CustomHeader title="Post"/>
             <FlatList
                 data={listPosts}
                 renderItem={renderListItem}

@@ -1012,7 +1012,7 @@
     hoist-non-react-statics "^3.3.2"
     react-native-safe-area-view "^0.14.8"
 
-"@react-navigation/native@^5.1.0":
+"@react-navigation/native@^5.1.4":
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-5.1.4.tgz#bb9debf25c7e1fdc25e004cc6007968dec4e44a8"
   integrity sha512-ripecPnP4TXC3P9C+Q6UD9b30sSzKfGgu0auiOnAvQTN2EZ5JO0lEooGRQkMBiZqSc41inrVgir5Wmz2mBuppw==
@@ -5495,7 +5495,7 @@ react-native-keyboard-aware-scroll-view@0.9.1:
     prop-types "^15.6.2"
     react-native-iphone-x-helper "^1.0.3"
 
-react-native-ratings@^6.3.0:
+react-native-ratings@^6.3.0, react-native-ratings@^6.5.0:
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-6.5.0.tgz#a1606ccba3c5b54eec8e6cfa4765a45cf0e4ab8d"
   integrity sha512-YMcfQ7UQCmXGEc/WPlukHSHs5yvckTwjq5fTRk1FG8gaO7fZCNygEUGPuw4Dbvvp3IlsCUn0bOQd63RYsb7NDQ==
@@ -6760,6 +6760,11 @@ uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
+
+uuid@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
+  integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
 
 v8-compile-cache@^2.0.3:
   version "2.1.0"
