@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import ImageSlider from './ImageSlider';
 import AuthForm from './AuthForm';
-import appRoutes from '../../../navigations/appRoutes';
+import appRoutes from 'navigations/appRoutes';
 
 const WalkthroughScreen = (props) => {
     const {navigation} = props;

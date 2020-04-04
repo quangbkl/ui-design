@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text as ReactText} from 'react-native';
 import PropTypes from 'prop-types';
-import {Typography} from '../../config/typography';
-import {BaseColor} from '../../config/color';
+import {Typography} from 'config/typography';
+import {BaseColor} from 'config/color';
 
 const Text = (props) => {
     const {type, style: propStyle, ...rest} = props;

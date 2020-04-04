@@ -1,10 +1,10 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import appRoutes from './appRoutes';
-import SignInScreen from '../screens/auth/SignIn/SignInScreen';
-import SignUpScreen from '../screens/auth/SignUp/SignUpScreen';
-import ResetPasswordScreen from '../screens/auth/ResetPassword/ResetPasswordScreen';
-import WalkthroughScreen from '../screens/auth/Walkthrough/WalkthroughScreen';
+import SignInScreen from 'screens/auth/SignIn/SignInScreen';
+import SignUpScreen from 'screens/auth/SignUp/SignUpScreen';
+import ResetPasswordScreen from 'screens/auth/ResetPassword/ResetPasswordScreen';
+import WalkthroughScreen from 'screens/auth/Walkthrough/WalkthroughScreen';
 
 const Stack = createStackNavigator();
 

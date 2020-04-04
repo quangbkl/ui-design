@@ -1,6 +1,6 @@
 import React from 'react';
 import {TextInput as TextInputReact, StyleSheet} from 'react-native';
-import {BaseColor} from '../../config/color';
+import {BaseColor} from 'config/color';
 
 const TextInput = (props) => {
     const {style, ...rest} = props;

@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import appRoutes from './appRoutes';
-import ProfileSettingScreen from '../screens/account/ProfileSetting/ProfileSettingScreen';
+import ProfileSettingScreen from 'screens/account/ProfileSetting/ProfileSettingScreen';
 
 const Stack = createStackNavigator();
 

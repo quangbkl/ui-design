@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button} from 'native-base';
 import {View, StyleSheet} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-import {BaseColor} from '../../config/color';
+import {BaseColor} from 'config/color';
 import Text from '../Text/Text';
+import Touchable from '../Touchable/Touchable';
 
 const LeftComponent = ({goBack}) => {
     return (
-        <Button transparent onPress={goBack}>
+        <Touchable onPress={goBack}>
             <FontAwesome5Icon name="arrow-left" color={BaseColor.primaryColor} size={18}/>
-        </Button>
+        </Touchable>
     );
 };
 const BodyComponent = ({title}) => {

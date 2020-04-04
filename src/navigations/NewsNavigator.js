@@ -1,8 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import appRoutes from './appRoutes';
-import PostsScreen from '../screens/news/Posts/PostsScreen';
-import PostDetailScreen from '../screens/news/PostDetail/PostDetailScreen';
+import PostsScreen from 'screens/news/Posts/PostsScreen';
+import PostDetailScreen from 'screens/news/PostDetail/PostDetailScreen';
 
 const Stack = createStackNavigator();
 

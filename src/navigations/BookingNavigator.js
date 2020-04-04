@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import appRoutes from './appRoutes';
-import BookingScreen from '../screens/booking/Booking/BookingScreen';
+import BookingScreen from 'screens/booking/Booking/BookingScreen';
 
 const Stack = createStackNavigator();
 
