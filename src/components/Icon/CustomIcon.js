@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity } from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-import { BaseColor } from '../../config/color';
+import {BaseColor} from 'config/color';
+import Touchable from '../Touchable/Touchable';
 
 const CustomIcon = (props) => {
-    const { type, onPress, color, size, ...rest } = props;
+    const {type, onPress, color, size, ...rest} = props;
     return (
-        <TouchableOpacity onPress={onPress}>
+        <Touchable onPress={onPress}>
             <FontAwesome5Icon name={type} size={size} color={color} {...rest} />
-        </TouchableOpacity>
-    )
+        </Touchable>
+    );
 };
 
 CustomIcon.propTypes = {
@@ -21,7 +21,8 @@ CustomIcon.propTypes = {
 };
 
 CustomIcon.defaultProps = {
-    onPress: () => {},
+    onPress: () => {
+    },
     color: BaseColor.primaryColor,
     size: 18,
 };

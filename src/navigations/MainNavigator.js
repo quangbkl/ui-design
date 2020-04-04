@@ -6,7 +6,7 @@ import HomeNavigator from './HomeNavigator';
 import BookingNavigator from './BookingNavigator';
 import NewsNavigator from './NewsNavigator';
 import AccountNavigator from './AccountNavigator';
-import {BaseColor} from '../config/color';
+import {BaseColor} from 'config/color';
 
 const Tab = createBottomTabNavigator();
 

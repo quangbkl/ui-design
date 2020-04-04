@@ -2,15 +2,16 @@
  * Preview: http://passionui.com/wp-content/uploads/2019/07/2019-07-21_1556-573x1024.png
  * */
 import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import ProfileAuthor from '../ProfileAuthor/ProfileAuthor';
+import Touchable from '../Touchable/Touchable';
 
 const PostItem = (props) => {
-    const {onPress, item} = props;
+    const {onPress item} = props;
     const {title, description, image, view, publishDate, author} = item;
     return (
-        <TouchableOpacity onPress={onPress}>
+        <Touchable onPress={onPress}>
             <ProfileAuthor
                 name={author.name}
                 image={author.image}
@@ -30,7 +31,7 @@ const PostItem = (props) => {
                 <Text style={styles.title}>{title}</Text>
                 <Text style={styles.content}>{description}</Text>
             </View>
-        </TouchableOpacity>
+        </Touchable>
     );
 };
 const styles = StyleSheet.create({

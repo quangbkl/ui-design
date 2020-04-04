@@ -1,7 +1,8 @@
 import React from 'react';
-import {Text, TouchableOpacity, ViewPropTypes, StyleSheet} from 'react-native';
+import {Text, ViewPropTypes, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
-import {BaseColor} from '../../config/color';
+import {BaseColor} from 'config/color';
+import {Touchable} from 'components';
 
 const handlePressButton = () => {
     console.log('Button pressed!');
@@ -11,12 +12,12 @@ const Button = (props) => {
     const {onPress, style, children} = props;
 
     return (
-        <TouchableOpacity
-            style={[styles.main, style]}
+        <Touchable
             onPress={onPress || handlePressButton}
+            style={[styles.main, style]}
         >
             <Text style={{color: (style && style.color) || 'white', fontSize: 14}}>{children}</Text>
-        </TouchableOpacity>
+        </Touchable>
     );
 };
 

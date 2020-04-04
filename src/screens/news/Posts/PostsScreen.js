@@ -1,12 +1,11 @@
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {Container} from 'native-base';
-import CustomHeader from '../../../components/Header/CustomHeader';
-import PostItem from '../../../components/PostItem/PostItem';
-import Separator from '../../../components/Separator/Separator';
-import {getPosts} from '../../../services/postServices';
-import {useFilterDynamic} from '../../../hooks/common';
-import appRoutes from '../../../navigations/appRoutes';
+import CustomHeader from 'components/Header/CustomHeader';
+import {PostItem, Separator} from 'components';
+import {getPosts} from 'services/postServices';
+import {useFilterDynamic} from 'hooks/common';
+import appRoutes from 'navigations/appRoutes';
 
 const PostListScreen = (props) => {
     const {navigation} = props;

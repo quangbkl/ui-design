@@ -1,9 +1,8 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
-import {BaseColor} from '../../../config/color';
-import Button from '../../../components/Button/Button';
-import Text from '../../../components/Text/Text';
+import {BaseColor} from 'config/color';
+import {Button, Text, Touchable} from 'components';
 
 const AuthForm = (props) => {
     const {goToSignIn, goToMain, goToSignUp} = props;
@@ -13,12 +12,12 @@ const AuthForm = (props) => {
             <Button style={{backgroundColor: '#3B5998'}}>Login with Facebook</Button>
             <Button style={{marginTop: 20}} onPress={goToSignIn}>Sign In</Button>
             <View style={styles.joinNow}>
-                <TouchableOpacity onPress={goToSignUp}>
+                <Touchable onPress={goToSignUp}>
                     <Text>Haven't registered yet?</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={goToMain}>
+                </Touchable>
+                <Touchable onPress={goToMain}>
                     <Text style={styles.joinNowText}>Join Now</Text>
-                </TouchableOpacity>
+                </Touchable>
             </View>
         </View>
     );

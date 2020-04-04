@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import ImageSliderItem from './ImageSliderItem';
-import {BaseColor} from '../../../config/color';
+import {BaseColor} from 'config/color';
 
 const slides = [
     {

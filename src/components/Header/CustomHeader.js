@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-import { useNavigation } from '@react-navigation/native';
-import { BaseColor } from '../../config/color';
+import {useNavigation} from '@react-navigation/native';
+import {BaseColor} from 'config/color';
+import Touchable from '../Touchable/Touchable';
 
 const LeftComponent = () => {
     const navigation = useNavigation();
     return (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Touchable onPress={() => navigation.goBack()}>
             <FontAwesome5Icon name="arrow-left" color={BaseColor.primaryColor} size={18}/>
-        </TouchableOpacity>
+        </Touchable>
     );
 };
 const BodyComponent = ({title, description}) => {
@@ -28,10 +29,10 @@ const CustomHeader = (props) => {
     return (
         <View style={styles.container}>
             <View>
-                {hasLeft ? (left || <LeftComponent />) : null}
+                {hasLeft ? (left || <LeftComponent/>) : null}
             </View>
             <View>
-                <BodyComponent title={title} description={description} />
+                <BodyComponent title={title} description={description}/>
             </View>
             <View>
                 {hasRight ? right : null}
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: BaseColor.grayColor,
         textAlign: 'center',
-    }
+    },
 });
 
 CustomHeader.propTypes = {
@@ -74,6 +75,6 @@ CustomHeader.defaultProps = {
     left: null,
     hasRight: false,
     right: null,
-}
+};
 
 export default CustomHeader;

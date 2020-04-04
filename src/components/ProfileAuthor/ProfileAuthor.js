@@ -4,8 +4,8 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import moment from 'moment';
-import {BaseColor} from '../../config/color';
-import {normalizeNumber} from '../../helpers/number';
+import {BaseColor} from 'config/color';
+import {normalizeNumber} from 'helpers/number';
 
 const ProfileAuthor = (props) => {
     const {name, view, publishDate, image, showDate} = props;

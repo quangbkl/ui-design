@@ -1,12 +1,11 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Col, Row, Grid} from 'react-native-easy-grid';
-import {BaseColor} from '../../../config/color';
+import {BaseColor} from 'config/color';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import {Button} from 'native-base';
-import appRoutes from '../../../navigations/appRoutes';
-import Text from '../../../components/Text/Text';
-import TextInput from '../../../components/TextInput/TextInput';
+import appRoutes from 'navigations/appRoutes';
+import {Text, TextInput} from 'components';
 
 const MenuItem = ({icon, text, onClick}) => {
     return (

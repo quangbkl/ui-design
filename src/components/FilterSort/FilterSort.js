@@ -1,40 +1,42 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import CustomIcon from '../Icon/CustomIcon';
-import { BaseColor } from '../../config/color';
+import {BaseColor} from 'config/color';
+import Touchable from '../Touchable/Touchable';
 
 const FilterSort = (props) => {
-    const { view, onChangeView } = props;
+    const {view, onChangeView} = props;
     const mapView = {
         block: 'square-full',
         grid: 'th-large',
         list: 'th-list',
-    }
+    };
     const handleChangeView = () => {
-        if (view === "block") {
-            onChangeView("list");
-        } else if (view === "list") {
-            onChangeView("grid");
+        if (view === 'block') {
+            onChangeView('list');
+        } else if (view === 'list') {
+            onChangeView('grid');
         } else {
-            onChangeView("block");
+            onChangeView('block');
         }
-    }
+    };
+
     return (
         <View style={[styles.container, styles.flex]}>
-            <TouchableOpacity style={styles.flex}>
-                <CustomIcon style={styles.icon} type="sort-amount-up" />
+            <Touchable style={styles.flex}>
+                <CustomIcon style={styles.icon} type="sort-amount-up"/>
                 <Text style={styles.text}>{' '}Hightest Rating</Text>
-            </TouchableOpacity>
+            </Touchable>
             <View style={styles.flex}>
-                <CustomIcon style={styles.icon} type={mapView[view]} onPress={handleChangeView} />
+                <CustomIcon style={styles.icon} type={mapView[view]} onPress={handleChangeView}/>
                 <Text style={styles.text}>{'  |  '}</Text>
-                <TouchableOpacity style={styles.flex}>
-                    <CustomIcon style={styles.icon} type="filter" />
+                <Touchable style={styles.flex}>
+                    <CustomIcon style={styles.icon} type="filter"/>
                     <Text style={styles.text}>{' '}Filter</Text>
-                </TouchableOpacity>
+                </Touchable>
             </View>
         </View>
-    )
+    );
 };
 
 const styles = StyleSheet.create({
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
     icon: {
         color: BaseColor.grayColor,
         fontSize: 14,
-    }
+    },
 });
 
 export default FilterSort;
