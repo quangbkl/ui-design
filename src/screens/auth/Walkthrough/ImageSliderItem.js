@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Image, StyleSheet, Dimensions} from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
-import Text from '../../../components/Text';
+import Text from '../../../components/Text/Text';
 
 const ImageSliderItem = (props) => {
     const {image, text} = props;

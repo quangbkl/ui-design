@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {Container} from 'native-base';
-import Header from '../../../components/Header';
-import PostItem from '../../../components/PostItem';
-import Separator from '../../../components/Separator';
+import CustomHeader from '../../../components/Header/CustomHeader';
+import PostItem from '../../../components/PostItem/PostItem';
+import Separator from '../../../components/Separator/Separator';
 import {getPosts} from '../../../services/postServices';
 import {useFilterDynamic} from '../../../hooks/common';
+import appRoutes from '../../../navigations/appRoutes';
 
 const PostListScreen = (props) => {
     const {navigation} = props;
@@ -27,7 +28,7 @@ const PostListScreen = (props) => {
         return (
             <PostItem
                 item={item}
-                onPress={() => navigation.navigate('PostItem', {postId: item.id})}
+                onPress={() => navigation.navigate(appRoutes.POST_DETAIL, {postId: item.id})}
             />
         );
     };
@@ -38,7 +39,7 @@ const PostListScreen = (props) => {
 
     return (
         <Container>
-            <Header title="Post"/>
+            <CustomHeader title="Post"/>
             <FlatList
                 data={listPosts}
                 renderItem={renderListItem}

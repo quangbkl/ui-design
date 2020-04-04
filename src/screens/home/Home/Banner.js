@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Dimensions, Image} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 
 const Banner = () => {
     const image = 'https://lh3.googleusercontent.com/proxy/pQUnypEQcb4Dcy6it8biKPYqQg2zEnD5ofsN2T5uql6so9jStGwUpEh62eLmPWbDWCvLdljpEjgeNr7biAKA4BgXQ_w1ftm8kkNhxy7NnksZcaB8slUYgA';
@@ -14,7 +14,7 @@ const Banner = () => {
 const styles = StyleSheet.create({
     main: {},
     image: {
-        width: Dimensions.get('window').width,
+        width: '100%',
         height: 140,
     },
 });

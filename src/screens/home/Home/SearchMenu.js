@@ -2,9 +2,11 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Col, Row, Grid} from 'react-native-easy-grid';
 import {BaseColor} from '../../../config/color';
-import {TextInput, Text} from '../../../components';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import {Button} from 'native-base';
+import appRoutes from '../../../navigations/appRoutes';
+import Text from '../../../components/Text/Text';
+import TextInput from '../../../components/TextInput/TextInput';
 
 const MenuItem = ({icon, text, onClick}) => {
     return (
@@ -28,15 +30,21 @@ const MenuItem = ({icon, text, onClick}) => {
     );
 };
 
-const SearchMenu = () => {
+const SearchMenu = (props) => {
+    const {navigation} = props;
+
     return (
         <View style={styles.main}>
             <TextInput style={styles.textInput} placeholder="What're you locking for ?"/>
 
-            <View style={{height: 150, marginTop: 10}}>
+            <View style={{marginTop: 10}}>
                 <Grid>
-                    <Row>
-                        <MenuItem text="Hotel" icon="calendar-alt"/>
+                    <Row style={{marginBottom: 10}}>
+                        <MenuItem
+                            text="Hotel"
+                            icon="calendar-alt"
+                            onClick={() => navigation.navigate(appRoutes.HOTELS)}
+                        />
                         <MenuItem text="Tour" icon="map-marker-alt"/>
                         <MenuItem text="Car" icon="car-alt"/>
                         <MenuItem text="Flight" icon="plane"/>
