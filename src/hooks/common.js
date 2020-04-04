@@ -1,9 +1,9 @@
 import {useState} from 'react';
 
 export const useFilterDynamic = (defaultFilters, callApi) => {
-    const [filters setFilters] = useState(defaultFilters);
-    const [list setList] = useState([]);
-    const [loading setLoading] = useState(false);
+    const [filters, setFilters] = useState(defaultFilters);
+    const [list, setList] = useState([]);
+    const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
 
     const updateFilters = (data) => {

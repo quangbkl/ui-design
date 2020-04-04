@@ -8,7 +8,7 @@ import ProfileAuthor from '../ProfileAuthor/ProfileAuthor';
 import Touchable from '../Touchable/Touchable';
 
 const PostItem = (props) => {
-    const {onPress item} = props;
+    const {onPress, item} = props;
     const {title, description, image, view, publishDate, author} = item;
     return (
         <Touchable onPress={onPress}>
