@@ -53,7 +53,7 @@ const PromosToday = () => {
 
 const styles = StyleSheet.create({
 	title: {
-		margin: 10,
+		marginTop: 10,
 		fontSize: 20,
 		color: '#212121'
 	}
