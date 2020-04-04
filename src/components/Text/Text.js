@@ -1,34 +1,45 @@
 import React from 'react';
-import {Text as ReactText} from 'react-native';
-import PropTypes from 'prop-types';
-import {Typography} from 'config/typography';
+import {Text as ReactText, StyleSheet } from 'react-native';
+import {Typography, FontWeight} from 'config/typography';
 import {BaseColor} from 'config/color';
 
 const Text = (props) => {
-    const {type, style: propStyle, ...rest} = props;
-    const style = Typography[type || 'body1'] || {};
-
+    const {
+        //props style
+        body2,
+        footnote,
+        overline,
+        // props font
+        semibold,
+        //custom color
+        grayColor,
+        whiteColor,
+        //numberOfLines
+        numberOfLines,
+        //custom
+        style,
+        ...rest
+    } = props;
+    
     return (
-        <ReactText style={[{color: BaseColor.darkBlueColor}, style, propStyle]} {...rest}/>
+        <ReactText
+            style={StyleSheet.flatten([
+                body2 && Typography.body2,
+                footnote && Typography.footnote,
+                overline && Typography.overline,
+                //custom for font
+                grayColor && StyleSheet.flatten({ color: BaseColor.grayColor }),
+                semibold && StyleSheet.flatten({ fontWeight: FontWeight.semibold }),
+                whiteColor && StyleSheet.flatten({ color: BaseColor.whiteColor }),
+                style && style
+            ])}
+            numberOfLines={numberOfLines}
+            {...rest}
+        />
     );
 };
 
 Text.propTypes = {
-    type: PropTypes.oneOf([
-        'header',
-        'title1',
-        'title2',
-        'title3',
-        'headline',
-        'body1',
-        'body2',
-        'callout',
-        'subhead',
-        'footnote',
-        'caption1',
-        'caption2',
-        'overline',
-    ]),
     style: ReactText.propTypes.style,
 };
 
