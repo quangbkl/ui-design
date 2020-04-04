@@ -36,9 +36,8 @@ const PromosToday = () => {
 	
 	return (
         <View>
-	        <Text>PromosToday</Text>
+	        <Text style={styles.title}>Promos Today</Text>
 	        <FlatList
-		        // style={styles.list}
 		        horizontal={true}
 		        data={listPromos}
 		        renderItem={renderListItem}
@@ -53,9 +52,10 @@ const PromosToday = () => {
 };
 
 const styles = StyleSheet.create({
-	list: {
-		flex: 1,
-		flexDirection: 'row',
+	title: {
+		margin: 10,
+		fontSize: 20,
+		color: '#212121'
 	}
 });
 export default PromosToday;
