@@ -83,7 +83,7 @@ const ProfileSettingScreen = (props) => {
                         <Touchable
                             style={styles.profileItem}
                             onPress={() => {
-                                navigation.navigate("");
+                                navigation.navigate(appRoutes.CHANGE_PASSWORD);
                             }}
                         >
                             <Text body1>Change Password</Text>

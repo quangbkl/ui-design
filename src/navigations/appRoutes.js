@@ -14,7 +14,8 @@ const appRoutes = {
     PROFILE_SETTING: 'Profile Setting',
     HOTELS: 'Hotels',
     HOTEL_DETAIL: 'Hotel Detail',
-    PROFILE_EDIT: "Profile Edit"
+    PROFILE_EDIT: "Profile Edit",
+    CHANGE_PASSWORD: "Change Password"
 };
 
 export default appRoutes;
