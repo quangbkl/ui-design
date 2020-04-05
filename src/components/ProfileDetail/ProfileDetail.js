@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, TouchableOpacity, StyleSheet, Image} from "react-native";
+import {View, StyleSheet, Image} from "react-native";
 import {BaseColor} from "config/color";
 import CustomIcon from "../Icon/CustomIcon";
 import Text from "../Text/Text";
+import Touchable from "../Touchable/Touchable"
 
 const ProfileDetail = (props) => {
     const {
@@ -20,7 +21,7 @@ const ProfileDetail = (props) => {
     } = props;
     
     return (
-        <TouchableOpacity
+        <Touchable
             style={[styles.contain, style]}
             onPress={onPress}
             activeOpacity={0.9}
@@ -67,7 +68,7 @@ const ProfileDetail = (props) => {
                     />
                 </View>
             )}
-        </TouchableOpacity>
+        </Touchable>
     );
 };
 
