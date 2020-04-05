@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
+import {View, FlatList, StyleSheet} from 'react-native';
 // https://github.com/uuidjs/uuid#getrandomvalues-not-supported
 import 'react-native-get-random-values';
 import {v4 as uuidv4} from 'uuid';
@@ -44,34 +44,26 @@ const HotelsScreen = props => {
     }, []);
 
     return (
-        <SafeAreaView
-            style={{flex: 1}}
-            forceInset={{top: 'always'}}
-        >
-            <ScrollView>
-                <View>
-                    <Header
-                        title="Hotels"
-                        description="3 April 2020, 2 Nights, 1 Room"
-                        RightComponent={<CustomIcon type="search"/>}
-                    />
-                    <FilterSort view={view} onChangeView={setView}/>
-                    <FlatList
-                        style={view === 'block' ? {} : styles.container}
-                        data={listHotels}
-                        refreshing={loadingHotels}
-                        onRefresh={refreshPage}
-                        onEndReached={fetchNext}
-                        renderItem={renderItem}
-                        key={uuidv4()}
-                        keyExtractor={() => uuidv4()}
-                        columnWrapperStyle={view === 'grid' ? styles.spaceCol : null}
-                        numColumns={view === 'grid' ? 2 : 1}
-                    />
-                </View>
-            </ScrollView>
-        </SafeAreaView>
-        
+        <>
+            <Header
+                title="Hotels"
+                description="3 April 2020, 2 Nights, 1 Room"
+                RightComponent={<CustomIcon type="search"/>}
+            />
+            <FilterSort view={view} onChangeView={setView}/>
+            <FlatList
+                style={view === 'block' ? {} : styles.container}
+                data={listHotels}
+                refreshing={loadingHotels}
+                onRefresh={refreshPage}
+                onEndReached={fetchNext}
+                renderItem={renderItem}
+                key={uuidv4()}
+                keyExtractor={() => uuidv4()}
+                columnWrapperStyle={view === 'grid' ? styles.spaceCol : null}
+                numColumns={view === 'grid' ? 2 : 1}
+            />
+        </>
     );
 };
 
