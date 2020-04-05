@@ -102,7 +102,7 @@ const ProfileSettingScreen = () => {
                             >
                                 <Text body1 grayColor>
                                     English
-                            </Text>
+                                </Text>
                                 <CustomIcon
                                     name="angle-right"
                                     size={18}
@@ -126,7 +126,7 @@ const ProfileSettingScreen = () => {
                             >
                                 <Text body1 grayColor>
                                     VND
-                            </Text>
+                                </Text>
                                 <CustomIcon
                                     name="angle-right"
                                     size={18}
@@ -143,6 +143,12 @@ const ProfileSettingScreen = () => {
                                 onValueChange={toggleSwitch}
                                 value={reminders}
                             />
+                        </View>
+                        <View style={styles.profileItem}>
+                            <Text body1>App Version</Text>
+                            <Text body1 grayColor>
+                                    1.0.4
+                            </Text>
                         </View>
                     </View>
                 </View>
