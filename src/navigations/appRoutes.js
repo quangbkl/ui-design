@@ -15,6 +15,8 @@ const appRoutes = {
     HOTELS: 'Hotels',
     HOTEL_DETAIL: 'Hotel Detail',
     PREVIEW_BOOKING: 'Preview Booking',
+    PROFILE_EDIT: "Profile Edit",
+    CHANGE_PASSWORD: "Change Password"
 };
 
 export default appRoutes;
