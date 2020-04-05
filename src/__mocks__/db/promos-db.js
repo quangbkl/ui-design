@@ -1,6 +1,6 @@
 import mock from "../mock";
 
-const userDB = {
+const promosDB = {
 	promos: [
 		{
 			id: 1,
@@ -43,6 +43,6 @@ const userDB = {
 
 mock.onGet('/api/promos').reply((request) => {
 	const {page, limit} = request.params;
-	const {promos} = userDB;
+	const {promos} = promosDB;
 	return [200, {promos, page: 1, limit: 10, total: promos.length}];
 });
