@@ -3,9 +3,11 @@ import {FlatList, StyleSheet, Text, View} from 'react-native';
 import {useFilterDynamic} from "../../../hooks/common";
 import {getTours} from "../../../services/tourService";
 import TourCard from "../../../components/TourCard/TourCard";
+import appRoutes from '../../../navigations/appRoutes';
 
 // TODO: Use TourCard component
-const Tour = () => {
+const Tour = (props) => {
+  const {navigation} = props;
 	const defaultFilters = {
 		page: 1,
 		limit: 10,
@@ -24,6 +26,7 @@ const Tour = () => {
 		return (
 			<TourCard
 				item={item}
+        onPress={() => navigation.navigate(appRoutes.HOTEL_DETAIL, {tourId: item.id})}
 			/>
 		);
 	};
@@ -39,21 +42,22 @@ const Tour = () => {
 			<Text style={styles.title}>Tour</Text>
 			<Text style={styles.shortDescription}>let find out what most interesting things</Text>
 			<FlatList
-				horizontal={true}
-				data={listTours}
-				renderItem={renderListItem}
-				refreshing={loadingTours}
-				onRefresh={refreshPage}
-				onEndReached={fetchNext}
-				onEndReachedThreshold={0.5}
-				keyExtractor={item => item.id.toString()}
+          horizontal
+          data={listTours}
+          renderItem={renderListItem}
+          refreshing={loadingTours}
+          onRefresh={refreshPage}
+          onEndReached={fetchNext}
+          onEndReachedThreshold={0.5}
+          keyExtractor={item => item.id.toString()}
+          showsHorizontalScrollIndicator={false}
 			/>
 		</View>
 	);
 };
 const styles = StyleSheet.create({
 	title: {
-		marginTop: 10,
+		marginTop: 15,
 		fontSize: 20,
 		color: '#212121'
 	},
