@@ -1,13 +1,16 @@
 import React, {Suspense} from 'react';
 import 'react-native-gesture-handler';
-import './src/__mocks__';
-import RootNavigator from './src/navigations/RootNavigator';
+import '__mocks__';
+import RootNavigator from 'navigations/RootNavigator';
+import AppProvider from 'hooks/app/AppProvider';
 
 
 export default () => {
     return (
-        <Suspense fallback={null}>
-            <RootNavigator/>
-        </Suspense>
+        <AppProvider>
+            <Suspense fallback={null}>
+                <RootNavigator/>
+            </Suspense>
+        </AppProvider>
     );
 };
