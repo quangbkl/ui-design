@@ -10,7 +10,6 @@ import {Rating} from 'react-native-ratings';
 import {getImageHotel, getRatePerFive} from 'helpers/hotel';
 import {BaseColor} from 'config/color';
 import CustomIcon from '../Icon/CustomIcon';
-import Touchable from '../Touchable/Touchable';
 
 const widthItem = Dimensions.get('window').width / 2 - 30;
 
@@ -18,7 +17,7 @@ const widthItem = Dimensions.get('window').width / 2 - 30;
 const HotelItemGrid = ({item}) => {
     const {hotel} = item;
     return (
-        <Touchable style={styles.container}>
+        <View style={styles.container}>
             <Image
                 style={styles.largeImage}
                 source={{
@@ -40,7 +39,7 @@ const HotelItemGrid = ({item}) => {
                 <Text style={styles.review}>{`${hotel.reviews.length} reviews`}</Text>
             </View>
             <Text style={styles.price}>{hotel.price}</Text>
-        </Touchable>
+        </View>
     );
 };
 
