@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     container: {
-        backgroundColor: BaseColor.fieldColor,
         paddingTop: 10,
         paddingRight: 20,
         paddingBottom: 10,

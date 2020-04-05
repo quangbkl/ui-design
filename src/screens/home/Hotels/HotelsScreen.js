@@ -48,28 +48,26 @@ const HotelsScreen = props => {
             style={{flex: 1}}
             forceInset={{top: 'always'}}
         >
-            <ScrollView>
-                <View>
-                    <Header
-                        title="Hotels"
-                        description="3 April 2020, 2 Nights, 1 Room"
-                        RightComponent={<CustomIcon type="search"/>}
-                    />
-                    <FilterSort view={view} onChangeView={setView}/>
-                    <FlatList
-                        style={view === 'block' ? {} : styles.container}
-                        data={listHotels}
-                        refreshing={loadingHotels}
-                        onRefresh={refreshPage}
-                        onEndReached={fetchNext}
-                        renderItem={renderItem}
-                        key={uuidv4()}
-                        keyExtractor={() => uuidv4()}
-                        columnWrapperStyle={view === 'grid' ? styles.spaceCol : null}
-                        numColumns={view === 'grid' ? 2 : 1}
-                    />
-                </View>
-            </ScrollView>
+            <View  style={{ flex: 1 }}>
+                <Header
+                    title="Hotels"
+                    description="3 April 2020, 2 Nights, 1 Room"
+                    RightComponent={<CustomIcon type="search"/>}
+                />
+                <FilterSort view={view} onChangeView={setView}/>
+                <FlatList
+                    style={view === 'block' ? {} : styles.container}
+                    data={listHotels}
+                    refreshing={loadingHotels}
+                    onRefresh={refreshPage}
+                    onEndReached={fetchNext}
+                    renderItem={renderItem}
+                    key={uuidv4()}
+                    keyExtractor={() => uuidv4()}
+                    columnWrapperStyle={view === 'grid' ? styles.spaceCol : null}
+                    numColumns={view === 'grid' ? 2 : 1}
+                />
+            </View>
         </SafeAreaView>
         
     );
