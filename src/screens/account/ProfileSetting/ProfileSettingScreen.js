@@ -1,19 +1,19 @@
-import React, {useState}  from 'react';
-import {BaseColor} from 'config/color';
+import React, { useState } from 'react';
+import { BaseColor } from 'config/color';
 import {
-    View, 
-    SafeAreaView, 
-    ScrollView, 
+    View,
+    SafeAreaView,
+    ScrollView,
     StyleSheet,
     TouchableOpacity,
     Switch
 } from 'react-native';
-import { 
-    ProfileDetail, 
-    ProfilePerformance, 
-    Text, 
-    CustomIcon, 
-    Button 
+import {
+    ProfileDetail,
+    ProfilePerformance,
+    Text,
+    CustomIcon,
+    Button
 } from "components";
 
 const ProfileSettingScreen = () => {
@@ -34,13 +34,13 @@ const ProfileSettingScreen = () => {
             { value: "10k", title: "Followers" }
         ]
     }
-    
+
     const [reminders, setReminders] = useState(false);
     const toggleSwitch = () => setReminders(value => !value);
 
     return (
         <SafeAreaView
-            style={{flex: 1}}
+            style={{ flex: 1 }}
             forceInset={{ top: "always" }}>
             <ScrollView>
                 <View style={styles.contain}>
@@ -59,119 +59,91 @@ const ProfileSettingScreen = () => {
                         style={styles.performanceContainer}
                     />
                     <View style={{ width: "100%" }}>
-                    <TouchableOpacity
-                        style={styles.profileItem}
-                        onPress={() => {
-                            navigation.navigate("");
-                        }}
-                    >
-                        <Text body1>Edit Profile</Text>
-                        <CustomIcon
-                            name="angle-right"
-                            size={18}
-                            color={BaseColor.primaryColor}
-                            style={{ marginLeft: 5 }}
-                        />
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.profileItem}
-                        onPress={() => {
-                            navigation.navigate("");
-                        }}
-                    >
-                        <Text body1>Change Password</Text>
-                        <CustomIcon
-                            name="angle-right"
-                            size={18}
-                            color={BaseColor.primaryColor}
-                            style={{ marginLeft: 5 }}
-                        />
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.profileItem}
-                        onPress={() => {
-                            navigation.navigate("");
-                        }}
-                    >
-                        <Text body1>Language</Text>
-                        <View
-                            style={{
-                                flexDirection: "row",
-                                alignItems: "center"
+                        <TouchableOpacity
+                            style={styles.profileItem}
+                            onPress={() => {
+                                navigation.navigate("");
                             }}
                         >
-                            <Text body1 grayColor>
-                                English
-                            </Text>
+                            <Text body1>Edit Profile</Text>
                             <CustomIcon
                                 name="angle-right"
                                 size={18}
                                 color={BaseColor.primaryColor}
                                 style={{ marginLeft: 5 }}
                             />
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.profileItem}
-                        onPress={() => {
-                            navigation.navigate("");
-                        }}
-                    >
-                        <Text body1>Currency</Text>
-                        <View
-                            style={{
-                                flexDirection: "row",
-                                alignItems: "center"
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.profileItem}
+                            onPress={() => {
+                                navigation.navigate("");
                             }}
                         >
-                            <Text body1 grayColor>
-                                VND
-                            </Text>
+                            <Text body1>Change Password</Text>
                             <CustomIcon
                                 name="angle-right"
                                 size={18}
                                 color={BaseColor.primaryColor}
                                 style={{ marginLeft: 5 }}
                             />
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.profileItem}
+                            onPress={() => {
+                                navigation.navigate("");
+                            }}
+                        >
+                            <Text body1>Language</Text>
+                            <View
+                                style={{
+                                    flexDirection: "row",
+                                    alignItems: "center"
+                                }}
+                            >
+                                <Text body1 grayColor>
+                                    English
+                            </Text>
+                                <CustomIcon
+                                    name="angle-right"
+                                    size={18}
+                                    color={BaseColor.primaryColor}
+                                    style={{ marginLeft: 5 }}
+                                />
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.profileItem}
+                            onPress={() => {
+                                navigation.navigate("");
+                            }}
+                        >
+                            <Text body1>Currency</Text>
+                            <View
+                                style={{
+                                    flexDirection: "row",
+                                    alignItems: "center"
+                                }}
+                            >
+                                <Text body1 grayColor>
+                                    VND
+                            </Text>
+                                <CustomIcon
+                                    name="angle-right"
+                                    size={18}
+                                    color={BaseColor.primaryColor}
+                                    style={{ marginLeft: 5 }}
+                                />
+                            </View>
+                        </TouchableOpacity>
+                        <View style={styles.profileItem}>
+                            <Text body1>Reminders</Text>
+                            <Switch
+                                name="angle-right"
+                                size={18}
+                                onValueChange={toggleSwitch}
+                                value={reminders}
+                            />
                         </View>
-                    </TouchableOpacity>
-                    <View style={styles.profileItem}>
-                        <Text body1>Reminders</Text>
-                        <Switch
-                            name="angle-right"
-                            size={18}
-                            onValueChange={toggleSwitch}
-                            value={reminders}
-                        />
-                    </View>
-                    <TouchableOpacity
-                        style={styles.profileItem}
-                        onPress={() => {
-                            navigation.navigate("");
-                        }}
-                    >
-                        <Text body1>Booking History</Text>
-                        <CustomIcon
-                            name="angle-right"
-                            size={18}
-                            color={BaseColor.primaryColor}
-                            style={{ marginLeft: 5 }}
-                        />
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.profileItem}
-                        onPress={() => {
-                            navigation.navigate("");
-                        }}
-                    >
-                        <Text body1>Coupons</Text>
-                        <CustomIcon
-                            name="angle-right"
-                            size={18}
-                            color={BaseColor.primaryColor}
-                            style={{ marginLeft: 5 }}
-                        />
-                    </TouchableOpacity>
                     </View>
                 </View>
             </ScrollView>
@@ -187,7 +159,7 @@ const ProfileSettingScreen = () => {
 const styles = StyleSheet.create({
     performanceContainer: {
         backgroundColor: "#E8E8E8",
-        marginTop: 20, 
+        marginTop: 20,
         marginBottom: 20
     },
     contentTitle: {
