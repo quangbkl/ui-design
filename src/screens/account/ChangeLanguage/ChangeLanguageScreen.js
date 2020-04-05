@@ -90,6 +90,14 @@ const ChangeLanguageScreen = (props) => {
             <CustomHeader
                 hasLeft
                 title="Change Language"
+                hasRight
+                right={() => {
+                    return (
+                        <Text headline primaryColor>
+                            Save
+                        </Text>
+                    );
+                }}
             />
             <ScrollView>
                 <View style={styles.contain}>

@@ -25,7 +25,6 @@ const BodyComponent = ({title, description}) => {
 
 const CustomHeader = (props) => {
     const {hasLeft, left, hasRight, right, title, description} = props;
-
     return (
         <View style={styles.container}>
             <View>
@@ -35,7 +34,7 @@ const CustomHeader = (props) => {
                 <BodyComponent title={title} description={description}/>
             </View>
             <View>
-                {hasRight ? right : null}
+                {hasRight ? right() : null}
             </View>
         </View>
     );
