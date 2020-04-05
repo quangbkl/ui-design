@@ -47,7 +47,6 @@ const Header = props => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: BaseColor.fieldColor,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',

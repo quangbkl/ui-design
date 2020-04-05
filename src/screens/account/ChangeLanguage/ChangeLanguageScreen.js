@@ -97,7 +97,7 @@ const ChangeLanguageScreen = () => {
         >
             <Header
                 title="Change Language"
-                RightComponent={HeaderRightComponent}
+                RightComponent={<HeaderRightComponent />}
             />
             <ScrollView>
                 <View style={styles.contain}>
