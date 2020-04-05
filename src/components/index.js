@@ -19,4 +19,3 @@ export {default as TourCard} from './TourCard/TourCard';
 export {default as ProfileDetail} from './ProfileDetail/ProfileDetail';
 export {default as ProfilePerformance} from './ProfilePerformance/ProfilePerformance';
 export {default as CustomIcon} from './Icon/CustomIcon';
-export {default as CustomHeader} from './Header/CustomHeader';

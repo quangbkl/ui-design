@@ -46,7 +46,7 @@ const HotelsScreen = props => {
             <Header
                 title="Hotels"
                 description="3 April 2020, 2 Nights, 1 Room"
-                ItemRight={<CustomIcon type="search"/>}
+                RightComponent={<CustomIcon type="search"/>}
             />
             <FilterSort view={view} onChangeView={setView}/>
             <FlatList
