@@ -1,22 +1,19 @@
-import React, { useState } from 'react';
-import { BaseColor } from 'config/color';
+import React, {useState} from 'react';
+import {BaseColor} from 'config/color';
 import {
     View,
     SafeAreaView,
     ScrollView,
     StyleSheet,
-    Switch
+    Switch,
 } from 'react-native';
 import {
-    ProfileDetail,
-    ProfilePerformance,
     Text,
     CustomIcon,
-    Button,
-    CustomHeader,
-    Touchable
-} from "components";
-import appRoutes from '../../../navigations/appRoutes';
+    Header,
+    Touchable,
+} from 'components';
+import appRoutes from 'navigations/appRoutes';
 
 const ProfileSettingScreen = (props) => {
     const {navigation} = props;
@@ -24,15 +21,12 @@ const ProfileSettingScreen = (props) => {
     const toggleSwitch = () => setReminders(value => !value);
     return (
         <SafeAreaView
-            style={{ flex: 1 }}
-            forceInset={{ top: "always" }}>
-            <CustomHeader
-                hasLeft
-                title="Settings"
-            />
+            style={{flex: 1}}
+            forceInset={{top: 'always'}}>
+            <Header title="Settings"/>
             <ScrollView>
                 <View style={styles.contain}>
-                    <View style={{ width: "100%" }}>
+                    <View style={{width: '100%'}}>
                         <Touchable
                             style={styles.profileItem}
                             onPress={() => {
@@ -42,8 +36,8 @@ const ProfileSettingScreen = (props) => {
                             <Text body1>Language</Text>
                             <View
                                 style={{
-                                    flexDirection: "row",
-                                    alignItems: "center"
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
                                 }}
                             >
                                 <Text body1 grayColor>
@@ -53,21 +47,21 @@ const ProfileSettingScreen = (props) => {
                                     name="angle-right"
                                     size={18}
                                     color={BaseColor.primaryColor}
-                                    style={{ marginLeft: 5 }}
+                                    style={{marginLeft: 5}}
                                 />
                             </View>
                         </Touchable>
                         <Touchable
                             style={styles.profileItem}
                             onPress={() => {
-                                navigation.navigate("");
+                                navigation.navigate('');
                             }}
                         >
                             <Text body1>Font</Text>
                             <View
                                 style={{
-                                    flexDirection: "row",
-                                    alignItems: "center"
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
                                 }}
                             >
                                 <Text body1 grayColor>
@@ -77,21 +71,21 @@ const ProfileSettingScreen = (props) => {
                                     name="angle-right"
                                     size={18}
                                     color={BaseColor.primaryColor}
-                                    style={{ marginLeft: 5 }}
+                                    style={{marginLeft: 5}}
                                 />
                             </View>
                         </Touchable>
                         <Touchable
                             style={styles.profileItem}
                             onPress={() => {
-                                navigation.navigate("");
+                                navigation.navigate('');
                             }}
                         >
                             <Text body1>Dark theme</Text>
                             <View
                                 style={{
-                                    flexDirection: "row",
-                                    alignItems: "center"
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
                                 }}
                             >
                                 <Text body1 grayColor>
@@ -101,7 +95,7 @@ const ProfileSettingScreen = (props) => {
                                     name="angle-right"
                                     size={18}
                                     color={BaseColor.primaryColor}
-                                    style={{ marginLeft: 5 }}
+                                    style={{marginLeft: 5}}
                                 />
                             </View>
                         </Touchable>
@@ -117,43 +111,43 @@ const ProfileSettingScreen = (props) => {
                         <View style={styles.profileItem}>
                             <Text body1>App Version</Text>
                             <Text body1 grayColor>
-                                    1.0.4
+                                1.0.4
                             </Text>
                         </View>
                     </View>
                 </View>
             </ScrollView>
-            
+
         </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
     performanceContainer: {
-        backgroundColor: "#E8E8E8",
+        backgroundColor: '#E8E8E8',
         marginTop: 20,
-        marginBottom: 20
+        marginBottom: 20,
     },
     contentTitle: {
-        alignItems: "flex-start",
-        width: "100%",
+        alignItems: 'flex-start',
+        width: '100%',
         height: 32,
-        justifyContent: "center"
+        justifyContent: 'center',
     },
     contain: {
-        alignItems: "center",
+        alignItems: 'center',
         padding: 20,
-        width: "100%"
+        width: '100%',
     },
     profileItem: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         borderBottomColor: BaseColor.textSecondaryColor,
         borderBottomWidth: 1,
         paddingBottom: 20,
-        paddingTop: 20
-    }
+        paddingTop: 20,
+    },
 });
 
 export default ProfileSettingScreen;
