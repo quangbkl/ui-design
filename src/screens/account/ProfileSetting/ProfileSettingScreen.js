@@ -16,8 +16,10 @@ import {
     CustomHeader,
     Touchable
 } from "components";
+import appRoutes from '../../../navigations/appRoutes';
 
-const ProfileSettingScreen = () => {
+const ProfileSettingScreen = (props) => {
+    const {navigation} = props;
     const userData = {
         id: "1",
         image: "https://scontent-xsp1-1.xx.fbcdn.net/v/t1.0-9/80675594_2407151019538149_7255447717231460352_o.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=f8ELipMK0lkAX_Ea6wb&_nc_ht=scontent-xsp1-1.xx&oh=7911fcd87a1d90d45722adf74d30ee97&oe=5EB06405",
@@ -67,7 +69,7 @@ const ProfileSettingScreen = () => {
                         <Touchable
                             style={styles.profileItem}
                             onPress={() => {
-                                navigation.navigate("");
+                                navigation.navigate(appRoutes.PROFILE_EDIT);
                             }}
                         >
                             <Text body1>Edit Profile</Text>
@@ -182,13 +184,6 @@ const styles = StyleSheet.create({
     contain: {
         alignItems: "center",
         padding: 20,
-        width: "100%"
-    },
-    textInput: {
-        height: 56,
-        backgroundColor: BaseColor.fieldColor,
-        borderRadius: 5,
-        padding: 10,
         width: "100%"
     },
     profileItem: {
