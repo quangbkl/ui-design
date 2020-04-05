@@ -5,7 +5,6 @@ import {
     SafeAreaView,
     ScrollView,
     StyleSheet,
-    TouchableOpacity,
     Switch
 } from 'react-native';
 import {
@@ -13,7 +12,9 @@ import {
     ProfilePerformance,
     Text,
     CustomIcon,
-    Button
+    Button,
+    CustomHeader,
+    Touchable
 } from "components";
 
 const ProfileSettingScreen = () => {
@@ -42,6 +43,10 @@ const ProfileSettingScreen = () => {
         <SafeAreaView
             style={{ flex: 1 }}
             forceInset={{ top: "always" }}>
+            <CustomHeader
+                hasLeft
+                title="Profile"
+            />
             <ScrollView>
                 <View style={styles.contain}>
                     <ProfileDetail
@@ -59,7 +64,7 @@ const ProfileSettingScreen = () => {
                         style={styles.performanceContainer}
                     />
                     <View style={{ width: "100%" }}>
-                        <TouchableOpacity
+                        <Touchable
                             style={styles.profileItem}
                             onPress={() => {
                                 navigation.navigate("");
@@ -72,8 +77,8 @@ const ProfileSettingScreen = () => {
                                 color={BaseColor.primaryColor}
                                 style={{ marginLeft: 5 }}
                             />
-                        </TouchableOpacity>
-                        <TouchableOpacity
+                        </Touchable>
+                        <Touchable
                             style={styles.profileItem}
                             onPress={() => {
                                 navigation.navigate("");
@@ -86,8 +91,8 @@ const ProfileSettingScreen = () => {
                                 color={BaseColor.primaryColor}
                                 style={{ marginLeft: 5 }}
                             />
-                        </TouchableOpacity>
-                        <TouchableOpacity
+                        </Touchable>
+                        <Touchable
                             style={styles.profileItem}
                             onPress={() => {
                                 navigation.navigate("");
@@ -110,8 +115,8 @@ const ProfileSettingScreen = () => {
                                     style={{ marginLeft: 5 }}
                                 />
                             </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
+                        </Touchable>
+                        <Touchable
                             style={styles.profileItem}
                             onPress={() => {
                                 navigation.navigate("");
@@ -134,7 +139,7 @@ const ProfileSettingScreen = () => {
                                     style={{ marginLeft: 5 }}
                                 />
                             </View>
-                        </TouchableOpacity>
+                        </Touchable>
                         <View style={styles.profileItem}>
                             <Text body1>Reminders</Text>
                             <Switch
