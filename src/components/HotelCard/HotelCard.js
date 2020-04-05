@@ -19,11 +19,11 @@ const HotelCard = (props) => {
 				style={{
 					backgroundColor: '#e5634d',
 					borderRadius: 5,
-					width: 84,
 					height: 25,
 					position: 'absolute',
 					top: 210,
-					left: 5
+					left: 5,
+					paddingVertical: 5
 				}}
 				children={'Book Now'}
 				onPress={() =>{
