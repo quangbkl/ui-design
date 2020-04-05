@@ -17,7 +17,8 @@ const appRoutes = {
     PREVIEW_BOOKING: 'Preview Booking',
     PROFILE_EDIT: "Profile Edit",
     CHANGE_PASSWORD: "Change Password",
-    CHANGE_LANGUAGE: "Change Language"
+    CHANGE_LANGUAGE: "Change Language",
+    PROFILE_INFO: "Profile Info"
 };
 
 export default appRoutes;

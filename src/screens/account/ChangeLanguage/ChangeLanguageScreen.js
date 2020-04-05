@@ -90,6 +90,14 @@ const ChangeLanguageScreen = (props) => {
             <CustomHeader
                 hasLeft
                 title="Change Language"
+                hasRight
+                right={() => {
+                    return (
+                        <Text headline primaryColor>
+                            Save
+                        </Text>
+                    );
+                }}
             />
             <ScrollView>
                 <View style={styles.contain}>
@@ -97,13 +105,13 @@ const ChangeLanguageScreen = (props) => {
                         style={styles.textInput}
                         placeholder="Search Country"
                     />
-                </View>
-                <View style={{ width: "100%", height: "100%" }}>
-                    <FlatList
-                        data={language}
-                        keyExtractor={item => item.id}
-                        renderItem={renderListItem}
-                    />
+                    <View style={{ width: "100%", height: "100%" }}>
+                        <FlatList
+                            data={language}
+                            keyExtractor={item => item.id}
+                            renderItem={renderListItem}
+                        />
+                    </View>
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -126,8 +134,6 @@ const styles = StyleSheet.create({
     item: {
         paddingTop: 15,
         paddingBottom: 15,
-        paddingLeft: 20,
-        paddingRight: 20,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
