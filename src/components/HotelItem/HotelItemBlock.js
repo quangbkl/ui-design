@@ -63,39 +63,37 @@ const HotelItemBlock = ({item}) => {
     };
     return (
         <View>
-            <Touchable>
-                <View style={styles.imageContainer}>
-                    <Image
-                        style={styles.largeImage}
-                        source={{
-                            uri: getImageHotel(hotel),
-                        }}
-                    />
+            <View style={styles.imageContainer}>
+                <Image
+                    style={styles.largeImage}
+                    source={{
+                        uri: getImageHotel(hotel),
+                    }}
+                />
+            </View>
+            <Text style={styles.name}>{hotel.name}</Text>
+            <View style={styles.locationBlock}>
+                <CustomIcon type="map-marker-alt" size={13}/>
+                <Text style={styles.locationText}>{hotel.location}</Text>
+            </View>
+            <View style={styles.mainInfo}>
+                <View>
+                    <Text style={styles.price}>{hotel.price}</Text>
+                    <Text style={styles.available}>{`Only ${roomAvailable.length} room(s) leaft`}</Text>
                 </View>
-                <Text style={styles.name}>{hotel.name}</Text>
-                <View style={styles.locationBlock}>
-                    <CustomIcon type="map-marker-alt" size={13}/>
-                    <Text style={styles.locationText}>{hotel.location}</Text>
-                </View>
-                <View style={styles.mainInfo}>
+                <View style={styles.rightMain}>
+                    <Text style={styles.rateText}>{getRatePerFive(hotel)}</Text>
                     <View>
-                        <Text style={styles.price}>{hotel.price}</Text>
-                        <Text style={styles.available}>{`Only ${roomAvailable.length} room(s) leaft`}</Text>
-                    </View>
-                    <View style={styles.rightMain}>
-                        <Text style={styles.rateText}>{getRatePerFive(hotel)}</Text>
-                        <View>
-                            <Text style={styles.rateReview}>Very Good</Text>
-                            <Rating
-                                style={styles.rateStar}
-                                startingValue={getRatePerFive(hotel)}
-                                imageSize={16}
-                                readonly
-                            />
-                        </View>
+                        <Text style={styles.rateReview}>Very Good</Text>
+                        <Rating
+                            style={styles.rateStar}
+                            startingValue={getRatePerFive(hotel)}
+                            imageSize={16}
+                            readonly
+                        />
                     </View>
                 </View>
-            </Touchable>
+            </View>
             <View style={styles.serviceBlock}>
                 <List
                     horizontal
