@@ -97,7 +97,7 @@ const ProfileSettingScreen = (props) => {
                         <Touchable
                             style={styles.profileItem}
                             onPress={() => {
-                                navigation.navigate("");
+                                navigation.navigate(appRoutes.CHANGE_LANGUAGE);
                             }}
                         >
                             <Text body1>Language</Text>
