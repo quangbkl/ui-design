@@ -5,6 +5,7 @@ import ProfileSettingScreen from 'screens/account/ProfileSetting/ProfileSettingS
 import ProfileEditScreen from 'screens/account/ProfileEdit/ProfileEditScreen';
 import ChangePasswordScreen from 'screens/account/ChangePassword/ChangePasswordScreen';
 import ChangeLanguageScreen from 'screens/account/ChangeLanguage/ChangeLanguageScreen';
+import ProfileInfoScreen from 'screens/account/ProfileInfo/ProfileInfoScreen';
 
 
 const Stack = createStackNavigator();
@@ -12,8 +13,9 @@ const Stack = createStackNavigator();
 const AccountNavigator = () => {
     return (
         <Stack.Navigator headerMode='none'>
-            <Stack.Screen name={appRoutes.PROFILE_SETTING} component={ProfileSettingScreen}/>
+             <Stack.Screen name={appRoutes.PROFILE_INFO} component={ProfileInfoScreen}/>
             <Stack.Screen name={appRoutes.PROFILE_EDIT} component={ProfileEditScreen}/>
+            <Stack.Screen name={appRoutes.PROFILE_SETTING} component={ProfileSettingScreen}/>
             <Stack.Screen name={appRoutes.CHANGE_PASSWORD} component={ChangePasswordScreen}/>
             <Stack.Screen name={appRoutes.CHANGE_LANGUAGE} component={ChangeLanguageScreen}/>
         </Stack.Navigator>
