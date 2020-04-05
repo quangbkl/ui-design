@@ -21,7 +21,6 @@ import appRoutes from '../../../navigations/appRoutes';
 const ProfileSettingScreen = (props) => {
     const {navigation} = props;
     const userData = {
-        id: "1",
         image: "https://scontent-xsp1-1.xx.fbcdn.net/v/t1.0-9/80675594_2407151019538149_7255447717231460352_o.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=f8ELipMK0lkAX_Ea6wb&_nc_ht=scontent-xsp1-1.xx&oh=7911fcd87a1d90d45722adf74d30ee97&oe=5EB06405",
         name: "Phi Xuan Hoan",
         major: "Travel Company",
