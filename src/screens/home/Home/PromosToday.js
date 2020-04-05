@@ -3,9 +3,11 @@ import {FlatList, Text, View, StyleSheet} from 'react-native';
 import HotelCard from "../../../components/HotelCard/HotelCard";
 import {useFilterDynamic} from "../../../hooks/common";
 import {getPromos} from "../../../services/promoServices";
+import appRoutes from 'navigations/appRoutes';
 
 // TODO: Use HotelCard component
-const PromosToday = () => {
+const PromosToday = (props) => {
+  const {navigation} = props;
 	const defaultFilters = {
 		page: 1,
 		limit: 10,
@@ -24,6 +26,8 @@ const PromosToday = () => {
 		return (
 			<HotelCard
 				item={item}
+        onPress={() => navigation.navigate(appRoutes.HOTEL_DETAIL, {promosId: item.id})}
+        _onPressBookNow={() => navigation.navigate(appRoutes.PREVIEW_BOOKING, {promosId: item.id})}
 			/>
 		);
 	};
@@ -46,6 +50,7 @@ const PromosToday = () => {
 		        onEndReached={fetchNext}
 		        onEndReachedThreshold={0.5}
 		        keyExtractor={item => item.id.toString()}
+            showsHorizontalScrollIndicator={false}
 	        />
         </View>
     );
@@ -53,7 +58,7 @@ const PromosToday = () => {
 
 const styles = StyleSheet.create({
 	title: {
-		marginTop: 10,
+		marginTop: 15,
 		fontSize: 20,
 		color: '#212121'
 	}

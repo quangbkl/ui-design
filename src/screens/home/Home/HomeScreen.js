@@ -15,8 +15,8 @@ const HomeScreen = (props) => {
             <Banner/>
             <View style={styles.content}>
                 <SearchMenu navigation={navigation}/>
-                <PromosToday/>
-                <Tour/>
+                <PromosToday navigation={navigation}/>
+                <Tour navigation={navigation}/>
                 <UpcomingEvents/>
                 <Promotion/>
             </View>
