@@ -45,6 +45,8 @@ import React from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import {List} from 'native-base';
 import {Rating} from 'react-native-ratings';
+// https://github.com/uuidjs/uuid#getrandomvalues-not-supported
+import 'react-native-get-random-values';
 import {v4 as uuidv4} from 'uuid';
 import {getImageHotel, getRatePerFive} from 'helpers/hotel';
 import {BaseColor} from 'config/color';
