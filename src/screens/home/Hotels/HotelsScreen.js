@@ -42,7 +42,7 @@ const HotelsScreen = props => {
     }, []);
 
     return (
-        <View>
+        <>
             <Header
                 title="Hotels"
                 description="3 April 2020, 2 Nights, 1 Room"
@@ -61,7 +61,7 @@ const HotelsScreen = props => {
                 columnWrapperStyle={view === 'grid' ? styles.spaceCol : null}
                 numColumns={view === 'grid' ? 2 : 1}
             />
-        </View>
+        </>
     );
 };
 
