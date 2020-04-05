@@ -4,13 +4,12 @@ import {Rating} from 'react-native-ratings';
 import {getImageHotel, getRatePerFive} from 'helpers/hotel';
 import CustomIcon from '../Icon/CustomIcon';
 import {BaseColor} from 'config/color';
-import Touchable from '../Touchable/Touchable';
 
 // Follow HotelItemBlock
 const HotelItemList = ({item}) => {
     const {hotel, roomAvailable} = item;
     return (
-        <Touchable style={styles.container}>
+        <View style={styles.container}>
             <Image
                 style={styles.largeImage}
                 source={{
@@ -33,7 +32,7 @@ const HotelItemList = ({item}) => {
                 <Text style={styles.unit}>AVG/NIGHT</Text>
                 <Text style={styles.available}>{`Only ${roomAvailable.length} room(s) leaft`}</Text>
             </View>
-        </Touchable>
+        </View>
     );
 };
 
