@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import {View, FlatList, StyleSheet} from 'react-native';
+// https://github.com/uuidjs/uuid#getrandomvalues-not-supported
+import 'react-native-get-random-values';
 import {v4 as uuidv4} from 'uuid';
 import {useFilterDynamic} from 'hooks/common';
 import {bookingHotel} from 'services/bookingServices';
 import {FilterSort, HotelItem} from 'components';
-import CustomHeader from 'components/Header/CustomHeader';
+import Header from 'components/Header/Header';
 import CustomIcon from 'components/Icon/CustomIcon';
 
 // TODO: Code HotelItem component first
-
 const HotelsScreen = props => {
     const {startDate, endDate, numRooms} = props;
     const defaultFilters = {
@@ -30,15 +31,7 @@ const HotelsScreen = props => {
         fetchNext,
     } = useFilterDynamic(defaultFilters, loadDataBookingHotel);
 
-    const renderRightHeader = () => <CustomIcon type="search"/>;
-    const renderItem = ({item, index}) => {
-        if (view === 'grid' && index % 2 === 1) {
-            return (
-                <View style={[styles.rightItem, styles.eachItem]}>
-                    <HotelItem view={view} item={item}/>
-                </View>
-            );
-        }
+    const renderItem = ({item}) => {
         return (
             <View style={styles.eachItem}>
                 <HotelItem view={view} item={item}/>
@@ -51,13 +44,11 @@ const HotelsScreen = props => {
     }, []);
 
     return (
-        <View>
-            <CustomHeader
-                hasLeft
-                hasRight
+        <>
+            <Header
                 title="Hotels"
                 description="3 April 2020, 2 Nights, 1 Room"
-                right={renderRightHeader()}
+                RightComponent={<CustomIcon type="search"/>}
             />
             <FilterSort view={view} onChangeView={setView}/>
             <FlatList
@@ -69,9 +60,10 @@ const HotelsScreen = props => {
                 renderItem={renderItem}
                 key={uuidv4()}
                 keyExtractor={() => uuidv4()}
+                columnWrapperStyle={view === 'grid' ? styles.spaceCol : null}
                 numColumns={view === 'grid' ? 2 : 1}
             />
-        </View>
+        </>
     );
 };
 
@@ -83,8 +75,9 @@ const styles = StyleSheet.create({
     eachItem: {
         marginBottom: 20,
     },
-    rightItem: {
-        marginLeft: 20,
+    spaceCol: {
+        flex: 1,
+        justifyContent: 'space-around',
     },
 });
 
