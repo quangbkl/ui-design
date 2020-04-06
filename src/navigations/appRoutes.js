@@ -14,7 +14,7 @@ const appRoutes = {
     PROFILE_SETTING: 'Profile Setting',
     HOTELS: 'Hotels',
     HOTEL_DETAIL: 'Hotel Detail',
-    PREVIEW_BOOKING: 'Preview Booking',
+    CHECKOUT_REVIEW: 'Checkout Review',
     PROFILE_EDIT: "Profile Edit",
     CHANGE_PASSWORD: "Change Password",
     CHANGE_LANGUAGE: "Change Language",

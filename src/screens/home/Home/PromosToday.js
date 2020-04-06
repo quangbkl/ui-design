@@ -27,7 +27,7 @@ const PromosToday = (props) => {
 			<HotelCard
 				item={item}
         onPress={() => navigation.navigate(appRoutes.HOTEL_DETAIL, {promosId: item.id})}
-        _onPressBookNow={() => navigation.navigate(appRoutes.PREVIEW_BOOKING, {promosId: item.id})}
+        _onPressBookNow={() => navigation.navigate(appRoutes.CHECKOUT_REVIEW, {promosId: item.id})}
 			/>
 		);
 	};

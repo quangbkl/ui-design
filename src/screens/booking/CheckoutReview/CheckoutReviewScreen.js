@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const PreviewBookingScreen = () => {
+const CheckoutReviewScreen = () => {
   return (
     <View>
-      <Text>Preview Booking</Text>
+      <Text>Checkout Review</Text>
     </View>
   );
 };
 
-export default PreviewBookingScreen;
+export default CheckoutReviewScreen;
