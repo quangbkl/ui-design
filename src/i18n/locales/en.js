@@ -8,7 +8,8 @@ export default {
     main: {
         home: {},
         booking: {
-            booking: 'Booking'
+            booking: 'Booking',
+            change_to: 'Change to %{lang}'
         },
         news: {},
         account: {}

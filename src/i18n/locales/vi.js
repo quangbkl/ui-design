@@ -8,7 +8,8 @@ export default {
     main: {
         home: {},
         booking: {
-            booking: 'Đặt trước'
+            booking: 'Đặt trước',
+            change_to: 'Thay đổi thành %{lang}'
         },
         news: {},
         account: {}

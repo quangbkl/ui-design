@@ -13,9 +13,8 @@ const AppProvider = ({children, ...props}) => {
     const [locale, setLocale] = useState(initialState.locale);
     const [i18n, setI18n] = useState(initialState.i18n);
 
-    useEffect(async () => {
-        // TODO: update func
-        await initialI18nFromStorage(setLocale);
+    useEffect(() => {
+        initialI18nFromStorage({locale, setLocale, i18n, setI18n}).catch(console.log);
     }, []);
 
     const value = {
@@ -24,11 +23,9 @@ const AppProvider = ({children, ...props}) => {
             i18n
         },
         actions: {
-            changeLanguage: changeLanguage(i18n, setI18n)
+            changeLanguage: changeLanguage({locale, setLocale, i18n, setI18n})
         }
     };
-
-    console.log(i18n);
 
     return (
         <AppContext.Provider value={value}>

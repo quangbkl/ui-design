@@ -1,6 +1,10 @@
 import getLocaleFromStorage from './getLocaleFromStorage';
 
-export default async (setLocale) => {
+export default async ({locale, setLocale, i18n, setI18n}) => {
     const value = await getLocaleFromStorage();
-    if (value && typeof value === 'string') setLocale(value);
+    const language = value && typeof value === 'string' ? value : locale;
+
+    i18n.locale = language;
+    setLocale(language);
+    setI18n(i18n);
 };
