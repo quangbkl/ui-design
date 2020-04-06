@@ -40,7 +40,6 @@ const appRoutes = {
     PROFILE_NOTIFICATIONS: 'Profile Notifications',
     PROFILE_INFO: 'Profile Info',
     PROFILE_CURRENCY: 'Profile Currency',
-    PROFILE_APP_SETTING: 'Profile App Setting',
     PROFILE_LANGUAGE: 'Profile Language',
     PROFILE_THEME: 'Profile Theme',
     PROFILE_FONT: 'Profile Font',

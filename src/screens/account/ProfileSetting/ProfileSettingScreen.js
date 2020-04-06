@@ -5,13 +5,13 @@ import {
     SafeAreaView,
     ScrollView,
     StyleSheet,
-    Switch,
+    Switch
 } from 'react-native';
 import {
     Text,
     CustomIcon,
     Header,
-    Touchable,
+    Touchable
 } from 'components';
 import appRoutes from 'navigations/appRoutes';
 
@@ -30,14 +30,14 @@ const ProfileSettingScreen = (props) => {
                         <Touchable
                             style={styles.profileItem}
                             onPress={() => {
-                                navigation.navigate(appRoutes.CHANGE_LANGUAGE);
+                                navigation.navigate(appRoutes.PROFILE_LANGUAGE);
                             }}
                         >
                             <Text body1>Language</Text>
                             <View
                                 style={{
                                     flexDirection: 'row',
-                                    alignItems: 'center',
+                                    alignItems: 'center'
                                 }}
                             >
                                 <Text body1 grayColor>
@@ -61,11 +61,35 @@ const ProfileSettingScreen = (props) => {
                             <View
                                 style={{
                                     flexDirection: 'row',
-                                    alignItems: 'center',
+                                    alignItems: 'center'
                                 }}
                             >
                                 <Text body1 grayColor>
                                     Ruleway
+                                </Text>
+                                <CustomIcon
+                                    name="angle-right"
+                                    size={18}
+                                    color={BaseColor.primaryColor}
+                                    style={{marginLeft: 5}}
+                                />
+                            </View>
+                        </Touchable>
+                        <Touchable
+                            style={styles.profileItem}
+                            onPress={() => {
+                                navigation.navigate(appRoutes.PROFILE_THEME);
+                            }}
+                        >
+                            <Text body1>Theme</Text>
+                            <View
+                                style={{
+                                    flexDirection: 'row',
+                                    alignItems: 'center'
+                                }}
+                            >
+                                <Text body1 grayColor>
+                                    orange
                                 </Text>
                                 <CustomIcon
                                     name="angle-right"
@@ -85,7 +109,7 @@ const ProfileSettingScreen = (props) => {
                             <View
                                 style={{
                                     flexDirection: 'row',
-                                    alignItems: 'center',
+                                    alignItems: 'center'
                                 }}
                             >
                                 <Text body1 grayColor>
@@ -126,18 +150,18 @@ const styles = StyleSheet.create({
     performanceContainer: {
         backgroundColor: '#E8E8E8',
         marginTop: 20,
-        marginBottom: 20,
+        marginBottom: 20
     },
     contentTitle: {
         alignItems: 'flex-start',
         width: '100%',
         height: 32,
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     contain: {
         alignItems: 'center',
         padding: 20,
-        width: '100%',
+        width: '100%'
     },
     profileItem: {
         flexDirection: 'row',
@@ -146,8 +170,8 @@ const styles = StyleSheet.create({
         borderBottomColor: BaseColor.textSecondaryColor,
         borderBottomWidth: 1,
         paddingBottom: 20,
-        paddingTop: 20,
-    },
+        paddingTop: 20
+    }
 });
 
 export default ProfileSettingScreen;
