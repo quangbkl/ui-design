@@ -7,11 +7,11 @@ import {getPosts} from 'services/postServices';
 import {useFilterDynamic} from 'hooks/common';
 import appRoutes from 'navigations/appRoutes';
 
-const PostListScreen = (props) => {
+const PostsScreen = (props) => {
     const {navigation} = props;
     const defaultFilters = {
         page: 1,
-        limit: 10,
+        limit: 10
     };
     const loadDataPosts = (params) => getPosts(params)
         .then(res => res.data.posts);
@@ -20,7 +20,7 @@ const PostListScreen = (props) => {
         list: listPosts,
         fetchData,
         refreshPage,
-        fetchNext,
+        fetchNext
     } = useFilterDynamic(defaultFilters, loadDataPosts);
 
     const renderListItem = ({item}) => {
@@ -33,7 +33,7 @@ const PostListScreen = (props) => {
     };
 
     useEffect(() => {
-        fetchData();
+        fetchData().catch(console.log);
     }, []);
 
     return (
@@ -53,4 +53,4 @@ const PostListScreen = (props) => {
     );
 };
 
-export default PostListScreen;
+export default PostsScreen;
