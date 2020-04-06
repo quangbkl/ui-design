@@ -16,7 +16,12 @@ export const BaseColor = {
 };
 
 export const ThemeColor = {
-    orange: {},
+    orange: {
+        primaryColor: '#E5634D',
+        darkPrimaryColor: '#C31C0D',
+        lightPrimaryColor: '#FF8A65',
+        accentColor: '#4A90A4'
+    },
     pink: {
         primaryColor: '#E91E63',
         darkPrimaryColor: '#C2185B',
