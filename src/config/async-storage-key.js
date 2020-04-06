@@ -1,3 +1,3 @@
 export default {
-    locale: 'lang'
+    settings: 'app_settings'
 };
