@@ -37,10 +37,7 @@ const ProfileSettingScreen = (props) => {
                         <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_LANGUAGE)} value="English">
                             <Text>Language</Text>
                         </ListItemAngleRight>
-                        <ListItemAngleRight onPress={handleNavigate('')} value="Ruleway">
-                            <Text>Font</Text>
-                        </ListItemAngleRight>
-                        <ListItemAngleRight onPress={handleNavigate('')} value="orange">
+                        <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_THEME)} value="orange">
                             <Text>Theme</Text>
                         </ListItemAngleRight>
                         <ListItemAngleRight onPress={handleNavigate('')} value="Ruleway">

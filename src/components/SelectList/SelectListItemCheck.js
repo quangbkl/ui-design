@@ -7,12 +7,12 @@ import SelectListItem from './SelectListItem';
 const SelectListItemCheck = (props) => {
     const {state: appState} = useApp();
     const {color} = appState;
-    const {children, value, selectedValue, ...rest} = props;
+    const {children, value, selectedValue, leftStyle, ...rest} = props;
     const checked = value === selectedValue;
 
     return (
         <SelectListItem value={value} {...rest}>
-            <Left>
+            <Left style={leftStyle}>
                 {
                     React.Children.map(children, child =>
                         React.cloneElement(child)

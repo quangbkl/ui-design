@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
-import {Container, List} from 'native-base';
-import {Header, Button} from 'components';
+import {Container} from 'native-base';
+import {Header, Button, SelectList} from 'components';
 import {ThemeColor} from 'config/color';
 import useApp from 'hooks/app/useApp';
 import ThemeListItem from './ThemeListItem';
@@ -13,8 +13,8 @@ const ProfileThemeScreen = () => {
 
     const [selectedTheme, setSelectedTheme] = useState(theme);
 
-    const handlePressItem = (newTheme) => () => {
-        setSelectedTheme(newTheme);
+    const handleSelectTheme = (selectedValue) => {
+        setSelectedTheme(selectedValue);
     };
 
     const handlePressButton = async () => {
@@ -25,20 +25,18 @@ const ProfileThemeScreen = () => {
         <Container style={styles.main}>
             <Header title="Theme"/>
             <ScrollView style={{flex: 1}}>
-                <List>
+                <SelectList value={selectedTheme} onChange={handleSelectTheme}>
                     {
                         Object.entries(ThemeColor).map(([themeColor, {primaryColor}]) =>
                             <ThemeListItem
                                 key={themeColor}
+                                value={themeColor}
                                 name={themeColor}
                                 color={primaryColor}
-                                checked={themeColor === selectedTheme}
-                                onPress={handlePressItem(themeColor)}
-                                button
                             />
                         )
                     }
-                </List>
+                </SelectList>
             </ScrollView>
             <Button
                 style={styles.buttonApply}
