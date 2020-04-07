@@ -44,7 +44,7 @@ const ProfileThemeScreen = () => {
                 style={styles.buttonApply}
                 onPress={handlePressButton}
             >
-                {i18n.t('main.account.profile_theme.apply')}
+                {i18n.t('shared.apply')}
             </Button>
         </Container>
     );

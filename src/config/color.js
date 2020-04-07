@@ -12,7 +12,8 @@ export const BaseColor = {
     fieldColor: '#F5F5F5', // common field color like input, text area
     yellowColor: '#FDC60A', // just another color use for the app
     navyBlue: '#3C5A99', // just another color use for the app,
-    bluePrimaryColor: '#1890FF'
+    bluePrimaryColor: '#1890FF',
+    backgroundColor: '#F2F2F2'
 };
 
 export const ThemeColor = {

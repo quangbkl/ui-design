@@ -15,6 +15,7 @@ const Button = (props) => {
     const {onPress, style, loading, disabled, children} = props;
 
     const mainStyle = [
+        styles.main,
         style,
         disabled && {opacity: 0.5}
     ];
@@ -34,7 +35,11 @@ const Button = (props) => {
     );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    main: {
+        fontSize: 16
+    }
+});
 
 Button.propTypes = {
     icon: PropTypes.element,

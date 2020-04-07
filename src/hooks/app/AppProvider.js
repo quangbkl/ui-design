@@ -6,12 +6,13 @@ import changeLanguage from './actions/changeLanguage';
 import changeTheme from './actions/changeTheme';
 import changeThemeMode from './actions/changeThemeMode';
 import {BaseColor, ThemeColor, ThemeModeColor} from 'config/color';
+import {ThemeModeConstant} from 'config/constant';
 
 const initialState = {
     locale: 'en',
     i18n: I18n,
     theme: 'orange',
-    themeMode: 'light'
+    themeMode: ThemeModeConstant.THEME_MODE_LIGHT
 };
 
 const AppProvider = ({children, ...props}) => {
@@ -38,6 +39,7 @@ const AppProvider = ({children, ...props}) => {
             locale,
             i18n,
             theme,
+            themeMode,
             color: {
                 ...BaseColor,
                 ...ThemeColor[theme],
