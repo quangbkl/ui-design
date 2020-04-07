@@ -1,55 +1,63 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Container, List, ListItem, Text, Left, Right} from 'native-base';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {Header} from 'components';
-import {BaseColor, ThemeColor} from 'config/color';
+import React, {useState} from 'react';
+import {ScrollView, StyleSheet} from 'react-native';
+import {Container, List} from 'native-base';
+import {Header, Button} from 'components';
+import {ThemeColor} from 'config/color';
 import useApp from 'hooks/app/useApp';
-
-const ThemeListItem = (props) => {
-    const {name, color, checked} = props;
-
-    return (
-        <ListItem style={styles.listItem}>
-            <Left style={{alignItems: 'center'}}>
-                <View style={{width: 15, height: 15, backgroundColor: color}}/>
-                <Text style={{marginLeft: 10}}>{name}</Text>
-            </Left>
-            {checked && <Right><FontAwesome5 name="check" size={18} color={BaseColor.primaryColor}/></Right>}
-        </ListItem>
-    );
-};
+import ThemeListItem from './ThemeListItem';
 
 const ProfileThemeScreen = () => {
-    const {state: appState} = useApp();
-    const {theme} = appState;
+    const {state: appState, actions: appActions} = useApp();
+    const {i18n, theme} = appState;
+    const {changeTheme} = appActions;
+
+    const [selectedTheme, setSelectedTheme] = useState(theme);
+
+    const handlePressItem = (newTheme) => () => {
+        setSelectedTheme(newTheme);
+    };
+
+    const handlePressButton = async () => {
+        await changeTheme(selectedTheme);
+    };
 
     return (
-        <Container>
+        <Container style={styles.main}>
             <Header title="Theme"/>
-            <List style={styles.list}>
-                {
-                    Object.entries(ThemeColor).map(([themeColor, {primaryColor}]) =>
-                        <ThemeListItem
-                            name={themeColor}
-                            color={primaryColor}
-                            checked={themeColor === theme}
-                        />
-                    )
-                }
-            </List>
+            <ScrollView style={{flex: 1}}>
+                <List>
+                    {
+                        Object.entries(ThemeColor).map(([themeColor, {primaryColor}]) =>
+                            <ThemeListItem
+                                key={themeColor}
+                                name={themeColor}
+                                color={primaryColor}
+                                checked={themeColor === selectedTheme}
+                                onPress={handlePressItem(themeColor)}
+                                button
+                            />
+                        )
+                    }
+                </List>
+            </ScrollView>
+            <Button
+                style={styles.buttonApply}
+                onPress={handlePressButton}
+            >
+                {i18n.t('main.account.profile_theme.apply')}
+            </Button>
         </Container>
     );
 };
 
 const styles = StyleSheet.create({
-    list: {
+    main: {
         paddingLeft: 20,
         paddingRight: 20
     },
-    listItem: {
-        marginLeft: 0,
-        paddingRight: 0
+    buttonApply: {
+        marginTop: 15,
+        marginBottom: 15
     }
 });
 

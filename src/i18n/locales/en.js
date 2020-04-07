@@ -12,6 +12,10 @@ export default {
             change_to: 'Change to %{lang}'
         },
         news: {},
-        account: {}
+        account: {
+            profile_theme: {
+                apply: 'Apply'
+            }
+        }
     }
 };

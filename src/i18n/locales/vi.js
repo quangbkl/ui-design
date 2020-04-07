@@ -12,6 +12,10 @@ export default {
             change_to: 'Thay đổi thành %{lang}'
         },
         news: {},
-        account: {}
+        account: {
+            profile_theme: {
+                apply: 'Áp dụng'
+            }
+        }
     }
 };

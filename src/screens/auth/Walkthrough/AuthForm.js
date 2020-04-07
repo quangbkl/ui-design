@@ -2,7 +2,8 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {BaseColor} from 'config/color';
-import {Button, Text, Touchable} from 'components';
+import {Button, Text, TextButton, Touchable} from 'components';
+import {Button as ButtonNB} from 'native-base';
 
 const AuthForm = (props) => {
     const {goToSignIn, goToMain, goToSignUp} = props;
@@ -15,9 +16,7 @@ const AuthForm = (props) => {
                 <Touchable onPress={goToSignUp}>
                     <Text>Haven't registered yet?</Text>
                 </Touchable>
-                <Touchable onPress={goToMain}>
-                    <Text style={styles.joinNowText}>Join Now</Text>
-                </Touchable>
+                <TextButton onPress={goToMain}>Join Now</TextButton>
             </View>
         </View>
     );
@@ -27,22 +26,22 @@ const styles = StyleSheet.create({
     main: {
         paddingLeft: 20,
         paddingRight: 20,
-        paddingBottom: 50,
+        paddingBottom: 50
     },
     joinNow: {
         paddingTop: 20,
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-between'
     },
     joinNowText: {
-        color: BaseColor.primaryColor,
-    },
+        color: BaseColor.primaryColor
+    }
 });
 
 AuthForm.propTypes = {
     goToSignUp: PropTypes.func.isRequired,
     goToSignIn: PropTypes.func.isRequired,
-    goToMain: PropTypes.func.isRequired,
+    goToMain: PropTypes.func.isRequired
 };
 
 export default AuthForm;

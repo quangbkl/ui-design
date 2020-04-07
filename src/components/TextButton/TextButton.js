@@ -15,8 +15,6 @@ const Button = (props) => {
     const {onPress, style, loading, disabled, children} = props;
 
     const mainStyle = [
-        styles.main,
-        {backgroundColor: color.primaryColor},
         style,
         disabled && {opacity: 0.5}
     ];
@@ -27,30 +25,18 @@ const Button = (props) => {
             style={mainStyle}
             disabled={disabled}
         >
-            <Text style={{color: (style && style.color) || 'white', fontSize: 14}}>{children}</Text>
-            {loading && <ActivityIndicator style={styles.activityIndicator} color={(style && style.color) || 'white'}/>}
+            {
+                !loading ?
+                    <Text style={{color: color.primaryColor, fontSize: 14}}>{children}</Text> :
+                    <ActivityIndicator style={styles.activityIndicator} color={color.primaryColor}/>
+            }
         </Touchable>
     );
 };
 
-const styles = StyleSheet.create({
-    main: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 10,
-        height: 55,
-        borderRadius: 5
-    },
-    activityIndicator: {
-        marginLeft: 5
-    }
-});
+const styles = StyleSheet.create({});
 
 Button.propTypes = {
-    full: PropTypes.bool,
-    round: PropTypes.bool,
-    outline: PropTypes.bool,
     icon: PropTypes.element,
     style: ViewPropTypes.style,
     loading: PropTypes.bool,
