@@ -6,7 +6,7 @@ import HomeNavigator from './HomeNavigator';
 import BookingNavigator from './BookingNavigator';
 import NewsNavigator from './NewsNavigator';
 import AccountNavigator from './AccountNavigator';
-import {BaseColor} from 'config/color';
+import useApp from '../hooks/app/useApp';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,16 +22,19 @@ const TabBarVisibleOnRootScreenOptions = ({route}) => {
 };
 
 const MainNavigator = () => {
+    const {state: appState} = useApp();
+    const {color} = appState;
+
     return (
         <Tab.Navigator
             initialRouteName={appRoutes.HOME}
             screenOptions={TabBarVisibleOnRootScreenOptions}
             tabBarOptions={{
-                activeTintColor: BaseColor.primaryColor,
-                inactiveTintColor: BaseColor.grayColor,
+                activeTintColor: color.primaryColor,
+                inactiveTintColor: color.grayColor,
                 style: {
-                    backgroundColor: BaseColor.fieldColor,
-                },
+                    backgroundColor: color.fieldColor
+                }
             }}
         >
             <Tab.Screen
@@ -41,7 +44,7 @@ const MainNavigator = () => {
                     tabBarLabel: appRoutes.HOME,
                     tabBarIcon: ({color, size}) => (
                         <FontAwesome5 name="home" color={color} size={size} solid/>
-                    ),
+                    )
                 }}
             />
             <Tab.Screen
@@ -51,7 +54,7 @@ const MainNavigator = () => {
                     tabBarLabel: appRoutes.BOOKING,
                     tabBarIcon: ({color, size}) => (
                         <FontAwesome5 name="bookmark" color={color} size={size} solid/>
-                    ),
+                    )
                 }}
             />
             <Tab.Screen
@@ -61,7 +64,7 @@ const MainNavigator = () => {
                     tabBarLabel: appRoutes.NEWS,
                     tabBarIcon: ({color, size}) => (
                         <FontAwesome5 name="copy" color={color} size={size} solid/>
-                    ),
+                    )
                 }}
             />
             <Tab.Screen
@@ -71,7 +74,7 @@ const MainNavigator = () => {
                     tabBarLabel: appRoutes.ACCOUNT,
                     tabBarIcon: ({color, size}) => (
                         <FontAwesome5 name="user-circle" color={color} size={size} solid/>
-                    ),
+                    )
                 }}
             />
 

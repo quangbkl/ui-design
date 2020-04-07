@@ -9,139 +9,71 @@ import {
 } from 'react-native';
 import {
     Text,
-    CustomIcon,
     Header,
-    Touchable
+    ListItemAngleRight, ListItem
 } from 'components';
 import appRoutes from 'navigations/appRoutes';
+import {Left, Right} from 'native-base';
+import ThemeModeSetting from './ThemeModeSetting';
+import useApp from 'hooks/app/useApp';
 
 const ProfileSettingScreen = (props) => {
+    const {state: appState} = useApp();
+    const {i18n} = appState;
+
     const {navigation} = props;
     const [reminders, setReminders] = useState(false);
+
     const toggleSwitch = () => setReminders(value => !value);
+
+    const handleNavigate = (route) => () => {
+        return navigation.navigate(route);
+    };
+
     return (
         <SafeAreaView
             style={{flex: 1}}
             forceInset={{top: 'always'}}>
-            <Header title="Settings"/>
+            <Header title={i18n.t('main.account.profile_setting.settings')}/>
             <ScrollView>
                 <View style={styles.contain}>
                     <View style={{width: '100%'}}>
-                        <Touchable
-                            style={styles.profileItem}
-                            onPress={() => {
-                                navigation.navigate(appRoutes.PROFILE_LANGUAGE);
-                            }}
-                        >
-                            <Text body1>Language</Text>
-                            <View
-                                style={{
-                                    flexDirection: 'row',
-                                    alignItems: 'center'
-                                }}
-                            >
-                                <Text body1 grayColor>
-                                    English
-                                </Text>
-                                <CustomIcon
-                                    name="angle-right"
+                        <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_LANGUAGE)} value="English">
+                            <Text>{i18n.t('main.account.profile_setting.language')}</Text>
+                        </ListItemAngleRight>
+                        <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_THEME)} value="orange">
+                            <Text>{i18n.t('main.account.profile_setting.theme')}</Text>
+                        </ListItemAngleRight>
+                        <ListItemAngleRight onPress={handleNavigate('')} value="Ruleway">
+                            <Text>{i18n.t('main.account.profile_setting.font')}</Text>
+                        </ListItemAngleRight>
+
+                        <ThemeModeSetting/>
+
+                        <ListItem>
+                            <Left>
+                                <Text body1>{i18n.t('main.account.profile_setting.reminders')}</Text>
+                            </Left>
+                            <Right>
+                                <Switch
                                     size={18}
-                                    color={BaseColor.primaryColor}
-                                    style={{marginLeft: 5}}
+                                    onValueChange={toggleSwitch}
+                                    value={reminders}
                                 />
-                            </View>
-                        </Touchable>
-                        <Touchable
-                            style={styles.profileItem}
-                            onPress={() => {
-                                navigation.navigate('');
-                            }}
-                        >
-                            <Text body1>Font</Text>
-                            <View
-                                style={{
-                                    flexDirection: 'row',
-                                    alignItems: 'center'
-                                }}
-                            >
-                                <Text body1 grayColor>
-                                    Ruleway
-                                </Text>
-                                <CustomIcon
-                                    name="angle-right"
-                                    size={18}
-                                    color={BaseColor.primaryColor}
-                                    style={{marginLeft: 5}}
-                                />
-                            </View>
-                        </Touchable>
-                        <Touchable
-                            style={styles.profileItem}
-                            onPress={() => {
-                                navigation.navigate(appRoutes.PROFILE_THEME);
-                            }}
-                        >
-                            <Text body1>Theme</Text>
-                            <View
-                                style={{
-                                    flexDirection: 'row',
-                                    alignItems: 'center'
-                                }}
-                            >
-                                <Text body1 grayColor>
-                                    orange
-                                </Text>
-                                <CustomIcon
-                                    name="angle-right"
-                                    size={18}
-                                    color={BaseColor.primaryColor}
-                                    style={{marginLeft: 5}}
-                                />
-                            </View>
-                        </Touchable>
-                        <Touchable
-                            style={styles.profileItem}
-                            onPress={() => {
-                                navigation.navigate('');
-                            }}
-                        >
-                            <Text body1>Dark theme</Text>
-                            <View
-                                style={{
-                                    flexDirection: 'row',
-                                    alignItems: 'center'
-                                }}
-                            >
-                                <Text body1 grayColor>
-                                    Dynamic System
-                                </Text>
-                                <CustomIcon
-                                    name="angle-right"
-                                    size={18}
-                                    color={BaseColor.primaryColor}
-                                    style={{marginLeft: 5}}
-                                />
-                            </View>
-                        </Touchable>
-                        <View style={styles.profileItem}>
-                            <Text body1>Reminders</Text>
-                            <Switch
-                                name="angle-right"
-                                size={18}
-                                onValueChange={toggleSwitch}
-                                value={reminders}
-                            />
-                        </View>
-                        <View style={styles.profileItem}>
-                            <Text body1>App Version</Text>
-                            <Text body1 grayColor>
-                                1.0.4
-                            </Text>
-                        </View>
+                            </Right>
+                        </ListItem>
+
+                        <ListItem>
+                            <Left>
+                                <Text body1>{i18n.t('main.account.profile_setting.app_version')}</Text>
+                            </Left>
+                            <Right>
+                                <Text body1 grayColor>1.0.4</Text>
+                            </Right>
+                        </ListItem>
                     </View>
                 </View>
             </ScrollView>
-
         </SafeAreaView>
     );
 };

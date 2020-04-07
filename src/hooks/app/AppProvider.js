@@ -3,13 +3,16 @@ import AppContext from './AppContext';
 import I18n from 'i18n/i18n';
 import initialSettingsFromStorage from './actions/initialSettingsFromStorage';
 import changeLanguage from './actions/changeLanguage';
+import changeTheme from './actions/changeTheme';
+import changeThemeMode from './actions/changeThemeMode';
 import {BaseColor, ThemeColor, ThemeModeColor} from 'config/color';
+import {ThemeModeConstant} from 'config/constant';
 
 const initialState = {
     locale: 'en',
     i18n: I18n,
     theme: 'orange',
-    themeMode: 'light'
+    themeMode: ThemeModeConstant.THEME_MODE_LIGHT
 };
 
 const AppProvider = ({children, ...props}) => {
@@ -19,7 +22,16 @@ const AppProvider = ({children, ...props}) => {
     const [themeMode, setThemeMode] = useState(initialState.themeMode);
 
     useEffect(() => {
-        initialSettingsFromStorage({locale, setLocale, i18n, setI18n}).catch(console.log);
+        initialSettingsFromStorage({
+            locale,
+            setLocale,
+            i18n,
+            setI18n,
+            theme,
+            setTheme,
+            themeMode,
+            setThemeMode
+        }).catch(console.log);
     }, []);
 
     const value = {
@@ -27,6 +39,7 @@ const AppProvider = ({children, ...props}) => {
             locale,
             i18n,
             theme,
+            themeMode,
             color: {
                 ...BaseColor,
                 ...ThemeColor[theme],
@@ -34,7 +47,9 @@ const AppProvider = ({children, ...props}) => {
             }
         },
         actions: {
-            changeLanguage: changeLanguage({locale, setLocale, i18n, setI18n})
+            changeLanguage: changeLanguage({locale, setLocale, i18n, setI18n}),
+            changeTheme: changeTheme({theme, setTheme}),
+            changeThemeMode: changeThemeMode({themeMode, setThemeMode})
         }
     };
 

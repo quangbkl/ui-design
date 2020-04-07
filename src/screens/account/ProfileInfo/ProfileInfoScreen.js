@@ -4,7 +4,7 @@ import {
     View,
     SafeAreaView,
     ScrollView,
-    StyleSheet,
+    StyleSheet
 } from 'react-native';
 import {
     ProfileDetail,
@@ -14,6 +14,7 @@ import {
     Button,
     Header,
     Touchable,
+    ListItemAngleRight
 } from 'components';
 import appRoutes from 'navigations/appRoutes';
 
@@ -32,8 +33,12 @@ const ProfileInfoScreen = (props) => {
         performance: [
             {value: '92.1%', title: 'Feedback'},
             {value: '99', title: 'Items'},
-            {value: '10k', title: 'Followers'},
-        ],
+            {value: '10k', title: 'Followers'}
+        ]
+    };
+
+    const handleNavigate = (route) => () => {
+        return navigation.navigate(route);
     };
 
     return (
@@ -49,99 +54,32 @@ const ProfileInfoScreen = (props) => {
                         point={userData.point}
                         textSecond={userData.address}
                         textThird={userData.id}
-                        onPress={() =>
-                            navigation.navigate('')
-                        }
+                        onPress={handleNavigate('')}
                     />
                     <ProfilePerformance
                         data={userData.performance}
                         style={styles.performanceContainer}
                     />
                     <View style={{width: '100%'}}>
-                        <Touchable
-                            style={styles.profileItem}
-                            onPress={() => {
-                                navigation.navigate(appRoutes.PROFILE_EDIT);
-                            }}
-                        >
-                            <Text body1>Edit Profile</Text>
-                            <CustomIcon
-                                name="angle-right"
-                                size={18}
-                                color={BaseColor.primaryColor}
-                                style={{marginLeft: 5}}
-                            />
-                        </Touchable>
-                        <Touchable
-                            style={styles.profileItem}
-                            onPress={() => {
-                                navigation.navigate(appRoutes.CHANGE_PASSWORD);
-                            }}
-                        >
-                            <Text body1>Change Password</Text>
-                            <CustomIcon
-                                name="angle-right"
-                                size={18}
-                                color={BaseColor.primaryColor}
-                                style={{marginLeft: 5}}
-                            />
-                        </Touchable>
-
-                        <Touchable
-                            style={styles.profileItem}
-                            onPress={() => {
-                                navigation.navigate('');
-                            }}
-                        >
-                            <Text body1>Currency</Text>
-                            <View
-                                style={{
-                                    flexDirection: 'row',
-                                    alignItems: 'center',
-                                }}
-                            >
-                                <Text body1 grayColor>
-                                    VND
-                                </Text>
-                                <CustomIcon
-                                    name="angle-right"
-                                    size={18}
-                                    color={BaseColor.primaryColor}
-                                    style={{marginLeft: 5}}
-                                />
-                            </View>
-                        </Touchable>
-                        <Touchable
-                            style={styles.profileItem}
-                            onPress={() => {
-                                navigation.navigate('');
-                            }}
-                        >
-                            <Text body1>My Cart</Text>
-                            <CustomIcon
-                                name="angle-right"
-                                size={18}
-                                color={BaseColor.primaryColor}
-                                style={{marginLeft: 5}}
-                            />
-                        </Touchable>
-                        <Touchable
-                            style={styles.profileItem}
-                            onPress={() => {
-                                navigation.navigate(appRoutes.PROFILE_SETTING);
-                            }}
-                        >
-                            <Text body1>Settings</Text>
-                            <CustomIcon
-                                name="angle-right"
-                                size={18}
-                                color={BaseColor.primaryColor}
-                                style={{marginLeft: 5}}
-                            />
-                        </Touchable>
+                        <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_EDIT)}>
+                            <Text>Edit Profile</Text>
+                        </ListItemAngleRight>
+                        <ListItemAngleRight onPress={handleNavigate(appRoutes.CHANGE_PASSWORD)}>
+                            <Text>Change Password</Text>
+                        </ListItemAngleRight>
+                        <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_CURRENCY)} value="VND">
+                            <Text>Currency</Text>
+                        </ListItemAngleRight>
+                        <ListItemAngleRight onPress={handleNavigate('')}>
+                            <Text>My Cart</Text>
+                        </ListItemAngleRight>
+                        <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_SETTING)}>
+                            <Text>Settings</Text>
+                        </ListItemAngleRight>
                     </View>
                 </View>
             </ScrollView>
+
             <View style={{padding: 20}}>
                 <Button>
                     Sign Out
@@ -155,28 +93,19 @@ const styles = StyleSheet.create({
     performanceContainer: {
         backgroundColor: '#E8E8E8',
         marginTop: 20,
-        marginBottom: 20,
+        marginBottom: 20
     },
     contentTitle: {
         alignItems: 'flex-start',
         width: '100%',
         height: 32,
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     contain: {
         alignItems: 'center',
         padding: 20,
-        width: '100%',
-    },
-    profileItem: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        borderBottomColor: BaseColor.textSecondaryColor,
-        borderBottomWidth: 1,
-        paddingBottom: 20,
-        paddingTop: 20,
-    },
+        width: '100%'
+    }
 });
 
 export default ProfileInfoScreen;
