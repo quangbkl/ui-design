@@ -15,8 +15,12 @@ import {
 import appRoutes from 'navigations/appRoutes';
 import {Left, Right} from 'native-base';
 import ThemeModeSetting from './ThemeModeSetting';
+import useApp from 'hooks/app/useApp';
 
 const ProfileSettingScreen = (props) => {
+    const {state: appState} = useApp();
+    const {i18n} = appState;
+
     const {navigation} = props;
     const [reminders, setReminders] = useState(false);
 
@@ -30,25 +34,25 @@ const ProfileSettingScreen = (props) => {
         <SafeAreaView
             style={{flex: 1}}
             forceInset={{top: 'always'}}>
-            <Header title="Settings"/>
+            <Header title={i18n.t('main.account.profile_setting.settings')}/>
             <ScrollView>
                 <View style={styles.contain}>
                     <View style={{width: '100%'}}>
                         <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_LANGUAGE)} value="English">
-                            <Text>Language</Text>
+                            <Text>{i18n.t('main.account.profile_setting.language')}</Text>
                         </ListItemAngleRight>
                         <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_THEME)} value="orange">
-                            <Text>Theme</Text>
+                            <Text>{i18n.t('main.account.profile_setting.theme')}</Text>
                         </ListItemAngleRight>
                         <ListItemAngleRight onPress={handleNavigate('')} value="Ruleway">
-                            <Text>Font</Text>
+                            <Text>{i18n.t('main.account.profile_setting.font')}</Text>
                         </ListItemAngleRight>
 
                         <ThemeModeSetting/>
 
                         <ListItem>
                             <Left>
-                                <Text body1>Reminders</Text>
+                                <Text body1>{i18n.t('main.account.profile_setting.reminders')}</Text>
                             </Left>
                             <Right>
                                 <Switch
@@ -61,7 +65,7 @@ const ProfileSettingScreen = (props) => {
 
                         <ListItem>
                             <Left>
-                                <Text body1>App Version</Text>
+                                <Text body1>{i18n.t('main.account.profile_setting.app_version')}</Text>
                             </Left>
                             <Right>
                                 <Text body1 grayColor>1.0.4</Text>
