@@ -46,3 +46,4 @@ mock.onGet('/api/promos').reply((request) => {
 	const {promos} = promosDB;
 	return [200, {promos, page: 1, limit: 10, total: promos.length}];
 });
+export default promosDB;

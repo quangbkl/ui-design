@@ -22,7 +22,7 @@ const DefaultBodyComponent = ({title, description}) => {
     return (
         <View>
             <Text style={styles.title}>{title}</Text>
-            {description ? <Text style={styles.description}>{title}</Text> : null}
+            {description ? <Text style={styles.description}>{description}</Text> : null}
         </View>
     );
 };

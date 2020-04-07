@@ -4,23 +4,24 @@ import {useFilterDynamic} from "../../../hooks/common";
 import {getTours} from "../../../services/tourService";
 import TourCard from "../../../components/TourCard/TourCard";
 import appRoutes from '../../../navigations/appRoutes';
+import tourDB from '../../../__mocks__/db/tours-db';
 
 // TODO: Use TourCard component
 const Tour = (props) => {
   const {navigation} = props;
-	const defaultFilters = {
-		page: 1,
-		limit: 10,
-	};
-	const loadDataTours = (params) => getTours(params)
-	.then(res => res.data.tours);
-	const {
-		loading: loadingTours,
-		list: listTours,
-		fetchData,
-		refreshPage,
-		fetchNext,
-	} = useFilterDynamic(defaultFilters, loadDataTours);
+	// const defaultFilters = {
+	// 	page: 1,
+	// 	limit: 10,
+	// };
+	// const loadDataTours = (params) => getTours(params)
+	// .then(res => res.data.tours);
+	// const {
+	// 	loading: loadingTours,
+	// 	list: listTours,
+	// 	fetchData,
+	// 	refreshPage,
+	// 	fetchNext,
+	// } = useFilterDynamic(defaultFilters, loadDataTours);
 	
 	const renderListItem = ({item}) => {
 		return (
@@ -31,9 +32,9 @@ const Tour = (props) => {
 		);
 	};
 	
-	useEffect(() => {
-		fetchData();
-	}, []);
+	// useEffect(() => {
+	// 	fetchData();
+	// }, []);
 	
 	
 	
@@ -43,12 +44,13 @@ const Tour = (props) => {
 			<Text style={styles.shortDescription}>let find out what most interesting things</Text>
 			<FlatList
           horizontal
-          data={listTours}
+          data={tourDB.tours}
+          // data={listTours}
           renderItem={renderListItem}
-          refreshing={loadingTours}
-          onRefresh={refreshPage}
-          onEndReached={fetchNext}
-          onEndReachedThreshold={0.5}
+          // refreshing={loadingTours}
+          // onRefresh={refreshPage}
+          // onEndReached={fetchNext}
+          // onEndReachedThreshold={0.5}
           keyExtractor={item => item.id.toString()}
           showsHorizontalScrollIndicator={false}
 			/>
