@@ -3,9 +3,7 @@ import {ViewPropTypes, Text} from 'react-native';
 import PropTypes from 'prop-types';
 
 const Coupon = () => {
-    return (
-        <Text>Coupon</Text>
-    );
+    return <Text>Coupon</Text>;
 };
 
 Coupon.propTypes = {

@@ -14,12 +14,14 @@ const ThemeModeSetting = () => {
 
     return (
         <>
-            <ListItemAngleRight onPress={toggleModal} value={i18n.t('shared.' + themeMode)}>
+            <ListItemAngleRight
+                onPress={toggleModal}
+                value={i18n.t('shared.' + themeMode)}>
                 <Text>{i18n.t('main.account.profile_setting.theme_mode')}</Text>
             </ListItemAngleRight>
 
             <Modal isVisible={isModalVisible} onBackdropPress={toggleModal}>
-                <ThemeModeSettingContent/>
+                <ThemeModeSettingContent />
             </Modal>
         </>
     );

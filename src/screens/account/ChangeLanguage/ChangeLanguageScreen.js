@@ -1,11 +1,6 @@
 import React, {useState} from 'react';
 import {BaseColor} from 'config/color';
-import {
-    Text,
-    Header,
-    Touchable,
-    CustomIcon,
-} from 'components';
+import {Text, Header, Touchable, CustomIcon} from 'components';
 import {
     View,
     SafeAreaView,
@@ -29,46 +24,45 @@ const LanguageData = [
 
 const ChangeLanguageScreen = () => {
     const currentLang = 'en';
-    const [language, setLanguage] = useState(LanguageData.map(lang => {
-        return {
-            ...lang,
-            checked: lang.locale === currentLang,
-        };
-    }));
+    const [language, setLanguage] = useState(
+        LanguageData.map(lang => {
+            return {
+                ...lang,
+                checked: lang.locale === currentLang,
+            };
+        }),
+    );
 
-    const onChange = (select) => {
-        setLanguage(language.map(lang => {
-            if (lang.language === select.language) {
-                return {
-                    ...lang,
-                    checked: true,
-                };
-            } else {
-                return {
-                    ...lang,
-                    checked: false,
-                };
-            }
-        }));
+    const onChange = select => {
+        setLanguage(
+            language.map(lang => {
+                if (lang.language === select.language) {
+                    return {
+                        ...lang,
+                        checked: true,
+                    };
+                } else {
+                    return {
+                        ...lang,
+                        checked: false,
+                    };
+                }
+            }),
+        );
     };
 
     const renderListItem = ({item}) => {
         return (
-            <Touchable
-                style={styles.item}
-                onPress={() => onChange(item)}
-            >
+            <Touchable style={styles.item} onPress={() => onChange(item)}>
                 <Text
                     body1
                     style={
                         item.checked
                             ? {
-                                color:
-                                BaseColor.primaryColor,
+                                color: BaseColor.primaryColor,
                             }
                             : {}
-                    }
-                >
+                    }>
                     {item.language}
                 </Text>
                 {item.checked && (
@@ -91,10 +85,7 @@ const ChangeLanguageScreen = () => {
     };
 
     return (
-        <SafeAreaView
-            style={{flex: 1}}
-            forceInset={{top: 'always'}}
-        >
+        <SafeAreaView style={{flex: 1}} forceInset={{top: 'always'}}>
             <Header
                 title="Change Language"
                 RightComponent={<HeaderRightComponent />}

@@ -6,14 +6,14 @@ export const useFilterDynamic = (defaultFilters, callApi) => {
     const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
 
-    const updateFilters = (data) => {
+    const updateFilters = data => {
         setFilters({
             ...filters,
             ...data,
         });
     };
 
-    const fetch = (otherFilters) => {
+    const fetch = otherFilters => {
         setLoading(true);
         return callApi({...filters, ...otherFilters})
             .catch(() => {

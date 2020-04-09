@@ -46,8 +46,7 @@ const appRoutes = {
     PROFILE_THEME_MODE: 'Profile Theme Mode',
 
     // REST
-    PREVIEW_BOOKING: 'Preview Booking'
-
+    PREVIEW_BOOKING: 'Preview Booking',
 };
 
 export default appRoutes;

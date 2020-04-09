@@ -19,7 +19,9 @@ export {default as TextInput} from './TextInput/TextInput';
 export {default as Touchable} from './Touchable/Touchable';
 export {default as TourCard} from './TourCard/TourCard';
 export {default as ProfileDetail} from './ProfileDetail/ProfileDetail';
-export {default as ProfilePerformance} from './ProfilePerformance/ProfilePerformance';
+export {
+    default as ProfilePerformance,
+} from './ProfilePerformance/ProfilePerformance';
 export {default as CustomIcon} from './Icon/CustomIcon';
 export {default as withSafeAreaView} from './HOC/withSafeAreaView';
 export {default as SelectList} from './SelectList/SelectList';

@@ -16,7 +16,6 @@ export const FontWeight = {
     black: '900',
 };
 
-
 export const Typography = StyleSheet.create({
     header: {
         fontSize: 34,

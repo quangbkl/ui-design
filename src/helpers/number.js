@@ -1,4 +1,4 @@
-export const normalizeNumber = (number) => {
+export const normalizeNumber = number => {
     if (!number) {
         return null;
     }

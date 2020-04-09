@@ -7,18 +7,18 @@ import Tour from './Tour';
 import UpcomingEvents from './UpcomingEvents';
 import Promotion from './Promotion';
 
-const HomeScreen = (props) => {
+const HomeScreen = props => {
     const {navigation} = props;
 
     return (
         <ScrollView style={styles.container}>
-            <Banner/>
+            <Banner />
             <View style={styles.content}>
-                <SearchMenu navigation={navigation}/>
-                <PromosToday navigation={navigation}/>
-                <Tour navigation={navigation}/>
-                <UpcomingEvents/>
-                <Promotion/>
+                <SearchMenu navigation={navigation} />
+                <PromosToday navigation={navigation} />
+                <Tour navigation={navigation} />
+                <UpcomingEvents />
+                <Promotion />
             </View>
         </ScrollView>
     );

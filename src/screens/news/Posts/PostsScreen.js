@@ -7,38 +7,42 @@ import {getPosts} from 'services/postServices';
 import {useFilterDynamic} from 'hooks/common';
 import appRoutes from 'navigations/appRoutes';
 
-const PostsScreen = (props) => {
+const PostsScreen = props => {
     const {navigation} = props;
     const defaultFilters = {
         page: 1,
-        limit: 10
+        limit: 10,
     };
-    const loadDataPosts = (params) => getPosts(params)
-        .then(res => res.data.posts);
+    const loadDataPosts = params =>
+        getPosts(params).then(res => res.data.posts);
     const {
         loading: loadingPosts,
         list: listPosts,
         fetchData,
         refreshPage,
-        fetchNext
+        fetchNext,
     } = useFilterDynamic(defaultFilters, loadDataPosts);
 
     const renderListItem = ({item}) => {
         return (
             <PostItem
                 item={item}
-                onPress={() => navigation.navigate(appRoutes.POST_DETAIL, {postId: item.id})}
+                onPress={() =>
+                    navigation.navigate(appRoutes.POST_DETAIL, {
+                        postId: item.id,
+                    })
+                }
             />
         );
     };
 
     useEffect(() => {
         fetchData().catch(console.log);
-    }, []);
+    }, [fetchData]);
 
     return (
         <Container>
-            <Header title="Post" LeftComponent={null}/>
+            <Header title="Post" LeftComponent={null} />
             <FlatList
                 data={listPosts}
                 renderItem={renderListItem}

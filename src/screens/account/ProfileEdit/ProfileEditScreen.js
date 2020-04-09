@@ -13,23 +13,22 @@ import {
 const ProfileEditScreen = () => {
     const userData = {
         id: '1',
-        image: 'https://scontent-xsp1-1.xx.fbcdn.net/v/t1.0-9/80675594_2407151019538149_7255447717231460352_o.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=f8ELipMK0lkAX_Ea6wb&_nc_ht=scontent-xsp1-1.xx&oh=7911fcd87a1d90d45722adf74d30ee97&oe=5EB06405',
+        image:
+            'https://scontent-xsp1-1.xx.fbcdn.net/v/t1.0-9/80675594_2407151019538149_7255447717231460352_o.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=f8ELipMK0lkAX_Ea6wb&_nc_ht=scontent-xsp1-1.xx&oh=7911fcd87a1d90d45722adf74d30ee97&oe=5EB06405',
         name: 'Phi Xuan Hoan',
         major: 'Travel Company',
         email: 'phihoan10@gmail.com',
         address: 'Ha Noi, Viet Nam',
         point: '9.5',
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
+        about:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
     };
 
     const {id, name, email, address, image} = userData;
 
     return (
-        <SafeAreaView
-            style={{flex: 1}}
-            forceInset={{top: 'always'}}
-        >
-            <Header title="Edit Profile"/>
+        <SafeAreaView style={{flex: 1}} forceInset={{top: 'always'}}>
+            <Header title="Edit Profile" />
             <ScrollView>
                 <View style={styles.contain}>
                     <View>

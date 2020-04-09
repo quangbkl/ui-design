@@ -10,9 +10,14 @@ import useApp from '../hooks/app/useApp';
 
 const Tab = createBottomTabNavigator();
 
-const ROOT_ROUTES = [appRoutes.HOME, appRoutes.BOOKING, appRoutes.POST_LIST, appRoutes.PROFILE_SETTING];
+const ROOT_ROUTES = [
+    appRoutes.HOME,
+    appRoutes.BOOKING,
+    appRoutes.POST_LIST,
+    appRoutes.PROFILE_SETTING,
+];
 
-const isOneOfRootRoutes = (currentRoute) => {
+const isOneOfRootRoutes = currentRoute => {
     return ROOT_ROUTES.find(route => currentRoute.name === route) !== undefined;
 };
 
@@ -33,18 +38,22 @@ const MainNavigator = () => {
                 activeTintColor: color.primaryColor,
                 inactiveTintColor: color.grayColor,
                 style: {
-                    backgroundColor: color.fieldColor
-                }
-            }}
-        >
+                    backgroundColor: color.fieldColor,
+                },
+            }}>
             <Tab.Screen
                 name={appRoutes.HOME}
                 component={HomeNavigator}
                 options={{
                     tabBarLabel: appRoutes.HOME,
                     tabBarIcon: ({color, size}) => (
-                        <FontAwesome5 name="home" color={color} size={size} solid/>
-                    )
+                        <FontAwesome5
+                            name="home"
+                            color={color}
+                            size={size}
+                            solid
+                        />
+                    ),
                 }}
             />
             <Tab.Screen
@@ -53,8 +62,13 @@ const MainNavigator = () => {
                 options={{
                     tabBarLabel: appRoutes.BOOKING,
                     tabBarIcon: ({color, size}) => (
-                        <FontAwesome5 name="bookmark" color={color} size={size} solid/>
-                    )
+                        <FontAwesome5
+                            name="bookmark"
+                            color={color}
+                            size={size}
+                            solid
+                        />
+                    ),
                 }}
             />
             <Tab.Screen
@@ -63,8 +77,13 @@ const MainNavigator = () => {
                 options={{
                     tabBarLabel: appRoutes.NEWS,
                     tabBarIcon: ({color, size}) => (
-                        <FontAwesome5 name="copy" color={color} size={size} solid/>
-                    )
+                        <FontAwesome5
+                            name="copy"
+                            color={color}
+                            size={size}
+                            solid
+                        />
+                    ),
                 }}
             />
             <Tab.Screen
@@ -73,11 +92,15 @@ const MainNavigator = () => {
                 options={{
                     tabBarLabel: appRoutes.ACCOUNT,
                     tabBarIcon: ({color, size}) => (
-                        <FontAwesome5 name="user-circle" color={color} size={size} solid/>
-                    )
+                        <FontAwesome5
+                            name="user-circle"
+                            color={color}
+                            size={size}
+                            solid
+                        />
+                    ),
                 }}
             />
-
         </Tab.Navigator>
     );
 };

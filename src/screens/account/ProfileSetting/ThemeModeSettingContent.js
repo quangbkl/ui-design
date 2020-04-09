@@ -12,7 +12,7 @@ const ThemeModeSettingContent = () => {
 
     const [themeMode, setThemeMode] = useState(appState.themeMode);
 
-    const handleChangeThemeMode = (newThemeMode) => {
+    const handleChangeThemeMode = newThemeMode => {
         setThemeMode(newThemeMode);
     };
 
@@ -27,21 +27,25 @@ const ThemeModeSettingContent = () => {
                     <Text>{i18n.t('shared.light')}</Text>
                 </SelectListItemCheck>
 
-                <SelectListItemCheck value={ThemeModeConstant.THEME_MODE_DARK} style={{borderBottomWidth: 0}}>
+                <SelectListItemCheck
+                    value={ThemeModeConstant.THEME_MODE_DARK}
+                    style={{borderBottomWidth: 0}}>
                     <Text>{i18n.t('shared.dark')}</Text>
                 </SelectListItemCheck>
             </SelectList>
 
             <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
                 <TextButton>{i18n.t('shared.cancel')}</TextButton>
-                <TextButton onPress={handleApplyTheme} style={{marginLeft: 40}}>{i18n.t('shared.apply')}</TextButton>
+                <TextButton onPress={handleApplyTheme} style={{marginLeft: 40}}>
+                    {i18n.t('shared.apply')}
+                </TextButton>
             </View>
         </View>
     );
 };
 
 ThemeModeSettingContent.propTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
 };
 
 export default ThemeModeSettingContent;

@@ -8,7 +8,7 @@ const handlePressButton = () => {
     console.log('Button pressed!');
 };
 
-const Button = (props) => {
+const Button = props => {
     const {state: appState} = useApp();
     const {color} = appState;
 
@@ -18,17 +18,27 @@ const Button = (props) => {
         styles.main,
         {backgroundColor: color.primaryColor},
         style,
-        disabled && {opacity: 0.5}
+        disabled && {opacity: 0.5},
     ];
 
     return (
         <Touchable
             onPress={onPress || handlePressButton}
             style={mainStyle}
-            disabled={disabled}
-        >
-            <Text style={{color: (style && style.color) || 'white', fontSize: 14}}>{children}</Text>
-            {loading && <ActivityIndicator style={styles.activityIndicator} color={(style && style.color) || 'white'}/>}
+            disabled={disabled}>
+            <Text
+                style={{
+                    color: (style && style.color) || 'white',
+                    fontSize: 14,
+                }}>
+                {children}
+            </Text>
+            {loading && (
+                <ActivityIndicator
+                    style={styles.activityIndicator}
+                    color={(style && style.color) || 'white'}
+                />
+            )}
         </Touchable>
     );
 };
@@ -40,11 +50,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 10,
         height: 55,
-        borderRadius: 5
+        borderRadius: 5,
     },
     activityIndicator: {
-        marginLeft: 5
-    }
+        marginLeft: 5,
+    },
 });
 
 Button.propTypes = {
@@ -55,7 +65,7 @@ Button.propTypes = {
     style: ViewPropTypes.style,
     loading: PropTypes.bool,
     disabled: PropTypes.bool,
-    onPress: PropTypes.func
+    onPress: PropTypes.func,
 };
 
 export default Button;

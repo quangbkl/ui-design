@@ -4,7 +4,7 @@ import vi from './locales/vi';
 
 I18n.translations = {
     en,
-    vi
+    vi,
 };
 
 export default I18n;

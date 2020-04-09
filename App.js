@@ -8,7 +8,7 @@ export default () => {
     return (
         <AppProvider>
             <Suspense fallback={null}>
-                <RootNavigator/>
+                <RootNavigator />
             </Suspense>
         </AppProvider>
     );

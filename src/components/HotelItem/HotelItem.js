@@ -17,8 +17,13 @@ const HotelItem = ({view, item, ...rest}) => {
     const Item = Items[view || 'block'] || Items.block;
 
     return (
-        <Touchable onPress={() => navigation.navigate(appRoutes.HOTEL_DETAIL, {hotelId: item.hotel.id})}>
-            <Item item={item} {...rest}/>
+        <Touchable
+            onPress={() =>
+                navigation.navigate(appRoutes.HOTEL_DETAIL, {
+                    hotelId: item.hotel.id,
+                })
+            }>
+            <Item item={item} {...rest} />
         </Touchable>
     );
 };

@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 
 // Preview component: http://passionui.com/wp-content/uploads/2019/07/2019-07-21_1223.png
 const BookingHistory = () => {
-    return (
-        <Text>BookingHistory</Text>
-    );
+    return <Text>BookingHistory</Text>;
 };
 
 // Example props:

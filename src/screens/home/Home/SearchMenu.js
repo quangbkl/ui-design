@@ -21,18 +21,22 @@ const MenuItem = ({icon, text, onClick}) => {
                     elevation: 0,
                     backgroundColor: 'white',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
                 }}
-                onPress={onClick}
-            >
-                <FontAwesome5Icon name={icon} size={20} color={color.primaryColor} solid/>
+                onPress={onClick}>
+                <FontAwesome5Icon
+                    name={icon}
+                    size={20}
+                    color={color.primaryColor}
+                    solid
+                />
             </Button>
             <Text style={{color: color.grayColor, fontSize: 13}}>{text}</Text>
         </Col>
     );
 };
 
-const SearchMenu = (props) => {
+const SearchMenu = props => {
     const {state: appState} = useApp();
     const {color} = appState;
 
@@ -42,13 +46,16 @@ const SearchMenu = (props) => {
         styles.main,
         {
             backgroundColor: color.backgroundColor,
-            borderColor: color.dividerColor
-        }
+            borderColor: color.dividerColor,
+        },
     ];
 
     return (
         <View style={mainStyle}>
-            <TextInput style={styles.textInput} placeholder="What're you locking for ?"/>
+            <TextInput
+                style={styles.textInput}
+                placeholder="What're you locking for ?"
+            />
 
             <View style={{marginTop: 10}}>
                 <Grid>
@@ -56,17 +63,19 @@ const SearchMenu = (props) => {
                         <MenuItem
                             text="Hotel"
                             icon="calendar-alt"
-                            onClick={() => navigation.navigate(appRoutes.HOTELS)}
+                            onClick={() =>
+                                navigation.navigate(appRoutes.HOTELS)
+                            }
                         />
-                        <MenuItem text="Tour" icon="map-marker-alt"/>
-                        <MenuItem text="Car" icon="car-alt"/>
-                        <MenuItem text="Flight" icon="plane"/>
+                        <MenuItem text="Tour" icon="map-marker-alt" />
+                        <MenuItem text="Car" icon="car-alt" />
+                        <MenuItem text="Flight" icon="plane" />
                     </Row>
                     <Row>
-                        <MenuItem text="Cruise" icon="ship"/>
-                        <MenuItem text="Bus" icon="bus-alt"/>
-                        <MenuItem text="Event" icon="star"/>
-                        <MenuItem text="More" icon="ellipsis-h"/>
+                        <MenuItem text="Cruise" icon="ship" />
+                        <MenuItem text="Bus" icon="bus-alt" />
+                        <MenuItem text="Event" icon="star" />
+                        <MenuItem text="More" icon="ellipsis-h" />
                     </Row>
                 </Grid>
             </View>
@@ -79,17 +88,17 @@ const styles = StyleSheet.create({
         marginTop: -40,
         padding: 10,
         borderRadius: 10,
-        borderWidth: 1
+        borderWidth: 1,
     },
     textInput: {
         backgroundColor: 'white',
         padding: 10,
-        fontSize: 17
+        fontSize: 17,
     },
     menuItem: {
         alignItems: 'center',
-        justifyContent: 'center'
-    }
+        justifyContent: 'center',
+    },
 });
 
 export default SearchMenu;

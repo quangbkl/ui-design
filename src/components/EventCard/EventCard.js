@@ -2,14 +2,11 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import Touchable from '../Touchable/Touchable';
 
-const EventCard = (props) => {
+const EventCard = props => {
     const {item} = props;
 
     return (
-        <Touchable
-            style={styles.container}
-            onPress={() => onSelect(item.key)}
-        >
+        <Touchable style={styles.container} onPress={() => onSelect(item.key)}>
             <Image
                 source={{
                     uri: item.src,
@@ -56,7 +53,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     left: {
-
         textAlign: 'center',
         flex: 1,
         flexDirection: 'column',
@@ -79,14 +75,12 @@ const styles = StyleSheet.create({
         color: '#e5634d',
         fontSize: 15,
         textAlign: 'center',
-
     },
     day: {
         color: '#9b9b9b',
         fontSize: 17,
         textAlign: 'center',
     },
-
 });
 
 export default EventCard;

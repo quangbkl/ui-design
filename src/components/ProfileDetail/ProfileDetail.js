@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, Image} from "react-native";
-import {BaseColor} from "config/color";
-import CustomIcon from "../Icon/CustomIcon";
-import Text from "../Text/Text";
-import Touchable from "../Touchable/Touchable"
+import {View, StyleSheet, Image} from 'react-native';
+import {BaseColor} from 'config/color';
+import CustomIcon from '../Icon/CustomIcon';
+import Text from '../Text/Text';
+import Touchable from '../Touchable/Touchable';
 
-const ProfileDetail = (props) => {
+const ProfileDetail = props => {
     const {
         style,
         image,
@@ -17,15 +17,14 @@ const ProfileDetail = (props) => {
         point,
         textSecond,
         textThird,
-        icon
+        icon,
     } = props;
-    
+
     return (
         <Touchable
             style={[styles.contain, style]}
             onPress={onPress}
-            activeOpacity={0.9}
-        >
+            activeOpacity={0.9}>
             <View style={[styles.contentLeft, styleLeft]}>
                 <View>
                     <Image
@@ -48,10 +47,9 @@ const ProfileDetail = (props) => {
                         body2
                         style={{
                             marginTop: 3,
-                            paddingRight: 10
+                            paddingRight: 10,
                         }}
-                        numberOfLines={1}
-                    >
+                        numberOfLines={1}>
                         {textSecond}
                     </Text>
                     <Text footnote grayColor numberOfLines={1}>
@@ -73,35 +71,35 @@ const ProfileDetail = (props) => {
 };
 
 const styles = StyleSheet.create({
-    contain: { flexDirection: "row" },
+    contain: {flexDirection: 'row'},
     contentLeft: {
         flex: 8,
-        flexDirection: "row",
-        justifyContent: "flex-start",
-        alignItems: "center"
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
     },
     thumb: {
         width: 60,
         height: 60,
         borderRadius: 30,
-        marginRight: 10
+        marginRight: 10,
     },
     contentRight: {
         flex: 2,
-        justifyContent: "center",
-        alignItems: "flex-end"
+        justifyContent: 'center',
+        alignItems: 'flex-end',
     },
     point: {
         width: 18,
         height: 18,
         borderRadius: 9,
         backgroundColor: BaseColor.lightPrimaryColor,
-        alignItems: "center",
-        justifyContent: "center",
-        position: "absolute",
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
         right: 9,
-        bottom: 0
-    }
+        bottom: 0,
+    },
 });
 
 ProfileDetail.defaultProps = {
@@ -109,4 +107,3 @@ ProfileDetail.defaultProps = {
 };
 
 export default ProfileDetail;
-

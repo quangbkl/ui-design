@@ -4,7 +4,7 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import {BaseColor} from 'config/color';
 import Touchable from '../Touchable/Touchable';
 
-const CustomIcon = (props) => {
+const CustomIcon = props => {
     const {type, onPress, color, size, ...rest} = props;
     return (
         <Touchable onPress={onPress}>
@@ -21,8 +21,7 @@ CustomIcon.propTypes = {
 };
 
 CustomIcon.defaultProps = {
-    onPress: () => {
-    },
+    onPress: () => {},
     color: BaseColor.primaryColor,
     size: 18,
 };

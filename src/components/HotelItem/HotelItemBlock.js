@@ -58,7 +58,7 @@ const HotelItemBlock = ({item}) => {
     const renderService = ({item: service}) => {
         return (
             <View style={styles.serviceItem}>
-                <CustomIcon style={styles.icon} type={service.key} size={17}/>
+                <CustomIcon style={styles.icon} type={service.key} size={17} />
                 <Text style={styles.nameService}>{service.name}</Text>
             </View>
         );
@@ -75,13 +75,15 @@ const HotelItemBlock = ({item}) => {
             </View>
             <Text style={styles.name}>{hotel.name}</Text>
             <View style={styles.locationBlock}>
-                <CustomIcon type="map-marker-alt" size={13}/>
+                <CustomIcon type="map-marker-alt" size={13} />
                 <Text style={styles.locationText}>{hotel.location}</Text>
             </View>
             <View style={styles.mainInfo}>
                 <View>
                     <Text style={styles.price}>{hotel.price}</Text>
-                    <Text style={styles.available}>{`Only ${roomAvailable.length} room(s) leaft`}</Text>
+                    <Text style={styles.available}>{`Only ${
+                        roomAvailable.length
+                    } room(s) leaft`}</Text>
                 </View>
                 <View style={styles.rightMain}>
                     <Text style={styles.rateText}>{getRatePerFive(hotel)}</Text>

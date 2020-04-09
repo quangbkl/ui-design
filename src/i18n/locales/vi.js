@@ -3,13 +3,13 @@ export default {
         walkthrough: {},
         sign_in: {},
         sign_up: {},
-        reset_password: {}
+        reset_password: {},
     },
     main: {
         home: {},
         booking: {
             booking: 'Đặt trước',
-            change_to: 'Thay đổi thành %{lang}'
+            change_to: 'Thay đổi thành %{lang}',
         },
         news: {},
         account: {
@@ -20,14 +20,14 @@ export default {
                 font: 'Phông chữ',
                 theme_mode: 'Chế độ chủ đề',
                 reminders: 'Nhắc nhở',
-                app_version: 'Phiên bản ứng dụng'
-            }
-        }
+                app_version: 'Phiên bản ứng dụng',
+            },
+        },
     },
     shared: {
         apply: 'Áp dụng',
         cancel: 'Hủy bỏ',
         dark: 'Tối',
-        light: 'Sáng'
-    }
+        light: 'Sáng',
+    },
 };

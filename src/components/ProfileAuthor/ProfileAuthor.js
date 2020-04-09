@@ -7,13 +7,13 @@ import moment from 'moment';
 import {BaseColor} from 'config/color';
 import {normalizeNumber} from 'helpers/number';
 
-const ProfileAuthor = (props) => {
+const ProfileAuthor = props => {
     const {name, view, publishDate, image, showDate} = props;
-    const fromNowDate = (date) => {
+    const fromNowDate = date => {
         const text = moment(date).fromNow();
         return text;
     };
-    const formatLL = (date) => {
+    const formatLL = date => {
         const text = moment(date).format('LL');
         return text;
     };
@@ -81,4 +81,3 @@ ProfileAuthor.defaultProps = {
 };
 
 export default ProfileAuthor;
-

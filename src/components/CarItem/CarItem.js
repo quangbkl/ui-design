@@ -7,8 +7,12 @@ import {CardItem} from 'native-base';
 const CarItem = () => {
     return (
         <CardItem cardBody>
-            <View><Text>AAAA</Text></View>
-            <View><Text>BBBB</Text></View>
+            <View>
+                <Text>AAAA</Text>
+            </View>
+            <View>
+                <Text>BBBB</Text>
+            </View>
         </CardItem>
     );
 };

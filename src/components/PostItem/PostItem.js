@@ -7,7 +7,7 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import ProfileAuthor from '../ProfileAuthor/ProfileAuthor';
 import Touchable from '../Touchable/Touchable';
 
-const PostItem = (props) => {
+const PostItem = props => {
     const {onPress, item} = props;
     const {title, description, image, view, publishDate, author} = item;
     return (
@@ -25,7 +25,10 @@ const PostItem = (props) => {
                         uri: image,
                     }}
                 />
-                <FontAwesome5Icon style={styles.iconAddToFavorite} name="bookmark"/>
+                <FontAwesome5Icon
+                    style={styles.iconAddToFavorite}
+                    name="bookmark"
+                />
             </View>
             <View style={styles.contentContainer}>
                 <Text style={styles.title}>{title}</Text>
@@ -62,4 +65,3 @@ const styles = StyleSheet.create({
 });
 
 export default PostItem;
-

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-    View,
-    Text,
-    StyleSheet,
-    Dimensions,
-    Image,
-} from 'react-native';
+import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import {Rating} from 'react-native-ratings';
 import {getImageHotel, getRatePerFive} from 'helpers/hotel';
 import {BaseColor} from 'config/color';
@@ -25,7 +19,7 @@ const HotelItemGrid = ({item}) => {
                 }}
             />
             <View style={styles.locationBlock}>
-                <CustomIcon type="map-marker-alt" size={13}/>
+                <CustomIcon type="map-marker-alt" size={13} />
                 <Text style={styles.locationText}>{hotel.location}</Text>
             </View>
             <Text style={styles.name}>{hotel.name}</Text>
@@ -36,7 +30,9 @@ const HotelItemGrid = ({item}) => {
                     imageSize={14}
                     readonly
                 />
-                <Text style={styles.review}>{`${hotel.reviews.length} reviews`}</Text>
+                <Text style={styles.review}>{`${
+                    hotel.reviews.length
+                } reviews`}</Text>
             </View>
             <Text style={styles.price}>{hotel.price}</Text>
         </View>

@@ -13,7 +13,7 @@ const ProfileThemeScreen = () => {
 
     const [selectedTheme, setSelectedTheme] = useState(theme);
 
-    const handleSelectTheme = (selectedValue) => {
+    const handleSelectTheme = selectedValue => {
         setSelectedTheme(selectedValue);
     };
 
@@ -23,25 +23,22 @@ const ProfileThemeScreen = () => {
 
     return (
         <Container style={styles.main}>
-            <Header title="Theme"/>
+            <Header title="Theme" />
             <ScrollView style={{flex: 1}}>
                 <SelectList value={selectedTheme} onChange={handleSelectTheme}>
-                    {
-                        Object.entries(ThemeColor).map(([themeColor, {primaryColor}]) =>
+                    {Object.entries(ThemeColor).map(
+                        ([themeColor, {primaryColor}]) => (
                             <ThemeListItem
                                 key={themeColor}
                                 value={themeColor}
                                 name={themeColor}
                                 color={primaryColor}
                             />
-                        )
-                    }
+                        ),
+                    )}
                 </SelectList>
             </ScrollView>
-            <Button
-                style={styles.buttonApply}
-                onPress={handlePressButton}
-            >
+            <Button style={styles.buttonApply} onPress={handlePressButton}>
                 {i18n.t('shared.apply')}
             </Button>
         </Container>
@@ -51,12 +48,12 @@ const ProfileThemeScreen = () => {
 const styles = StyleSheet.create({
     main: {
         paddingLeft: 20,
-        paddingRight: 20
+        paddingRight: 20,
     },
     buttonApply: {
         marginTop: 15,
-        marginBottom: 15
-    }
+        marginBottom: 15,
+    },
 });
 
 ProfileThemeScreen.propTypes = {};

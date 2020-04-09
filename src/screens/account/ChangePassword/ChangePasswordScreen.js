@@ -14,11 +14,8 @@ const ChangePasswordScreen = () => {
     const repassword = '';
 
     return (
-        <SafeAreaView
-            style={{flex: 1}}
-            forceInset={{top: 'always'}}
-        >
-            <Header title="Change Password"/>
+        <SafeAreaView style={{flex: 1}} forceInset={{top: 'always'}}>
+            <Header title="Change Password" />
             <ScrollView>
                 <View style={styles.contain}>
                     <View style={styles.contentTitle}>

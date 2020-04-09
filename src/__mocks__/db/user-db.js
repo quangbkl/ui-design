@@ -23,13 +23,13 @@ const userDB = {
     ],
 };
 
-mock.onGet('/api/users').reply((request) => {
+mock.onGet('/api/users').reply(request => {
     const {page, limit} = request.params;
     const {users} = userDB;
     return [200, {users, page: 1, limit: 10, total: users.length}];
 });
 
-mock.onPost('/auth/sign-up').reply((request) => {
+mock.onPost('/auth/sign-up').reply(request => {
     const {full_name, email, password} = request.data;
     const {users} = userDB;
     const user = {full_name, email, password, role: 'guest'};
@@ -37,16 +37,23 @@ mock.onPost('/auth/sign-up').reply((request) => {
     return [200, {user}];
 });
 
-
-mock.onPost('/auth/sign-in').reply((request) => {
+mock.onPost('/auth/sign-in').reply(request => {
     const {email, password} = JSON.parse(request.data);
     const {users} = userDB;
 
-    const user = users.find(user => user.email === email && user.password === password);
+    const user = users.find(
+        user => user.email === email && user.password === password,
+    );
 
     if (user) {
         return [200, {user}];
     }
 
-    return [400, {code: 'incorrect_email_or_password', message: 'Incorrect email or password'}];
+    return [
+        400,
+        {
+            code: 'incorrect_email_or_password',
+            message: 'Incorrect email or password',
+        },
+    ];
 });

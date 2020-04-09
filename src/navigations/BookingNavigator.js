@@ -7,8 +7,8 @@ const Stack = createStackNavigator();
 
 const BookingNavigator = () => {
     return (
-        <Stack.Navigator headerMode='none'>
-            <Stack.Screen name={appRoutes.BOOKING} component={BookingScreen}/>
+        <Stack.Navigator headerMode="none">
+            <Stack.Screen name={appRoutes.BOOKING} component={BookingScreen} />
         </Stack.Navigator>
     );
 };

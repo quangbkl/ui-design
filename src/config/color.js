@@ -14,7 +14,7 @@ export const BaseColor = {
     navyBlue: '#3C5A99', // just another color use for the app,
     bluePrimaryColor: '#1890FF',
     backgroundPrimaryColor: '#F2F2F2',
-    backgroundSecondaryColor: '#FFFFFF'
+    backgroundSecondaryColor: '#FFFFFF',
 };
 
 export const ThemeColor = {
@@ -22,41 +22,41 @@ export const ThemeColor = {
         primaryColor: '#E5634D',
         darkPrimaryColor: '#C31C0D',
         lightPrimaryColor: '#FF8A65',
-        accentColor: '#4A90A4'
+        accentColor: '#4A90A4',
     },
     pink: {
         primaryColor: '#E91E63',
         darkPrimaryColor: '#C2185B',
         lightPrimaryColor: '#F8BBD0',
-        accentColor: '#448AFF'
+        accentColor: '#448AFF',
     },
     blue: {
         primaryColor: '#2196F3',
         darkPrimaryColor: '#1976D2',
         lightPrimaryColor: '#BBDEFB',
-        accentColor: '#8BC34A'
+        accentColor: '#8BC34A',
     },
     green: {
         primaryColor: '#4CAF50',
         darkPrimaryColor: '#388E3C',
         lightPrimaryColor: '#C8E6C9',
-        accentColor: '#FF9800'
+        accentColor: '#FF9800',
     },
     yellow: {
         primaryColor: '#FFEB3B',
         darkPrimaryColor: '#FBC02D',
         lightPrimaryColor: '#FFF9C4',
-        accentColor: '#9E9E9E'
-    }
+        accentColor: '#9E9E9E',
+    },
 };
 
 export const ThemeModeColor = {
     light: {
         backgroundPrimaryColor: '#F2F2F2',
-        backgroundSecondaryColor: '#FFFFFF'
+        backgroundSecondaryColor: '#FFFFFF',
     },
     dark: {
         backgroundPrimaryColor: '#F2F2F2',
-        backgroundSecondaryColor: '#FFFFFF'
-    }
+        backgroundSecondaryColor: '#FFFFFF',
+    },
 };

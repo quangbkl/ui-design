@@ -11,8 +11,12 @@ const BookingScreen = () => {
 
     return (
         <View>
-            <Button onPress={() => changeLanguage('vi')}>{i18n.t('main.booking.change_to', {lang: 'VI'})}</Button>
-            <Button onPress={() => changeLanguage('en')}>{i18n.t('main.booking.change_to', {lang: 'EN'})}</Button>
+            <Button onPress={() => changeLanguage('vi')}>
+                {i18n.t('main.booking.change_to', {lang: 'VI'})}
+            </Button>
+            <Button onPress={() => changeLanguage('en')}>
+                {i18n.t('main.booking.change_to', {lang: 'EN'})}
+            </Button>
             <Text>{i18n.t('main.booking.booking')}</Text>
         </View>
     );

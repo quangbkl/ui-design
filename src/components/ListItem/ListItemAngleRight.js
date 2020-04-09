@@ -13,15 +13,26 @@ const ListItemAngleRight = ({value, children, ...rest}) => {
     return (
         <ListItem {...rest}>
             <Left>
-                {
-                    React.Children.map(children, child =>
-                        React.cloneElement(child)
-                    )
-                }
+                {React.Children.map(children, child =>
+                    React.cloneElement(child),
+                )}
             </Left>
-            <Right style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end'}}>
-                {!!value && <Text body1 grayColor style={{marginRight: 5}}>{value}</Text>}
-                <FontAwesome5Icon name="angle-right" size={18} color={color.primaryColor}/>
+            <Right
+                style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                }}>
+                {!!value && (
+                    <Text body1 grayColor style={{marginRight: 5}}>
+                        {value}
+                    </Text>
+                )}
+                <FontAwesome5Icon
+                    name="angle-right"
+                    size={18}
+                    color={color.primaryColor}
+                />
             </Right>
         </ListItem>
     );
@@ -29,7 +40,7 @@ const ListItemAngleRight = ({value, children, ...rest}) => {
 
 ListItemAngleRight.propTypes = {
     ...ListItem.propTypes,
-    value: PropTypes.string
+    value: PropTypes.string,
 };
 
 export default ListItemAngleRight;

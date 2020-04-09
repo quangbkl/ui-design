@@ -7,21 +7,24 @@ import {BaseColor} from 'config/color';
 const slides = [
     {
         key: '1',
-        image: 'https://znews-photo.zadn.vn/w1024/Uploaded/OFH_oazszstq/2018_11_07/p90329147highres.jpg',
+        image:
+            'https://znews-photo.zadn.vn/w1024/Uploaded/OFH_oazszstq/2018_11_07/p90329147highres.jpg',
         text: 'Picking your travel destinations',
     },
     {
         key: '2',
-        image: 'https://dichvuxe.vn/wp-content/uploads/2019/01/bmw-s1000rr-2019-ra-mat-khong-con-mat-le-quen-thuoc-163.jpg',
+        image:
+            'https://dichvuxe.vn/wp-content/uploads/2019/01/bmw-s1000rr-2019-ra-mat-khong-con-mat-le-quen-thuoc-163.jpg',
         text: 'Picking your travel destinations',
     },
     {
         key: '3',
-        image: 'https://i1.wp.com/www.asphaltandrubber.com/wp-content/uploads/2019/03/2019-BMW-S1000RR-Estoril-press-launch-11-scaled.jpg',
+        image:
+            'https://i1.wp.com/www.asphaltandrubber.com/wp-content/uploads/2019/03/2019-BMW-S1000RR-Estoril-press-launch-11-scaled.jpg',
         text: 'Picking your travel destinations',
     },
 ];
-const _renderItem = ({item}) => <ImageSliderItem {...item}/>;
+const _renderItem = ({item}) => <ImageSliderItem {...item} />;
 
 const ImageSlider = () => {
     return (

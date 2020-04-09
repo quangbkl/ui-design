@@ -10,11 +10,17 @@ const Stack = createStackNavigator();
 
 const AuthNavigator = () => {
     return (
-        <Stack.Navigator headerMode='none'>
-            <Stack.Screen name={appRoutes.WALKTHROUGH} component={WalkthroughScreen}/>
-            <Stack.Screen name={appRoutes.SIGN_IN} component={SignInScreen}/>
-            <Stack.Screen name={appRoutes.SIGN_UP} component={SignUpScreen}/>
-            <Stack.Screen name={appRoutes.RESET_PASSWORD} component={ResetPasswordScreen}/>
+        <Stack.Navigator headerMode="none">
+            <Stack.Screen
+                name={appRoutes.WALKTHROUGH}
+                component={WalkthroughScreen}
+            />
+            <Stack.Screen name={appRoutes.SIGN_IN} component={SignInScreen} />
+            <Stack.Screen name={appRoutes.SIGN_UP} component={SignUpScreen} />
+            <Stack.Screen
+                name={appRoutes.RESET_PASSWORD}
+                component={ResetPasswordScreen}
+            />
         </Stack.Navigator>
     );
 };

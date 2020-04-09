@@ -3,9 +3,7 @@ import {ViewPropTypes, Text} from 'react-native';
 import PropTypes from 'prop-types';
 
 const CommentItem = () => {
-    return (
-        <Text>CommentItem</Text>
-    );
+    return <Text>CommentItem</Text>;
 };
 
 CommentItem.propTypes = {

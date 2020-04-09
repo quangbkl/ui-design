@@ -35,11 +35,11 @@ const styles = StyleSheet.create({
     },
 });
 
-
 const data = [
     {
         key: '1',
-        src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRyIOUoW6tSBT_yD3lUccKMvllIL_hzA3WPiiZcaGrsCHg8zmVu&usqp=CAU',
+        src:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRyIOUoW6tSBT_yD3lUccKMvllIL_hzA3WPiiZcaGrsCHg8zmVu&usqp=CAU',
         title: 'BBC Music Introducting',
         openTime: 'Thu, Oct 31 9:00am',
         month: 'OCT',
@@ -48,7 +48,8 @@ const data = [
     },
     {
         key: '2',
-        src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRyIOUoW6tSBT_yD3lUccKMvllIL_hzA3WPiiZcaGrsCHg8zmVu&usqp=CAU',
+        src:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRyIOUoW6tSBT_yD3lUccKMvllIL_hzA3WPiiZcaGrsCHg8zmVu&usqp=CAU',
         title: 'BBC Music Introducting',
         openTime: 'Thu, Oct 31 9:00am',
         month: 'OCT',
@@ -65,7 +66,7 @@ const UpcomingEvents = () => {
             <View style={styles.carouselContainer}>
                 <FlatList
                     horizontal
-                    renderItem={(props) => <EventCard {...props} />}
+                    renderItem={props => <EventCard {...props} />}
                     data={data}
                     keyExtractor={item => item.key}
                 />
@@ -73,6 +74,5 @@ const UpcomingEvents = () => {
         </View>
     );
 };
-
 
 export default UpcomingEvents;

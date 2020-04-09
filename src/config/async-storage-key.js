@@ -1,3 +1,3 @@
 export default {
-    settings: 'app_settings'
+    settings: 'app_settings',
 };

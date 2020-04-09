@@ -3,9 +3,7 @@ import {StyleSheet} from 'react-native';
 import {ListItem as ListItemNativeBase} from 'native-base';
 
 const ListItem = ({style, ...props}) => {
-    return (
-        <ListItemNativeBase {...props} style={[styles.listItem, style]}/>
-    );
+    return <ListItemNativeBase {...props} style={[styles.listItem, style]} />;
 };
 
 const styles = StyleSheet.create({
@@ -14,8 +12,8 @@ const styles = StyleSheet.create({
         paddingRight: 0,
         paddingTop: 20,
         paddingBottom: 20,
-        borderBottomWidth: 1
-    }
+        borderBottomWidth: 1,
+    },
 });
 
 ListItem.propTypes = ListItemNativeBase.propTypes;

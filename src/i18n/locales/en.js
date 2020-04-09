@@ -6,13 +6,13 @@ export default {
         walkthrough: {},
         sign_in: {},
         sign_up: {},
-        reset_password: {}
+        reset_password: {},
     },
     main: {
         home: {},
         booking: {
             booking: 'Booking',
-            change_to: 'Change to %{lang}'
+            change_to: 'Change to %{lang}',
         },
         news: {},
         account: {
@@ -23,15 +23,14 @@ export default {
                 font: 'Font',
                 theme_mode: 'Theme Mode',
                 reminders: 'Reminders',
-                app_version: 'App Version'
-            }
-        }
+                app_version: 'App Version',
+            },
+        },
     },
     shared: {
         apply: 'Apply',
         cancel: 'Cancel',
         dark: 'Dark',
-        light: 'Light'
-    }
-
+        light: 'Light',
+    },
 };

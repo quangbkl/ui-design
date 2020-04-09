@@ -19,7 +19,7 @@ const HotelItemList = ({item}) => {
             <View style={styles.rightBlock}>
                 <Text style={styles.name}>{hotel.name}</Text>
                 <View style={styles.locationBlock}>
-                    <CustomIcon type="map-marker-alt" size={13}/>
+                    <CustomIcon type="map-marker-alt" size={13} />
                     <Text style={styles.locationText}>{hotel.location}</Text>
                 </View>
                 <Rating
@@ -30,7 +30,9 @@ const HotelItemList = ({item}) => {
                 />
                 <Text style={styles.price}>{hotel.price}</Text>
                 <Text style={styles.unit}>AVG/NIGHT</Text>
-                <Text style={styles.available}>{`Only ${roomAvailable.length} room(s) leaft`}</Text>
+                <Text style={styles.available}>{`Only ${
+                    roomAvailable.length
+                } room(s) leaft`}</Text>
             </View>
         </View>
     );

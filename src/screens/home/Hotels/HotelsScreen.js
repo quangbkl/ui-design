@@ -34,23 +34,23 @@ const HotelsScreen = props => {
     const renderItem = ({item}) => {
         return (
             <View style={styles.eachItem}>
-                <HotelItem view={view} item={item}/>
+                <HotelItem view={view} item={item} />
             </View>
         );
     };
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [fetchData]);
 
     return (
         <>
             <Header
                 title="Hotels"
                 description="3 April 2020, 2 Nights, 1 Room"
-                RightComponent={<CustomIcon type="search"/>}
+                RightComponent={<CustomIcon type="search" />}
             />
-            <FilterSort view={view} onChangeView={setView}/>
+            <FilterSort view={view} onChangeView={setView} />
             <FlatList
                 style={view === 'block' ? {} : styles.container}
                 data={listHotels}

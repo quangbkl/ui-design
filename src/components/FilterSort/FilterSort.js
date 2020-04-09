@@ -4,7 +4,7 @@ import CustomIcon from '../Icon/CustomIcon';
 import {BaseColor} from 'config/color';
 import Touchable from '../Touchable/Touchable';
 
-const FilterSort = (props) => {
+const FilterSort = props => {
     const {view, onChangeView} = props;
     const mapView = {
         block: 'square-full',
@@ -24,15 +24,19 @@ const FilterSort = (props) => {
     return (
         <View style={[styles.container, styles.flex]}>
             <Touchable style={styles.flex}>
-                <CustomIcon style={styles.icon} type="sort-amount-up"/>
-                <Text style={styles.text}>{' '}Hightest Rating</Text>
+                <CustomIcon style={styles.icon} type="sort-amount-up" />
+                <Text style={styles.text}> Hightest Rating</Text>
             </Touchable>
             <View style={styles.flex}>
-                <CustomIcon style={styles.icon} type={mapView[view]} onPress={handleChangeView}/>
+                <CustomIcon
+                    style={styles.icon}
+                    type={mapView[view]}
+                    onPress={handleChangeView}
+                />
                 <Text style={styles.text}>{'  |  '}</Text>
                 <Touchable style={styles.flex}>
-                    <CustomIcon style={styles.icon} type="filter"/>
-                    <Text style={styles.text}>{' '}Filter</Text>
+                    <CustomIcon style={styles.icon} type="filter" />
+                    <Text style={styles.text}> Filter</Text>
                 </Touchable>
             </View>
         </View>
@@ -63,4 +67,3 @@ const styles = StyleSheet.create({
 });
 
 export default FilterSort;
-

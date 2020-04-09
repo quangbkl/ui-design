@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, StyleSheet } from "react-native";
-import { BaseColor } from "config/color";
-import Text from "../Text/Text";
+import {View, StyleSheet} from 'react-native';
+import {BaseColor} from 'config/color';
+import Text from '../Text/Text';
 
-const ProfilePerformance = (props) => {
+const ProfilePerformance = props => {
     const {
         style,
         contentLeft,
@@ -11,18 +11,18 @@ const ProfilePerformance = (props) => {
         contentRight,
         data,
         type,
-        flexDirection
+        flexDirection,
     } = props;
 
     const renderValue = (type, value) => {
         switch (type) {
-            case "primary":
+            case 'primary':
                 return (
                     <Text title3 semibold primaryColor>
                         {value}
                     </Text>
                 );
-            case "small":
+            case 'small':
                 return (
                     <Text body1 semibold>
                         {value}
@@ -35,17 +35,17 @@ const ProfilePerformance = (props) => {
                     </Text>
                 );
         }
-    }
+    };
 
     const renderTitle = (type, value) => {
         switch (type) {
-            case "primary":
+            case 'primary':
                 return (
                     <Text body2 grayColor>
                         {value}
                     </Text>
                 );
-            case "small":
+            case 'small':
                 return (
                     <Text caption1 grayColor>
                         {value}
@@ -58,22 +58,18 @@ const ProfilePerformance = (props) => {
                     </Text>
                 );
         }
-    }
+    };
 
     switch (flexDirection) {
-        case "row":
+        case 'row':
             return (
                 <View style={[styles.contain, style]}>
                     {data.map((item, index) => {
                         if (index == 0) {
                             return (
                                 <View
-                                    style={[
-                                        styles.contentLeft,
-                                        contentLeft
-                                    ]}
-                                    key={index}
-                                >
+                                    style={[styles.contentLeft, contentLeft]}
+                                    key={index}>
                                     {renderValue(type, item.value)}
                                     {renderTitle(type, item.title)}
                                 </View>
@@ -81,12 +77,8 @@ const ProfilePerformance = (props) => {
                         } else if (index == data.length - 1) {
                             return (
                                 <View
-                                    style={[
-                                        styles.contentRight,
-                                        contentRight
-                                    ]}
-                                    key={index}
-                                >
+                                    style={[styles.contentRight, contentRight]}
+                                    key={index}>
                                     {renderValue(type, item.value)}
                                     {renderTitle(type, item.title)}
                                 </View>
@@ -96,10 +88,9 @@ const ProfilePerformance = (props) => {
                                 <View
                                     style={[
                                         styles.contentCenter,
-                                        contentCenter
+                                        contentCenter,
                                     ]}
-                                    key={index}
-                                >
+                                    key={index}>
                                     {renderValue(type, item.value)}
                                     {renderTitle(type, item.title)}
                                 </View>
@@ -108,14 +99,10 @@ const ProfilePerformance = (props) => {
                     })}
                 </View>
             );
-        case "column":
+        case 'column':
             return (
                 <View
-                    style={[
-                        { justifyContent: "space-between", flex: 1 },
-                        style
-                    ]}
-                >
+                    style={[{justifyContent: 'space-between', flex: 1}, style]}>
                     {data.map((item, index) => (
                         <View style={styles.itemInfor} key={index}>
                             {renderTitle(type, item.title)}
@@ -130,38 +117,37 @@ const ProfilePerformance = (props) => {
 const styles = StyleSheet.create({
     contain: {
         height: 60,
-        flexDirection: "row",
+        flexDirection: 'row',
         backgroundColor: BaseColor.fieldColor,
         paddingLeft: 20,
-        paddingRight: 20
+        paddingRight: 20,
     },
     contentLeft: {
         flex: 1,
-        alignItems: "flex-start",
-        justifyContent: "center"
+        alignItems: 'flex-start',
+        justifyContent: 'center',
     },
     contentCenter: {
         flex: 1,
-        alignItems: "center",
-        justifyContent: "center"
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     contentRight: {
         flex: 1,
-        alignItems: "flex-end",
-        justifyContent: "center"
+        alignItems: 'flex-end',
+        justifyContent: 'center',
     },
     itemInfor: {
-        flexDirection: "row",
+        flexDirection: 'row',
         flex: 1,
-        justifyContent: "space-between",
-        alignItems: "center"
-    }
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
 });
 
 ProfilePerformance.defaultProps = {
-    flexDirection: "row",
-    type: "medium"
+    flexDirection: 'row',
+    type: 'medium',
 };
 
 export default ProfilePerformance;
-

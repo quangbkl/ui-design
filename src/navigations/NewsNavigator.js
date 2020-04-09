@@ -8,9 +8,12 @@ const Stack = createStackNavigator();
 
 const NewsNavigator = () => {
     return (
-        <Stack.Navigator headerMode='none'>
-            <Stack.Screen name={appRoutes.POSTS} component={PostsScreen}/>
-            <Stack.Screen name={appRoutes.POST_DETAIL} component={PostDetailScreen}/>
+        <Stack.Navigator headerMode="none">
+            <Stack.Screen name={appRoutes.POSTS} component={PostsScreen} />
+            <Stack.Screen
+                name={appRoutes.POST_DETAIL}
+                component={PostDetailScreen}
+            />
         </Stack.Navigator>
     );
 };

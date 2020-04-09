@@ -2,11 +2,7 @@
 import React from 'react';
 
 const PostDetailScreen = () => {
-    return (
-        <div>
-
-        </div>
-    );
+    return <div />;
 };
 
 PostDetailScreen.propTypes = {};

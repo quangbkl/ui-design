@@ -5,17 +5,13 @@ import {TouchableWithoutFeedback, View} from 'react-native';
 const Touchable = ({onPress, disabled, children, ...rest}) => {
     return (
         <TouchableWithoutFeedback onPress={onPress} disabled={disabled}>
-            <View {...rest}>
-                {
-                    children
-                }
-            </View>
+            <View {...rest}>{children}</View>
         </TouchableWithoutFeedback>
     );
 };
 
 Touchable.propTypes = {
-    onPress: PropTypes.func
+    onPress: PropTypes.func,
 };
 
 export default Touchable;

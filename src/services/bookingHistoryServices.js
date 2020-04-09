@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getBookingHistories = (params) => {
+export const getBookingHistories = params => {
     return axios.get('/api/booking-histories', {params});
 };
 

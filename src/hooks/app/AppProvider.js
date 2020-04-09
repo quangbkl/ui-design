@@ -12,7 +12,7 @@ const initialState = {
     locale: 'en',
     i18n: I18n,
     theme: 'orange',
-    themeMode: ThemeModeConstant.THEME_MODE_LIGHT
+    themeMode: ThemeModeConstant.THEME_MODE_LIGHT,
 };
 
 const AppProvider = ({children, ...props}) => {
@@ -30,9 +30,9 @@ const AppProvider = ({children, ...props}) => {
             theme,
             setTheme,
             themeMode,
-            setThemeMode
+            setThemeMode,
         }).catch(console.log);
-    }, []);
+    }, [i18n, locale, theme, themeMode]);
 
     const value = {
         state: {
@@ -43,23 +43,21 @@ const AppProvider = ({children, ...props}) => {
             color: {
                 ...BaseColor,
                 ...ThemeColor[theme],
-                ...ThemeModeColor[themeMode]
-            }
+                ...ThemeModeColor[themeMode],
+            },
         },
         actions: {
             changeLanguage: changeLanguage({locale, setLocale, i18n, setI18n}),
             changeTheme: changeTheme({theme, setTheme}),
-            changeThemeMode: changeThemeMode({themeMode, setThemeMode})
-        }
+            changeThemeMode: changeThemeMode({themeMode, setThemeMode}),
+        },
     };
 
     return (
         <AppContext.Provider value={value}>
-            {
-                React.Children.map(children, child =>
-                    React.cloneElement(child, {...props})
-                )
-            }
+            {React.Children.map(children, child =>
+                React.cloneElement(child, {...props}),
+            )}
         </AppContext.Provider>
     );
 };

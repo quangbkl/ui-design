@@ -3,16 +3,15 @@ import {View, Image, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {Text} from 'components';
 
-const ImageSliderItem = (props) => {
+const ImageSliderItem = props => {
     const {image, text} = props;
 
     return (
         <View style={styles.main}>
-            <Image
-                style={styles.image}
-                source={{uri: image}}
-            />
-            <Text style={styles.text} type="title3">{text}</Text>
+            <Image style={styles.image} source={{uri: image}} />
+            <Text style={styles.text} type="title3">
+                {text}
+            </Text>
         </View>
     );
 };

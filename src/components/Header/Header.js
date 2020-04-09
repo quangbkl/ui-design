@@ -22,20 +22,37 @@ const DefaultBodyComponent = ({title, description}) => {
     return (
         <View>
             <Text style={styles.title}>{title}</Text>
-            {description ? <Text style={styles.description}>{title}</Text> : null}
+            {description ? (
+                <Text style={styles.description}>{title}</Text>
+            ) : null}
         </View>
     );
 };
 
 const Header = props => {
-    const {title, description, LeftComponent, RightComponent, BodyComponent} = props;
+    const {
+        title,
+        description,
+        LeftComponent,
+        RightComponent,
+        BodyComponent,
+    } = props;
 
     return (
         <View style={styles.container}>
-            <View>{LeftComponent === undefined ? <DefaultLeftComponent/> : LeftComponent}</View>
+            <View>
+                {LeftComponent === undefined ? (
+                    <DefaultLeftComponent />
+                ) : (
+                    LeftComponent
+                )}
+            </View>
             <View>
                 {BodyComponent === undefined ? (
-                    <DefaultBodyComponent title={title} description={description}/>
+                    <DefaultBodyComponent
+                        title={title}
+                        description={description}
+                    />
                 ) : (
                     BodyComponent
                 )}
