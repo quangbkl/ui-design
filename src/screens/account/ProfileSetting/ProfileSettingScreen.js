@@ -19,7 +19,7 @@ import useApp from 'hooks/app/useApp';
 
 const ProfileSettingScreen = (props) => {
     const {state: appState} = useApp();
-    const {i18n} = appState;
+    const {i18n, locale} = appState;
 
     const {navigation} = props;
     const [reminders, setReminders] = useState(false);
@@ -38,7 +38,10 @@ const ProfileSettingScreen = (props) => {
             <ScrollView>
                 <View style={styles.contain}>
                     <View style={{width: '100%'}}>
-                        <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_LANGUAGE)} value="English">
+                        <ListItemAngleRight
+                            onPress={handleNavigate(appRoutes.PROFILE_LANGUAGE)}
+                            value={i18n.t('locale.' + locale)}
+                        >
                             <Text>{i18n.t('main.account.profile_setting.language')}</Text>
                         </ListItemAngleRight>
                         <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_THEME)} value="orange">

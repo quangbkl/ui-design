@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import useApp from 'hooks/app/useApp';
 import {Left, Right} from 'native-base';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -22,6 +23,13 @@ const SelectListItemCheck = (props) => {
             {checked && <Right><FontAwesome5 name="check" size={18} color={color.primaryColor}/></Right>}
         </SelectListItem>
     );
+};
+
+SelectListItemCheck.propTypes = {
+    value: PropTypes.string,
+    selectedValue: PropTypes.string,
+    leftStyle: Left.propTypes.style,
+    ...SelectListItem.propTypes
 };
 
 export default SelectListItemCheck;
