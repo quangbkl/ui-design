@@ -21,6 +21,9 @@ export default {
                 theme_mode: 'Chế độ chủ đề',
                 reminders: 'Nhắc nhở',
                 app_version: 'Phiên bản ứng dụng'
+            },
+            profile_language: {
+                change_language: 'Thay đổi ngôn ngữ',
             }
         }
     },
@@ -28,6 +31,11 @@ export default {
         apply: 'Áp dụng',
         cancel: 'Hủy bỏ',
         dark: 'Tối',
-        light: 'Sáng'
+        light: 'Sáng',
+        save: 'Lưu'
+    },
+    locale: {
+        en: 'Tiếng Anh',
+        vi: 'Tiếng Việt'
     }
 };

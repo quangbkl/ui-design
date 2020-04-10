@@ -23,7 +23,10 @@ export default {
                 font: 'Font',
                 theme_mode: 'Theme Mode',
                 reminders: 'Reminders',
-                app_version: 'App Version'
+                app_version: 'App Version',
+            },
+            profile_language: {
+                change_language: 'Change Language',
             }
         }
     },
@@ -31,7 +34,11 @@ export default {
         apply: 'Apply',
         cancel: 'Cancel',
         dark: 'Dark',
-        light: 'Light'
+        light: 'Light',
+        save: 'Save'
+    },
+    locale: {
+        en: 'English',
+        vi: 'Vietnamese'
     }
-
 };
