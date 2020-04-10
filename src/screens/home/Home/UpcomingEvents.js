@@ -1,21 +1,20 @@
 import React from 'react';
 import {View, StyleSheet, Text, FlatList} from 'react-native';
 import {EventCard} from 'components';
+import {BaseColor} from 'config/color';
 // TODO: Use EventCard component
 
 const styles = StyleSheet.create({
-    UpcomingEvents: {
-        backgroundColor: '#f2f2f2',
-    },
     Header: {
         fontFamily: 'Roboto',
-        fontSize: 17,
-        color: '#212121',
-        marginBottom: 10,
+        marginTop: 15,
+		fontSize: 20,
+		color: BaseColor.textPrimaryColor,
+        // marginBottom: 10,
     },
     title: {
         fontSize: 13,
-        color: '#9b9b9b',
+        color: BaseColor.grayColor,
         marginBottom: 15,
     },
     carouselContainer: {
@@ -30,8 +29,8 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         borderStyle: 'solid',
         borderWidth: 1,
-        borderColor: '#bdbdbd',
-        backgroundColor: '#f2f2f2',
+        borderColor: BaseColor.dividerColor,
+        // backgroundColor: '#f2f2f2',
     },
 });
 
@@ -59,7 +58,7 @@ const data = [
 
 const UpcomingEvents = () => {
     return (
-        <View style={styles.UpcomingEvents}>
+        <View>
             <Text style={styles.Header}>Upcoming Events</Text>
             <Text style={styles.title}>What's the Worst That Could Happen</Text>
             <View style={styles.carouselContainer}>
