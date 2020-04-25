@@ -12,7 +12,8 @@ export default {
         home: {},
         booking: {
             booking: 'Booking',
-            change_to: 'Change to %{lang}'
+            change_to: 'Change to %{lang}',
+            book_room: 'Book now'
         },
         news: {},
         account: {

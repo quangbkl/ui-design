@@ -9,7 +9,8 @@ export default {
         home: {},
         booking: {
             booking: 'Đặt trước',
-            change_to: 'Thay đổi thành %{lang}'
+            change_to: 'Thay đổi thành %{lang}',
+            book_room: 'Đặt phòng',
         },
         news: {},
         account: {
