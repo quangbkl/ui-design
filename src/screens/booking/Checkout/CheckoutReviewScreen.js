@@ -5,8 +5,10 @@ import Header from 'components/Header/Header';
 import Text from 'components/Text/Text';
 import ProgressBooking from '../../../components/ProgressBooking/ProgressBooking';
 import appRoutes from '../../../navigations/appRoutes';
+import {useNavigation} from '@react-navigation/native';
 
 const CheckoutReviewScreen = () => {
+	const navigation = useNavigation();
 	const SeparatorCustom = () => {
 		return (
 			<View
@@ -78,6 +80,7 @@ const CheckoutReviewScreen = () => {
 				middleContext={'$399.99'}
 				footerContext={'2 Adults / 1 Children'}
 				children={'Continue'}
+				onPress={() => navigation.navigate(appRoutes.CHECKOUT, {promosId: 1})}
 			/>
 		</Container>
 	

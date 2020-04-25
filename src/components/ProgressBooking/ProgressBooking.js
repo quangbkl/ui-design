@@ -37,9 +37,9 @@ const styles = StyleSheet.create({
 });
 
 ProgressBooking.propTypes = {
-	headerContext: PropTypes.element,
-	middleContext: PropTypes.element,
-	footerContext: PropTypes.element,
+	headerContext: PropTypes.string,
+	middleContext: PropTypes.string,
+	footerContext: PropTypes.string,
 	onPress: PropTypes.func,
 };
 

@@ -46,7 +46,10 @@ const appRoutes = {
     PROFILE_THEME_MODE: 'Profile Theme Mode',
   
     // REST
-    CHECKOUT_REVIEW: 'Checkout Review'
+    CHECKOUT_REVIEW: 'Checkout Review',
+    CHECKOUT: 'Checkout',
+	PAYMENT_METHODS: 'Payment Methods',
+	PAYMENT_METHOD: 'Payment Method',
 };
 
 export default appRoutes;
