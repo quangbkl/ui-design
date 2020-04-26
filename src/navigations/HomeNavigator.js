@@ -6,7 +6,10 @@ import {withSafeAreaView} from 'components';
 const HomeScreen = React.lazy(() => import('screens/home/Home/HomeScreen'));
 const HotelsScreen = React.lazy(() => import('screens/home/Hotels/HotelsScreen'));
 const HotelDetailScreen = React.lazy(() => import('screens/home/HotelDetail/HotelDetailScreen'));
-const PreviewBookingScreen = React.lazy(() => import('screens/booking/PreviewBooking/PreviewBookingScreen'));
+const CheckoutReviewScreen = React.lazy(() => import('screens/booking/Checkout/CheckoutReviewScreen'));
+const CheckoutScreen = React.lazy(() => import('screens/booking/Checkout/CheckoutScreen'));
+const PaymentMethods = React.lazy(() => import('screens/booking/Payment/PaymentMethodsScreen'));
+const PaymentMethod = React.lazy(() => import('screens/booking/Payment/PaymentMethodScreen'));
 
 const Stack = createStackNavigator();
 
@@ -16,7 +19,10 @@ const HomeNavigator = () => {
             <Stack.Screen name={appRoutes.HOME} component={HomeScreen}/>
             <Stack.Screen name={appRoutes.HOTELS} component={withSafeAreaView(HotelsScreen)}/>
             <Stack.Screen name={appRoutes.HOTEL_DETAIL} component={HotelDetailScreen}/>
-            <Stack.Screen name={appRoutes.PREVIEW_BOOKING} component={PreviewBookingScreen}/>
+            <Stack.Screen name={appRoutes.CHECKOUT_REVIEW} component={CheckoutReviewScreen}/>
+	        <Stack.Screen name={appRoutes.CHECKOUT} component={CheckoutScreen}/>
+	        <Stack.Screen name={appRoutes.PAYMENT_METHODS} component={PaymentMethods}/>
+	        <Stack.Screen name={appRoutes.PAYMENT_METHOD} component={PaymentMethod}/>
         </Stack.Navigator>
     );
 };

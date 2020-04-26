@@ -11,7 +11,7 @@ const TourCard = (props) => {
 			<ImageBackground
 				source={{uri: image}}
 				style={styles.image}
-        imageStyle={{ borderRadius: 15 }}
+        imageStyle={{ borderRadius: 7.5 }}
 			>
         <Text style={styles.title}> {title} </Text>
 			</ImageBackground>
@@ -21,10 +21,10 @@ const TourCard = (props) => {
 const styles = StyleSheet.create({
 	container: {
     flex: 1,
-		width: 140,
+		width: 135,
 		height: 160,
 		marginTop: 10,
-		marginRight: 20,
+		marginRight: 15,
 		backgroundColor: '#f4f4f4',
 	},
 	image: {

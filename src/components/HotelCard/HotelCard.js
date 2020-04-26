@@ -11,7 +11,7 @@ const HotelCard = (props) => {
         <ImageBackground
           source={{uri: image}}
           style={styles.image}
-          imageStyle={{ borderRadius: 15 }}
+          imageStyle={{ borderRadius: 7.5 }}
         >
           <View style={styles.childrenContainer}>
             <Text style={styles.title}> {title} </Text>
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 		width: 200,
 		height: 250,
 		marginTop: 10,
-		marginRight: 20,
+		marginRight: 15,
 		backgroundColor: '#f4f4f4'
 	},
 	image: {

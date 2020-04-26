@@ -30,3 +30,4 @@ mock.onGet('/api/tours').reply((request) => {
 	const {tours} = tourDB;
 	return [200, {tours, page: 1, limit: 10, total: tours.length}];
 });
+export default tourDB;

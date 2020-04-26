@@ -44,10 +44,12 @@ const appRoutes = {
     PROFILE_THEME: 'Profile Theme',
     PROFILE_FONT: 'Profile Font',
     PROFILE_THEME_MODE: 'Profile Theme Mode',
-
+  
     // REST
-    PREVIEW_BOOKING: 'Preview Booking'
-
+    CHECKOUT_REVIEW: 'Checkout Review',
+    CHECKOUT: 'Checkout',
+	PAYMENT_METHODS: 'Payment Methods',
+	PAYMENT_METHOD: 'Payment Method',
 };
 
 export default appRoutes;
