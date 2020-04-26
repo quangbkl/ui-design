@@ -28,7 +28,7 @@ const Button = (props) => {
         >
             {
                 !loading ?
-                    <Text style={{color: color.primaryColor, fontSize: 14}}>{children}</Text> :
+                    <Text body2 primaryColor>{children}</Text> :
                     <ActivityIndicator style={styles.activityIndicator} color={color.primaryColor}/>
             }
         </Touchable>
