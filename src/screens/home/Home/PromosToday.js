@@ -1,9 +1,9 @@
 import React from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
-import HotelCard from '../../../components/HotelCard/HotelCard';
+import HotelCard from 'components/HotelCard/HotelCard';
 import appRoutes from 'navigations/appRoutes';
-import Text from '../../../components/Text/Text';
-import promosDB from '../../../__mocks__/db/promos-db';
+import Text from 'components/Text/Text';
+import promosDB from '__mocks__/db/promos-db';
 
 // TODO: Use HotelCard component
 const PromosToday = (props) => {

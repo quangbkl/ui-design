@@ -13,7 +13,11 @@ export default {
         booking: {
             booking: 'Booking',
             change_to: 'Change to %{lang}',
-            book_room: 'Book now'
+            book_room: 'Book now',
+	        booking_history: 'Booking History',
+	        payment_method: {
+		        pay_now: 'Pay now'
+	        }
         },
         news: {},
         account: {

@@ -5,5 +5,5 @@ export const getBookingHistories = (params) => {
 };
 
 export default {
-    getBookingHistories,
+    getBookingHistories
 };

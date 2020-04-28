@@ -7,11 +7,13 @@ import ProgressBooking from '../../../components/ProgressBooking/ProgressBooking
 import appRoutes from '../../../navigations/appRoutes';
 import {useNavigation} from '@react-navigation/native';
 import {Button, Separator, TextInput} from '../../../components';
+import useApp from '../../../hooks/app/useApp';
 
 const CheckoutReviewScreen = () => {
 	const navigation = useNavigation();
 	const [reminders, setReminders] = useState(false);
-	
+	const {state: appState} = useApp();
+	const {i18n} = appState;
 	const toggleSwitch = () => setReminders(value => !value);
 	return (
 		
@@ -48,7 +50,7 @@ const CheckoutReviewScreen = () => {
 			</ScrollView>
 			<Button
 				style={styles.payNowButton}
-				children={'Pay Now'}
+				children={i18n.t('main.booking.payment_method.pay_now')}
 				onPress={() => navigation.navigate('')}
 			/>
 		</Container>
