@@ -58,7 +58,11 @@ const SearchMenu = (props) => {
                             icon="calendar-alt"
                             onClick={() => navigation.navigate(appRoutes.HOTELS)}
                         />
-                        <MenuItem text="Tour" icon="map-marker-alt"/>
+                        <MenuItem
+	                        text="Tour"
+	                        icon="map-marker-alt"
+	                        onClick={() => navigation.navigate(appRoutes.TOURS)}
+                        />
                         <MenuItem text="Car" icon="car-alt"/>
                         <MenuItem text="Flight" icon="plane"/>
                     </Row>

@@ -29,6 +29,7 @@ export default class BookingDetailScreen extends Component {
 				tabBarActiveTextColor={BaseColor.textPrimaryColor}
 				tabBarInactiveTextColor={BaseColor.dividerColor}
 				tabBarUnderlineStyle={tabBarUnderlineStyle}
+				tabBarTextStyle={{fontFamily: 'Roboto', fontSize: 18, fontWeight: '300'}}
 			>
 				<Preview tabLabel="     Preview     " />
 				<Confirm tabLabel="     Confirm     " />

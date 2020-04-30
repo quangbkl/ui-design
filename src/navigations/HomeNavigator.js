@@ -11,6 +11,7 @@ const CheckoutScreen = React.lazy(() => import('screens/booking/Checkout/Checkou
 const PaymentMethods = React.lazy(() => import('screens/booking/Payment/PaymentMethodsScreen'));
 const PaymentMethod = React.lazy(() => import('screens/booking/Payment/PaymentMethodScreen'));
 const TourDetailScreen = React.lazy(() => import('screens/home/TourDetail/TourDetailScreen'));
+const ToursScreen = React.lazy(() => import('screens/home/Tours/ToursScreen'));
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,7 @@ const HomeNavigator = () => {
 	        <Stack.Screen name={appRoutes.PAYMENT_METHODS} component={PaymentMethods}/>
 	        <Stack.Screen name={appRoutes.PAYMENT_METHOD} component={PaymentMethod}/>
 	        <Stack.Screen name={appRoutes.TOUR_DETAIL} component={TourDetailScreen}/>
+	        <Stack.Screen name={appRoutes.TOURS} component={ToursScreen}/>
         </Stack.Navigator>
     );
 };

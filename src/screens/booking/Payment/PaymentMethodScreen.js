@@ -3,11 +3,10 @@ import {ScrollView, StyleSheet, Switch, View} from 'react-native';
 import {Container} from 'native-base';
 import Header from 'components/Header/Header';
 import Text from 'components/Text/Text';
-import ProgressBooking from '../../../components/ProgressBooking/ProgressBooking';
-import appRoutes from '../../../navigations/appRoutes';
+import appRoutes from 'navigations/appRoutes';
 import {useNavigation} from '@react-navigation/native';
-import {Button, Separator, TextInput} from '../../../components';
-import useApp from '../../../hooks/app/useApp';
+import {Button, TextInput} from 'components';
+import useApp from 'hooks/app/useApp';
 
 const CheckoutReviewScreen = () => {
 	const navigation = useNavigation();
@@ -51,10 +50,9 @@ const CheckoutReviewScreen = () => {
 			<Button
 				style={styles.payNowButton}
 				children={i18n.t('main.booking.payment_method.pay_now')}
-				onPress={() => navigation.navigate('')}
+				onPress={() => navigation.navigate(appRoutes.BOOKING_DETAIL)}
 			/>
 		</Container>
-	
 	);
 };
 
