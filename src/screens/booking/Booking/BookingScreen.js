@@ -33,7 +33,7 @@ const BookingScreen = (props) => {
 		return (
 			<BookingHistory
 				item={item}
-				onPress={() => {alert("fdfk")}}
+				onPress={() => {navigation.navigate(appRoutes.BOOKING_DETAIL)}}
 			/>
 		);
 	};
