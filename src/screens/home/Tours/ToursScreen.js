@@ -4,14 +4,41 @@ import {View, FlatList, StyleSheet} from 'react-native';
 import 'react-native-get-random-values';
 import {v4 as uuidv4} from 'uuid';
 import {useFilterDynamic} from 'hooks/common';
-import {bookingHotel} from 'services/bookingServices';
-import {FilterSort, HotelItem} from 'components';
+import {getTours} from 'services/tourService';
+import {FilterSort} from 'components';
 import Header from 'components/Header/Header';
 import CustomIcon from 'components/Icon/CustomIcon';
+import TourItem from 'components/TourItem/TourItem';
 
 // TODO: Code HotelItem component first
 const ToursScreen = props => {
+	const defaultFilters = {
+		page: 1,
+		limit: 20
+	};
+	
 	const [view, setView] = useState('block');
+	const loadDataTours = params =>
+		getTours(params).then(res => res.data.tours);
+	const {
+		loading: loadingTours,
+		list: listTours,
+		fetchData,
+		refreshPage,
+		fetchNext,
+	} = useFilterDynamic(defaultFilters, loadDataTours);
+	
+	const renderItem = ({item}) => {
+		return (
+			<View style={styles.eachItem}>
+				<TourItem view={view} item={item}/>
+			</View>
+		);
+	};
+	
+	useEffect(() => {
+		fetchData();
+	}, []);
 	return (
 		<>
 			<Header
@@ -20,6 +47,18 @@ const ToursScreen = props => {
 				RightComponent={<CustomIcon type="search"/>}
 			/>
 			<FilterSort view={view} onChangeView={setView}/>
+			<FlatList
+				style={view === 'block' ? {} : styles.container}
+				data={listTours}
+				refreshing={loadingTours}
+				onRefresh={refreshPage}
+				onEndReached={fetchNext}
+				renderItem={renderItem}
+				key={uuidv4()}
+				keyExtractor={() => uuidv4()}
+				columnWrapperStyle={view === 'grid' ? styles.spaceCol : null}
+				numColumns={view === 'grid' ? 2 : 1}
+			/>
 		</>
 	);
 };

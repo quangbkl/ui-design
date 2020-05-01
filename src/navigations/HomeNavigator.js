@@ -26,7 +26,7 @@ const HomeNavigator = () => {
 	        <Stack.Screen name={appRoutes.PAYMENT_METHODS} component={PaymentMethods}/>
 	        <Stack.Screen name={appRoutes.PAYMENT_METHOD} component={PaymentMethod}/>
 	        <Stack.Screen name={appRoutes.TOUR_DETAIL} component={TourDetailScreen}/>
-	        <Stack.Screen name={appRoutes.TOURS} component={ToursScreen}/>
+	        <Stack.Screen name={appRoutes.TOURS} component={withSafeAreaView(ToursScreen)}/>
         </Stack.Navigator>
     );
 };
