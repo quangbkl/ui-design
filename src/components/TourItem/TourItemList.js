@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
 		borderColor: BaseColor.accentColor,
 		textAlign: 'center',
 		alignItems: 'center',
+		backgroundColor: BaseColor.fieldColor
 	},
 	formatCommonText: {
 		color: BaseColor.accentColor,

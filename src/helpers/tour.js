@@ -11,6 +11,12 @@ export const getPricePerParticipant = tour => {
 	}
 	return '';
 };
+export const getDuration = tour => {
+	if (tour.generalInformation.duration) {
+		return tour.generalInformation.duration;
+	}
+	return '';
+};
 
 export const getRatePerFive = tour => {
     const {ratePercent} = tour;
