@@ -11,20 +11,15 @@ import Detail from 'components/BookingHistory/Detail';
 
 export default class BookingDetailScreen extends Component {
 	
-	_onRefresh = (callback) => {
-		networkRequest().then(response => callback(response))
-	};
 	render(){
 		const tabBarUnderlineStyle = {
 			backgroundColor: BaseColor.primaryColor,
 			height: 1,
-			width: '20%'
-		}
+			width: '25%'
+		};
 		return <Container>
 			<Header title={'Booking Detail'} RightComponent={<Text style={{color: 'red'}}>Save</Text>}/>
 			<ScrollableTabView
-				refreshControlStyle={{backgroundColor: 'red'}}
-				pullToRefresh={this._onRefresh}
 				renderTabBar={() => <ScrollableTabBar/>}
 				tabBarActiveTextColor={BaseColor.textPrimaryColor}
 				tabBarInactiveTextColor={BaseColor.dividerColor}
