@@ -8,13 +8,21 @@ import Confirm from 'components/BookingHistory/Confirm';
 import Complete from 'components/BookingHistory/Complete';
 import Detail from 'components/BookingHistory/Detail';
 import {ImageBackground, StyleSheet, View} from 'react-native';
+import appRoutes from 'navigations/appRoutes';
+import ProgressBooking from 'components/ProgressBooking/ProgressBooking';
+import {useNavigation} from '@react-navigation/native';
+import Information from 'components/TourItem/Tabs/Information';
+import tourDB from '__mocks__/db/tours-db';
+import {normalizeNumber} from 'helpers/number';
 
 const TourDetailScreen = () => {
-	const avatar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR35uSBKPVv-b_w74wr-w5jwn9HMdB69mJhCmTmHzX0pc88dPFzYCXl4ywjly3--Bk&usqp=CAU';
+	const item = tourDB.tours[0];
+	const {author, generalInformation} = item;
+	const navigation = useNavigation();
 	const tabBarUnderlineStyle = {
 		backgroundColor: BaseColor.primaryColor,
 		height: 1,
-		width: '25%'
+		// width: '25%'
 	};
 	return (
 		<Container>
@@ -22,27 +30,27 @@ const TourDetailScreen = () => {
 			<View style={styles.authorContainer}>
 				<View style={styles.authorLeft}>
 					<ImageBackground
-						source={{uri: avatar}}
+						source={{uri: author.avatar}}
 						style={styles.avatar}
 						imageStyle={{borderRadius: 40}}
 					/>
 					<Button style={styles.follow}>+ Follow</Button>
 				</View>
 				<View style={styles.authorRight}>
-					<Text style={styles.name}>Steve Garrett</Text>
+					<Text style={styles.name}>{author.name}</Text>
 					<Text style={styles.agency}>Travel Agency</Text>
-					<Text style={styles.corporation}>Singapore, Golden Mile</Text>
+					<Text style={styles.corporation}>{author.corporation}</Text>
 					<View style={styles.indicator}>
 						<View style={styles.indicatorItem}>
-							<Text style={styles.indicatorItemValue}>97.01%</Text>
+							<Text style={styles.indicatorItemValue}>{author.feedBack}%</Text>
 							<Text style={{...styles.indicatorItemTitle}}>Feedback</Text>
 						</View>
 						<View style={styles.indicatorItem}>
-							<Text style={{...styles.indicatorItemValue, textAlign: 'center'}}>999</Text>
+							<Text style={{...styles.indicatorItemValue, textAlign: 'center'}}>{normalizeNumber(author.items)}</Text>
 							<Text style={{...styles.indicatorItemTitle}}>Items</Text>
 						</View>
 						<View style={styles.indicatorItem}>
-							<Text style={{...styles.indicatorItemValue, textAlign: 'right'}}>120K</Text>
+							<Text style={{...styles.indicatorItemValue, textAlign: 'right'}}>{normalizeNumber(author.followers)}</Text>
 							<Text style={{...styles.indicatorItemTitle}}>Followers</Text>
 						</View>
 					</View>
@@ -54,12 +62,20 @@ const TourDetailScreen = () => {
 				tabBarInactiveTextColor={BaseColor.dividerColor}
 				tabBarUnderlineStyle={tabBarUnderlineStyle}
 				tabBarTextStyle={{fontFamily: 'Roboto', fontSize: 18, fontWeight: '300'}}
+				showsHorizontalScrollIndicator={false}
 			>
-				<Preview tabLabel="     Preview     " />
-				<Confirm tabLabel="     Confirm     " />
-				<Complete tabLabel="    Complete    " />
-				<Detail tabLabel="     Detail     " />
+				<Information tabLabel="Information" item={item}/>
+				<Confirm tabLabel="Tour" />
+				<Complete tabLabel="Packages" />
+				<Detail tabLabel="Review" />
 			</ScrollableTabView>
+			<ProgressBooking
+				headerContext={'2 Day / 1 Night'}
+				middleContext={'$399.99'}
+				footerContext={'2 Adults / 1 Children'}
+				children={'Book Now'}
+				onPress={() => navigation.navigate(appRoutes.CHECKOUT, {promosId: 1})}
+			/>
 		</Container>
 	)
 };

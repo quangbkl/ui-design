@@ -15,7 +15,6 @@ export default class BookingDetailScreen extends Component {
 		const tabBarUnderlineStyle = {
 			backgroundColor: BaseColor.primaryColor,
 			height: 1,
-			width: '25%'
 		};
 		return <Container>
 			<Header title={'Booking Detail'} RightComponent={<Text style={{color: 'red'}}>Save</Text>}/>
@@ -25,11 +24,12 @@ export default class BookingDetailScreen extends Component {
 				tabBarInactiveTextColor={BaseColor.dividerColor}
 				tabBarUnderlineStyle={tabBarUnderlineStyle}
 				tabBarTextStyle={{fontFamily: 'Roboto', fontSize: 18, fontWeight: '300'}}
+				showsHorizontalScrollIndicator={false}
 			>
-				<Preview tabLabel="     Preview     " />
-				<Confirm tabLabel="     Confirm     " />
-				<Complete tabLabel="     Complete     " />
-				<Detail tabLabel="     Detail     " />
+				<Preview tabLabel="Preview" />
+				<Confirm tabLabel="Confirm" />
+				<Complete tabLabel="Complete" />
+				<Detail tabLabel="Detail" />
 			</ScrollableTabView>
 		</Container>
 	}
