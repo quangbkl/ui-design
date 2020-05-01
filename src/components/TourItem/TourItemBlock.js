@@ -6,7 +6,7 @@ import 'react-native-get-random-values';
 import {getImageTour, getPricePerParticipant, getRatePerFive} from 'helpers/tour';
 import {BaseColor} from 'config/color';
 import {Button} from '../index';
-import appRoutes from '../../navigations/appRoutes';
+import appRoutes from 'navigations/appRoutes';
 import {useNavigation} from '@react-navigation/native';
 
 const TourItemBlock = ({item}) => {
@@ -119,12 +119,9 @@ const styles = StyleSheet.create({
 		marginLeft: 15,
 		marginRight: 15,
 	},
-	rating: {
-	
-	},
 	bookNow: {
-		width: 100,
-		height: 40,
+		width: 90,
+		height: 35,
 		backgroundColor: BaseColor.whiteColor,
 		color: BaseColor.primaryColor,
 		borderWidth: 1,
