@@ -4,11 +4,14 @@ import {Container} from 'native-base';
 import Header from 'components/Header/Header';
 import Text from 'components/Text/Text';
 import {Button, TextInput} from 'components';
-import appRoutes from '../../../navigations/appRoutes';
+import appRoutes from 'navigations/appRoutes';
 import {useNavigation} from '@react-navigation/native';
+import useApp from 'hooks/app/useApp';
 
 const CheckoutScreen = () => {
 	const navigation = useNavigation();
+	const {state: appState} = useApp();
+	const {i18n} = appState;
 	return (
 		<Container>
 			<Header title="Check Out" RightComponent={<Text style={{color: 'red'}}>Reset</Text>} />

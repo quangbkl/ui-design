@@ -10,9 +10,9 @@ const ProgressBooking = props => {
 	return (
 		<View style={styles.container}>
 			<View>
-				<Text footnote grayColor>{headerContext}</Text>
-				<Text title3 darkPrimaryColor>{middleContext}</Text>
-				<Text footnote grayColor>{footerContext}</Text>
+				<Text footnote textPrimaryColor>{headerContext}</Text>
+				<Text title4 darkPrimaryColor>{middleContext}</Text>
+				<Text footnote textPrimaryColor>{footerContext}</Text>
 			</View>
 			<Button children={children} style={styles.progressBooking} onPress={onPress}/>
 		</View>
@@ -26,13 +26,17 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		borderWidth: 0.5,
 		borderTopColor: '#8b8b8b',
-		padding: 15,
+		paddingLeft: 15,
+		paddingRight: 15,
+		paddingTop: 10,
+		paddingBottom: 10,
 	},
 	left: {
 		textAlign: 'center',
 	},
 	progressBooking: {
-		width: 100,
+		width: 120,
+		borderRadius: 10
 	},
 });
 

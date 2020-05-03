@@ -27,6 +27,7 @@ const appRoutes = {
     TOUR_OPEN: 'Tour Open',
 
     // BOOKING
+	BOOKING_DETAIL: 'Booking Detail',
 
     // NEWS
     POSTS: 'Posts',

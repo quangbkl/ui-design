@@ -27,7 +27,7 @@ const Tour = (props) => {
 		return (
 			<TourCard
 				item={item}
-        onPress={() => navigation.navigate(appRoutes.HOTEL_DETAIL, {tourId: item.id})}
+        onPress={() => navigation.navigate(appRoutes.TOUR_DETAIL, {tourId: item.id})}
 			/>
 		);
 	};

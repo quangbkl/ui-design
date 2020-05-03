@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         borderRadius: 6,
     },
     rightBlock: {
-        marginLeft: 10,
+        marginLeft: 5,
     },
     name: {
         fontSize: 17,

@@ -5,7 +5,7 @@ import Header from 'components/Header/Header';
 import Text from 'components/Text/Text';
 import appRoutes from '../../../navigations/appRoutes';
 import {useNavigation} from '@react-navigation/native';
-import {CustomIcon, ListItemAngleRight} from '../../../components';
+import {CustomIcon, ListItemAngleRight} from 'components';
 
 const PaymentMethodsScreen = () => {
 	const navigation = useNavigation();
