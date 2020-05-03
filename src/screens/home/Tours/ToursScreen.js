@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {View, FlatList, StyleSheet} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {FlatList, StyleSheet, View} from 'react-native';
 // https://github.com/uuidjs/uuid#getrandomvalues-not-supported
 import 'react-native-get-random-values';
 import {v4 as uuidv4} from 'uuid';
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
 	},
 	spaceCol: {
 		flex: 1,
-		justifyContent: 'space-around',
+		justifyContent: 'space-between',
 	},
 });
 

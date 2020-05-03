@@ -1,12 +1,13 @@
 import React from 'react';
-import {ImageBackground, ScrollView, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 import {Container} from 'native-base';
-import {CustomIcon, ListItem, Text} from 'components/index';
+import {ListItem, Text} from 'components/index';
 import {BaseColor} from 'config/color';
 import Gallery from './Gallery';
 
 const Information = ({item}) => {
-	const {generalInformation} = item;
+	const {generalInformation, includes, excludes} = item;
 	return (
 		<Container>
 			<ScrollView>
@@ -37,6 +38,14 @@ const Information = ({item}) => {
 					</ListItem>
 					
 					<Gallery item={item}/>
+					<View>
+						<Text style={styles.titleBoot}>Includes</Text>
+						<Text style={styles.contentBoot}>{includes}</Text>
+					</View>
+					<View>
+						<Text style={styles.titleBoot}>Excludes</Text>
+						<Text style={styles.contentBoot}>{excludes}</Text>
+					</View>
 				</View>
 			</ScrollView>
 		</Container>
@@ -63,6 +72,14 @@ const styles = StyleSheet.create({
 		color: BaseColor.accentColor,
 		fontSize: 15,
 		fontWeight: '700',
+	},
+	titleBoot: {
+		marginTop: 15,
+		fontWeight: '700',
+		fontSize: 18
+	},
+	contentBoot: {
+		marginTop: 10,
 	}
 });
 export default Information;

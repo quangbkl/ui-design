@@ -1,11 +1,8 @@
-import React, {Component} from 'react'
-import { ScrollableTabView, ScrollableTabBar } from '@valdio/react-native-scrollable-tabview'
+import React from 'react';
+import {ScrollableTabBar, ScrollableTabView} from '@valdio/react-native-scrollable-tabview';
 import {Container} from 'native-base';
-import {Header, Button, Text} from 'components';
+import {Button, Header, Text} from 'components';
 import {BaseColor} from 'config/color';
-import Preview from 'components/BookingHistory/Preview';
-import Confirm from 'components/BookingHistory/Confirm';
-import Complete from 'components/BookingHistory/Complete';
 import Detail from 'components/BookingHistory/Detail';
 import {ImageBackground, StyleSheet, View} from 'react-native';
 import appRoutes from 'navigations/appRoutes';
@@ -14,6 +11,8 @@ import {useNavigation} from '@react-navigation/native';
 import Information from 'components/TourItem/Tabs/Information';
 import tourDB from '__mocks__/db/tours-db';
 import {normalizeNumber} from 'helpers/number';
+import Tour from 'components/TourItem/Tabs/Tour';
+import Packages from 'components/TourItem/Tabs/Packages';
 
 const TourDetailScreen = () => {
 	const item = tourDB.tours[0];
@@ -65,8 +64,8 @@ const TourDetailScreen = () => {
 				showsHorizontalScrollIndicator={false}
 			>
 				<Information tabLabel="Information" item={item}/>
-				<Confirm tabLabel="Tour" />
-				<Complete tabLabel="Packages" />
+				<Tour tabLabel="Tour" item={item}/>
+				<Packages tabLabel="Packages" item={item} navigation={navigation}/>
 				<Detail tabLabel="Review" />
 			</ScrollableTabView>
 			<ProgressBooking
@@ -103,7 +102,7 @@ const styles = StyleSheet.create({
 		borderRadius: 15,
 		backgroundColor: BaseColor.primaryColor,
 		fontSize: 15,
-		textAlignVertical: 'center',
+		textAlign: 'center',
 		alignItems: 'center'
 	},
 	authorRight: {

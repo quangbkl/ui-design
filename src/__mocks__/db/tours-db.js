@@ -37,28 +37,61 @@ const tourDB = {
 				{
 					id: uuidv4(),
 					image: 'https://kristinmateikahome.files.wordpress.com/2019/11/david-werbrouck-ohxhsg8_vn0-unsplash-edit-.jpg',
-					title: 'London - Somme - Paris',
+					title: 'Day 1: London - Somme - Paris',
 					description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectetur eligendi minus molestiae nam, repudiandae.',
 				},
 				{
 					id: uuidv4(),
 					image: 'https://kristinmateikahome.files.wordpress.com/2019/11/david-werbrouck-ohxhsg8_vn0-unsplash-edit-.jpg',
-					title: 'Paris - Somme - Burgundy',
+					title: 'Day 2: Paris - Somme - Burgundy',
 					description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectetur eligendi minus molestiae nam, repudiandae.',
 				},
 				{
 					id: uuidv4(),
 					image: 'https://kristinmateikahome.files.wordpress.com/2019/11/david-werbrouck-ohxhsg8_vn0-unsplash-edit-.jpg',
-					title: 'London - Somme - Paris',
+					title: 'Day 3: London - Somme - Paris',
 					description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectetur eligendi minus molestiae nam, repudiandae.',
 				},
 				{
 					id: uuidv4(),
 					image: 'https://kristinmateikahome.files.wordpress.com/2019/11/david-werbrouck-ohxhsg8_vn0-unsplash-edit-.jpg',
-					title: 'London - Somme - Paris',
+					title: 'Day 4: London - Somme - Paris',
 					description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectetur eligendi minus molestiae nam, repudiandae.',
 				},
 			],
+			packages: {
+				description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectetur eligendi minus molestiae nam, repudiandae.',
+				standard: {
+					title: 'Standard Package',
+					price: '$399.99',
+					type: 'per month',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen'
+				},
+				luxury: {
+					title: 'Luxury Package',
+					price: '$799.99',
+					type: 'per month',
+					description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen',
+					specialService: [
+						{
+							title: '3 Nights',
+							shortDescription: 'All 4-Star Felix hotel'
+						},
+						{
+							title: 'Balcony Reservation',
+							shortDescription: 'One Morning on our VIP balcony'
+						},
+						{
+							title: 'Walking Tour',
+							shortDescription: 'Walking on side the beach'
+						},
+						{
+							title: 'Vip Dinner',
+							shortDescription: 'Seafood will make you happier'
+						}
+					]
+				}
+			},
 			includes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectetur eligendi minus molestiae nam, repudiandae.',
 			excludes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectetur eligendi minus molestiae nam, repudiandae.',
 		},
