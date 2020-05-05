@@ -3,7 +3,6 @@ import {ScrollableTabBar, ScrollableTabView} from '@valdio/react-native-scrollab
 import {Container} from 'native-base';
 import {Button, Header, Text} from 'components';
 import {BaseColor} from 'config/color';
-import Detail from 'components/BookingHistory/Detail';
 import {ImageBackground, StyleSheet, View} from 'react-native';
 import appRoutes from 'navigations/appRoutes';
 import ProgressBooking from 'components/ProgressBooking/ProgressBooking';
@@ -13,10 +12,11 @@ import tourDB from '__mocks__/db/tours-db';
 import {normalizeNumber} from 'helpers/number';
 import Tour from 'components/TourItem/Tabs/Tour';
 import Packages from 'components/TourItem/Tabs/Packages';
+import Review from 'components/TourItem/Tabs/Review';
 
 const TourDetailScreen = () => {
 	const item = tourDB.tours[0];
-	const {author, generalInformation} = item;
+	const {author} = item;
 	const navigation = useNavigation();
 	const tabBarUnderlineStyle = {
 		backgroundColor: BaseColor.primaryColor,
@@ -66,7 +66,7 @@ const TourDetailScreen = () => {
 				<Information tabLabel="Information" item={item}/>
 				<Tour tabLabel="Tour" item={item}/>
 				<Packages tabLabel="Packages" item={item} navigation={navigation}/>
-				<Detail tabLabel="Review" />
+				<Review tabLabel="Review" item={item}/>
 			</ScrollableTabView>
 			<ProgressBooking
 				headerContext={'2 Day / 1 Night'}

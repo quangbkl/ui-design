@@ -92,6 +92,9 @@ const tourDB = {
 					]
 				}
 			},
+			review:{
+			
+			},
 			includes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectetur eligendi minus molestiae nam, repudiandae.',
 			excludes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectetur eligendi minus molestiae nam, repudiandae.',
 		},
