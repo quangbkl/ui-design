@@ -1,11 +1,14 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {Rating} from 'react-native-ratings';
-import {getImageTour, getRatePerFive, getPricePerParticipant} from 'helpers/tour';
+import {getImageTour, getPricePerParticipant, getRatePerFive} from 'helpers/tour';
 import CustomIcon from '../Icon/CustomIcon';
 import {BaseColor} from 'config/color';
+import useApp from 'hooks/app/useApp';
 
 const TourItemList = ({item}) => {
+	const {state: appState} = useApp();
+	const {color} = appState;
 	return (
 		<View style={styles.container}>
 			<Image
@@ -34,7 +37,7 @@ const TourItemList = ({item}) => {
 						readonly
 					/>
 					<Text style={styles.textRating}>Rating </Text>
-					<Text style={{color: 'red'}}>{item.ratePercent} of 100</Text>
+					<Text style={{color: color.primaryColor}}>{item.ratePercent} of 100</Text>
 				</View>
 				<View style={{...styles.formatCommon, width: 80}} >
 					<CustomIcon type="history" size={12} color={BaseColor.accentColor} style={{marginLeft: 3}}/>
@@ -55,7 +58,7 @@ const TourItemList = ({item}) => {
 					</View>
 				</View>
 				<View style={styles.price}>
-					<Text style={{color: 'red', fontSize: 18}}>{getPricePerParticipant(item)}</Text>
+					<Text style={{color: color.primaryColor, fontSize: 18}}>{getPricePerParticipant(item)}</Text>
 				</View>
 			</View>
 		</View>

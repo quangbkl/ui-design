@@ -8,11 +8,14 @@ import {BaseColor} from 'config/color';
 import {Button} from '../index';
 import appRoutes from 'navigations/appRoutes';
 import {useNavigation} from '@react-navigation/native';
+import useApp from 'hooks/app/useApp';
 
 const TourItemBlock = ({item}) => {
 	const navigation = useNavigation();
 	const {title, author, ratePercent} = item;
 	const {name, avatar} = author;
+	const {state: appState} = useApp();
+	const {color} = appState;
 	return (
 		<View>
 			<View style={styles.container}>
@@ -24,7 +27,7 @@ const TourItemBlock = ({item}) => {
 						}}
 					/>
 				</View>
-				<Button style={styles.buttonPrice}>{getPricePerParticipant(item)}</Button>
+				<Button style={{...styles.buttonPrice, backgroundColor: color.primaryColor}}>{getPricePerParticipant(item)}</Button>
 			</View>
 			<View>
 				<View style={styles.information}>
@@ -33,7 +36,7 @@ const TourItemBlock = ({item}) => {
 						style={styles.avatar}
 						imageStyle={{borderRadius: 30}}
 					>
-						<Text style={styles.score}>9.5</Text>
+						<Text style={{...styles.score, backgroundColor: color.primaryColor}}>9.5</Text>
 					</ImageBackground>
 					<View style={{marginLeft: 15}}>
 						<Text style={{fontSize: 20, fontWeight: '600'}}>{title}</Text>
@@ -54,10 +57,10 @@ const TourItemBlock = ({item}) => {
 							style={styles.rating}
 						/>
 						<Text style={{color: BaseColor.textPrimaryColor, opacity: 0.6}}>Rating </Text>
-						<Text style={{color: 'red'}}>{ratePercent} of 100</Text>
+						<Text style={{color: color.primaryColor}}>{ratePercent} of 100</Text>
 					</View>
 					<Button
-						style={styles.bookNow}
+						style={{...styles.bookNow, borderColor: color.primaryColor, color: color.primaryColor}}
 						onPress={() => navigation.navigate(appRoutes.CHECKOUT_REVIEW, {tourId: item.id})}
 					>Book now</Button>
 				</View>
@@ -83,7 +86,8 @@ const styles = StyleSheet.create({
 		height: 40,
 		top: 20,
 		left: 20,
-		backgroundColor: BaseColor.primaryColor,
+		color: 'white',
+		fontWeight: '700'
 	},
 	information: {
 		flex: 2,
@@ -99,7 +103,6 @@ const styles = StyleSheet.create({
 		position: 'relative',
 	},
 	score: {
-		backgroundColor: BaseColor.primaryColor,
 		width: 20,
 		height: 20,
 		borderRadius: 10,
@@ -122,9 +125,7 @@ const styles = StyleSheet.create({
 		width: 90,
 		height: 35,
 		backgroundColor: BaseColor.fieldColor,
-		color: BaseColor.primaryColor,
 		borderWidth: 1,
-		borderColor: BaseColor.primaryColor,
 		borderRadius: 20,
 	},
 });

@@ -2,10 +2,13 @@ import React from 'react';
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 import Button from '../Button/Button';
 import Touchable from '../Touchable/Touchable';
+import useApp from 'hooks/app/useApp';
 
 const HotelCard = (props) => {
 	const {onPress, _onPressBookNow, item} = props;
 	const {image, title, country} = item;
+	const {state: appState} = useApp();
+	const {color} = appState;
 	return (
 		<Touchable onPress={onPress} style={styles.container}>
 			<ImageBackground
@@ -17,7 +20,7 @@ const HotelCard = (props) => {
 					<Text style={styles.title}> {title} </Text>
 					<Text style={styles.country}> {country} </Text>
 					<Button
-						style={styles.button}
+						style={{...styles.button, backgroundColor: color.primaryColor}}
 						children={'Book Now'}
 						onPress={_onPressBookNow}
 					>
@@ -62,7 +65,6 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 	},
 	button: {
-		backgroundColor: '#e5634d',
 		borderRadius: 5,
 		width: 84,
 		height: 25,
