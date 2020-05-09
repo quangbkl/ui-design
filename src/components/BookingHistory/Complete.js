@@ -1,21 +1,19 @@
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {Container} from 'native-base';
-import Header from 'components/Header/Header';
 import Text from 'components/Text/Text';
-import {Button, CustomIcon, TextInput} from 'components/index';
-import appRoutes from 'navigations/appRoutes';
-import {useNavigation} from '@react-navigation/native';
+import {CustomIcon} from 'components/index';
 import useApp from 'hooks/app/useApp';
-import {BaseColor} from '../../config/color';
 
 const Complete = () => {
+	const {state: appState} = useApp();
+	const {color} = appState;
 	return (
 		<Container>
 			<ScrollView>
 				<View style={styles.container}>
 					<View style={styles.content}>
-						<CustomIcon type={'copy'} color={BaseColor.primaryColor} size={50} />
+						<CustomIcon type={'copy'} color={color.primaryColor} size={50} />
 						<Text style={styles.title}>Booking ID 01233</Text>
 						<Text style={styles.description}>Thank you. Your order has been completed. The SRR Secretariat will be in contact with via email to confirm your registration and send you details for the meeting</Text>
 					</View>
