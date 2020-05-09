@@ -4,11 +4,14 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {Container} from 'native-base';
 import {BaseColor} from 'config/color';
 import {Button, ListItem, Text} from 'components';
-import appRoutes from '../../../navigations/appRoutes';
+import appRoutes from 'navigations/appRoutes';
+import useApp from 'hooks/app/useApp';
 
 const Packages = ({item, navigation}) => {
 	const {packages} = item;
 	const {description, standard, luxury} = packages;
+	const {state: appState} = useApp();
+	const {color} = appState;
 	return (
 		<Container>
 			<ScrollView>
@@ -17,7 +20,7 @@ const Packages = ({item, navigation}) => {
 					<View style={styles.package}>
 						<Text style={styles.title}>{standard.title}</Text>
 						<View style={{flexDirection: 'row', marginTop: 10}}>
-							<Text style={styles.price}>{standard.price}</Text>
+							<Text style={{...styles.price, color: color.primaryColor}}>{standard.price}</Text>
 							<Text style={styles.type}>{standard.type}</Text>
 						</View>
 						<Text style={styles.description}>{standard.description}</Text>
@@ -29,7 +32,7 @@ const Packages = ({item, navigation}) => {
 					<View style={styles.package}>
 						<Text style={styles.title}>{luxury.title}</Text>
 						<View style={{flexDirection: 'row', marginTop: 10}}>
-							<Text style={styles.price}>{luxury.price}</Text>
+							<Text style={{...styles.price, color: color.primaryColor}}>{luxury.price}</Text>
 							<Text style={styles.type}>{luxury.type}</Text>
 						</View>
 						<Text style={styles.description}>{luxury.description}</Text>
@@ -79,7 +82,6 @@ const styles = StyleSheet.create({
 	price: {
 		fontSize: 25,
 		fontWeight: '700',
-		color: 'red'
 	},
 	type: {
 		fontSize: 14,

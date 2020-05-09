@@ -66,10 +66,10 @@ const TourDetailScreen = () => {
 				tabBarTextStyle={{fontFamily: 'Roboto', fontSize: 18, fontWeight: '300'}}
 				showsHorizontalScrollIndicator={false}
 			>
-				<Information tabLabel="    Information    " item={item}/>
-				<Tour tabLabel="       Tour       " item={item}/>
-				<Packages tabLabel="     Packages     " item={item} navigation={navigation}/>
-				<Review tabLabel="      Review     " item={item}/>
+				<Information tabLabel="  Information  " item={item}/>
+				<Tour tabLabel="     Tour     " item={item}/>
+				<Packages tabLabel="   Packages   " item={item} navigation={navigation}/>
+				<Review tabLabel="    Review   " item={item}/>
 			</ScrollableTabView>
 			<ProgressBooking
 				headerContext={'2 Day / 1 Night'}
@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
 		marginRight: 15,
 	},
 	authorLeft: {
-	
 	},
 	avatar: {
 		width: 80,

@@ -93,7 +93,34 @@ const tourDB = {
 				}
 			},
 			review:{
-			
+				scores: {
+					total: 45,
+					fiveStars: 35,
+					fourStars: 6,
+					threeStars: 4,
+					twoStars: 0,
+					oneStars: 0,
+				},
+				users: [
+					{
+						id: uuidv4(),
+						name: 'Grigoriy Kozhukhov',
+						avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR35uSBKPVv-b_w74wr-w5jwn9HMdB69mJhCmTmHzX0pc88dPFzYCXl4ywjly3--Bk&usqp=CAU',
+						score: 4,
+						title: 'Nice Place',
+						time: 'Jun 2020',
+						description: 'it amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectet'
+					},
+					{
+						id: uuidv4(),
+						name: 'Grigoriy Kozhukhov',
+						avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR35uSBKPVv-b_w74wr-w5jwn9HMdB69mJhCmTmHzX0pc88dPFzYCXl4ywjly3--Bk&usqp=CAU',
+						score: 5,
+						title: 'Nice Place',
+						time: 'Jun 2020',
+						description: 'Ab assumen consectet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectet'
+					}
+				]
 			},
 			includes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectetur eligendi minus molestiae nam, repudiandae.',
 			excludes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus non officia officiis placeat? Ab assumen consectetur eligendi minus molestiae nam, repudiandae.',

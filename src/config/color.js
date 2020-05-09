@@ -14,7 +14,8 @@ export const BaseColor = {
     navyBlue: '#3C5A99', // just another color use for the app,
     bluePrimaryColor: '#1890FF',
     backgroundPrimaryColor: '#F2F2F2',
-    backgroundSecondaryColor: '#FFFFFF'
+    backgroundSecondaryColor: '#FFFFFF',
+    backgroundTertiaryColor: '#F5F5F5'
 };
 
 export const ThemeColor = {
