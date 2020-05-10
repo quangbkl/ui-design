@@ -12,9 +12,10 @@ const CheckoutScreen = () => {
 	const navigation = useNavigation();
 	const {state: appState} = useApp();
 	const {i18n} = appState;
+	const {color} = appState;
 	return (
 		<Container>
-			<Header title="Check Out" RightComponent={<Text style={{color: 'red'}}>Reset</Text>} />
+			<Header title="Check Out" RightComponent={<Text style={{color: color.primaryColor}}>Reset</Text>} />
 			<ScrollView>
 				<View style={styles.container}>
 					<View >

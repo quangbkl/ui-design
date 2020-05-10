@@ -1,15 +1,18 @@
 import React from 'react';
-import {ViewPropTypes, Text, View, StyleSheet} from 'react-native';
+import {StyleSheet, Text, View, ViewPropTypes} from 'react-native';
 import PropTypes from 'prop-types';
 import {Touchable} from '../index';
 import {BaseColor} from 'config/color';
+import useApp from 'hooks/app/useApp';
 
 // Preview component: http://passionui.com/wp-content/uploads/2019/07/2019-07-21_1223.png
 const BookingHistory = (props) => {
 	const {onPress, item} = props;
 	const {name, checkIn, checkOut, duration, price} = item;
+	const {state: appState} = useApp();
+	const {color} = appState;
     return (
-    	<Touchable onPress={onPress} style={styles.container}>
+    	<Touchable onPress={onPress} style={{...styles.container, backgroundColor: color.primaryColor}}>
 		    <Text style={styles.header}>{name}</Text>
 		    <View style={styles.content}>
 			    <View style={styles.checkInOut}>
@@ -35,7 +38,6 @@ const styles = StyleSheet.create({
 		marginTop: 10,
 		marginLeft: 15,
 		marginRight: 15,
-		backgroundColor: BaseColor.primaryColor,
 		borderRadius: 10
 	},
 	header: {

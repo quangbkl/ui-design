@@ -9,9 +9,11 @@ import {FilterSort} from 'components';
 import Header from 'components/Header/Header';
 import CustomIcon from 'components/Icon/CustomIcon';
 import TourItem from 'components/TourItem/TourItem';
+import useApp from 'hooks/app/useApp';
 
-// TODO: Code HotelItem component first
 const ToursScreen = props => {
+	const {state: appState} = useApp();
+	const {color} = appState;
 	const defaultFilters = {
 		page: 1,
 		limit: 20
@@ -44,7 +46,7 @@ const ToursScreen = props => {
 			<Header
 				title="Tour"
 				description="30 April 2020, 2 Nights, 1 Room"
-				RightComponent={<CustomIcon type="search"/>}
+				RightComponent={<CustomIcon type="search" color={color.primaryColor}/>}
 			/>
 			<FilterSort view={view} onChangeView={setView}/>
 			<FlatList

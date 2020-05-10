@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 import Text from 'components/Text/Text';
 import {Button} from '../index';
+import useApp from 'hooks/app/useApp';
 
 const ProgressBooking = props => {
 	const {headerContext, middleContext, footerContext, onPress, children} = props;
-	
+	const {state: appState} = useApp();
+	const {color} = appState;
 	return (
 		<View style={styles.container}>
 			<View>
 				<Text footnote textPrimaryColor>{headerContext}</Text>
-				<Text title4 darkPrimaryColor>{middleContext}</Text>
+				<Text title4 style={{color: color.primaryColor}}>{middleContext}</Text>
 				<Text footnote textPrimaryColor>{footerContext}</Text>
 			</View>
 			<Button children={children} style={styles.progressBooking} onPress={onPress}/>

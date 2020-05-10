@@ -1,18 +1,15 @@
 import React from 'react';
-import {
-	View,
-	Text,
-	StyleSheet,
-	Dimensions,
-	Image,
-} from 'react-native';
-import {getImageTour, getDuration, getPricePerParticipant} from 'helpers/tour';
+import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
+import {getDuration, getImageTour, getPricePerParticipant} from 'helpers/tour';
 import {BaseColor} from 'config/color';
 import CustomIcon from '../Icon/CustomIcon';
+import useApp from 'hooks/app/useApp';
 
 const widthItem = Dimensions.get('window').width / 2 - 30;
 
 const TourItemGrid = ({item}) => {
+	const {state: appState} = useApp();
+	const {color} = appState;
 	return (
 		<View style={styles.container}>
 			<Image
@@ -22,12 +19,12 @@ const TourItemGrid = ({item}) => {
 				}}
 			/>
 			<View style={styles.locationBlock}>
-				<CustomIcon type="map-marker-alt" size={13}/>
+				<CustomIcon type="map-marker-alt" size={13} color={color.primaryColor}/>
 				<Text style={styles.locationText}>{item.location}</Text>
 			</View>
 			<Text style={styles.title}>{item.title}</Text>
 			<Text style={styles.duration}>{getDuration(item)}</Text>
-			<Text style={styles.price}>{getPricePerParticipant(item)}</Text>
+			<Text style={{...styles.price, color: color.primaryColor}}>{getPricePerParticipant(item)}</Text>
 		</View>
 	);
 };
@@ -63,7 +60,6 @@ const styles = StyleSheet.create({
 	},
 	price: {
 		marginTop: 5,
-		color: BaseColor.primaryColor,
 		fontSize: 20,
 		fontWeight: '700'
 	},

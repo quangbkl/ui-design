@@ -1,18 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import {useNavigation} from '@react-navigation/native';
 import {BaseColor} from 'config/color';
 import Touchable from '../Touchable/Touchable';
+import useApp from 'hooks/app/useApp';
 
 const DefaultLeftComponent = () => {
     const navigation = useNavigation();
+	const {state: appState} = useApp();
+	const {color} = appState;
     return (
         <Touchable onPress={() => navigation.goBack()}>
             <FontAwesome5Icon
                 name="arrow-left"
-                color={BaseColor.primaryColor}
+                color={color.primaryColor}
                 size={18}
             />
         </Touchable>
