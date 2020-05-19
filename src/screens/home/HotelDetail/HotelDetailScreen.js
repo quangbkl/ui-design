@@ -1,23 +1,15 @@
 import React, {useState} from 'react';
-import {
-    Animated,
-    Platform,
-    StatusBar,
-    StyleSheet,
-    View,
-    SafeAreaView,
-    ScrollView,
-} from 'react-native';
-import {Grid, Col, Row, List} from 'native-base';
+import {Animated, Platform, SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
+import {Col, Grid, List, Row} from 'native-base';
 import {Bar} from 'react-native-progress';
 import {Rating} from 'react-native-ratings';
 // https://github.com/uuidjs/uuid#getrandomvalues-not-supported
 import 'react-native-get-random-values';
 import {v4 as uuidv4} from 'uuid';
-import {Header, CustomIcon, Text, Separator, Button} from 'components';
+import {Button, CustomIcon, Header, Separator, Text} from 'components';
 import {getRouterParam} from 'helpers/common';
 import {BaseColor} from 'config/color';
-import useApp from "hooks/app/useApp";
+import useApp from 'hooks/app/useApp';
 
 const HEADER_MAX_HEIGHT = 200;
 const HEADER_MIN_HEIGHT = Platform.OS === 'ios' ? 60 : 73;
@@ -27,6 +19,7 @@ const HotelDetailScreen = props => {
     const hotelId = getRouterParam(props, 'hotelId');
     const {state: appState} = useApp();
     const {i18n} = appState;
+	const {color} = appState;
     const [scrollY] = useState(
         new Animated.Value(
             // iOS has negative initial scroll value because content inset...
@@ -74,11 +67,11 @@ const HotelDetailScreen = props => {
                 {/* Reviews */}
                 <View style={styles.blockReviews}>
                     <View style={styles.commonRate}>
-                        <Text style={styles.ratePerTen} title2 whiteColor>
+                        <Text style={{...styles.ratePerTen, backgroundColor: color.primaryColor}} title2 whiteColor>
                             9.5
                         </Text>
                         <View style={styles.commonRateRight}>
-                            <Text title2 primaryColor>
+                            <Text title2 style={{color: color.primaryColor}}>
                                 Excellent
                             </Text>
                             <Text subhead>See 1000 reviews</Text>
@@ -252,7 +245,7 @@ const HotelDetailScreen = props => {
         );
     };
     const HeaderRightComponent = () => {
-        return <CustomIcon type="images"/>;
+        return <CustomIcon type="images" color={color.primaryColor}/>;
     };
     const scrollYRender = Animated.add(
         scrollY,
@@ -373,7 +366,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     ratePerTen: {
-        backgroundColor: BaseColor.primaryColor,
         width: 60,
         height: 60,
         lineHeight: 60,
