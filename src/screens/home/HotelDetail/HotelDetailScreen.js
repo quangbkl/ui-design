@@ -324,7 +324,8 @@ const styles = StyleSheet.create({
     },
     bar: {
         backgroundColor: 'transparent',
-        marginTop: Platform.OS === 'ios' ? 20 : 30,
+        marginTop: 20, /*KyLC*/
+        // marginTop: Platform.OS === 'ios' ? 20 : 30,
         position: 'absolute',
         top: 0,
         left: 0,
@@ -336,81 +337,6 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         paddingRight: 20,
         marginBottom: 20,
-    },
-    reviewBlock: {
-        borderRadius: 10,
-        backgroundColor: '#fff',
-        marginTop: 5,
-        paddingTop: 5,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 6,
-        },
-        shadowOpacity: 0.37,
-        shadowRadius: 10,
-        elevation: 12,
-    },
-    titleReviewBlock: {
-        textAlign: 'center',
-    },
-    titleReviewDescription: {
-        textAlign: 'center',
-        margin: 10,
-    },
-    blockReviews: {
-        marginTop: 20,
-    },
-    commonRate: {
-        display: 'flex',
-        flexDirection: 'row',
-    },
-    ratePerTen: {
-        width: 60,
-        height: 60,
-        lineHeight: 60,
-        borderRadius: 30,
-        marginRight: 5,
-        textAlign: 'center',
-    },
-    commonRateRight: {
-        justifyContent: 'space-around',
-    },
-    rowReview: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    detailReview: {
-        marginTop: 15,
-    },
-    reviewItem: {
-        marginBottom: 10,
-        width: '48%',
-    },
-    reviewItemFirstLine: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: 5,
-    },
-    serviceItem: {
-        alignItems: 'center',
-        marginRight: 20,
-    },
-    iconHelp: {
-        marginRight: 5,
-        color: BaseColor.bluePrimaryColor,
-    },
-    reasonBlock: {
-        marginLeft: 10,
-    },
-    reasonItem: {
-        display: 'flex',
-        flexDirection: 'row',
-        marginTop: 5,
-    },
-    reasonItemRight: {
-        justifyContent: 'space-around',
-        marginLeft: 10,
     }
 });
 

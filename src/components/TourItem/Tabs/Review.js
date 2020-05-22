@@ -125,11 +125,14 @@ const Review = ({item}) => {
 							/>
 							<View style={styles.authorRight}>
 								<Text style={styles.name}>{users[0].name}</Text>
-								<Rating
-									readonly
-									imageSize={16}
-									startingValue={users[0].score}
-								/>
+								<View style={{backgroundColor: 'red'}}>
+									<Rating
+										readonly
+										type={'custom'}
+										imageSize={16}
+										startingValue={users[0].score}
+									/>
+								</View>
 							</View>
 							<Text style={styles.time}>{users[0].time}</Text>
 						</View>

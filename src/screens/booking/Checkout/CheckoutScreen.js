@@ -56,6 +56,7 @@ const CheckoutScreen = () => {
 				style={styles.checkoutButton}
 				children={'Check Out'}
 				onPress={() => navigation.navigate(appRoutes.PAYMENT_METHODS)}
+				loading={true}
 			/>
 		</Container>
 	);
