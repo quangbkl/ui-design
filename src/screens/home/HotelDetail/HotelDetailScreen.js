@@ -3,6 +3,8 @@ import {Animated, Platform, SafeAreaView, StatusBar, StyleSheet, View} from 'rea
 import {Col, Grid, List, Row} from 'native-base';
 import {Bar} from 'react-native-progress';
 import {Rating} from 'react-native-ratings';
+import MapView, { PROVIDER_DEFAULT } from 'react-native-maps';
+
 // https://github.com/uuidjs/uuid#getrandomvalues-not-supported
 import 'react-native-get-random-values';
 import {v4 as uuidv4} from 'uuid';
@@ -155,7 +157,7 @@ const HotelDetailScreen = props => {
                         typesetting industry. Lorem Ipsum has been the
                         industry's standard dummy text
                     </Text>
-                    {/* <MapView style={styles.map} provider={PROVIDER_GOOGLE} region={region} /> */}
+                    <MapView style={styles.map} provider={PROVIDER_DEFAULT}  />
                 </View>
                 <Separator/>
                 {/* Checkin - Checkout */}
@@ -301,7 +303,10 @@ const HotelDetailScreen = props => {
 };
 
 const styles = StyleSheet.create({
-    map: StyleSheet.absoluteFillObject,
+    map: {
+        flex: 1,
+        height: 200,
+    },
     fill: {
         flex: 1,
     },

@@ -44,6 +44,11 @@ const AppProvider = ({children, ...props}) => {
                 ...BaseColor,
                 ...ThemeColor[theme],
                 ...ThemeModeColor[themeMode]
+            },
+            colors: {   // TODO: remove color
+                ...BaseColor,
+                ...ThemeColor[theme],
+                ...ThemeModeColor[themeMode]
             }
         },
         actions: {
