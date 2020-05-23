@@ -4,6 +4,7 @@ import appRoutes from './appRoutes';
 import {withSafeAreaView} from 'components';
 
 const HomeScreen = React.lazy(() => import('screens/home/Home/HomeScreen'));
+const SearchHotelScreen = React.lazy(() => import('screens/home/SearchHotel/SearchHotelScreen'));
 const HotelsScreen = React.lazy(() => import('screens/home/Hotels/HotelsScreen'));
 const HotelDetailScreen = React.lazy(() => import('screens/home/HotelDetail/HotelDetailScreen'));
 const CheckoutReviewScreen = React.lazy(() => import('screens/booking/Checkout/CheckoutReviewScreen'));
@@ -20,6 +21,7 @@ const HomeNavigator = () => {
     return (
         <Stack.Navigator headerMode='none'>
             <Stack.Screen name={appRoutes.HOME} component={HomeScreen}/>
+            <Stack.Screen name={appRoutes.SEARCH_HOTEL} component={SearchHotelScreen}/>
             <Stack.Screen name={appRoutes.HOTELS} component={withSafeAreaView(HotelsScreen)}/>
             <Stack.Screen name={appRoutes.HOTEL_DETAIL} component={HotelDetailScreen}/>
             <Stack.Screen name={appRoutes.CHECKOUT_REVIEW} component={CheckoutReviewScreen}/>

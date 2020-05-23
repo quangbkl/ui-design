@@ -15,6 +15,7 @@ const appRoutes = {
     ACCOUNT: 'Account',
 
     // HOME
+    SEARCH_HOTEL: 'Search Hotel',
     HOTELS: 'Hotels',
     HOTEL_DETAIL: 'Hotel Detail',
     HOTEL_FILTERING: 'Hotel Filtering',
