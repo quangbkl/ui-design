@@ -5,51 +5,6 @@ import StepIndicator from 'react-native-step-indicator';
 import {BaseColor} from 'config/color';
 import Step1 from './Step1';
 
-const firstIndicatorStyles = {
-    stepIndicatorSize: 30,
-    currentStepIndicatorSize: 40,
-    separatorStrokeWidth: 3,
-    currentStepStrokeWidth: 5,
-    separatorFinishedColor: '#4aae4f',
-    separatorUnFinishedColor: '#a4d4a5',
-    stepIndicatorFinishedColor: '#4aae4f',
-    stepIndicatorUnFinishedColor: '#a4d4a5',
-    stepIndicatorCurrentColor: '#ffffff',
-    stepIndicatorLabelFontSize: 15,
-    currentStepIndicatorLabelFontSize: 15,
-    stepIndicatorLabelCurrentColor: '#000000',
-    stepIndicatorLabelFinishedColor: '#ffffff',
-    stepIndicatorLabelUnFinishedColor: 'rgba(255,255,255,0.5)',
-    labelColor: '#666666',
-    labelSize: 12,
-    currentStepLabelColor: '#4aae4f',
-};
-
-const secondIndicatorStyles = {
-    stepIndicatorSize: 30,
-    currentStepIndicatorSize: 40,
-    separatorStrokeWidth: 2,
-    currentStepStrokeWidth: 3,
-    stepStrokeCurrentColor: '#fe7013',
-    stepStrokeWidth: 3,
-    separatorStrokeFinishedWidth: 4,
-    stepStrokeFinishedColor: '#fe7013',
-    stepStrokeUnFinishedColor: '#aaaaaa',
-    separatorFinishedColor: '#fe7013',
-    separatorUnFinishedColor: '#aaaaaa',
-    stepIndicatorFinishedColor: '#fe7013',
-    stepIndicatorUnFinishedColor: '#ffffff',
-    stepIndicatorCurrentColor: '#ffffff',
-    stepIndicatorLabelFontSize: 13,
-    currentStepIndicatorLabelFontSize: 13,
-    stepIndicatorLabelCurrentColor: '#fe7013',
-    stepIndicatorLabelFinishedColor: '#ffffff',
-    stepIndicatorLabelUnFinishedColor: '#aaaaaa',
-    labelColor: '#999999',
-    labelSize: 13,
-    currentStepLabelColor: '#fe7013',
-};
-
 const thirdIndicatorStyles = {
     stepIndicatorSize: 25,
     currentStepIndicatorSize: 30,
