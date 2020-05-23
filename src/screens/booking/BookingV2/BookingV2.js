@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
+import {StyleSheet, Text, View} from 'react-native';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import {Container} from 'native-base';
 import StepIndicator from 'react-native-step-indicator';
 import {BaseColor} from 'config/color';
 import Step1 from './Step1';
+import Header from 'components/Header/Header';
+import useApp from 'hooks/app/useApp';
+import Step2 from './Step2';
 
 const thirdIndicatorStyles = {
     stepIndicatorSize: 25,
@@ -99,6 +103,9 @@ const getStepIndicatorIconConfig = ({position, stepStatus}) => {
 
 const BookingV2 = () => {
     const [step, setStep] = useState(0);
+	const {state: appState} = useApp();
+	const {i18n} = appState;
+	const {color} = appState;
     const onStepPress = position => {
         setStep(position)
       }
@@ -115,18 +122,29 @@ const BookingV2 = () => {
         <MaterialIcon {...getStepIndicatorIconConfig(params)} />
       )
     return (
-        <View style={styles.container}>
-            <View style={styles.stepIndicator}>
-                <StepIndicator
-                    stepCount={3}
-                    customStyles={thirdIndicatorStyles}
-                    currentPosition={step}
-                    onPress={onStepPress}
-                    labels={['Đặt chỗ', 'Thanh Toán', 'Hoàn thành']}
-                />
-            </View>
-            <Step1 />
-        </View>
+    	<Container>
+		    <Header title="Đặt Phòng"/>
+	        <View style={styles.container}>
+	            <View style={styles.stepIndicator}>
+	                <StepIndicator
+	                    stepCount={4}
+	                    customStyles={thirdIndicatorStyles}
+	                    currentPosition={step}
+	                    onPress={onStepPress}
+	                    labels={['Đặt chỗ', 'Xem lại', 'Thanh toán', 'Hoàn thành']}
+	                />
+	            </View>
+		        {step === 0 && (
+			        <Step1 />
+		        )}
+		        {step === 1 && (
+			        <Step2 />
+		        )}
+		        {step === 2 && (
+			        <Step2 />
+		        )}
+	        </View>
+	    </Container>
     );
 };
 

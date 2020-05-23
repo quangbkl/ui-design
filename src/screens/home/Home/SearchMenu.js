@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Col, Row, Grid} from 'react-native-easy-grid';
+import {StyleSheet, View} from 'react-native';
+import {Col, Grid, Row} from 'react-native-easy-grid';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import {Button} from 'native-base';
 import appRoutes from 'navigations/appRoutes';
@@ -61,9 +61,13 @@ const SearchMenu = (props) => {
                         <MenuItem
 	                        text="Tour"
 	                        icon="map-marker-alt"
+	                        onClick={() => navigation.navigate(appRoutes.TOURS)}
+                        />
+                        <MenuItem
+	                        text="Car"
+	                        icon="car-alt"
 	                        onClick={() => navigation.navigate(appRoutes.BOOKINGV2)}
                         />
-                        <MenuItem text="Car" icon="car-alt"/>
                         <MenuItem text="Flight" icon="plane"/>
                     </Row>
                     <Row>
