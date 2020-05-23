@@ -15,12 +15,14 @@ const appRoutes = {
     ACCOUNT: 'Account',
 
     // HOME
+    SEARCH_HOTEL: 'Search Hotel',
     HOTELS: 'Hotels',
     HOTEL_DETAIL: 'Hotel Detail',
     HOTEL_FILTERING: 'Hotel Filtering',
     HOTEL_FILTERING_ADVANCE: 'Hotel Filtering Advance',
     HOTEL_ROOM: 'Hotel Room',
     HOTEL_GALLERY: 'Hotel Gallery',
+    BOOKINGV2: 'BookingV2',
 
     TOURS: 'Tours',
     TOUR_DETAIL: 'Tour Detail',
