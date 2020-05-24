@@ -4,36 +4,44 @@ const bookingHistoryDB = {
     booking_histories: [
         {
         	id: 1,
-            name: 'Proxeloca Hotel',
-            checkIn: '04 Jun 08',
-            checkOut: '07 Jun 08',
-            duration: '2 Days 1 Night',
-            price: '$399,99'
+            hotel: 'Khách sạn Phương Đông',
+            room: 'Standard Room',
+            checkIn: '30/05/2020',
+            checkOut: '01/06/2020',
+            guest: 2,
+            noOfRooms: 1,
+            price: 600000
         },
         {
-	        id: 2,
-            name: 'Proxeloca Hotel',
-            checkIn: '04 Jun 08',
-            checkOut: '07 Jun 08',
-            duration: '2 Days 1 Night',
-            price: '$399,99'
+        	id: 2,
+            hotel: 'Khách sạn Phương Đông',
+            room: 'Standard Room',
+            checkIn: '30/05/2020',
+            checkOut: '01/06/2020',
+            guest: 2,
+            noOfRooms: 1,
+            price: 600000
         },
         {
-	        id: 3,
-            name: 'Proxeloca Hotel',
-            checkIn: '04 Jun 08',
-            checkOut: '07 Jun 08',
-            duration: '2 Days 1 Night',
-            price: '$399,99'
+        	id: 3,
+            hotel: 'Khách sạn Phương Đông',
+            room: 'Standard Room',
+            checkIn: '30/05/2020',
+            checkOut: '01/06/2020',
+            guest: 2,
+            noOfRooms: 1,
+            price: 600000
         },
         {
-	        id: 4,
-            name: 'Proxeloca Hotel',
-            checkIn: '04 Jun 08',
-            checkOut: '07 Jun 08',
-            duration: '2 Days 1 Night',
-            price: '$399,99'
-        }
+        	id: 4,
+            hotel: 'Khách sạn Phương Đông',
+            room: 'Standard Room',
+            checkIn: '30/05/2020',
+            checkOut: '01/06/2020',
+            guest: 2,
+            noOfRooms: 1,
+            price: 600000
+        },
     ]
 };
 

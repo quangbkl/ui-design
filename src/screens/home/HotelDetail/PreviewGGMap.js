@@ -16,6 +16,7 @@ import {Text as CText} from 'components';
 import {BaseColor} from 'config/color';
 import ggmapServices from 'services/ggmapServices';
 import {useNavigation} from '@react-navigation/native';
+import { getRouterParam } from "helpers/common";
 
 const rad = x => {
     return (x * Math.PI) / 180;
@@ -37,10 +38,7 @@ const getDistance = (p1, p2) => {
 };
 
 const PreviewGGMap = props => {
-    const location = {
-        latitude: 21.033976,
-        longitude: 105.756168,
-    };
+    const location = getRouterParam(props, "location");
     const [nearlyOfCurrent, setNearlyOfCurrent] = useState([]);
     const [currCoordinate, setCurrCoordinate] = useState(location);
     const navigation = useNavigation();

@@ -6,7 +6,7 @@ import HotelItemList from './HotelItemList';
 import HotelItemGrid from './HotelItemGrid';
 import Touchable from '../Touchable/Touchable';
 
-const HotelItem = ({view, item, ...rest}) => {
+const HotelItem = ({view, item, onViewHotel, ...rest}) => {
     const navigation = useNavigation();
     const Items = {
         block: HotelItemBlock,
@@ -17,7 +17,7 @@ const HotelItem = ({view, item, ...rest}) => {
     const Item = Items[view || 'block'] || Items.block;
 
     return (
-        <Touchable onPress={() => navigation.navigate(appRoutes.HOTEL_DETAIL, {hotelId: item.hotel.id})}>
+        <Touchable onPress={() => onViewHotel()}>
             <Item item={item} {...rest}/>
         </Touchable>
     );

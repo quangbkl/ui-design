@@ -12,13 +12,13 @@ const FilterSort = (props) => {
         list: 'th-list',
     };
     const handleChangeView = () => {
-        if (view === 'block') {
-            onChangeView('list');
-        } else if (view === 'list') {
-            onChangeView('grid');
-        } else {
-            onChangeView('block');
-        }
+        // if (view === 'block') {
+        //     onChangeView('list');
+        // } else if (view === 'list') {
+        //     onChangeView('grid');
+        // } else {
+        //     onChangeView('block');
+        // }
     };
 
     return (

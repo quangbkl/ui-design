@@ -24,7 +24,7 @@ const BookingDetailScreen = () => {
 			tabBarActiveTextColor={BaseColor.textPrimaryColor}
 			tabBarInactiveTextColor={BaseColor.dividerColor}
 			tabBarUnderlineStyle={tabBarUnderlineStyle}
-			tabBarTextStyle={{fontFamily: 'Roboto', fontSize: 18, fontWeight: '300'}}
+			tabBarTextStyle={{fontSize: 18, fontWeight: '300'}}
 			showsHorizontalScrollIndicator={false}
 		>
 			<Preview tabLabel="Preview"/>

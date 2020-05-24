@@ -52,7 +52,15 @@ import CustomIcon from '../Icon/CustomIcon';
 import Touchable from '../Touchable/Touchable';
 
 const HotelItemBlock = ({item}) => {
-    const {hotel, roomAvailable} = item;
+    const {
+        name,
+        location,
+        price,
+        roomAvailable,
+        ratePercent,
+        services,
+        featureImage
+    } = item;
     const renderService = ({item: service}) => {
         return (
             <View style={styles.serviceItem}>
@@ -67,27 +75,27 @@ const HotelItemBlock = ({item}) => {
                 <Image
                     style={styles.largeImage}
                     source={{
-                        uri: getImageHotel(hotel),
+                        uri: featureImage,
                     }}
                 />
             </View>
-            <Text style={styles.name}>{hotel.name}</Text>
+            <Text style={styles.name}>{name}</Text>
             <View style={styles.locationBlock}>
                 <CustomIcon type="map-marker-alt" size={13}/>
-                <Text style={styles.locationText}>{hotel.location}</Text>
+                <Text style={styles.locationText}>{location}</Text>
             </View>
             <View style={styles.mainInfo}>
                 <View>
-                    <Text style={styles.price}>{hotel.price}</Text>
-                    <Text style={styles.available}>{`Only ${roomAvailable.length} room(s) leaft`}</Text>
+                    <Text style={styles.price}>{price}</Text>
+                    <Text style={styles.available}>{`Only ${roomAvailable} room(s) leaft`}</Text>
                 </View>
                 <View style={styles.rightMain}>
-                    <Text style={styles.rateText}>{getRatePerFive(hotel)}</Text>
+                    <Text style={styles.rateText}>{getRatePerFive({ratePercent})}</Text>
                     <View>
-                        <Text style={styles.rateReview}>Very Good</Text>
+                        <Text style={styles.rateReview}>Rất tốt</Text>
                         <Rating
                             style={styles.rateStar}
-                            startingValue={getRatePerFive(hotel)}
+                            startingValue={getRatePerFive({ratePercent})}
                             imageSize={16}
                             readonly
                         />
@@ -97,7 +105,7 @@ const HotelItemBlock = ({item}) => {
             <View style={styles.serviceBlock}>
                 <List
                     horizontal
-                    dataArray={hotel.services}
+                    dataArray={services}
                     renderItem={renderService}
                     keyExtractor={() => uuidv4()}
                 />

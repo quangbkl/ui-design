@@ -30,6 +30,21 @@ const DefaultBodyComponent = ({title, description}) => {
     );
 };
 
+const DefaultRightComponent = () => {
+    const navigation = useNavigation();
+	const {state: appState} = useApp();
+	const {color} = appState;
+    return (
+        <Touchable onPress={() => navigation.navigate('Home')}>
+            <FontAwesome5Icon
+                name="home"
+                color={color.primaryColor}
+                size={18}
+            />
+        </Touchable>
+    );
+};
+
 const Header = props => {
     const {title, description, LeftComponent, RightComponent, BodyComponent} = props;
 
@@ -43,7 +58,7 @@ const Header = props => {
                     BodyComponent
                 )}
             </View>
-            <View>{RightComponent || null}</View>
+            <View>{RightComponent === undefined ? <DefaultRightComponent/> : RightComponent}</View>
         </View>
     );
 };
@@ -75,5 +90,9 @@ Header.propTypes = {
     RightComponent: PropTypes.element,
     BodyComponent: PropTypes.element,
 };
+
+Header.defaultProps = {
+    description: '',
+}
 
 export default Header;
