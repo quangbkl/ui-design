@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Alert } from "react-native";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
-import { Container } from "native-base";
+import { Container, Toast } from "native-base";
+import { useNavigation } from "@react-navigation/native";
 import StepIndicator from "react-native-step-indicator";
 import { BaseColor } from "config/color";
 import Step1 from "./Step1";
 import Header from "components/Header/Header";
 import useApp from "hooks/app/useApp";
 import Step2 from "./Step2";
+import Step3 from "./Step3";
 
 const thirdIndicatorStyles = {
   stepIndicatorSize: 25,
@@ -33,44 +35,24 @@ const thirdIndicatorStyles = {
   currentStepLabelColor: "#7eaec4",
 };
 
-const getStepIndicatorIconConfig = ({ position, stepStatus }) => {
-  const iconConfig = {
-    name: "feed",
-    color: stepStatus === "finished" ? "#ffffff" : "#fe7013",
-    size: 15,
-  };
-  switch (position) {
-    case 0: {
-      iconConfig.name = "shopping-cart";
-      break;
-    }
-    case 1: {
-      iconConfig.name = "location-on";
-      break;
-    }
-    case 2: {
-      iconConfig.name = "assessment";
-      break;
-    }
-    case 3: {
-      iconConfig.name = "payment";
-      break;
-    }
-    case 4: {
-      iconConfig.name = "track-changes";
-      break;
-    }
-    default: {
-      break;
-    }
-  }
-  return iconConfig;
-};
-
 const BookingV2 = () => {
+  const navigation = useNavigation();
   const [step, setStep] = useState(0);
   const onStepPress = (position) => {
     setStep(position);
+  };
+
+  const onNextStep2 = async (cb) => {
+    const data = await cb();
+    setStep(1);
+  };
+
+  const onNextStep3 = () => {
+    setStep(2);
+  };
+
+  const onComplete = () => {
+    navigation.navigate('Home')
   };
 
   return (
@@ -79,16 +61,16 @@ const BookingV2 = () => {
       <View style={styles.container}>
         <View style={styles.stepIndicator}>
           <StepIndicator
-            stepCount={4}
+            stepCount={3}
             customStyles={thirdIndicatorStyles}
             currentPosition={step}
             onPress={onStepPress}
-            labels={["Đặt chỗ", "Cá nhân", "Thanh toán", "Hoàn thành"]}
+            labels={["Đặt chỗ", "Xem lại", "Thanh toán"]}
           />
         </View>
-        {step === 0 && <Step1 />}
-        {step === 1 && <Step2 />}
-        {step === 2 && <Step2 />}
+        {step === 0 && <Step1 onNextStep2={onNextStep2} />}
+        {step === 1 && <Step2 onNextStep3={onNextStep3} />}
+        {step === 2 && <Step3 onComplete={onComplete} />}
       </View>
     </SafeAreaView>
   );

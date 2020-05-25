@@ -24,7 +24,7 @@ const BookingScreen = (props) => {
 	
 	return (
 		<SafeAreaView style={{ flex: 1}}>
-			<Header title={i18n.t('main.booking.book_room')} LeftComponent={null}/>
+			<Header title={i18n.t('main.booking.book_room')} RightComponent={null} LeftComponent={null}/>
 			<FlatList
 				data={bookingHistoryDB.booking_histories}
 				renderItem={renderListItem}

@@ -12,6 +12,7 @@ import useApp from "hooks/app/useApp";
 import { BaseColor } from "config/color";
 
 const Step2 = (props) => {
+  const { onNextStep3 } = props;
   const { state: appState } = useApp();
   const { i18n } = appState;
   const { color } = appState;
@@ -22,7 +23,7 @@ const Step2 = (props) => {
         <View style={styles.content}>
           <View style={styles.hotelIn4}>
             <View style={{ flexDirection: "row" }}>
-              <Text style={{ fontWeight: "700" }}>Dream Hotel</Text>
+              <Text style={{ fontWeight: "700" }}>Khách sạn Hoàng Gia</Text>
             </View>
             <Separator />
             <View style={styles.checkInOut}>
@@ -45,7 +46,7 @@ const Step2 = (props) => {
                 }}
               >
                 <CustomIcon type={"moon"} color={color.primaryColor} />
-                <Text style={{ marginTop: 5 }}>1 Đêm</Text>
+                <Text style={{ marginTop: 5 }}>2 Đêm</Text>
               </View>
               <View
                 style={{
@@ -59,20 +60,14 @@ const Step2 = (props) => {
                 <Text>12:00</Text>
               </View>
             </View>
-            {/*<View style={styles.rest}>
-							<Text style={{fontWeight: '600'}}></Text>
-							<Text style={{fontSize: 15, opacity: 0.7}}>1 giường cỡ queen</Text>
-							<Text style={{fontSize: 15, opacity: 0.7}}>1khách/phòng</Text>
-						</View>
-						<Separator/>
-						*/}
           </View>
 
           <View style={{ marginTop: -10 }}>
             <View style={styles.userIn4}>
               <Text style={{ fontSize: 17, fontWeight: "700" }}>
-                (1x) Basic double room
+                Phòng tiêu chuẩn (x2) - 8 khách
               </Text>
+              <Separator />
               <View style={{ flexDirection: "row" }}>
                 <View
                   style={{
@@ -93,32 +88,19 @@ const Step2 = (props) => {
                     justifyContent: "space-between",
                   }}
                 >
-                  <Text style={styles.Text15}>1 giường đôi</Text>
-                  <Text style={styles.Text15}>2 khách/phòng</Text>
+                  <Text style={styles.Text15}>2 giường đôi</Text>
+                  <Text style={styles.Text15}>4 khách/phòng</Text>
                 </View>
               </View>
               <View style={{ flexDirection: "row" }}>
-                <View
-                  style={{ flex: 40, marginTop: 8, flexDirection: "column" }}
-                >
+                <View style={{ flex: 1, marginTop: 8 }}>
                   <Image
                     style={styles.image}
                     source={{
                       uri:
-                        "https://kristinmateikahome.files.wordpress.com/2019/11/david-werbrouck-ohxhsg8_vn0-unsplash-edit-.jpg",
+                        "https://pix6.agoda.net/hotelImages/111/1115897/1115897_15122500310038726516.jpg?s=1024x768",
                     }}
                   />
-                </View>
-                <View
-                  style={{
-                    flex: 60,
-                    marginTop: 8,
-                    flexDirection: "column",
-                    justifyContent: "flex-start",
-                  }}
-                >
-                  <Text style={styles.Text15}>Không gồm bữa sáng</Text>
-                  <Text style={styles.Text15}>WIFI miễn phí</Text>
                 </View>
               </View>
             </View>
@@ -129,12 +111,10 @@ const Step2 = (props) => {
               <Text style={{ fontSize: 17, fontWeight: "700" }}>
                 Chính sách khách sạn & phòng
               </Text>
+              <Separator />
               <View style={{ marginTop: 8 }}>
-                <Text style={{ fontSize: 15 }}>
-                  Áp dụng chính sách hủy phòng
-                </Text>
                 <Text style={{ fontSize: 15, marginTop: 10 }}>
-                  đặt phòng này không được hoàn tiền. Thời gian hiển thị là giờ
+                  Đặt phòng này không được hoàn tiền. Thời gian hiển thị là giờ
                   địa phương. Số đêm nghỉ và hạng phòng không được thay đổi
                 </Text>
               </View>
@@ -146,48 +126,60 @@ const Step2 = (props) => {
               <Text style={{ fontSize: 17, fontWeight: "700" }}>
                 Chi tiết đặt phòng
               </Text>
+              <Separator />
               <View style={{ marginTop: 8 }}>
                 <Text style={styles.Text15}>Tên khách hàng</Text>
-                <Text style={{ fontSize: 15, marginTop: 5 }}>duykypaul</Text>
+                <Text style={{ fontSize: 15, marginTop: 5 }}>
+                  Nguyễn Thị Thúy Tomoe
+                </Text>
+              </View>
+              <View style={{ marginTop: 8 }}>
+                <Text style={styles.Text15}>Email</Text>
+                <Text style={{ fontSize: 15, marginTop: 5 }}>
+                  thuynguyen03091999@gmail.com
+                </Text>
+              </View>
+              <View style={{ marginTop: 8 }}>
+                <Text style={styles.Text15}>SĐT</Text>
+                <Text style={{ fontSize: 15, marginTop: 5 }}>0356533048</Text>
               </View>
             </View>
           </View>
-
-          <Card style={{ marginTop: 0 }}>
-            <Text style={{ fontSize: 17, fontWeight: "700", marginLeft: 15 }}>
-              Chi tiết giá
-            </Text>
+          <Card style={{ marginTop: 0, marginLeft: 15, marginRight: 15 }}>
             <CardItem style={{ flex: 1 }}>
-              <Text numberOfLines={2} style={{ flex: 3 }}>
-                AHA Thu Do Vang 12Hn, Standard Double(1x)
+              <Text style={{ fontWeight: "700" }}>Chi tiết giá</Text>
+            </CardItem>
+            <Separator style={{ marginLeft: 15, marginRight: 15 }} />
+            <CardItem style={{ flex: 1 }}>
+              <Text numberOfLines={2} style={{ flex: 1 }}>
+                Tiền phòng:
               </Text>
-              <Right style={{ flex: 2 }}>
-                <Text>419.000 VND</Text>
+              <Right style={{ flex: 1 }}>
+                <Text>2 x 150.000 VND</Text>
+              </Right>
+            </CardItem>
+            <CardItem style={{ flex: 1 }}>
+              <Text numberOfLines={2} style={{ flex: 1 }}>
+                Phụ phí:
+              </Text>
+              <Right style={{ flex: 1 }}>
+                <Text>0 VND</Text>
+              </Right>
+            </CardItem>
+            <CardItem style={{ flex: 1 }}>
+              <Text numberOfLines={2} style={{ flex: 1 }}>
+                Tổng tiền:
+              </Text>
+              <Right style={{ flex: 1 }}>
+                <Text>300.000 VND</Text>
               </Right>
             </CardItem>
           </Card>
-          <TouchableWithoutFeedback>
-            <Card style={{ marginBottom: 0.5 }}>
-              <CardItem>
-                <Left>
-                  <Text>Tổng giá tiền</Text>
-                </Left>
-                <Right
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "flex-end",
-                  }}
-                >
-                  <Text>3000 VND </Text>
-                </Right>
-              </CardItem>
-            </Card>
-          </TouchableWithoutFeedback>
         </View>
       </ScrollView>
       <View style={{ padding: 10 }}>
-        <Button>
-          <Text whiteColor>Tiếp tục thanh toán</Text>
+        <Button onPress={() => onNextStep3()}>
+          <Text whiteColor>Thanh toán</Text>
         </Button>
       </View>
     </>
@@ -233,8 +225,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   image: {
-    width: "90%",
-    height: 65,
+    width: "100%",
+    height: 200,
     borderRadius: 5,
   },
   Text15: { fontSize: 15, fontWeight: "600", opacity: 0.7 },

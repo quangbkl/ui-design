@@ -1,15 +1,15 @@
 import React from 'react';
 import {View} from 'react-native';
 
-const Separator = props => {
+const Separator = ({style}) => {
     return (
         <View
-            style={{
+            style={[style, {
                 height: 1,
                 backgroundColor: '#8b8b8b',
                 marginTop: 10,
                 marginBottom: 10,
-            }}
+            }]}
         />
     );
 };
