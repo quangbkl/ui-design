@@ -24,6 +24,7 @@ const appRoutes = {
     HOTEL_ROOM: 'Hotel Room',
     HOTEL_GALLERY: 'Hotel Gallery',
     BOOKINGV2: 'BookingV2',
+    BOOKING_AUTHENTICATE: 'Booking Authenticate',
 
     TOURS: 'Tours',
     TOUR_DETAIL: 'Tour Detail',

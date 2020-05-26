@@ -17,7 +17,7 @@ const BookingScreen = (props) => {
 		return (
 			<BookingHistory
 				item={item}
-				onPress={() => {navigation.navigate(appRoutes.BOOKING_DETAIL)}}
+				onPress={() => {navigation.navigate(appRoutes.BOOKING_AUTHENTICATE, { bookingId: item.id })}}
 			/>
 		);
 	};

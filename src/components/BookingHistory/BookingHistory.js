@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
     borderRadius: 10,
+    maxHeight: 185,
   },
   header: {
     width: "100%",
