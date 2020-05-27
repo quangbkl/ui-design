@@ -4,6 +4,8 @@ import '__mocks__';
 import RootNavigator from 'navigations/RootNavigator';
 import AppProvider from 'hooks/app/AppProvider';
 
+console.disableYellowBox = true;
+
 export default () => {
     return (
         <AppProvider>

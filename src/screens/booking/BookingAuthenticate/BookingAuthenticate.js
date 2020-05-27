@@ -22,12 +22,15 @@ const BookingAuthentication = (props) => {
       const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
       if (status !== "granted") {
         alert("Sorry, we need camera roll permissions to make this work!");
+        return false;
       }
     }
+    return true;
   };
 
   const chooseImage = async () => {
-    await getPermissionAsync();
+    const allow = await getPermissionAsync();
+    if (!allow) return;
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       quality: 1,
