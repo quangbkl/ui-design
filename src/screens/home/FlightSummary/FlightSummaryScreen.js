@@ -136,7 +136,7 @@ const FlightSummaryScreen = (props) => {
                 </View>
                 <Button
                     style={{height: 46}}
-                    onPress={() => navigation.navigate('PreviewBooking')}
+                    onPress={() => navigation.navigate(appRoutes.PREVIEW_BOOKING)}
                 >
                     Book Now
                 </Button>

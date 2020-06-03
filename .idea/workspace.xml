@@ -32,37 +32,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff54f67d-4dda-4885-9c56-be2a842438b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components-v2/BookingTime/BookingTime.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/Button/Button.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/FilterSort/FilterSort.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/FlightItem/FlightItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/FlightPlan/FlightPlan.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/FormOption/FormOption.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/Header/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/Icon/Icon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/Image/Image.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/QuantityPicker/QuantityPicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/Tag/Tag.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config/theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/home/FlightResult/FlightResultScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/home/FlightSearch/FlightSearchScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/home/FlightSummary/FlightSummaryScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/home/FlightTicket/FlightTicketScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/home/SelectFlight/SelectFlightScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BookingHistory/BookingHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BookingHistory/BookingHistory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CarItem/CarItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarItem/CarItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HotelItem/HotelItemBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HotelItem/HotelItemBlock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostItem/PostItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostItem/PostItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProfileAuthor/ProfileAuthor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProfileAuthor/ProfileAuthor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Text/Text.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Text/Text.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/app/AppProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/app/AppProvider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/home/PreviewBooking/PreviewBookingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigations/HomeNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigations/HomeNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigations/RootNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigations/RootNavigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigations/appRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigations/appRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/auth/SignIn/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/auth/SignIn/SignInScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/booking/BookingDetail/BookingDetailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/booking/BookingDetail/BookingDetailScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/home/Home/SearchMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/Home/SearchMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/home/FlightSummary/FlightSummaryScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/FlightSummary/FlightSummaryScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +135,7 @@
       <workItem from="1591018821761" duration="7431000" />
       <workItem from="1591061846977" duration="1461000" />
       <workItem from="1591067018351" duration="8479000" />
-      <workItem from="1591149468369" duration="4872000" />
+      <workItem from="1591149468369" duration="6418000" />
     </task>
     <servers />
   </component>
@@ -249,11 +224,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="277" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1590721935163" />
-    <state x="390" y="99" width="585" height="530" key="find.popup" timestamp="1591154374988">
+    <state x="390" y="99" width="585" height="530" key="find.popup" timestamp="1591156226486">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="390" y="99" width="585" height="530" key="find.popup/0.0.1366.728/-224.-1080.1920.1040@0.0.1366.728" timestamp="1590143136430" />
-    <state x="390" y="99" width="585" height="530" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1591154374988" />
+    <state x="390" y="99" width="585" height="530" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1591156226486" />
     <state x="478" y="-848" key="git4idea.branch.GitSmartOperationDialog" timestamp="1586428431462">
       <screen x="-249" y="-1080" width="1920" height="1040" />
     </state>

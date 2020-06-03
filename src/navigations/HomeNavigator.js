@@ -22,6 +22,7 @@ const SelectFlightScreen = React.lazy(() => import('screens/home/SelectFlight/Se
 const FlightResultScreen = React.lazy(() => import('screens/home/FlightResult/FlightResultScreen'));
 const FlightSummaryScreen = React.lazy(() => import('screens/home/FlightSummary/FlightSummaryScreen'));
 const FlightTicketScreen = React.lazy(() => import('screens/home/FlightTicket/FlightTicketScreen'));
+const PreviewBookingScreen = React.lazy(() => import('screens/home/PreviewBooking/PreviewBookingScreen'));
 
 const Stack = createStackNavigator();
 
@@ -47,6 +48,7 @@ const HomeNavigator = () => {
             <Stack.Screen name={appRoutes.FLIGHT_RESULT} component={FlightResultScreen}/>
             <Stack.Screen name={appRoutes.FLIGHT_SUMMARY} component={FlightSummaryScreen}/>
             <Stack.Screen name={appRoutes.FLIGHT_TICKET} component={FlightTicketScreen}/>
+            <Stack.Screen name={appRoutes.PREVIEW_BOOKING} component={PreviewBookingScreen}/>
         </Stack.Navigator>
     );
 };

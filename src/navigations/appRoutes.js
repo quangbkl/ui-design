@@ -33,6 +33,7 @@ const appRoutes = {
     FLIGHT_RESULT: 'Flight Result',
     FLIGHT_SUMMARY: 'Flight Summary',
     FLIGHT_TICKET: 'Flight Ticket',
+    PREVIEW_BOOKING: 'Preview Booking',
 
     TOURS: 'Tours',
     TOUR_DETAIL: 'Tour Detail',
