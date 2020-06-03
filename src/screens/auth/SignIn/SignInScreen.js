@@ -25,7 +25,7 @@ const SignInScreen = (props) => {
             <Header title="Sign In" goBack={navigation.goBack}/>
             <View style={styles.content}>
                 <TextInput style={styles.inputId} placeholder="ID"/>
-                <TextInput style={styles.inputPassword} placeholder="Password"/>
+                <TextInput secureTextEntry={true} style={styles.inputPassword} placeholder="Password"/>
                 <Button style={styles.buttonSignIn} onPress={handleClickSignIn} loading={signingIn}>Sign In</Button>
                 <Touchable style={styles.forgotPassword} onPress={forgotYourPassword}>
                     <Text>Forgot your password?</Text>

@@ -34,5 +34,5 @@ const BookingDetailScreen = () => {
 		</ScrollableTabView>
 	</Container>;
 };
-export default BookingDetailScreen;
 
+export default BookingDetailScreen;

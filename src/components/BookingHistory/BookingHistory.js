@@ -5,7 +5,6 @@ import { Touchable } from "../index";
 import { BaseColor } from "config/color";
 import useApp from "hooks/app/useApp";
 
-// Preview component: http://passionui.com/wp-content/uploads/2019/07/2019-07-21_1223.png
 const BookingHistory = (props) => {
   const { onPress, item } = props;
   const { checkIn, checkOut, guest, room, noOfRooms, hotel, price } = item;

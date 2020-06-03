@@ -1,6 +1,3 @@
-/**
- * Preview image: http://passionui.com/wp-content/uploads/2019/07/2019-07-21_1623-574x1024.png
- * */
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import moment from 'moment';

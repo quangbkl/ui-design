@@ -1,3 +1,6 @@
+import FlightResultScreen from '../screens/home/FlightResult/FlightResultScreen';
+import FlightTicketScreen from '../screens/home/FlightTicket/FlightTicketScreen';
+
 const appRoutes = {
     AUTH: 'Auth',
     MAIN: 'Main',
@@ -25,13 +28,18 @@ const appRoutes = {
     HOTEL_GALLERY: 'Hotel Gallery',
     BOOKINGV2: 'BookingV2',
     BOOKING_AUTHENTICATE: 'Booking Authenticate',
+    FLIGHT_SEARCH: 'Flight Search',
+    SELECT_FLIGHT: 'Select Flight',
+    FLIGHT_RESULT: 'Flight Result',
+    FLIGHT_SUMMARY: 'Flight Summary',
+    FLIGHT_TICKET: 'Flight Ticket',
 
     TOURS: 'Tours',
     TOUR_DETAIL: 'Tour Detail',
     TOUR_OPEN: 'Tour Open',
 
     // BOOKING
-	BOOKING_DETAIL: 'Booking Detail',
+    BOOKING_DETAIL: 'Booking Detail',
 
     // NEWS
     POSTS: 'Posts',
@@ -49,12 +57,12 @@ const appRoutes = {
     PROFILE_THEME: 'Profile Theme',
     PROFILE_FONT: 'Profile Font',
     PROFILE_THEME_MODE: 'Profile Theme Mode',
-  
+
     // REST
     CHECKOUT_REVIEW: 'Checkout Review',
     CHECKOUT: 'Checkout',
-	PAYMENT_METHODS: 'Payment Methods',
-	PAYMENT_METHOD: 'Payment Method',
+    PAYMENT_METHODS: 'Payment Methods',
+    PAYMENT_METHOD: 'Payment Method'
 };
 
 export default appRoutes;

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {StatusBar} from 'react-native';
 import AppContext from './AppContext';
 import I18n from 'i18n/i18n';
 import initialSettingsFromStorage from './actions/initialSettingsFromStorage';
@@ -34,6 +35,15 @@ const AppProvider = ({children, ...props}) => {
         }).catch(console.log);
     }, []);
 
+    useEffect(() => {
+        const {primaryColor} = {
+            ...BaseColor,
+            ...ThemeColor[theme]
+        };
+
+        StatusBar.setBackgroundColor(primaryColor, true);
+    }, [theme]);
+
     const value = {
         state: {
             locale,
@@ -41,6 +51,11 @@ const AppProvider = ({children, ...props}) => {
             theme,
             themeMode,
             color: {
+                ...BaseColor,
+                ...ThemeColor[theme],
+                ...ThemeModeColor[themeMode]
+            },
+            colors: {
                 ...BaseColor,
                 ...ThemeColor[theme],
                 ...ThemeModeColor[themeMode]

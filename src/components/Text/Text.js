@@ -1,9 +1,12 @@
 import React from 'react';
-import {Text as ReactText, StyleSheet } from 'react-native';
+import {Text as ReactText, StyleSheet} from 'react-native';
 import {Typography, FontWeight} from 'config/typography';
-import {BaseColor} from 'config/color';
+import useApp from '../../hooks/app/useApp';
 
 const Text = (props) => {
+    const {state: appState} = useApp();
+    const {colors} = appState;
+
     const {
         //props style
         header,
@@ -47,7 +50,15 @@ const Text = (props) => {
         style,
         ...rest
     } = props;
-    
+
+    const styles = StyleSheet.create({
+        textDefault: {
+            ...Typography.headline, // Typography > headline
+            color: colors.whiteColor,
+            fontWeight: FontWeight.semibold
+        }
+    });
+
     return (
         <ReactText
             style={StyleSheet.flatten([
@@ -66,43 +77,43 @@ const Text = (props) => {
                 caption2 && Typography.caption2,
                 overline && Typography.overline,
                 //custom for font
-                thin && StyleSheet.flatten({ fontWeight: FontWeight.thin }),
+                thin && StyleSheet.flatten({fontWeight: FontWeight.thin}),
                 ultraLight &&
-                    StyleSheet.flatten({
-                        fontWeight: FontWeight.ultraLight
-                    }),
-                light && StyleSheet.flatten({ fontWeight: FontWeight.light }),
-                regular && StyleSheet.flatten({ fontWeight: FontWeight.regular }),
-                medium && StyleSheet.flatten({ fontWeight: FontWeight.medium }),
-                semibold && StyleSheet.flatten({ fontWeight: FontWeight.semibold }),
-                bold && StyleSheet.flatten({ fontWeight: FontWeight.bold }),
-                heavy && StyleSheet.flatten({ fontWeight: FontWeight.heavy }),
-                black && StyleSheet.flatten({ fontWeight: FontWeight.black }),
+                StyleSheet.flatten({
+                    fontWeight: FontWeight.ultraLight
+                }),
+                light && StyleSheet.flatten({fontWeight: FontWeight.light}),
+                regular && StyleSheet.flatten({fontWeight: FontWeight.regular}),
+                medium && StyleSheet.flatten({fontWeight: FontWeight.medium}),
+                semibold && StyleSheet.flatten({fontWeight: FontWeight.semibold}),
+                bold && StyleSheet.flatten({fontWeight: FontWeight.bold}),
+                heavy && StyleSheet.flatten({fontWeight: FontWeight.heavy}),
+                black && StyleSheet.flatten({fontWeight: FontWeight.black}),
                 // default color
                 StyleSheet.flatten({
-                    color: BaseColor.textPrimaryColor
+                    color: colors.textPrimaryColor
                 }),
                 //custom for color
-                primaryColor && StyleSheet.flatten({ color: BaseColor.primaryColor }),
+                primaryColor && StyleSheet.flatten({color: colors.primaryColor}),
                 darkPrimaryColor &&
-                    StyleSheet.flatten({
-                        color: BaseColor.darkPrimaryColor
-                    }),
+                StyleSheet.flatten({
+                    color: colors.darkPrimaryColor
+                }),
                 lightPrimaryColor &&
-                    StyleSheet.flatten({
-                        color: BaseColor.lightPrimaryColor
-                    }),
-                accentColor && StyleSheet.flatten({ color: BaseColor.accentColor }),
+                StyleSheet.flatten({
+                    color: colors.lightPrimaryColor
+                }),
+                accentColor && StyleSheet.flatten({color: colors.accentColor}),
                 textSecondaryColor &&
-                    StyleSheet.flatten({
-                        color: BaseColor.textSecondaryColor
-                    }),
-                grayColor && StyleSheet.flatten({ color: BaseColor.grayColor }),
-                darkBlueColor && StyleSheet.flatten({ color: BaseColor.darkBlueColor }),
-                dividerColor && StyleSheet.flatten({ color: BaseColor.dividerColor }),
-                whiteColor && StyleSheet.flatten({ color: BaseColor.whiteColor }),
-                fieldColor && StyleSheet.flatten({ color: BaseColor.fieldColor }),
-                bluePrimaryColor && StyleSheet.flatten({ color: BaseColor.bluePrimaryColor }),
+                StyleSheet.flatten({
+                    color: colors.textSecondaryColor
+                }),
+                grayColor && StyleSheet.flatten({color: colors.grayColor}),
+                darkBlueColor && StyleSheet.flatten({color: colors.darkBlueColor}),
+                dividerColor && StyleSheet.flatten({color: colors.dividerColor}),
+                whiteColor && StyleSheet.flatten({color: colors.whiteColor}),
+                fieldColor && StyleSheet.flatten({color: colors.fieldColor}),
+                bluePrimaryColor && StyleSheet.flatten({color: colors.bluePrimaryColor}),
                 style && style
             ])}
             numberOfLines={numberOfLines}
@@ -112,15 +123,7 @@ const Text = (props) => {
 };
 
 Text.propTypes = {
-    style: ReactText.propTypes.style,
+    style: ReactText.propTypes.style
 };
-
-const styles = StyleSheet.create({  
-    textDefault: {
-        ...Typography.headline, // Typography > headline
-        color: BaseColor.whiteColor,
-        fontWeight: FontWeight.semibold
-    }
-});
 
 export default Text;

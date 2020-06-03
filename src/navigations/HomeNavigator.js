@@ -17,6 +17,11 @@ const PaymentMethod = React.lazy(() => import('screens/booking/Payment/PaymentMe
 const TourDetailScreen = React.lazy(() => import('screens/home/TourDetail/TourDetailScreen'));
 const ToursScreen = React.lazy(() => import('screens/home/Tours/ToursScreen'));
 const BookingDetailScreen = React.lazy(() => import('screens/booking/BookingDetail/BookingDetailScreen'));
+const FlightSearchScreen = React.lazy(() => import('screens/home/FlightSearch/FlightSearchScreen'));
+const SelectFlightScreen = React.lazy(() => import('screens/home/SelectFlight/SelectFlightScreen'));
+const FlightResultScreen = React.lazy(() => import('screens/home/FlightResult/FlightResultScreen'));
+const FlightSummaryScreen = React.lazy(() => import('screens/home/FlightSummary/FlightSummaryScreen'));
+const FlightTicketScreen = React.lazy(() => import('screens/home/FlightTicket/FlightTicketScreen'));
 
 const Stack = createStackNavigator();
 
@@ -31,12 +36,17 @@ const HomeNavigator = () => {
             <Stack.Screen name={appRoutes.HOTEL_DETAIL} component={HotelDetailScreen}/>
             <Stack.Screen name={appRoutes.PREVIEW_GGMAP} component={PreviewGGMapScreen}/>
             <Stack.Screen name={appRoutes.CHECKOUT_REVIEW} component={CheckoutReviewScreen}/>
-	        <Stack.Screen name={appRoutes.CHECKOUT} component={CheckoutScreen}/>
-	        <Stack.Screen name={appRoutes.PAYMENT_METHODS} component={PaymentMethods}/>
-	        <Stack.Screen name={appRoutes.PAYMENT_METHOD} component={PaymentMethod}/>
-	        <Stack.Screen name={appRoutes.TOUR_DETAIL} component={TourDetailScreen}/>
-	        <Stack.Screen name={appRoutes.TOURS} component={withSafeAreaView(ToursScreen)}/>
-	        <Stack.Screen name={appRoutes.BOOKING_DETAIL} component={BookingDetailScreen}/>
+            <Stack.Screen name={appRoutes.CHECKOUT} component={CheckoutScreen}/>
+            <Stack.Screen name={appRoutes.PAYMENT_METHODS} component={PaymentMethods}/>
+            <Stack.Screen name={appRoutes.PAYMENT_METHOD} component={PaymentMethod}/>
+            <Stack.Screen name={appRoutes.TOUR_DETAIL} component={TourDetailScreen}/>
+            <Stack.Screen name={appRoutes.TOURS} component={withSafeAreaView(ToursScreen)}/>
+            <Stack.Screen name={appRoutes.BOOKING_DETAIL} component={BookingDetailScreen}/>
+            <Stack.Screen name={appRoutes.FLIGHT_SEARCH} component={FlightSearchScreen}/>
+            <Stack.Screen name={appRoutes.SELECT_FLIGHT} component={SelectFlightScreen}/>
+            <Stack.Screen name={appRoutes.FLIGHT_RESULT} component={FlightResultScreen}/>
+            <Stack.Screen name={appRoutes.FLIGHT_SUMMARY} component={FlightSummaryScreen}/>
+            <Stack.Screen name={appRoutes.FLIGHT_TICKET} component={FlightTicketScreen}/>
         </Stack.Navigator>
     );
 };
