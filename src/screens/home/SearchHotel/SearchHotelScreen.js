@@ -23,12 +23,12 @@ import { BaseColor } from "config/color";
 import { TextInput } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import Header from "components/Header/Header";
-import appRoutes from "navigations/appRoutes";
 import useApp from "hooks/app/useApp";
 import locationSearch from "../../../__mocks__/db/location-search";
 import _ from "lodash";
 import { v4 as uuidv4 } from "react-native-uuid";
 import moment from "moment";
+import appRoutes from '../../../navigations/appRoutes';
 
 const selectNights = [...Array(31).keys()].map((el) => ({
   label: `${el + 1} đêm`,
@@ -47,22 +47,17 @@ const selectRooms = [...Array(8).keys()].map((el) => ({
 
 const SearchHotelScreen = (props) => {
   const [location, setLocation] = useState({
-    type: 'hotel',
-    name: 'Hà Nội'
+    code: '01',
+    name: 'Thành phố Hà Nội',
   })
   const [checkinDate, setCheckinDate] = useState(moment().toDate());
   const [night, setNight] = useState(1);
   const [guest, setGuest] = useState(2);
   const [rooms, setRooms] = useState(1);
   const [visibleSearch, setVisibleSearch] = useState(false);
-  const [suggestionLocation, setSuggestionLocation] = useState([]);
   const navigation = useNavigation();
   const { state: appState } = useApp();
   const { color } = appState;
-
-  const onSearch = _.debounce((text) => {
-    setSuggestionLocation(locationSearch.location);
-  }, 500);
 
   const onSearchHotels = () => {
     navigation.navigate(appRoutes.HOTELS, {
@@ -76,16 +71,18 @@ const SearchHotelScreen = (props) => {
     })
   }
 
-  const openSearch = () => {
-    setVisibleSearch(true);
-    setSuggestionLocation(locationSearch.location);
-  };
+  const onSelectLocation = () => {
+    navigation.navigate(appRoutes.SELECT_PROVINCE, {
+      selected: location,
+      onChangeLocation: setLocation,
+    });
+  }
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Header title="Tìm kiếm phòng" />
       <ScrollView>
-        <Item style={styles.item} onPress={() => {}}>
+        <Item style={styles.item} onPress={onSelectLocation}>
           <CustomIcon
             style={{ marginRight: 8, marginLeft: 6 }}
             color={color.primaryColor}
@@ -144,7 +141,7 @@ const SearchHotelScreen = (props) => {
             </Picker>
           </Item>
         </View>
-        <Modal
+        {/* <Modal
           presentationStyle="formSheet"
           onRequestClose={() => setVisibleSearch(false)}
           animationType="slide"
@@ -190,7 +187,7 @@ const SearchHotelScreen = (props) => {
               </List>
             </ScrollView>
           </View>
-        </Modal>
+        </Modal> */}
       </ScrollView>
       <View style={{ padding: 10 }}>
         <Button onPress={onSearchHotels}>
