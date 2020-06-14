@@ -32,14 +32,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff54f67d-4dda-4885-9c56-be2a842438b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_01_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_01_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_01_PM__Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_02_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_02_PM__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components-v2/Card/Card.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components-v2/PostListItem/PostListItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components-v2/ProfileAuthor/ProfileAuthor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components-v2/ProfileGroup/ProfileGroup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/FeaturedPosts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/ImageGallery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/TopExperiences.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/UserFollowing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/auth/SignIn/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/auth/SignIn/SignInScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components-v2/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components-v2/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigations/MainNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigations/MainNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/news/PostDetail/PostDetailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/PostDetailScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,11 +243,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="277" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1590721935163" />
-    <state x="390" y="99" width="585" height="530" key="find.popup" timestamp="1591156226486">
+    <state x="390" y="99" width="585" height="530" key="find.popup" timestamp="1592146693817">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="390" y="99" width="585" height="530" key="find.popup/0.0.1366.728/-224.-1080.1920.1040@0.0.1366.728" timestamp="1590143136430" />
-    <state x="390" y="99" width="585" height="530" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1591156226486" />
+    <state x="390" y="99" width="585" height="530" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1592146693817" />
     <state x="478" y="-848" key="git4idea.branch.GitSmartOperationDialog" timestamp="1586428431462">
       <screen x="-249" y="-1080" width="1920" height="1040" />
     </state>

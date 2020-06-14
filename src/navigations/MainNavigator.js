@@ -28,7 +28,7 @@ const MainNavigator = () => {
 
     const navigation = useNavigation();
 
-    if (!isSigned) navigation.navigate(appRoutes.AUTH);
+    // if (!isSigned) navigation.navigate(appRoutes.AUTH);
 
     return (
         <Tab.Navigator

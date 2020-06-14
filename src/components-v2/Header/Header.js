@@ -64,7 +64,7 @@ const Header = (props) => {
             </View>
             <View style={[styles.contentCenter, styleCenter]}>
                 <Text headline>{title}</Text>
-                {subTitle != '' && (
+                {subTitle !== '' && (
                     <Text caption2 light>
                         {subTitle}
                     </Text>
