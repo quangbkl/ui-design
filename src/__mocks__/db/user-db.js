@@ -6,21 +6,21 @@ const userDB = {
             full_name: 'Full Name 1',
             email: 'test1@gmail.com',
             password: '123456789',
-            role: 'admin',
+            role: 'admin'
         },
         {
             full_name: 'Full Name 2',
             email: 'test2@gmail.com',
             password: '123456789',
-            role: 'user',
+            role: 'user'
         },
         {
             full_name: 'Full Name 3',
             email: 'test3@gmail.com',
             password: '123456789',
-            role: 'guest',
-        },
-    ],
+            role: 'guest'
+        }
+    ]
 };
 
 mock.onGet('/api/users').reply((request) => {

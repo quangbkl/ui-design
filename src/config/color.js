@@ -53,11 +53,11 @@ export const ThemeColor = {
 
 export const ThemeModeColor = {
     light: {
-        backgroundPrimaryColor: '#F2F2F2',
-        backgroundSecondaryColor: '#FFFFFF'
+        backgroundPrimaryColor: '#FFFFFF',
+        backgroundSecondaryColor: '#F5F5F5'
     },
     dark: {
-        backgroundPrimaryColor: '#F2F2F2',
+        backgroundPrimaryColor: '#f2f2f2',
         backgroundSecondaryColor: '#FFFFFF'
     }
 };

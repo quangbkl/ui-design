@@ -7,6 +7,7 @@ import BookingNavigator from './BookingNavigator';
 import NewsNavigator from './NewsNavigator';
 import AccountNavigator from './AccountNavigator';
 import useApp from '../hooks/app/useApp';
+import {useNavigation} from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,7 +24,11 @@ const TabBarVisibleOnRootScreenOptions = ({route}) => {
 
 const MainNavigator = () => {
     const {state: appState} = useApp();
-    const {color} = appState;
+    const {color, isSigned} = appState;
+
+    const navigation = useNavigation();
+
+    if (!isSigned) navigation.navigate(appRoutes.AUTH);
 
     return (
         <Tab.Navigator

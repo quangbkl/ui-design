@@ -6,6 +6,7 @@ import initialSettingsFromStorage from './actions/initialSettingsFromStorage';
 import changeLanguage from './actions/changeLanguage';
 import changeTheme from './actions/changeTheme';
 import changeThemeMode from './actions/changeThemeMode';
+import handleSignIn from './actions/handleSignIn';
 import {BaseColor, ThemeColor, ThemeModeColor} from 'config/color';
 import {ThemeModeConstant} from 'config/constant';
 
@@ -21,6 +22,7 @@ const AppProvider = ({children, ...props}) => {
     const [i18n, setI18n] = useState(initialState.i18n);
     const [theme, setTheme] = useState(initialState.theme);
     const [themeMode, setThemeMode] = useState(initialState.themeMode);
+    const [isSigned, setIsSigned] = useState(false);
 
     useEffect(() => {
         initialSettingsFromStorage({
@@ -50,6 +52,7 @@ const AppProvider = ({children, ...props}) => {
             i18n,
             theme,
             themeMode,
+            isSigned,
             color: {
                 ...BaseColor,
                 ...ThemeColor[theme],
@@ -64,7 +67,8 @@ const AppProvider = ({children, ...props}) => {
         actions: {
             changeLanguage: changeLanguage({locale, setLocale, i18n, setI18n}),
             changeTheme: changeTheme({theme, setTheme}),
-            changeThemeMode: changeThemeMode({themeMode, setThemeMode})
+            changeThemeMode: changeThemeMode({themeMode, setThemeMode}),
+            handleSignIn: handleSignIn({setIsSigned})
         }
     };
 
