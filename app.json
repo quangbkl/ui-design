@@ -18,14 +18,21 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
+    "sdkVersion": "37.0.0",
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "package": "expo.android.package"
+    },
     "ios": {
       "supportsTablet": true,
       "config": {
         "googleMapsApiKey": "AIzaSyAcb20nZnWEkRstG7yFXDGnzo0YB61aoFs"
       }
+    },
+    "androidStatusBar": {
+      "translucent": false
     }
   }
 }
