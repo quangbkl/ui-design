@@ -168,6 +168,32 @@ const HotelSearchScreen = () => {
                 <BookingTime style={{marginTop: 15}}/>
                 <View style={styles.contentQuest}>
                     <TouchableOpacity
+                        style={styles.itemPick}
+                        // onPress={() => openModal(true)}
+                    >
+                        <Text caption1 light style={{marginBottom: 5}}>
+                            Check In
+                        </Text>
+                        <Text headline semibold>
+                            ABC
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.duration}
+                        onPress={() => setModalVisible('duration')}
+                    >
+                        <Text
+                            caption1
+                            grayColor
+                            style={{marginBottom: 5}}
+                        >
+                            Duration
+                        </Text>
+                        <Text body1 semibold>{night} Night</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.contentQuest}>
+                    <TouchableOpacity
                         style={styles.total}
                         onPress={() => setModalVisible('guest')}
                     >
@@ -200,7 +226,10 @@ const HotelSearchScreen = () => {
                     full
                     onPress={() => {
                         setLoading(true);
-                        setTimeout(onSearchHotels, 1000);
+                        setTimeout(() => {
+                            setLoading(false);
+                            onSearchHotels();
+                        }, 1000);
                     }}
                     loading={loading}
                 >

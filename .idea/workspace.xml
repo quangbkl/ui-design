@@ -32,22 +32,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff54f67d-4dda-4885-9c56-be2a842438b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/home/HotelSearch/HotelSearchModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/home/HotelSearch/HotelSearchScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/home/HotelSearch/SearchModalDuration.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/home/HotelSearch/SearchModalGuest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_01_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_01_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_01_PM__Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_02_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_02_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigations/HomeNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigations/HomeNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigations/appRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigations/appRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/home/Home/SearchMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/Home/SearchMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/news/PostDetail/FeaturedPosts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/FeaturedPosts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/news/PostDetail/PostDetailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/PostDetailScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/home/HotelSearch/HotelSearchScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/HotelSearch/HotelSearchScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
