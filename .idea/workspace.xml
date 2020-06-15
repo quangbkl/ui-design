@@ -33,7 +33,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ff54f67d-4dda-4885-9c56-be2a842438b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/home/HotelSearch/HotelSearchScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/HotelSearch/HotelSearchScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,6 +215,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1345" height="178" key="GridCell.Tab.0.right/0.0.1366.728/-224.-1080.1920.1040@0.0.1366.728" timestamp="1590128107897" />
+    <state x="129" y="54" key="MergeDialog" timestamp="1592197340902">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="129" y="54" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1592197340902" />
+    <state x="571" y="231" key="MultipleFileMergeDialog" timestamp="1592197340914">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="571" y="231" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1592197340914" />
     <state x="448" y="66" key="RollbackChangesDialog" timestamp="1590127786798">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

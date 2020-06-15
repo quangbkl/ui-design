@@ -6,9 +6,9 @@ export const getNearByPlace = (lat, lng) => {
         types: 'tourist_attraction',
         sensor: false,
         key: 'AIzaSyAcb20nZnWEkRstG7yFXDGnzo0YB61aoFs',
-        location:  `${lat},${lng}`
+        location: `${lat},${lng}`
     }
-    return axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', { params });
+    return axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {params});
 };
 
 export default {

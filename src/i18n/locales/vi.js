@@ -11,9 +11,9 @@ export default {
             booking: 'Đặt trước',
             change_to: 'Thay đổi thành %{lang}',
             book_room: 'Lịch sử đặt phòng',
-	        booking_history: 'Lịch sử đặt vé',
+            booking_history: 'Lịch sử đặt vé',
             payment_method: {
-	            pay_now: 'Thanh toán'
+                pay_now: 'Thanh toán'
             }
         },
         news: {},

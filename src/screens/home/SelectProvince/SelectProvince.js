@@ -15,7 +15,7 @@ import Icon from '../../../components-v2/Icon/Icon';
 import useApp from '../../../hooks/app/useApp';
 import Text from '../../../components/Text/Text';
 import Image from '../../../components-v2/Image/Image';
-import { provinces as list } from '../../../constants/location';
+import {provinces as list} from '../../../constants/location';
 
 const SelectProvinceScreen = (props) => {
     const {state: appState} = useApp();

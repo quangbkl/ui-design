@@ -10,7 +10,7 @@ export const searchHotels = (params) => {
         newParams.cityOrProvince = params.location.code;
     }
     console.log(newParams)
-    return axios.get('https://booking-ui-api.herokuapp.com/hotels', { params: newParams });
+    return axios.get('https://booking-ui-api.herokuapp.com/hotels', {params: newParams});
 };
 
 export const getHotel = (id) => {

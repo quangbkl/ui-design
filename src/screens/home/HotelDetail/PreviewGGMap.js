@@ -16,7 +16,7 @@ import {Text as CText} from 'components';
 import {BaseColor} from 'config/color';
 import ggmapServices from 'services/ggmapServices';
 import {useNavigation} from '@react-navigation/native';
-import { getRouterParam } from "helpers/common";
+import {getRouterParam} from "helpers/common";
 
 const rad = x => {
     return (x * Math.PI) / 180;
@@ -29,9 +29,9 @@ const getDistance = (p1, p2) => {
     let a =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
         Math.cos(rad(p1.latitude)) *
-            Math.cos(rad(p2.latitude)) *
-            Math.sin(dLong / 2) *
-            Math.sin(dLong / 2);
+        Math.cos(rad(p2.latitude)) *
+        Math.sin(dLong / 2) *
+        Math.sin(dLong / 2);
     let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     let d = R * c;
     return Math.round((d / 1000) * 100) / 100;
@@ -72,7 +72,7 @@ const PreviewGGMap = props => {
                     }}
                     style={styles.map}
                     provider={PROVIDER_DEFAULT}>
-                    <Marker coordinate={currCoordinate} />
+                    <Marker coordinate={currCoordinate}/>
                 </MapView>
                 <Button
                     onPress={() => setCurrCoordinate(location)}

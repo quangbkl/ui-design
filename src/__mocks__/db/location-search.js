@@ -21,7 +21,7 @@ const locationSearch = {
 };
 
 mock.onGet('/api/location/search').reply((request) => {
-    const { q } = request.params;
+    const {q} = request.params;
     const {location} = locationSearch;
     return [200, {location}];
 });

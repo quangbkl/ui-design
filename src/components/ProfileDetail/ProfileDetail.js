@@ -19,7 +19,7 @@ const ProfileDetail = (props) => {
         textThird,
         icon
     } = props;
-    
+
     return (
         <Touchable
             style={[styles.contain, style]}
@@ -73,7 +73,7 @@ const ProfileDetail = (props) => {
 };
 
 const styles = StyleSheet.create({
-    contain: { flexDirection: "row" },
+    contain: {flexDirection: "row"},
     contentLeft: {
         flex: 8,
         flexDirection: "row",

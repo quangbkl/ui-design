@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, StyleSheet } from "react-native";
-import { BaseColor } from "config/color";
+import {View, StyleSheet} from "react-native";
+import {BaseColor} from "config/color";
 import Text from "../Text/Text";
 
 const ProfilePerformance = (props) => {
@@ -112,7 +112,7 @@ const ProfilePerformance = (props) => {
             return (
                 <View
                     style={[
-                        { justifyContent: "space-between", flex: 1 },
+                        {justifyContent: "space-between", flex: 1},
                         style
                     ]}
                 >

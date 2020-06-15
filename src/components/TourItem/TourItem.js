@@ -7,20 +7,20 @@ import TourItemGrid from './TourItemGrid';
 import Touchable from '../Touchable/Touchable';
 
 const TourItem = ({view, item, ...rest}) => {
-	const navigation = useNavigation();
-	const Items = {
-		block: TourItemBlock,
-		list: TourItemList,
-		grid: TourItemGrid,
-	};
-	
-	const Item = Items[view || 'block'] || Items.block;
-	
-	return (
-		<Touchable onPress={() => navigation.navigate(appRoutes.TOUR_DETAIL, {tourId: item.id})}>
-			<Item item={item} {...rest} />
-		</Touchable>
-	);
+    const navigation = useNavigation();
+    const Items = {
+        block: TourItemBlock,
+        list: TourItemList,
+        grid: TourItemGrid,
+    };
+
+    const Item = Items[view || 'block'] || Items.block;
+
+    return (
+        <Touchable onPress={() => navigation.navigate(appRoutes.TOUR_DETAIL, {tourId: item.id})}>
+            <Item item={item} {...rest} />
+        </Touchable>
+    );
 };
 
 export default TourItem;

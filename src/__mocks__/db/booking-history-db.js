@@ -3,7 +3,7 @@ import mock from './../mock';
 const bookingHistoryDB = {
     booking_histories: [
         {
-        	id: 1,
+            id: 1,
             hotel: 'Khách sạn Phương Đông',
             room: 'Standard Room',
             checkIn: '30/05/2020',
@@ -13,7 +13,7 @@ const bookingHistoryDB = {
             price: 600000
         },
         {
-        	id: 2,
+            id: 2,
             hotel: 'Khách sạn Phương Đông',
             room: 'Standard Room',
             checkIn: '30/05/2020',
@@ -23,7 +23,7 @@ const bookingHistoryDB = {
             price: 600000
         },
         {
-        	id: 3,
+            id: 3,
             hotel: 'Khách sạn Phương Đông',
             room: 'Standard Room',
             checkIn: '30/05/2020',
@@ -33,7 +33,7 @@ const bookingHistoryDB = {
             price: 600000
         },
         {
-        	id: 4,
+            id: 4,
             hotel: 'Khách sạn Phương Đông',
             room: 'Standard Room',
             checkIn: '30/05/2020',

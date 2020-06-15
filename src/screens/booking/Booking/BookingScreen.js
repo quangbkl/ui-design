@@ -12,37 +12,39 @@ import bookingHistoryDB from '__mocks__/db/booking-history-db';
 const BookingScreen = (props) => {
     const {state: appState} = useApp();
     const {i18n} = appState;
-	const {navigation} = props;
-	const renderListItem = ({item}) => {
-		return (
-			<BookingHistory
-				item={item}
-				onPress={() => {navigation.navigate(appRoutes.BOOKING_AUTHENTICATE, { bookingId: item.id })}}
-			/>
-		);
-	};
-	
-	return (
-		<SafeAreaView style={{ flex: 1}}>
-			<Header title={i18n.t('main.booking.book_room')} RightComponent={null} LeftComponent={null}/>
-			<FlatList
-				data={bookingHistoryDB.booking_histories}
-				renderItem={renderListItem}
-				keyExtractor={item => item.id.toString()}
-			/>
-		</SafeAreaView>
-	);
+    const {navigation} = props;
+    const renderListItem = ({item}) => {
+        return (
+            <BookingHistory
+                item={item}
+                onPress={() => {
+                    navigation.navigate(appRoutes.BOOKING_AUTHENTICATE, {bookingId: item.id})
+                }}
+            />
+        );
+    };
+
+    return (
+        <SafeAreaView style={{flex: 1}}>
+            <Header title={i18n.t('main.booking.book_room')} RightComponent={null} LeftComponent={null}/>
+            <FlatList
+                data={bookingHistoryDB.booking_histories}
+                renderItem={renderListItem}
+                keyExtractor={item => item.id.toString()}
+            />
+        </SafeAreaView>
+    );
 };
 
 const styles = StyleSheet.create({
-	margin: {
-		marginLeft: 15,
-		marginRight: 15,
-	},
-	padding: {
-		paddingLeft: 10,
-		paddingRight: 10,
-	}
+    margin: {
+        marginLeft: 15,
+        marginRight: 15,
+    },
+    padding: {
+        paddingLeft: 10,
+        paddingRight: 10,
+    }
 });
 
 export default BookingScreen;

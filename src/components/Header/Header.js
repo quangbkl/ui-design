@@ -9,8 +9,8 @@ import useApp from 'hooks/app/useApp';
 
 const DefaultLeftComponent = () => {
     const navigation = useNavigation();
-	const {state: appState} = useApp();
-	const {color} = appState;
+    const {state: appState} = useApp();
+    const {color} = appState;
     return (
         <Touchable onPress={() => navigation.goBack()}>
             <FontAwesome5Icon
@@ -32,8 +32,8 @@ const DefaultBodyComponent = ({title, description}) => {
 
 const DefaultRightComponent = () => {
     const navigation = useNavigation();
-	const {state: appState} = useApp();
-	const {color} = appState;
+    const {state: appState} = useApp();
+    const {color} = appState;
     return (
         <Touchable onPress={() => navigation.navigate('Home')}>
             <FontAwesome5Icon
