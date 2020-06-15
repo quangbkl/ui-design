@@ -3,7 +3,6 @@ import {SafeAreaView, ScrollView, TextInput, TouchableOpacity, View, StyleSheet}
 import {BaseStyle} from "../../../config/theme";
 import Header from "../../../components-v2/Header/Header";
 import Icon from "../../../components-v2/Icon/Icon";
-import BookingTime from "../../../components-v2/BookingTime/BookingTime";
 import Text from "../../../components/Text/Text";
 import Button from "../../../components-v2/Button/Button";
 import useApp from "../../../hooks/app/useApp";
@@ -11,6 +10,8 @@ import {useNavigation} from "@react-navigation/native";
 import HotelSearchModal from "./HotelSearchModal";
 import appRoutes from "../../../navigations/appRoutes";
 import moment from "moment";
+import CheckInModal from "./modals/CheckInModal";
+import RoomsModal from "./modals/RoomsModal";
 
 const HotelSearchScreen = () => {
     const {state: appState} = useApp();
@@ -18,9 +19,7 @@ const HotelSearchScreen = () => {
 
     const navigation = useNavigation();
 
-    const [markedDates, setMarkedDates] = useState({});
-    const [checkinTime, setCheckinTime] = useState('');
-    const [checkoutTime, setCheckoutTime] = useState('');
+    const [checkinTime, setCheckinTime] = useState(moment().format('YYYY-MM-DD'));
     const [keyword, setKeyword] = useState('');
     const [adult, setAdult] = useState(1);
     const [children, setChildren] = useState(1);
@@ -52,6 +51,8 @@ const HotelSearchScreen = () => {
     const handleMinusChildren = () => setChildren(children - 1 > 0 ? children - 1 : 0);
     const handlePlusNight = () => setNight(night + 1);
     const handleMinusNight = () => setNight(night - 1 > 0 ? night - 1 : 0);
+    const handlePlusRooms = () => setRooms(rooms + 1);
+    const handleMinusRooms = () => setRooms(rooms - 1 > 0 ? rooms - 1 : 0);
 
     const styles = StyleSheet.create({
         contentPickDate: {
@@ -79,15 +80,21 @@ const HotelSearchScreen = () => {
             marginRight: 15
         },
         duration: {
-            flex: 4,
-            borderRadius: 8,
-            backgroundColor: colors.fieldColor,
-            padding: 10
+            flex: 1,
+            justifyContent: 'center'
         },
         contentQuest: {
             marginTop: 15,
             flexDirection: "row",
             marginBottom: 15
+        },
+        bookingTime: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            borderRadius: 8,
+            backgroundColor: colors.fieldColor,
+            marginTop: 15,
+            padding: 10
         },
         contentModal: {
             flex: 1,
@@ -165,60 +172,37 @@ const HotelSearchScreen = () => {
                         selectionColor={colors.primaryColor}
                     />
                 </View>
-                <BookingTime style={{marginTop: 15}}/>
-                <View style={styles.contentQuest}>
-                    <TouchableOpacity
-                        style={styles.itemPick}
-                        // onPress={() => openModal(true)}
-                    >
-                        <Text caption1 light style={{marginBottom: 5}}>
-                            Check In
-                        </Text>
-                        <Text headline semibold>
-                            ABC
-                        </Text>
-                    </TouchableOpacity>
+                <View style={styles.bookingTime}>
+                    <CheckInModal time={checkinTime} onChange={setCheckinTime}/>
+                    <View style={styles.linePick}/>
                     <TouchableOpacity
                         style={styles.duration}
                         onPress={() => setModalVisible('duration')}
                     >
-                        <Text
-                            caption1
-                            grayColor
-                            style={{marginBottom: 5}}
-                        >
+                        <Text caption1 grayColor style={{marginBottom: 5}}>
                             Duration
                         </Text>
                         <Text body1 semibold>{night} Night</Text>
                     </TouchableOpacity>
                 </View>
+                <Text caption1 grayColor style={{marginTop: 5}}>
+                    Check Out: {moment(checkinTime).add(night, 'days').format('YYYY-MM-DD')}
+                </Text>
                 <View style={styles.contentQuest}>
                     <TouchableOpacity
                         style={styles.total}
                         onPress={() => setModalVisible('guest')}
                     >
-                        <Text
-                            caption1
-                            grayColor
-                            style={{marginBottom: 5}}
-                        >
+                        <Text caption1 grayColor style={{marginBottom: 5}}>
                             Total Guest(s)
                         </Text>
                         <Text body1 semibold>{adult} Adults, {children} Children</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.duration}
-                        onPress={() => setModalVisible('duration')}
-                    >
-                        <Text
-                            caption1
-                            grayColor
-                            style={{marginBottom: 5}}
-                        >
-                            Duration
-                        </Text>
-                        <Text body1 semibold>{night} Night</Text>
-                    </TouchableOpacity>
+                    <RoomsModal
+                        rooms={rooms}
+                        handlePlusRooms={handlePlusRooms}
+                        handleMinusRooms={handleMinusRooms}
+                    />
                 </View>
             </ScrollView>
             <View style={{paddingHorizontal: 20, marginBottom: 20}}>

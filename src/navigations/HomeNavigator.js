@@ -51,6 +51,8 @@ const HomeNavigator = () => {
             <Stack.Screen name={appRoutes.FLIGHT_SUMMARY} component={FlightSummaryScreen}/>
             <Stack.Screen name={appRoutes.FLIGHT_TICKET} component={FlightTicketScreen}/>
             <Stack.Screen name={appRoutes.PREVIEW_BOOKING} component={PreviewBookingScreen}/>
+            <Stack.Screen name={appRoutes.HOTEL_SEARCH} component={HotelSearchScreen}/>
+            <Stack.Screen name={appRoutes.SELECT_PROVINCE} component={SelectProvinceScreen}/>
         </Stack.Navigator>
     );
 };
