@@ -57,7 +57,8 @@ const PreviewGGMap = props => {
                     },
                 }));
                 setNearlyOfCurrent(actualResults);
-            });
+            })
+            .catch(console.log)
     }, []);
 
     return (

@@ -8,23 +8,43 @@ import {BaseColor} from 'config/color';
 import CustomIcon from '../Icon/CustomIcon';
 import Touchable from '../Touchable/Touchable';
 
+const numberWithDots = (x) => {
+    if (!x) return '';
+    const [number, decimal] = x.toString().split('.');
+    const separateNumber = number.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return decimal ? [separateNumber, decimal].join() : separateNumber;
+};
+
+const allServices = [
+    {code: 'wifi', name: 'Wifi'},
+    {code: 'coffee', name: 'Coffee'},
+    {code: 'bath', name: 'Bath'},
+    {code: 'car', name: 'Car'},
+    {code: 'paw', name: 'Paw'},
+    {code: 'futbol', name: 'Futbol'},
+];
+
 const HotelItemBlock = ({item}) => {
     const {
         name,
-        location,
-        price,
-        roomAvailable,
-        ratePercent,
-        services,
-        featureImage
+        address: location,
+        ratePercent = 85,
+        utilities,
+        image: featureImage
     } = item;
+    const roomAvailable = item.availableRoomDeluxe || 0 + item.availableRoomDeluxe || 0
+    const price = item.priceStandard || item.priceDeluxe || Math.min(item.priceStandard || 0, item.priceDeluxe || 0);
     const renderService = ({item: service}) => {
-        return (
-            <View style={styles.serviceItem}>
-                <CustomIcon style={styles.icon} type={service.key} size={17}/>
-                <Text style={styles.nameService}>{service.name}</Text>
-            </View>
-        );
+        const actualService = allServices.find(el => el.code === service);
+        if (actualService) {
+            return (
+                <View style={styles.serviceItem}>
+                    <CustomIcon style={styles.icon} type={actualService.code} size={17}/>
+                    <Text style={styles.nameService}>{actualService.name}</Text>
+                </View>
+            );
+        }
+        return null;
     };
     return (
         <View>
@@ -43,8 +63,8 @@ const HotelItemBlock = ({item}) => {
             </View>
             <View style={styles.mainInfo}>
                 <View>
-                    <Text style={styles.price}>{price}</Text>
-                    <Text style={styles.available}>{`Only ${roomAvailable} room(s) leaft`}</Text>
+                    <Text style={styles.price}>{numberWithDots(price)} VNĐ</Text>
+                    <Text style={styles.available}>{`${roomAvailable} phòng trống`}</Text>
                 </View>
                 <View style={styles.rightMain}>
                     <Text style={styles.rateText}>{getRatePerFive({ratePercent})}</Text>
@@ -62,7 +82,7 @@ const HotelItemBlock = ({item}) => {
             <View style={styles.serviceBlock}>
                 <List
                     horizontal
-                    dataArray={services}
+                    dataArray={utilities}
                     renderItem={renderService}
                     keyExtractor={() => uuidv4()}
                 />

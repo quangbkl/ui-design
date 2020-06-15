@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   ScrollView,
   FlatList,
+  ActivityIndicator,
 } from "react-native";
 import Modal from "react-native-modal";
 import { Grid, Col, Row, List, Button as NBButton } from "native-base";
@@ -20,27 +21,45 @@ import { getRouterParam } from "helpers/common";
 import { BaseColor } from "config/color";
 import RoomType from "../../../components/RoomType/RoomType";
 import { hotelAvailable } from "../../../__mocks__/db/hotel-db";
+import { getHotel } from '../../../services/hotelServices';
+
+const allServices = [
+  {code: 'wifi', name: 'Wifi'},
+  {code: 'coffee', name: 'Coffee'},
+  {code: 'bath', name: 'Bath'},
+  {code: 'car', name: 'Car'},
+  {code: 'paw', name: 'Paw'},
+  {code: 'futbol', name: 'Futbol'},
+];
 
 const HotelDetailScreen = (props) => {
   const hotelId = getRouterParam(props, "hotelId");
   const bookInfo = getRouterParam(props, "bookInfo");
   const [hotel, setHotel] = useState();
+  const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
   const gotoPreviewGGMap = () => {
-    navigation.navigate("Preview GGMap", { location: hotel.geoLocation });
+    navigation.navigate("Preview GGMap", { location: {
+      latitude: hotel.latitude,
+      longitude: hotel.longitude,
+    }});
   };
   const [visible, setVisible] = useState(false);
   const renderService = ({ item: service }) => {
-    return (
-      <View style={styles.serviceItem}>
-        <CustomIcon
-          type={service.key}
-          size={22}
-          color={BaseColor.bluePrimaryColor}
-        />
-        <Text caption2>{service.name}</Text>
-      </View>
-    );
+    const actualService = allServices.find(el => el.code === service);
+        if (actualService) {
+          return (
+            <View style={styles.serviceItem}>
+              <CustomIcon
+                type={actualService.code}
+                size={22}
+                color={BaseColor.bluePrimaryColor}
+              />
+              <Text caption2>{actualService.name}</Text>
+            </View>
+          );
+        }
+        return null;
   };
   
   const handleBooking = (type) => {
@@ -59,8 +78,13 @@ const HotelDetailScreen = (props) => {
 
   useEffect(() => {
     if (hotelId) {
-      const currHotel = hotelAvailable.hotelBooks.find((x) => x.id === hotelId);
-      setHotel(currHotel);
+      setLoading(true);
+      getHotel(hotelId)
+        .then(data => {
+          console.log(data);
+          setHotel(data.result.hotel);
+        })
+        .finally(() => setLoading(false));
     }
   }, [hotelId]);
 
@@ -70,7 +94,9 @@ const HotelDetailScreen = (props) => {
         <Header
           title="Thông tin khách sạn"
         />
-        {hotel && (
+        {loading ? (
+          <ActivityIndicator size="large" color="#0000ff" />
+        ) : hotel && (
           <>
             <ScrollView style={styles.scrollViewContent}>
               <View style={styles.reviewBlock}>
@@ -150,13 +176,7 @@ const HotelDetailScreen = (props) => {
               <View>
                 <Text title3>Mô tả khách sạn</Text>
                 <Text thin body2>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged
+                  {hotel.description}
                 </Text>
               </View>
               <Separator />
@@ -179,7 +199,8 @@ const HotelDetailScreen = (props) => {
                 <View>
                   <MapView
                     region={{
-                      ...hotel.geoLocation,
+                      latitude: hotel.latitude,
+                      longitude: hotel.longitude,
                       latitudeDelta: 0.1,
                       longitudeDelta: 0.1,
                     }}
@@ -211,13 +232,13 @@ const HotelDetailScreen = (props) => {
                   <View style={{ flex: 1 }}>
                     <Text body2>Check in từ:</Text>
                     <Text body2 bluePrimaryColor>
-                      15:00
+                      {hotel.checkin}
                     </Text>
                   </View>
                   <View style={{ flex: 1 }}>
                     <Text body2>Check out đến:</Text>
                     <Text body2 bluePrimaryColor>
-                      15:00
+                      {hotel.checkout}
                     </Text>
                   </View>
                 </View>
@@ -231,14 +252,14 @@ const HotelDetailScreen = (props) => {
                   marginBottom: 10,
                 }}
               >
-                <Text title3>Need Us Help?</Text>
+                <Text title3>Cần giúp đỡ?</Text>
                 <Text caption1 grayColor>
-                  We would be happy to help you
+                  Chúng tôi rất vui khi đón tiếp bạn
                 </Text>
                 <View style={{ flexDirection: "row" }}>
                   <CustomIcon style={styles.iconHelp} type="phone" />
                   <Text bluePrimaryColor body1>
-                    0362897165
+                    {hotel.phoneNumber}
                   </Text>
                 </View>
                 <View style={{ flexDirection: "row" }}>
@@ -247,13 +268,13 @@ const HotelDetailScreen = (props) => {
                     type="envelope-open-text"
                   />
                   <Text bluePrimaryColor body1>
-                    trantienduc10@gmail.com
+                    {hotel.email}
                   </Text>
                 </View>
               </View>
               <Separator />
               {/* Reason to choose us */}
-              <View>
+              {/* <View>
                 <Text title3>Reasons to choose us</Text>
                 <View style={styles.reasonBlock}>
                   <View style={styles.reasonItem}>
@@ -309,7 +330,7 @@ const HotelDetailScreen = (props) => {
                     </View>
                   </View>
                 </View>
-              </View>
+              </View> */}
             </ScrollView>
             <View style={{ padding: 10 }}>
               <Button onPress={() => setVisible(true)}>

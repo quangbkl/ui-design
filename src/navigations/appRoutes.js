@@ -22,6 +22,7 @@ const appRoutes = {
     HOTELS: 'Hotels',
     HOTEL_DETAIL: 'Hotel Detail',
     HOTEL_SEARCH: 'Hotel Search',
+    SELECT_PROVINCE: 'Select Province',
     PREVIEW_GGMAP: 'Preview GGMap',
     HOTEL_FILTERING: 'Hotel Filtering',
     HOTEL_FILTERING_ADVANCE: 'Hotel Filtering Advance',

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, FlatList, StyleSheet } from "react-native";
+import { View, FlatList, StyleSheet, ActivityIndicator } from "react-native";
 import { v4 as uuidv4 } from "react-native-uuid";
 import { useFilterDynamic } from "hooks/common";
 import { useNavigation } from "@react-navigation/native";
@@ -11,6 +11,7 @@ import useApp from "hooks/app/useApp";
 import { getRouterParam } from "helpers/common";
 import appRoutes from "navigations/appRoutes";
 import { hotelAvailable } from "../../../__mocks__/db/hotel-db";
+import { searchHotels } from '../../../services/hotelServices';
 
 // TODO: Code HotelItem component first
 const HotelsScreen = (props) => {
@@ -20,6 +21,7 @@ const HotelsScreen = (props) => {
   const { color } = appState;
   const [view, setView] = useState("block");
   const [hotels, setHotels] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const renderItem = ({ item }) => {
     const detailHotel = () => {
@@ -37,7 +39,16 @@ const HotelsScreen = (props) => {
   };
 
   useEffect(() => {
-    setHotels(hotelAvailable.hotelBooks);
+    setLoading(true);
+    searchHotels(searchParams)
+      .then(res => {
+        const { result } = res.data;
+        console.log(result)
+        setHotels(result.hotels)
+      })
+      .finally(() => setLoading(false))
+      
+    // setHotels(hotelAvailable.hotelBooks);
   }, []);
 
   return (
@@ -49,15 +60,21 @@ const HotelsScreen = (props) => {
         } phòng`}
       />
       <FilterSort view={view} onChangeView={setView} />
-      <FlatList
-        style={view === "block" ? {} : styles.container}
-        data={hotels}
-        renderItem={renderItem}
-        key={uuidv4()}
-        keyExtractor={() => uuidv4()}
-        columnWrapperStyle={view === "grid" ? styles.spaceCol : null}
-        numColumns={view === "grid" ? 2 : 1}
-      />
+      
+      {loading ? (
+        <ActivityIndicator size="large" color="#0000ff" />
+      ) : (
+        <FlatList
+          style={view === "block" ? {} : styles.container}
+          data={hotels}
+          renderItem={renderItem}
+          key={uuidv4()}
+          keyExtractor={() => uuidv4()}
+          columnWrapperStyle={view === "grid" ? styles.spaceCol : null}
+          numColumns={view === "grid" ? 2 : 1}
+        />
+      )}
+      
     </>
   );
 };
