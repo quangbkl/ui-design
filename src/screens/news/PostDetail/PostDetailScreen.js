@@ -127,22 +127,15 @@ const PostDetailScreen = () => {
                             }}
                         />
                         <Text body2>
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Donec rutrum congue leo eget
-                            malesuada. Nulla porttitor accumsan tincidunt.
-                            Donec rutrum congue leo eget malesuada. Nulla
-                            porttitor accumsan tincidunt. Nulla porttitor
-                            accumsan tincidunt. Quisque velit nisi, pretium
-                            ut lacinia in, elementum id enim. Donec rutrum
-                            congue leo eget malesuada. Praesent sapien
-                            massa, convallis a pellentesque nec, egestas non
-                            nisi. Vestibulum ac diam sit amet quam vehicula
-                            elementum sed sit amet dui Donec rutrum congue
-                            leo eget malesuada. Vivamus suscipit tortor eget
-                            felis porttitor volutpat. Sed porttitor lectus
-                            nibh. Nulla quis lorem ut libero malesuada
-                            feugiat. Quisque velit nisi, pretium ut lacinia
-                            in, elementum id enim.
+                            A hotel is an establishment that provides paid lodging on a short-term basis. Facilities
+                            provided inside a hotel room may range from a modest-quality mattress in a small room to
+                            large suites with bigger, higher-quality beds, a dresser, a refrigerator and other kitchen
+                            facilities, upholstered chairs, a flat screen television, and en-suite bathrooms. Small,
+                            lower-priced hotels may offer only the most basic guest services and facilities. Larger,
+                            higher-priced hotels may provide additional guest facilities such as a swimming pool,
+                            business centre (with computers, printers, and other office equipment), childcare,
+                            conference and event facilities, tennis or basketball courts, gymnasium, restaurants, day
+                            spa, and social function services.
                         </Text>
                         <UserFollowing/>
                         <TopExperiences/>

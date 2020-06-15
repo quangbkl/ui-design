@@ -56,7 +56,7 @@ const SearchMenu = (props) => {
                         <MenuItem
                             text="Hotel"
                             icon="calendar-alt"
-                            onClick={() => navigation.navigate(appRoutes.SEARCH_HOTEL)}
+                            onClick={() => navigation.navigate(appRoutes.HOTEL_SEARCH)}
                         />
                         <MenuItem
                             text="Tour"

@@ -23,7 +23,7 @@ const FeaturedPosts = () => {
             </Text>
             <PostListItem
                 title="See The Unmatched"
-                description="Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui Donec rutrum congue leo eget malesuada."
+                description="This article is about lodging establishments."
                 style={{marginTop: 10, width: '100%'}}
                 image={img1}
                 onPress={() => {
@@ -31,7 +31,7 @@ const FeaturedPosts = () => {
                 }}
             />
             <PostListItem
-                description="Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui Donec rutrum congue leo eget malesuada."
+                description="This article is about lodging establishments."
                 title="Top 15 Things Must To Do"
                 style={{marginTop: 10, width: '100%'}}
                 image={img2}

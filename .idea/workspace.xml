@@ -32,17 +32,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff54f67d-4dda-4885-9c56-be2a842438b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components-v2/Card/Card.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/PostListItem/PostListItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/ProfileAuthor/ProfileAuthor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components-v2/ProfileGroup/ProfileGroup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/FeaturedPosts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/ImageGallery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/TopExperiences.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/UserFollowing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/home/HotelSearch/HotelSearchModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/home/HotelSearch/HotelSearchScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/home/HotelSearch/SearchModalDuration.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/home/HotelSearch/SearchModalGuest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_01_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_01_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_01_PM__Default_Changelist_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_02_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_14_2020_9_02_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components-v2/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components-v2/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigations/MainNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigations/MainNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigations/HomeNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigations/HomeNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigations/appRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigations/appRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/home/Home/SearchMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/Home/SearchMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/news/PostDetail/FeaturedPosts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/FeaturedPosts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/news/PostDetail/PostDetailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/news/PostDetail/PostDetailScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +57,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="expo" />
+        <entry key="$PROJECT_DIR$" value="quangdv" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,6 +84,7 @@
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -235,6 +240,10 @@
     </state>
     <state x="204" y="-965" key="SettingsEditor/0.0.1366.728/-249.-1080.1920.1040@0.0.1366.728" timestamp="1586318165065" />
     <state x="322" y="17" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590981319732" />
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1592186511784">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1592186511784" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592146305167">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -243,11 +252,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="277" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1590721935163" />
-    <state x="390" y="99" width="585" height="530" key="find.popup" timestamp="1592146693817">
+    <state x="390" y="99" width="585" height="530" key="find.popup" timestamp="1592191313101">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="390" y="99" width="585" height="530" key="find.popup/0.0.1366.728/-224.-1080.1920.1040@0.0.1366.728" timestamp="1590143136430" />
-    <state x="390" y="99" width="585" height="530" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1592146693817" />
+    <state x="390" y="99" width="585" height="530" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1592191313101" />
     <state x="478" y="-848" key="git4idea.branch.GitSmartOperationDialog" timestamp="1586428431462">
       <screen x="-249" y="-1080" width="1920" height="1040" />
     </state>
