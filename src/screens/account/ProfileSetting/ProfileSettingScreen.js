@@ -19,7 +19,7 @@ import useApp from 'hooks/app/useApp';
 
 const ProfileSettingScreen = (props) => {
     const {state: appState} = useApp();
-    const {i18n, locale} = appState;
+    const {i18n, locale, theme} = appState;
 
     const {navigation} = props;
     const [reminders, setReminders] = useState(false);
@@ -44,7 +44,7 @@ const ProfileSettingScreen = (props) => {
                         >
                             <Text>{i18n.t('main.account.profile_setting.language')}</Text>
                         </ListItemAngleRight>
-                        <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_THEME)} value="orange">
+                        <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_THEME)} value={theme}>
                             <Text>{i18n.t('main.account.profile_setting.theme')}</Text>
                         </ListItemAngleRight>
                         <ListItemAngleRight onPress={handleNavigate('')} value="Ruleway">

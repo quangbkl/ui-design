@@ -19,7 +19,7 @@ const ThemeModeSetting = () => {
             </ListItemAngleRight>
 
             <Modal isVisible={isModalVisible} onBackdropPress={toggleModal}>
-                <ThemeModeSettingContent/>
+                <ThemeModeSettingContent toggleModal={toggleModal}/>
             </Modal>
         </>
     );

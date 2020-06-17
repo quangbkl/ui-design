@@ -5,19 +5,22 @@ import {ThemeModeConstant} from 'config/constant';
 import {View} from 'react-native';
 import useApp from 'hooks/app/useApp';
 
-const ThemeModeSettingContent = () => {
+const ThemeModeSettingContent = (props) => {
     const {state: appState, actions: appActions} = useApp();
     const {i18n} = appState;
     const {changeThemeMode} = appActions;
 
     const [themeMode, setThemeMode] = useState(appState.themeMode);
 
+    const {toggleModal} = props;
+
     const handleChangeThemeMode = (newThemeMode) => {
         setThemeMode(newThemeMode);
     };
 
     const handleApplyTheme = async () => {
-        return changeThemeMode(themeMode);
+        changeThemeMode(themeMode);
+        setTimeout(toggleModal, 100);
     };
 
     return (

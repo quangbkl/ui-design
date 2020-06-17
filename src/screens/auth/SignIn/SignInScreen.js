@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import validator from 'validator';
 import {View, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView, TextInput} from 'react-native';
 import appRoutes from 'navigations/appRoutes';
 import {useNavigation} from '@react-navigation/native';

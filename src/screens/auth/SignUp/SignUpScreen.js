@@ -36,7 +36,7 @@ const SignUpScreen = () => {
         setErrorPassword(_errorPassword);
         setErrorFullName(_errorFullName);
 
-        if (_errorEmail || _errorPassword) return false;
+        if (_errorEmail || _errorPassword || _errorFullName) return false;
 
         setSigningUp(true);
         setTimeout(() => {
