@@ -48,5 +48,5 @@ mock.onPost('/auth/sign-in').reply((request) => {
         return [200, {user}];
     }
 
-    return [400, {code: 'incorrect_email_or_password', message: 'Incorrect email or password'}];
+    return [400, {code: 'incorrect_email_or_password', message: 'The email or password you entered is incorrect'}];
 });

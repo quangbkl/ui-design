@@ -15,7 +15,8 @@ export const BaseColor = {
     bluePrimaryColor: '#1890FF',
     backgroundPrimaryColor: '#F2F2F2',
     backgroundSecondaryColor: '#FFFFFF',
-    backgroundTertiaryColor: '#F5F5F5'
+    backgroundTertiaryColor: '#F5F5F5',
+    errorColor: '#FF0000'
 };
 
 export const ThemeColor = {

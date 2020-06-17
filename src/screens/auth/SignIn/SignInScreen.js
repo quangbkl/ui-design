@@ -4,12 +4,12 @@ import {View, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView, TextInput}
 import appRoutes from 'navigations/appRoutes';
 import {useNavigation} from '@react-navigation/native';
 import useApp from 'hooks/app/useApp';
-import {BaseStyle} from '../../../config/theme';
-import Header from '../../../components-v2/Header/Header';
-import Icon from '../../../components-v2/Icon/Icon';
-import Text from '../../../components/Text/Text';
-import Button from '../../../components-v2/Button/Button';
-import {getErrorMessage} from '../../../helpers/response';
+import {BaseStyle} from 'config/theme';
+import Text from 'components/Text/Text';
+import Button from 'components-v2/Button/Button';
+import {getErrorMessage} from 'helpers/response';
+import SignInHeader from "./SignInHeader";
+import {validateEmail, validatePassword} from "helpers/common";
 
 const SignInScreen = (props) => {
     const {state: appState, actions: appActions} = useApp();
@@ -20,25 +20,20 @@ const SignInScreen = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [successEmail, setSuccessEmail] = useState(true);
-    const [successPassword, setSuccessPassword] = useState(true);
+    const [errorEmail, setErrorEmail] = useState('');
+    const [errorPassword, setErrorPassword] = useState('');
     const [signingIn, setSigningIn] = useState(false);
     const [error, setError] = useState('');
 
     const handleClickSignIn = async () => {
         setError('');
 
-        if (!validator.isEmail(email) && !password) {
-            setSuccessEmail(false);
-            setSuccessPassword(false);
-            return false;
-        } else if (!validator.isEmail(email)) {
-            setSuccessEmail(false);
-            return false;
-        } else if (!password) {
-            setSuccessPassword(false);
-            return false;
-        }
+        const _errorEmail = validateEmail(email);
+        const _errorPassword = validatePassword(password);
+        setErrorEmail(_errorEmail);
+        setErrorPassword(_errorPassword);
+
+        if (_errorEmail || _errorPassword) return false;
 
         setSigningIn(true);
 
@@ -74,57 +69,49 @@ const SignInScreen = (props) => {
             style={BaseStyle.safeAreaView}
             forceInset={{top: 'always'}}
         >
-            <Header
-                title="Sign In"
-                renderLeft={() => {
-                    return (
-                        <Icon
-                            name="arrow-left"
-                            size={20}
-                            color={colors.primaryColor}
-                        />
-                    );
-                }}
-                onPressLeft={() => {
-                    navigation.goBack();
-                }}
-            />
+            <SignInHeader/>
             <ScrollView>
                 <View style={styles.contain}>
-                    <TextInput
-                        style={[BaseStyle.textInput, {
-                            marginTop: 65,
-                            color: !successEmail ? colors.primaryColor : undefined
-                        }]}
-                        keyboardType="email-address"
-                        onChangeText={setEmail}
-                        onFocus={() => setSuccessEmail(true)}
-                        autoCorrect={false}
-                        placeholder="Email"
-                        placeholderTextColor={
-                            successEmail
-                                ? colors.grayColor
-                                : colors.primaryColor
-                        }
-                        value={email}
-                        selectionColor={colors.primaryColor}
-                    />
-                    <TextInput
-                        style={[BaseStyle.textInput, {marginTop: 10}]}
-                        onChangeText={setPassword}
-                        onFocus={() => setSuccessPassword(true)}
-                        autoCorrect={false}
-                        placeholder="Password"
-                        secureTextEntry={true}
-                        placeholderTextColor={
-                            successPassword
-                                ? colors.grayColor
-                                : colors.primaryColor
-                        }
-                        value={password}
-                        selectionColor={colors.primaryColor}
-                    />
-                    {!!error && <Text subhead primaryColor style={{marginTop: 10}}>{error}</Text>}
+                    <View style={{width: '100%'}}>
+                        <TextInput
+                            style={[BaseStyle.textInput, {
+                                marginTop: 65,
+                                color: !!errorEmail ? colors.errorColor : undefined
+                            }]}
+                            keyboardType="email-address"
+                            onChangeText={setEmail}
+                            onFocus={() => setErrorEmail('')}
+                            autoCorrect={false}
+                            placeholder="Email"
+                            placeholderTextColor={
+                                !errorEmail
+                                    ? colors.grayColor
+                                    : colors.errorColor
+                            }
+                            value={email}
+                            selectionColor={colors.primaryColor}
+                        />
+                        {!!errorEmail && <Text caption1 errorColor>{errorEmail}</Text>}
+                    </View>
+                    <View style={{width: '100%'}}>
+                        <TextInput
+                            style={[BaseStyle.textInput, {marginTop: 10}]}
+                            onChangeText={setPassword}
+                            onFocus={() => setErrorPassword('')}
+                            autoCorrect={false}
+                            placeholder="Password"
+                            secureTextEntry={true}
+                            placeholderTextColor={
+                                !errorPassword
+                                    ? colors.grayColor
+                                    : colors.errorColor
+                            }
+                            value={password}
+                            selectionColor={colors.primaryColor}
+                        />
+                        {!!errorPassword && <Text caption1 errorColor>{errorPassword}</Text>}
+                    </View>
+                    {!!error && <Text subhead errorColor style={{marginTop: 10}}>{error}</Text>}
                     <View style={{width: '100%'}}>
                         <Button
                             full

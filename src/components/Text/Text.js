@@ -44,6 +44,7 @@ const Text = (props) => {
         whiteColor,
         fieldColor,
         bluePrimaryColor,
+        errorColor,
         //numberOfLines
         numberOfLines,
         //custom
@@ -114,6 +115,7 @@ const Text = (props) => {
                 whiteColor && StyleSheet.flatten({color: colors.whiteColor}),
                 fieldColor && StyleSheet.flatten({color: colors.fieldColor}),
                 bluePrimaryColor && StyleSheet.flatten({color: colors.bluePrimaryColor}),
+                errorColor && StyleSheet.flatten({color: colors.errorColor}),
                 style && style
             ])}
             numberOfLines={numberOfLines}
