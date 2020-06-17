@@ -11,36 +11,34 @@ import { Button, CustomIcon, Separator, Text } from "components";
 import { useForm, Controller } from "react-hook-form";
 import useApp from "hooks/app/useApp";
 import { BaseColor } from "config/color";
-import moment from 'moment';
+import moment from "moment";
 
 const calculateGrandTotal = (informationBooking) => {
   const { rooms, room } = informationBooking;
-  return (
-    rooms * room.price * (1 + room.tax / 100)
-  )
-}
+  return rooms * room.price * (1 + room.tax / 100);
+};
 
 const numberWithDots = (x) => {
-  if (!x) return '';
-  const [number, decimal] = x.toString().split('.');
-  const separateNumber = number.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  if (!x) return "";
+  const [number, decimal] = x.toString().split(".");
+  const separateNumber = number.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   return decimal ? [separateNumber, decimal].join() : separateNumber;
 };
 
 const Step1 = (props) => {
   const { onNextStep2, informationBooking } = props;
-  console.log(informationBooking)
+  console.log(informationBooking);
   const { state: appState } = useApp();
   const { i18n } = appState;
   const { color } = appState;
   const [expandPriceDetail, setExpandPriceDetail] = useState(false);
   const { register, setValue, handleSubmit, formState } = useForm();
 
-  console.log(formState)
+  console.log(formState);
 
   const submitForm = () => {
-	  onNextStep2(() => {});
-  }
+    onNextStep2(() => {});
+  };
 
   useEffect(() => {
     register({ name: "name" });
@@ -75,13 +73,29 @@ const Step1 = (props) => {
                   justifyContent: "space-between",
                 }}
               >
-                <Text>{moment(informationBooking.checkinDate, 'DD-mm-YYYY').format("ddd, MMM Do YYYY")} ({informationBooking.hotel.checkin})</Text>
-                <Text>{moment(informationBooking.checkinDate, 'DD-mm-YYYY').add(informationBooking.night, 'days').format("ddd, MMM Do YYYY")} ({informationBooking.hotel.checkout})</Text>
+                <Text>
+                  {moment(informationBooking.checkinDate, "DD-mm-YYYY").format(
+                    "ddd, MMM Do YYYY"
+                  )}{" "}
+                  ({informationBooking.hotel.checkin})
+                </Text>
+                <Text>
+                  {moment(informationBooking.checkinDate, "DD-mm-YYYY")
+                    .add(informationBooking.night, "days")
+                    .format("ddd, MMM Do YYYY")}{" "}
+                  ({informationBooking.hotel.checkout})
+                </Text>
               </View>
             </View>
             <Separator />
             <View style={styles.rest}>
-              <Text style={{ fontWeight: "600" }}>Phòng {informationBooking.room.type === 'standard' ? 'tiêu chuẩn' : 'sang trọng'} (x{informationBooking.rooms}) - {informationBooking.guest} khách</Text>
+              <Text style={{ fontWeight: "600" }}>
+                Phòng{" "}
+                {informationBooking.room.type === "standard"
+                  ? "tiêu chuẩn"
+                  : "sang trọng"}{" "}
+                (x{informationBooking.rooms}) - {informationBooking.guest} khách
+              </Text>
               <Text style={{ fontSize: 15, opacity: 0.7 }}>
                 2 giường cỡ queen
               </Text>
@@ -109,7 +123,10 @@ const Step1 = (props) => {
                     justifyContent: "flex-end",
                   }}
                 >
-                  <Text>{numberWithDots(calculateGrandTotal(informationBooking))} VND </Text>
+                  <Text>
+                    {numberWithDots(calculateGrandTotal(informationBooking))}{" "}
+                    VND{" "}
+                  </Text>
                   {expandPriceDetail ? (
                     <Icon
                       name="up"
@@ -134,7 +151,10 @@ const Step1 = (props) => {
                   Tiền phòng:
                 </Text>
                 <Right style={{ flex: 1 }}>
-                  <Text>{informationBooking.rooms} x {numberWithDots(informationBooking.room.price)} VND</Text>
+                  <Text>
+                    {informationBooking.rooms} x{" "}
+                    {numberWithDots(informationBooking.room.price)} VND
+                  </Text>
                 </Right>
               </CardItem>
               <CardItem style={{ flex: 1 }}>

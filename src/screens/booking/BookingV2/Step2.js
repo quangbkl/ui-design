@@ -10,19 +10,17 @@ import { Card, CardItem, Left, Right } from "native-base";
 import { Button, CustomIcon, Separator, Text } from "components";
 import useApp from "hooks/app/useApp";
 import { BaseColor } from "config/color";
-import moment from 'moment'
+import moment from "moment";
 
 const calculateGrandTotal = (informationBooking) => {
   const { rooms, room } = informationBooking;
-  return (
-    rooms * room.price * (1 + room.tax / 100)
-  )
-}
+  return rooms * room.price * (1 + room.tax / 100);
+};
 
 const numberWithDots = (x) => {
-  if (!x) return '';
-  const [number, decimal] = x.toString().split('.');
-  const separateNumber = number.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  if (!x) return "";
+  const [number, decimal] = x.toString().split(".");
+  const separateNumber = number.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   return decimal ? [separateNumber, decimal].join() : separateNumber;
 };
 
@@ -38,7 +36,9 @@ const Step2 = (props) => {
         <View style={styles.content}>
           <View style={styles.hotelIn4}>
             <View style={{ flexDirection: "row" }}>
-              <Text style={{ fontWeight: "700" }}>{informationBooking.hotel.name}</Text>
+              <Text style={{ fontWeight: "700" }}>
+                {informationBooking.hotel.name}
+              </Text>
             </View>
             <Separator />
             <View style={styles.checkInOut}>
@@ -49,7 +49,11 @@ const Step2 = (props) => {
                 }}
               >
                 <Text>Check in</Text>
-                <Text>{moment(informationBooking.checkinDate, 'DD-mm-YYYY').format("ddd, MMM Do")}</Text>
+                <Text>
+                  {moment(informationBooking.checkinDate, "DD-mm-YYYY").format(
+                    "ddd, MMM Do"
+                  )}
+                </Text>
                 <Text>{informationBooking.hotel.checkin}</Text>
               </View>
               <View
@@ -61,7 +65,9 @@ const Step2 = (props) => {
                 }}
               >
                 <CustomIcon type={"moon"} color={color.primaryColor} />
-                <Text style={{ marginTop: 5 }}>{informationBooking.night} Đêm</Text>
+                <Text style={{ marginTop: 5 }}>
+                  {informationBooking.night} Đêm
+                </Text>
               </View>
               <View
                 style={{
@@ -71,7 +77,11 @@ const Step2 = (props) => {
                 }}
               >
                 <Text>Check out</Text>
-                <Text>{moment(informationBooking.checkinDate, 'DD-mm-YYYY').add(informationBooking.night, 'days').format("ddd, MMM Do")}</Text>
+                <Text>
+                  {moment(informationBooking.checkinDate, "DD-mm-YYYY")
+                    .add(informationBooking.night, "days")
+                    .format("ddd, MMM Do")}
+                </Text>
                 <Text>{informationBooking.hotel.checkout}</Text>
               </View>
             </View>
@@ -80,7 +90,11 @@ const Step2 = (props) => {
           <View style={{ marginTop: -10 }}>
             <View style={styles.userIn4}>
               <Text style={{ fontSize: 17, fontWeight: "700" }}>
-                Phòng {informationBooking.room.type === 'standard' ? 'tiêu chuẩn' : 'sang trọng'} (x{informationBooking.rooms}) - {informationBooking.guest} khách
+                Phòng{" "}
+                {informationBooking.room.type === "standard"
+                  ? "tiêu chuẩn"
+                  : "sang trọng"}{" "}
+                (x{informationBooking.rooms}) - {informationBooking.guest} khách
               </Text>
               <Separator />
               <View style={{ flexDirection: "row" }}>
@@ -112,8 +126,7 @@ const Step2 = (props) => {
                   <Image
                     style={styles.image}
                     source={{
-                      uri:
-                        informationBooking.room.image,
+                      uri: informationBooking.room.image,
                     }}
                   />
                 </View>
@@ -170,7 +183,10 @@ const Step2 = (props) => {
                 Tiền phòng:
               </Text>
               <Right style={{ flex: 1 }}>
-                <Text>{informationBooking.rooms} x {numberWithDots(informationBooking.room.price)} VND</Text>
+                <Text>
+                  {informationBooking.rooms} x{" "}
+                  {numberWithDots(informationBooking.room.price)} VND
+                </Text>
               </Right>
             </CardItem>
             <CardItem style={{ flex: 1 }}>
@@ -186,7 +202,9 @@ const Step2 = (props) => {
                 Tổng tiền:
               </Text>
               <Right style={{ flex: 1 }}>
-                <Text>{numberWithDots(calculateGrandTotal(informationBooking))} VND</Text>
+                <Text>
+                  {numberWithDots(calculateGrandTotal(informationBooking))} VND
+                </Text>
               </Right>
             </CardItem>
           </Card>

@@ -20,40 +20,40 @@ import { Header, CustomIcon, Text, Separator, Button } from "components";
 import { getRouterParam } from "helpers/common";
 import { BaseColor } from "config/color";
 import RoomType from "../../../components/RoomType/RoomType";
-import { getHotel } from '../../../services/hotelServices';
+import { getHotel } from "../../../services/hotelServices";
 
 const allServices = [
-  {code: 'wifi', name: 'Wifi'},
-  {code: 'coffee', name: 'Coffee'},
-  {code: 'bath', name: 'Bath'},
-  {code: 'car', name: 'Car'},
-  {code: 'paw', name: 'Paw'},
-  {code: 'futbol', name: 'Futbol'},
+  { code: "wifi", name: "Wifi" },
+  { code: "coffee", name: "Coffee" },
+  { code: "bath", name: "Bath" },
+  { code: "car", name: "Car" },
+  { code: "paw", name: "Paw" },
+  { code: "futbol", name: "Futbol" },
 ];
 
 const getRoomTypes = (hotel) => {
   let result = [];
   const { roomTypes } = hotel;
-  if (roomTypes.includes('standard')) {
+  if (roomTypes.includes("standard")) {
     result.push({
-      type: 'standard',
+      type: "standard",
       image: hotel.imageStandard,
       price: hotel.priceStandard,
       roomAvailable: hotel.availableRoomStandard,
       tax: hotel.taxStandard,
-    })
+    });
   }
-  if (roomTypes.includes('deluxe')) {
+  if (roomTypes.includes("deluxe")) {
     result.push({
-      type: 'deluxe',
+      type: "deluxe",
       image: hotel.imageDeluxe,
       price: hotel.priceDeluxe,
       roomAvailable: hotel.availableRoomDeluxe,
       tax: hotel.taxDeluxe,
-    })
+    });
   }
   return result;
-}
+};
 
 const HotelDetailScreen = (props) => {
   const hotelId = getRouterParam(props, "hotelId");
@@ -62,36 +62,38 @@ const HotelDetailScreen = (props) => {
   const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
   const gotoPreviewGGMap = () => {
-    navigation.navigate("Preview GGMap", { location: {
-      latitude: hotel.latitude,
-      longitude: hotel.longitude,
-    }});
+    navigation.navigate("Preview GGMap", {
+      location: {
+        latitude: hotel.latitude,
+        longitude: hotel.longitude,
+      },
+    });
   };
   const [visible, setVisible] = useState(false);
   const renderService = ({ item: service }) => {
-    const actualService = allServices.find(el => el.code === service);
-        if (actualService) {
-          return (
-            <View style={styles.serviceItem}>
-              <CustomIcon
-                type={actualService.code}
-                size={22}
-                color={BaseColor.bluePrimaryColor}
-              />
-              <Text caption2>{actualService.name}</Text>
-            </View>
-          );
-        }
-        return null;
+    const actualService = allServices.find((el) => el.code === service);
+    if (actualService) {
+      return (
+        <View style={styles.serviceItem}>
+          <CustomIcon
+            type={actualService.code}
+            size={22}
+            color={BaseColor.bluePrimaryColor}
+          />
+          <Text caption2>{actualService.name}</Text>
+        </View>
+      );
+    }
+    return null;
   };
-  
+
   const handleBooking = (type) => {
     setVisible(false);
     const informationBooking = {
-        room: type,
-        hotel,
-        ...bookInfo,
-    }
+      room: type,
+      hotel,
+      ...bookInfo,
+    };
     navigation.navigate("BookingV2", { informationBooking });
   };
   const renderListItem = ({ item }) => {
@@ -102,7 +104,7 @@ const HotelDetailScreen = (props) => {
     if (hotelId) {
       setLoading(true);
       getHotel(hotelId)
-        .then(data => {
+        .then((data) => {
           console.log(data);
           setHotel(data.result.hotel);
         })
@@ -113,195 +115,194 @@ const HotelDetailScreen = (props) => {
   return (
     <>
       <SafeAreaView style={styles.fill}>
-        <Header
-          title="Thông tin khách sạn"
-        />
+        <Header title="Thông tin khách sạn" />
         {loading ? (
           <ActivityIndicator size="large" color="#0000ff" />
-        ) : hotel && (
-          <>
-            <ScrollView style={styles.scrollViewContent}>
-              <View style={styles.reviewBlock}>
-                <Text style={styles.titleReviewBlock} title1>
-                  {hotel.name}
-                </Text>
-                <Rating startingValue={4.25} imageSize={16} readonly />
-
-                <Text
-                  numberOfLines={4}
-                  style={styles.titleReviewDescription}
-                  thin
-                >
-                  {hotel.description}
-                </Text>
-              </View>
-              {/* Reviews */}
-              <View style={styles.blockReviews}>
-                <View style={styles.commonRate}>
-                  <Text style={styles.ratePerTen} title2 whiteColor>
-                    9.5
+        ) : (
+          hotel && (
+            <>
+              <ScrollView style={styles.scrollViewContent}>
+                <View style={styles.reviewBlock}>
+                  <Text style={styles.titleReviewBlock} title1>
+                    {hotel.name}
                   </Text>
-                  <View style={styles.commonRateRight}>
-                    <Text title2 primaryColor>
-                      Xuất sắc
-                    </Text>
-                    <Text subhead>Xem 1000 đánh giá</Text>
-                  </View>
-                </View>
-                <Grid style={styles.detailReview}>
-                  <Row style={styles.rowReview}>
-                    <Col style={styles.reviewItem}>
-                      <View style={styles.reviewItemFirstLine}>
-                        <Text body2>Độ sạch sẽ</Text>
-                        <Text body2>8</Text>
-                      </View>
-                      <Bar progress={0.8} width={null} />
-                    </Col>
-                    <Col style={styles.reviewItem}>
-                      <View style={styles.reviewItemFirstLine}>
-                        <Text body2>Tiện nghi</Text>
-                        <Text body2>8</Text>
-                      </View>
-                      <Bar progress={0.8} width={null} />
-                    </Col>
-                  </Row>
-                  <Row style={styles.rowReview}>
-                    <Col style={styles.reviewItem}>
-                      <View style={styles.reviewItemFirstLine}>
-                        <Text body2>Vị trí</Text>
-                        <Text body2>8</Text>
-                      </View>
-                      <Bar progress={0.8} width={null} />
-                    </Col>
-                    <Col style={styles.reviewItem}>
-                      <View style={styles.reviewItemFirstLine}>
-                        <Text body2>Dịch vụ</Text>
-                        <Text body2>8</Text>
-                      </View>
-                      <Bar progress={0.8} width={null} />
-                    </Col>
-                  </Row>
-                  <Row style={styles.rowReview}>
-                    <Col style={styles.reviewItem}>
-                      <View style={styles.reviewItemFirstLine}>
-                        <Text body2>Đáng giá tiền</Text>
-                        <Text body2>8</Text>
-                      </View>
-                      <Bar progress={0.8} width={null} />
-                    </Col>
-                    <Col />
-                  </Row>
-                </Grid>
-              </View>
-              <Separator />
-              {/* Description */}
-              <View>
-                <Text title3>Mô tả khách sạn</Text>
-                <Text thin body2>
-                  {hotel.description}
-                </Text>
-              </View>
-              <Separator />
-              {/* Services */}
-              <View>
-                <List
-                  horizontal
-                  dataArray={hotel.services}
-                  renderItem={renderService}
-                  keyExtractor={() => uuidv4()}
-                />
-              </View>
-              <Separator />
-              {/* Location */}
-              <View>
-                <Text title3>Vị trí</Text>
-                <Text thin body2>
-                  {hotel.location}
-                </Text>
-                <View>
-                  <MapView
-                    region={{
-                      latitude: hotel.latitude,
-                      longitude: hotel.longitude,
-                      latitudeDelta: 0.1,
-                      longitudeDelta: 0.1,
-                    }}
-                    style={styles.map}
-                    provider={PROVIDER_DEFAULT}
+                  <Rating startingValue={4.25} imageSize={16} readonly />
+
+                  <Text
+                    numberOfLines={4}
+                    style={styles.titleReviewDescription}
+                    thin
                   >
-                    <Marker
-                      coordinate={{
+                    {hotel.description}
+                  </Text>
+                </View>
+                {/* Reviews */}
+                <View style={styles.blockReviews}>
+                  <View style={styles.commonRate}>
+                    <Text style={styles.ratePerTen} title2 whiteColor>
+                      9.5
+                    </Text>
+                    <View style={styles.commonRateRight}>
+                      <Text title2 primaryColor>
+                        Xuất sắc
+                      </Text>
+                      <Text subhead>Xem 1000 đánh giá</Text>
+                    </View>
+                  </View>
+                  <Grid style={styles.detailReview}>
+                    <Row style={styles.rowReview}>
+                      <Col style={styles.reviewItem}>
+                        <View style={styles.reviewItemFirstLine}>
+                          <Text body2>Độ sạch sẽ</Text>
+                          <Text body2>8</Text>
+                        </View>
+                        <Bar progress={0.8} width={null} />
+                      </Col>
+                      <Col style={styles.reviewItem}>
+                        <View style={styles.reviewItemFirstLine}>
+                          <Text body2>Tiện nghi</Text>
+                          <Text body2>8</Text>
+                        </View>
+                        <Bar progress={0.8} width={null} />
+                      </Col>
+                    </Row>
+                    <Row style={styles.rowReview}>
+                      <Col style={styles.reviewItem}>
+                        <View style={styles.reviewItemFirstLine}>
+                          <Text body2>Vị trí</Text>
+                          <Text body2>8</Text>
+                        </View>
+                        <Bar progress={0.8} width={null} />
+                      </Col>
+                      <Col style={styles.reviewItem}>
+                        <View style={styles.reviewItemFirstLine}>
+                          <Text body2>Dịch vụ</Text>
+                          <Text body2>8</Text>
+                        </View>
+                        <Bar progress={0.8} width={null} />
+                      </Col>
+                    </Row>
+                    <Row style={styles.rowReview}>
+                      <Col style={styles.reviewItem}>
+                        <View style={styles.reviewItemFirstLine}>
+                          <Text body2>Đáng giá tiền</Text>
+                          <Text body2>8</Text>
+                        </View>
+                        <Bar progress={0.8} width={null} />
+                      </Col>
+                      <Col />
+                    </Row>
+                  </Grid>
+                </View>
+                <Separator />
+                {/* Description */}
+                <View>
+                  <Text title3>Mô tả khách sạn</Text>
+                  <Text thin body2>
+                    {hotel.description}
+                  </Text>
+                </View>
+                <Separator />
+                {/* Services */}
+                <View>
+                  <List
+                    horizontal
+                    dataArray={hotel.services}
+                    renderItem={renderService}
+                    keyExtractor={() => uuidv4()}
+                  />
+                </View>
+                <Separator />
+                {/* Location */}
+                <View>
+                  <Text title3>Vị trí</Text>
+                  <Text thin body2>
+                    {hotel.location}
+                  </Text>
+                  <View>
+                    <MapView
+                      region={{
                         latitude: hotel.latitude,
                         longitude: hotel.longitude,
+                        latitudeDelta: 0.1,
+                        longitudeDelta: 0.1,
                       }}
-                    />
-                  </MapView>
-                  <NBButton
-                    onPress={gotoPreviewGGMap}
-                    style={styles.buttonViewMap}
-                  >
-                    <Text body2 whiteColor>
-                      Xem bản đồ
-                    </Text>
-                  </NBButton>
+                      style={styles.map}
+                      provider={PROVIDER_DEFAULT}
+                    >
+                      <Marker
+                        coordinate={{
+                          latitude: hotel.latitude,
+                          longitude: hotel.longitude,
+                        }}
+                      />
+                    </MapView>
+                    <NBButton
+                      onPress={gotoPreviewGGMap}
+                      style={styles.buttonViewMap}
+                    >
+                      <Text body2 whiteColor>
+                        Xem bản đồ
+                      </Text>
+                    </NBButton>
+                  </View>
                 </View>
-              </View>
-              <Separator />
-              {/* Checkin - Checkout */}
-              <View>
-                <Text title3>Checkin / Checkout</Text>
+                <Separator />
+                {/* Checkin - Checkout */}
+                <View>
+                  <Text title3>Checkin / Checkout</Text>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <View style={{ flex: 1 }}>
+                      <Text body2>Check in từ:</Text>
+                      <Text body2 bluePrimaryColor>
+                        {hotel.checkin}
+                      </Text>
+                    </View>
+                    <View style={{ flex: 1 }}>
+                      <Text body2>Check out đến:</Text>
+                      <Text body2 bluePrimaryColor>
+                        {hotel.checkout}
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <Separator />
+                {/* Help */}
                 <View
                   style={{
-                    flexDirection: "row",
-                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginTop: 10,
+                    marginBottom: 10,
                   }}
                 >
-                  <View style={{ flex: 1 }}>
-                    <Text body2>Check in từ:</Text>
-                    <Text body2 bluePrimaryColor>
-                      {hotel.checkin}
+                  <Text title3>Cần giúp đỡ?</Text>
+                  <Text caption1 grayColor>
+                    Chúng tôi rất vui khi đón tiếp bạn
+                  </Text>
+                  <View style={{ flexDirection: "row" }}>
+                    <CustomIcon style={styles.iconHelp} type="phone" />
+                    <Text bluePrimaryColor body1>
+                      {hotel.phoneNumber}
                     </Text>
                   </View>
-                  <View style={{ flex: 1 }}>
-                    <Text body2>Check out đến:</Text>
-                    <Text body2 bluePrimaryColor>
-                      {hotel.checkout}
+                  <View style={{ flexDirection: "row" }}>
+                    <CustomIcon
+                      style={styles.iconHelp}
+                      type="envelope-open-text"
+                    />
+                    <Text bluePrimaryColor body1>
+                      {hotel.email}
                     </Text>
                   </View>
                 </View>
-              </View>
-              <Separator />
-              {/* Help */}
-              <View
-                style={{
-                  alignItems: "center",
-                  marginTop: 10,
-                  marginBottom: 10,
-                }}
-              >
-                <Text title3>Cần giúp đỡ?</Text>
-                <Text caption1 grayColor>
-                  Chúng tôi rất vui khi đón tiếp bạn
-                </Text>
-                <View style={{ flexDirection: "row" }}>
-                  <CustomIcon style={styles.iconHelp} type="phone" />
-                  <Text bluePrimaryColor body1>
-                    {hotel.phoneNumber}
-                  </Text>
-                </View>
-                <View style={{ flexDirection: "row" }}>
-                  <CustomIcon
-                    style={styles.iconHelp}
-                    type="envelope-open-text"
-                  />
-                  <Text bluePrimaryColor body1>
-                    {hotel.email}
-                  </Text>
-                </View>
-              </View>
-              <Separator />
-              {/* Reason to choose us */}
-              {/* <View>
+                <Separator />
+                {/* Reason to choose us */}
+                {/* <View>
                 <Text title3>Reasons to choose us</Text>
                 <View style={styles.reasonBlock}>
                   <View style={styles.reasonItem}>
@@ -358,39 +359,40 @@ const HotelDetailScreen = (props) => {
                   </View>
                 </View>
               </View> */}
-            </ScrollView>
-            <View style={{ padding: 10 }}>
-              <Button onPress={() => setVisible(true)}>
-                <Text whiteColor>Chọn loại phòng</Text>
-              </Button>
-            </View>
-            <Modal isVisible={visible}>
-              <View style={styles.contentModal}>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <Text>Chọn loại phòng</Text>
-                  <AntDesignIcon
-                    onPress={() => setVisible(false)}
-                    style={{ fontSize: 30 }}
-                    name="close"
-                  />
-                </View>
-                <View>
-                  <FlatList
-                    horizontal
-                    data={getRoomTypes(hotel)}
-                    renderItem={renderListItem}
-                    keyExtractor={(item) => JSON.stringify(item)}
-                    showsHorizontalScrollIndicator={false}
-                  />
-                </View>
+              </ScrollView>
+              <View style={{ padding: 10 }}>
+                <Button onPress={() => setVisible(true)}>
+                  <Text whiteColor>Chọn loại phòng</Text>
+                </Button>
               </View>
-            </Modal>
-          </>
+              <Modal isVisible={visible}>
+                <View style={styles.contentModal}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Text>Chọn loại phòng</Text>
+                    <AntDesignIcon
+                      onPress={() => setVisible(false)}
+                      style={{ fontSize: 30 }}
+                      name="close"
+                    />
+                  </View>
+                  <View>
+                    <FlatList
+                      horizontal
+                      data={getRoomTypes(hotel)}
+                      renderItem={renderListItem}
+                      keyExtractor={(item) => JSON.stringify(item)}
+                      showsHorizontalScrollIndicator={false}
+                    />
+                  </View>
+                </View>
+              </Modal>
+            </>
+          )
         )}
       </SafeAreaView>
     </>
