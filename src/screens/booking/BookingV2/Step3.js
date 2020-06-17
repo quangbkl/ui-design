@@ -89,9 +89,9 @@ const Step2 = (props) => {
                                 <Text style={{fontSize: 15, fontWeight: "600", opacity: 0.7}}>
                                     Tên chủ tài khoản
                                 </Text>
-                                <TouchableOpacity onPress={() => handleCopy("TRAN TIEN DUC")}>
+                                <TouchableOpacity onPress={() => handleCopy("DOAN VAN QUANG")}>
                                     <Text style={{fontSize: 15, marginTop: 5}}>
-                                        TRAN TIEN DUC
+                                        DOAN VAN QUANG
                                     </Text>
                                 </TouchableOpacity>
                             </CardItem>
