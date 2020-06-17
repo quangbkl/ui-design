@@ -10,6 +10,7 @@ import Header from "components/Header/Header";
 import useApp from "hooks/app/useApp";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
+import _ from "lodash";
 
 const thirdIndicatorStyles = {
   stepIndicatorSize: 25,
@@ -35,7 +36,12 @@ const thirdIndicatorStyles = {
   currentStepLabelColor: "#7eaec4",
 };
 
-const BookingV2 = () => {
+const BookingV2 = (props) => {
+  const informationBooking = _.get(props, [
+    "route",
+    "params",
+    "informationBooking",
+  ]);
   const navigation = useNavigation();
   const [step, setStep] = useState(0);
   const onStepPress = (position) => {
@@ -68,9 +74,24 @@ const BookingV2 = () => {
             labels={["Đặt chỗ", "Xem lại", "Thanh toán"]}
           />
         </View>
-        {step === 0 && <Step1 onNextStep2={onNextStep2} />}
-        {step === 1 && <Step2 onNextStep3={onNextStep3} />}
-        {step === 2 && <Step3 onComplete={onComplete} />}
+        {step === 0 && (
+          <Step1
+            informationBooking={informationBooking}
+            onNextStep2={onNextStep2}
+          />
+        )}
+        {step === 1 && (
+          <Step2
+            informationBooking={informationBooking}
+            onNextStep3={onNextStep3}
+          />
+        )}
+        {step === 2 && (
+          <Step3
+            informationBooking={informationBooking}
+            onComplete={onComplete}
+          />
+        )}
       </View>
     </SafeAreaView>
   );

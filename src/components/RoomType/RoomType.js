@@ -11,9 +11,9 @@ const RoomType = (props) => {
   const { color } = appState;
   const renderType = () => {
     switch (type) {
-      case "STANDARD":
+      case "standard":
         return "Tiêu chuẩn";
-      case "DELUXE":
+      case "deluxe":
         return "Sang trọng";
       default:
         return "";

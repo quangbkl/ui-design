@@ -11,14 +11,30 @@ import { Button, CustomIcon, Separator, Text } from "components";
 import { useForm, Controller } from "react-hook-form";
 import useApp from "hooks/app/useApp";
 import { BaseColor } from "config/color";
+import moment from "moment";
+
+const calculateGrandTotal = (informationBooking) => {
+  const { rooms, room } = informationBooking;
+  return rooms * room.price * (1 + room.tax / 100);
+};
+
+const numberWithDots = (x) => {
+  if (!x) return "";
+  const [number, decimal] = x.toString().split(".");
+  const separateNumber = number.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return decimal ? [separateNumber, decimal].join() : separateNumber;
+};
 
 const Step1 = (props) => {
-  const { onNextStep2 } = props;
+  const { onNextStep2, informationBooking } = props;
+  console.log(informationBooking);
   const { state: appState } = useApp();
   const { i18n } = appState;
   const { color } = appState;
   const [expandPriceDetail, setExpandPriceDetail] = useState(false);
-  const { register, setValue, handleSubmit } = useForm();
+  const { register, setValue, handleSubmit, formState } = useForm();
+
+  console.log(formState);
 
   const submitForm = () => {
     onNextStep2(() => {});
@@ -38,7 +54,7 @@ const Step1 = (props) => {
             <View style={{ flexDirection: "row" }}>
               <CustomIcon type={"hotel"} color={color.primaryColor} size={20} />
               <Text style={{ marginLeft: 15, fontWeight: "700" }}>
-                Khách sạn Hoàng Gia
+                {informationBooking.hotel.name}
               </Text>
             </View>
             <View style={styles.checkInOut}>
@@ -57,14 +73,28 @@ const Step1 = (props) => {
                   justifyContent: "space-between",
                 }}
               >
-                <Text>T.7, 23 Th5 2020(13:00)</Text>
-                <Text>T.3, 26 Th5 2020(12:00)</Text>
+                <Text>
+                  {moment(informationBooking.checkinDate, "DD-mm-YYYY").format(
+                    "ddd, MMM Do YYYY"
+                  )}{" "}
+                  ({informationBooking.hotel.checkin})
+                </Text>
+                <Text>
+                  {moment(informationBooking.checkinDate, "DD-mm-YYYY")
+                    .add(informationBooking.night, "days")
+                    .format("ddd, MMM Do YYYY")}{" "}
+                  ({informationBooking.hotel.checkout})
+                </Text>
               </View>
             </View>
             <Separator />
             <View style={styles.rest}>
               <Text style={{ fontWeight: "600" }}>
-                Phòng tiêu chuẩn (x2) - 8 khách
+                Phòng{" "}
+                {informationBooking.room.type === "standard"
+                  ? "tiêu chuẩn"
+                  : "sang trọng"}{" "}
+                (x{informationBooking.rooms}) - {informationBooking.guest} khách
               </Text>
               <Text style={{ fontSize: 15, opacity: 0.7 }}>
                 2 giường cỡ queen
@@ -93,7 +123,10 @@ const Step1 = (props) => {
                     justifyContent: "flex-end",
                   }}
                 >
-                  <Text>300.0000 VND </Text>
+                  <Text>
+                    {numberWithDots(calculateGrandTotal(informationBooking))}{" "}
+                    VND{" "}
+                  </Text>
                   {expandPriceDetail ? (
                     <Icon
                       name="up"
@@ -118,15 +151,18 @@ const Step1 = (props) => {
                   Tiền phòng:
                 </Text>
                 <Right style={{ flex: 1 }}>
-                  <Text>2 x 150.000 VND</Text>
+                  <Text>
+                    {informationBooking.rooms} x{" "}
+                    {numberWithDots(informationBooking.room.price)} VND
+                  </Text>
                 </Right>
               </CardItem>
               <CardItem style={{ flex: 1 }}>
                 <Text numberOfLines={2} style={{ flex: 1 }}>
-                  Phụ phí:
+                  Thuế:
                 </Text>
                 <Right style={{ flex: 1 }}>
-                  <Text>0 VND</Text>
+                  <Text>{informationBooking.room.tax} %</Text>
                 </Right>
               </CardItem>
             </Card>
@@ -147,17 +183,17 @@ const Step1 = (props) => {
           <TextInput
             style={styles.textInput}
             placeholder="Nhập họ tên"
-            onChangeText={(text) => setValue("name", text, true)}
+            onChangeText={(text) => setValue("name", text)}
           />
           <TextInput
             style={styles.textInput}
             placeholder="Nhập email"
-            onChangeText={(text) => setValue("email", text, true)}
+            onChangeText={(text) => setValue("email", text)}
           />
           <TextInput
             style={styles.textInput}
             placeholder="Nhập SĐT"
-            onChangeText={(text) => setValue("phoneNumber", text, true)}
+            onChangeText={(text) => setValue("phoneNumber", text)}
           />
         </View>
       </ScrollView>

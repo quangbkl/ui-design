@@ -10,9 +10,22 @@ import { Card, CardItem, Left, Right } from "native-base";
 import { Button, CustomIcon, Separator, Text } from "components";
 import useApp from "hooks/app/useApp";
 import { BaseColor } from "config/color";
+import moment from "moment";
+
+const calculateGrandTotal = (informationBooking) => {
+  const { rooms, room } = informationBooking;
+  return rooms * room.price * (1 + room.tax / 100);
+};
+
+const numberWithDots = (x) => {
+  if (!x) return "";
+  const [number, decimal] = x.toString().split(".");
+  const separateNumber = number.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return decimal ? [separateNumber, decimal].join() : separateNumber;
+};
 
 const Step2 = (props) => {
-  const { onNextStep3 } = props;
+  const { onNextStep3, informationBooking } = props;
   const { state: appState } = useApp();
   const { i18n } = appState;
   const { color } = appState;
@@ -23,7 +36,9 @@ const Step2 = (props) => {
         <View style={styles.content}>
           <View style={styles.hotelIn4}>
             <View style={{ flexDirection: "row" }}>
-              <Text style={{ fontWeight: "700" }}>Khách sạn Hoàng Gia</Text>
+              <Text style={{ fontWeight: "700" }}>
+                {informationBooking.hotel.name}
+              </Text>
             </View>
             <Separator />
             <View style={styles.checkInOut}>
@@ -34,8 +49,12 @@ const Step2 = (props) => {
                 }}
               >
                 <Text>Check in</Text>
-                <Text>T.7, 23 Th5</Text>
-                <Text>14:00</Text>
+                <Text>
+                  {moment(informationBooking.checkinDate, "DD-mm-YYYY").format(
+                    "ddd, MMM Do"
+                  )}
+                </Text>
+                <Text>{informationBooking.hotel.checkin}</Text>
               </View>
               <View
                 style={{
@@ -46,7 +65,9 @@ const Step2 = (props) => {
                 }}
               >
                 <CustomIcon type={"moon"} color={color.primaryColor} />
-                <Text style={{ marginTop: 5 }}>2 Đêm</Text>
+                <Text style={{ marginTop: 5 }}>
+                  {informationBooking.night} Đêm
+                </Text>
               </View>
               <View
                 style={{
@@ -56,8 +77,12 @@ const Step2 = (props) => {
                 }}
               >
                 <Text>Check out</Text>
-                <Text>T.3, 26 Th5</Text>
-                <Text>12:00</Text>
+                <Text>
+                  {moment(informationBooking.checkinDate, "DD-mm-YYYY")
+                    .add(informationBooking.night, "days")
+                    .format("ddd, MMM Do")}
+                </Text>
+                <Text>{informationBooking.hotel.checkout}</Text>
               </View>
             </View>
           </View>
@@ -65,7 +90,11 @@ const Step2 = (props) => {
           <View style={{ marginTop: -10 }}>
             <View style={styles.userIn4}>
               <Text style={{ fontSize: 17, fontWeight: "700" }}>
-                Phòng tiêu chuẩn (x2) - 8 khách
+                Phòng{" "}
+                {informationBooking.room.type === "standard"
+                  ? "tiêu chuẩn"
+                  : "sang trọng"}{" "}
+                (x{informationBooking.rooms}) - {informationBooking.guest} khách
               </Text>
               <Separator />
               <View style={{ flexDirection: "row" }}>
@@ -97,8 +126,7 @@ const Step2 = (props) => {
                   <Image
                     style={styles.image}
                     source={{
-                      uri:
-                        "https://pix6.agoda.net/hotelImages/111/1115897/1115897_15122500310038726516.jpg?s=1024x768",
+                      uri: informationBooking.room.image,
                     }}
                   />
                 </View>
@@ -130,18 +158,18 @@ const Step2 = (props) => {
               <View style={{ marginTop: 8 }}>
                 <Text style={styles.Text15}>Tên khách hàng</Text>
                 <Text style={{ fontSize: 15, marginTop: 5 }}>
-                  Nguyễn Thị Thúy Tomoe
+                  Đoàn Văn Quang
                 </Text>
               </View>
               <View style={{ marginTop: 8 }}>
                 <Text style={styles.Text15}>Email</Text>
                 <Text style={{ fontSize: 15, marginTop: 5 }}>
-                  thuynguyen03091999@gmail.com
+                  quangdv99@gmail.com
                 </Text>
               </View>
               <View style={{ marginTop: 8 }}>
                 <Text style={styles.Text15}>SĐT</Text>
-                <Text style={{ fontSize: 15, marginTop: 5 }}>0356533048</Text>
+                <Text style={{ fontSize: 15, marginTop: 5 }}>0362897165</Text>
               </View>
             </View>
           </View>
@@ -155,15 +183,18 @@ const Step2 = (props) => {
                 Tiền phòng:
               </Text>
               <Right style={{ flex: 1 }}>
-                <Text>2 x 150.000 VND</Text>
+                <Text>
+                  {informationBooking.rooms} x{" "}
+                  {numberWithDots(informationBooking.room.price)} VND
+                </Text>
               </Right>
             </CardItem>
             <CardItem style={{ flex: 1 }}>
               <Text numberOfLines={2} style={{ flex: 1 }}>
-                Phụ phí:
+                Thuế:
               </Text>
               <Right style={{ flex: 1 }}>
-                <Text>0 VND</Text>
+                <Text>{informationBooking.room.tax} %</Text>
               </Right>
             </CardItem>
             <CardItem style={{ flex: 1 }}>
@@ -171,7 +202,9 @@ const Step2 = (props) => {
                 Tổng tiền:
               </Text>
               <Right style={{ flex: 1 }}>
-                <Text>300.000 VND</Text>
+                <Text>
+                  {numberWithDots(calculateGrandTotal(informationBooking))} VND
+                </Text>
               </Right>
             </CardItem>
           </Card>

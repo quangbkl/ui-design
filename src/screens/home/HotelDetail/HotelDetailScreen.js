@@ -20,7 +20,6 @@ import { Header, CustomIcon, Text, Separator, Button } from "components";
 import { getRouterParam } from "helpers/common";
 import { BaseColor } from "config/color";
 import RoomType from "../../../components/RoomType/RoomType";
-import { hotelAvailable } from "../../../__mocks__/db/hotel-db";
 import { getHotel } from "../../../services/hotelServices";
 
 const allServices = [
@@ -31,6 +30,30 @@ const allServices = [
   { code: "paw", name: "Paw" },
   { code: "futbol", name: "Futbol" },
 ];
+
+const getRoomTypes = (hotel) => {
+  let result = [];
+  const { roomTypes } = hotel;
+  if (roomTypes.includes("standard")) {
+    result.push({
+      type: "standard",
+      image: hotel.imageStandard,
+      price: hotel.priceStandard,
+      roomAvailable: hotel.availableRoomStandard,
+      tax: hotel.taxStandard,
+    });
+  }
+  if (roomTypes.includes("deluxe")) {
+    result.push({
+      type: "deluxe",
+      image: hotel.imageDeluxe,
+      price: hotel.priceDeluxe,
+      roomAvailable: hotel.availableRoomDeluxe,
+      tax: hotel.taxDeluxe,
+    });
+  }
+  return result;
+};
 
 const HotelDetailScreen = (props) => {
   const hotelId = getRouterParam(props, "hotelId");
@@ -67,9 +90,8 @@ const HotelDetailScreen = (props) => {
   const handleBooking = (type) => {
     setVisible(false);
     const informationBooking = {
-      hotelId: hotel.id,
-      name: hotel.name,
-      type,
+      room: type,
+      hotel,
       ...bookInfo,
     };
     navigation.navigate("BookingV2", { informationBooking });
@@ -208,7 +230,12 @@ const HotelDetailScreen = (props) => {
                       style={styles.map}
                       provider={PROVIDER_DEFAULT}
                     >
-                      <Marker coordinate={hotel.geoLocation} />
+                      <Marker
+                        coordinate={{
+                          latitude: hotel.latitude,
+                          longitude: hotel.longitude,
+                        }}
+                      />
                     </MapView>
                     <NBButton
                       onPress={gotoPreviewGGMap}
@@ -356,9 +383,9 @@ const HotelDetailScreen = (props) => {
                   <View>
                     <FlatList
                       horizontal
-                      data={hotel.roomTypes}
+                      data={getRoomTypes(hotel)}
                       renderItem={renderListItem}
-                      keyExtractor={(item) => item.id.toString()}
+                      keyExtractor={(item) => JSON.stringify(item)}
                       showsHorizontalScrollIndicator={false}
                     />
                   </View>
