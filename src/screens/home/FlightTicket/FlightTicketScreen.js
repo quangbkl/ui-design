@@ -35,7 +35,7 @@ const FlightTicketScreen = (props) => {
         },
         code: {
             width: '100%',
-            backgroundColor: 'black',
+            backgroundColor: colors.textPrimaryColor,
             padding: 20,
             alignItems: 'center',
             justifyContent: 'center'
@@ -44,7 +44,7 @@ const FlightTicketScreen = (props) => {
 
     return (
         <SafeAreaView
-            style={BaseStyle.safeAreaView}
+            style={[BaseStyle.safeAreaView, {backgroundColor: colors.backgroundPrimaryColor}]}
             forceInset={{top: 'always'}}
         >
             <Header
@@ -133,7 +133,7 @@ const FlightTicketScreen = (props) => {
                     </View>
                     <View style={styles.line}/>
                     <View style={styles.code}>
-                        <Text header whiteColor>
+                        <Text header style={{color: colors.backgroundPrimaryColor}}>
                             CLMVBG
                         </Text>
                     </View>

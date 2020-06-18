@@ -26,7 +26,7 @@ const FlightItem = (props) => {
         content: {
             padding: 10,
             borderRadius: 8,
-            backgroundColor: colors.fieldColor
+            backgroundColor: colors.backgroundSecondaryColor
         },
         contentTop: {
             flexDirection: 'row',

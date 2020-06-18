@@ -97,7 +97,7 @@ const SelectFlightScreen = (props) => {
     const styles = StyleSheet.create({
         textInput: {
             height: 46,
-            backgroundColor: colors.fieldColor,
+            backgroundColor: colors.backgroundSecondaryColor,
             borderRadius: 5,
             padding: 10,
             width: '100%'
@@ -125,7 +125,7 @@ const SelectFlightScreen = (props) => {
 
     return (
         <SafeAreaView
-            style={BaseStyle.safeAreaView}
+            style={[BaseStyle.safeAreaView, {backgroundColor: colors.backgroundPrimaryColor}]}
             forceInset={{top: 'always'}}
         >
             <Header
@@ -162,7 +162,7 @@ const SelectFlightScreen = (props) => {
             />
             <View style={styles.contain}>
                 <TextInput
-                    style={BaseStyle.textInput}
+                    style={[BaseStyle.textInput, styles.textInput]}
                     onChangeText={text => setAirplane(text)}
                     autoCorrect={false}
                     placeholder="Search Airplane"

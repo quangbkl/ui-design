@@ -38,7 +38,7 @@ const MainNavigator = () => {
                 activeTintColor: color.primaryColor,
                 inactiveTintColor: color.grayColor,
                 style: {
-                    backgroundColor: color.fieldColor
+                    backgroundColor: color.backgroundSecondaryColor
                 }
             }}
         >

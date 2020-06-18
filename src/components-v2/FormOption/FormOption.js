@@ -62,7 +62,7 @@ const FormOption = (props) => {
             padding: 10,
             borderRadius: 8,
             width: '100%',
-            backgroundColor: colors.fieldColor
+            backgroundColor: colors.backgroundSecondaryColor
         },
         bottomModal: {
             justifyContent: 'flex-end',
@@ -73,7 +73,7 @@ const FormOption = (props) => {
             borderTopLeftRadius: 8,
             borderTopRightRadius: 8,
             paddingHorizontal: 20,
-            backgroundColor: colors.whiteColor
+            backgroundColor: colors.backgroundSecondaryColor
         },
         contentSwipeDown: {
             paddingTop: 10,

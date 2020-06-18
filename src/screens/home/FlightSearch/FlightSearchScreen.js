@@ -80,7 +80,7 @@ const FlightSearchScreen = () => {
 
     return (
         <SafeAreaView
-            style={BaseStyle.safeAreaView}
+            style={[BaseStyle.safeAreaView, {backgroundColor: colors.backgroundPrimaryColor}]}
             forceInset={{top: 'always'}}
         >
             <Header

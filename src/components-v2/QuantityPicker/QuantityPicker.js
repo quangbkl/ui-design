@@ -26,7 +26,7 @@ const QuantityPicker = (props) => {
             padding: 10,
             borderRadius: 8,
             flex: 1,
-            backgroundColor: colors.fieldColor,
+            backgroundColor: colors.backgroundSecondaryColor,
             alignItems: 'center'
         }
     });

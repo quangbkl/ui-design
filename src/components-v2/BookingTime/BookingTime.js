@@ -33,7 +33,7 @@ const BookingTime = (props) => {
             flexDirection: 'row',
             justifyContent: 'space-between',
             borderRadius: 8,
-            backgroundColor: colors.fieldColor,
+            backgroundColor: colors.backgroundSecondaryColor,
             padding: 10
         },
         itemPick: {
@@ -53,7 +53,7 @@ const BookingTime = (props) => {
         contentCalendar: {
             borderRadius: 8,
             width: '100%',
-            backgroundColor: 'white'
+            backgroundColor: colors.backgroundSecondaryColor,
         },
         contentActionCalendar: {
             flexDirection: 'row',
@@ -95,6 +95,8 @@ const BookingTime = (props) => {
                                 console.log('month changed', month);
                             }}
                             theme={{
+                                backgroundColor: colors.backgroundSecondaryColor,
+                                calendarBackground: colors.backgroundSecondaryColor,
                                 textSectionTitleColor:
                                 colors.textPrimaryColor,
                                 selectedDayBackgroundColor:

@@ -174,7 +174,7 @@ const FlightResultScreen = () => {
             left: 0,
             right: 0,
             paddingHorizontal: 20,
-            backgroundColor: colors.whiteColor
+            backgroundColor: colors.backgroundPrimaryColor
         }
     });
 
@@ -257,7 +257,7 @@ const FlightResultScreen = () => {
 
     return (
         <SafeAreaView
-            style={BaseStyle.safeAreaView}
+            style={[BaseStyle.safeAreaView, {backgroundColor: colors.backgroundPrimaryColor}]}
         >
             <Header
                 title="SIN to SYN"
