@@ -11,6 +11,7 @@ import useApp from "hooks/app/useApp";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import _ from "lodash";
+import appRoutes from "../../../navigations/appRoutes";
 
 const thirdIndicatorStyles = {
   stepIndicatorSize: 25,
@@ -58,7 +59,7 @@ const BookingV2 = (props) => {
   };
 
   const onComplete = () => {
-    navigation.navigate("Home");
+    navigation.navigate(appRoutes.BOOKING_AUTHENTICATE);
   };
 
   return (
