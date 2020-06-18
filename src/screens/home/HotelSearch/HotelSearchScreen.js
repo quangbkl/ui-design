@@ -75,7 +75,7 @@ const HotelSearchScreen = () => {
         total: {
             flex: 6,
             borderRadius: 8,
-            backgroundColor: colors.fieldColor,
+            backgroundColor: colors.backgroundSecondaryColor,
             padding: 10,
             marginRight: 15
         },
@@ -92,7 +92,7 @@ const HotelSearchScreen = () => {
             flexDirection: 'row',
             justifyContent: 'space-between',
             borderRadius: 8,
-            backgroundColor: colors.fieldColor,
+            backgroundColor: colors.backgroundSecondaryColor,
             marginTop: 15,
             padding: 10
         },
@@ -115,7 +115,7 @@ const HotelSearchScreen = () => {
 
     return (
         <SafeAreaView
-            style={BaseStyle.safeAreaView}
+            style={[BaseStyle.safeAreaView, {backgroundColor: colors.backgroundPrimaryColor}]}
             forceInset={{top: "always"}}
         >
             <HotelSearchModal
@@ -152,7 +152,7 @@ const HotelSearchScreen = () => {
                         flex: 1,
                         flexDirection: 'row',
                         alignItems: 'center',
-                        backgroundColor: colors.fieldColor,
+                        backgroundColor: colors.backgroundSecondaryColor,
                         borderRadius: 5,
                         paddingHorizontal: 10
                     }}
@@ -163,7 +163,7 @@ const HotelSearchScreen = () => {
                         color={colors.grayColor}
                     />
                     <TextInput
-                        style={[BaseStyle.textInput]}
+                        style={[BaseStyle.textInput, {backgroundColor: colors.backgroundSecondaryColor}]}
                         onChangeText={setKeyword}
                         autoCorrect={false}
                         placeholder="What're you looking for ?"

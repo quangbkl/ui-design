@@ -37,12 +37,12 @@ const CheckInModal = (props) => {
         contentModal: {
             flex: 1,
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
         },
         contentCalendar: {
             borderRadius: 8,
             width: '100%',
-            backgroundColor: 'white'
+            backgroundColor: colors.backgroundSecondaryColor
         },
         contentActionCalendar: {
             flexDirection: 'row',
@@ -77,6 +77,8 @@ const CheckInModal = (props) => {
                             onDayLongPress={handleDateChange}
                             monthFormat={'dd-MM-yyyy'}
                             theme={{
+                                backgroundColor: colors.backgroundSecondaryColor,
+                                calendarBackground: colors.backgroundSecondaryColor,
                                 textSectionTitleColor:
                                 colors.textPrimaryColor,
                                 selectedDayBackgroundColor:

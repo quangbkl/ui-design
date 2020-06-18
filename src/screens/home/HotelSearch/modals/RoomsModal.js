@@ -17,7 +17,7 @@ const RoomsModal = (props) => {
         rooms: {
             flex: 4,
             borderRadius: 8,
-            backgroundColor: colors.fieldColor,
+            backgroundColor: colors.backgroundSecondaryColor,
             padding: 10
         },
         lineRow: {
@@ -40,7 +40,7 @@ const RoomsModal = (props) => {
             borderTopLeftRadius: 8,
             borderTopRightRadius: 8,
             paddingHorizontal: 20,
-            backgroundColor: colors.whiteColor
+            backgroundColor: colors.backgroundSecondaryColor,
         },
         contentSwipeDown: {
             paddingTop: 10,

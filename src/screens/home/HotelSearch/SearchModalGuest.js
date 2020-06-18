@@ -41,7 +41,7 @@ const SearchModalGuest = (props) => {
             borderTopLeftRadius: 8,
             borderTopRightRadius: 8,
             paddingHorizontal: 20,
-            backgroundColor: colors.whiteColor
+            backgroundColor: colors.backgroundSecondaryColor,
         },
         contentSwipeDown: {
             paddingTop: 10,
