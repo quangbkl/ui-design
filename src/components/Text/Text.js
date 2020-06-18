@@ -55,7 +55,7 @@ const Text = (props) => {
     const styles = StyleSheet.create({
         textDefault: {
             ...Typography.headline, // Typography > headline
-            color: colors.whiteColor,
+            color: colors.textPrimaryColor,
             fontWeight: FontWeight.semibold
         }
     });

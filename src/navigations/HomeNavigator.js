@@ -3,7 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import appRoutes from './appRoutes';
 import {withSafeAreaView} from 'components';
 
-const HomeScreen = React.lazy(() => import('screens/home/Home/HomeScreen'));
+const HomeScreen = React.lazy(() => import('screens/home/HomeV2/HomeScreen'));
 const SearchHotelScreen = React.lazy(() => import('screens/home/SearchHotel/SearchHotelScreen'));
 const BookingV2Screen = React.lazy(() => import('screens/booking/BookingV2/BookingV2'));
 const BookingAuthenticateScreen = React.lazy(() => import('screens/booking/BookingAuthenticate/BookingAuthenticate'));
