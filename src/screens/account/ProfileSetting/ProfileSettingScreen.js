@@ -19,7 +19,7 @@ import useApp from 'hooks/app/useApp';
 
 const ProfileSettingScreen = (props) => {
     const {state: appState} = useApp();
-    const {i18n, locale, theme} = appState;
+    const {i18n, locale, theme, colors} = appState;
 
     const {navigation} = props;
     const [reminders, setReminders] = useState(false);
@@ -32,7 +32,7 @@ const ProfileSettingScreen = (props) => {
 
     return (
         <SafeAreaView
-            style={{flex: 1}}
+            style={{flex: 1, backgroundColor: colors.backgroundPrimaryColor}}
             forceInset={{top: 'always'}}>
             <Header title={i18n.t('main.account.profile_setting.settings')}/>
             <ScrollView>
@@ -47,7 +47,7 @@ const ProfileSettingScreen = (props) => {
                         <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_THEME)} value={theme}>
                             <Text>{i18n.t('main.account.profile_setting.theme')}</Text>
                         </ListItemAngleRight>
-                        <ListItemAngleRight onPress={handleNavigate('')} value="Ruleway">
+                        <ListItemAngleRight value="Ruleway">
                             <Text>{i18n.t('main.account.profile_setting.font')}</Text>
                         </ListItemAngleRight>
 

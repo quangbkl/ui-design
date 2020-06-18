@@ -8,8 +8,23 @@ import ThemeListItem from './ThemeListItem';
 
 const ProfileThemeScreen = () => {
     const {state: appState, actions: appActions} = useApp();
-    const {i18n, theme} = appState;
+    const {i18n, theme, colors} = appState;
     const {changeTheme} = appActions;
+
+    const styles = StyleSheet.create({
+        main: {
+            backgroundColor: colors.backgroundPrimaryColor
+        },
+        scrollView: {
+            paddingLeft: 20,
+            paddingRight: 20,
+            flex: 1
+        },
+        buttonApply: {
+            marginTop: 15,
+            marginBottom: 15
+        },
+    });
 
     const [selectedTheme, setSelectedTheme] = useState(theme);
 
@@ -24,7 +39,7 @@ const ProfileThemeScreen = () => {
     return (
         <Container style={styles.main}>
             <Header title="Theme"/>
-            <ScrollView style={{flex: 1}}>
+            <ScrollView style={styles.scrollView}>
                 <SelectList value={selectedTheme} onChange={handleSelectTheme}>
                     {
                         Object.entries(ThemeColor).map(([themeColor, {primaryColor}]) =>
@@ -47,17 +62,6 @@ const ProfileThemeScreen = () => {
         </Container>
     );
 };
-
-const styles = StyleSheet.create({
-    main: {
-        paddingLeft: 20,
-        paddingRight: 20
-    },
-    buttonApply: {
-        marginTop: 15,
-        marginBottom: 15
-    }
-});
 
 ProfileThemeScreen.propTypes = {};
 

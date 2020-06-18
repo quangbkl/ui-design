@@ -1,8 +1,9 @@
 import React from 'react';
-import {Text, ViewPropTypes, StyleSheet, ActivityIndicator} from 'react-native';
+import {ViewPropTypes, StyleSheet, ActivityIndicator} from 'react-native';
 import PropTypes from 'prop-types';
 import {Touchable} from 'components';
 import useApp from 'hooks/app/useApp';
+import Text from "../Text/Text";
 
 const handlePressButton = () => {
     console.log('Button pressed!');
@@ -10,7 +11,7 @@ const handlePressButton = () => {
 
 const Button = (props) => {
     const {state: appState} = useApp();
-    const {color} = appState;
+    const {colors} = appState;
 
     const {onPress, style, loading, disabled, children} = props;
 
@@ -29,7 +30,7 @@ const Button = (props) => {
             {
                 !loading ?
                     <Text body2 primaryColor>{children}</Text> :
-                    <ActivityIndicator style={styles.activityIndicator} color={color.primaryColor}/>
+                    <ActivityIndicator style={styles.activityIndicator} color={colors.primaryColor}/>
             }
         </Touchable>
     );

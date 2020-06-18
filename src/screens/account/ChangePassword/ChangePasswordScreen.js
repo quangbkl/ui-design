@@ -1,5 +1,4 @@
 import React from 'react';
-import {BaseColor} from 'config/color';
 import {Text, Header, Button} from 'components';
 import {
     View,
@@ -8,14 +7,39 @@ import {
     StyleSheet,
     TextInput,
 } from 'react-native';
+import useApp from "../../../hooks/app/useApp";
 
 const ChangePasswordScreen = () => {
+    const {state: appState} = useApp();
+    const {colors} = appState;
+
     const password = '';
     const repassword = '';
 
+    const styles = StyleSheet.create({
+        contentTitle: {
+            alignItems: 'flex-start',
+            width: '100%',
+            height: 32,
+            justifyContent: 'center',
+        },
+        contain: {
+            alignItems: 'center',
+            padding: 20,
+            width: '100%',
+        },
+        textInput: {
+            height: 46,
+            backgroundColor: colors.backgroundSecondaryColor,
+            borderRadius: 5,
+            padding: 10,
+            width: '100%',
+        },
+    });
+
     return (
         <SafeAreaView
-            style={{flex: 1}}
+            style={{flex: 1, backgroundColor: colors.backgroundPrimaryColor}}
             forceInset={{top: 'always'}}
         >
             <Header title="Change Password"/>
@@ -49,26 +73,5 @@ const ChangePasswordScreen = () => {
         </SafeAreaView>
     );
 };
-
-const styles = StyleSheet.create({
-    contentTitle: {
-        alignItems: 'flex-start',
-        width: '100%',
-        height: 32,
-        justifyContent: 'center',
-    },
-    contain: {
-        alignItems: 'center',
-        padding: 20,
-        width: '100%',
-    },
-    textInput: {
-        height: 46,
-        backgroundColor: BaseColor.fieldColor,
-        borderRadius: 5,
-        padding: 10,
-        width: '100%',
-    },
-});
 
 export default ChangePasswordScreen;

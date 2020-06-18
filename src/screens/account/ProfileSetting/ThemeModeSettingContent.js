@@ -7,7 +7,7 @@ import useApp from 'hooks/app/useApp';
 
 const ThemeModeSettingContent = (props) => {
     const {state: appState, actions: appActions} = useApp();
-    const {i18n} = appState;
+    const {i18n, colors} = appState;
     const {changeThemeMode} = appActions;
 
     const [themeMode, setThemeMode] = useState(appState.themeMode);
@@ -24,7 +24,7 @@ const ThemeModeSettingContent = (props) => {
     };
 
     return (
-        <View style={{backgroundColor: 'white', padding: 20, borderRadius: 10}}>
+        <View style={{backgroundColor: colors.backgroundSecondaryColor, padding: 20, borderRadius: 10}}>
             <SelectList onChange={handleChangeThemeMode} value={themeMode}>
                 <SelectListItemCheck value={ThemeModeConstant.THEME_MODE_LIGHT}>
                     <Text>{i18n.t('shared.light')}</Text>
@@ -36,7 +36,7 @@ const ThemeModeSettingContent = (props) => {
             </SelectList>
 
             <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-                <TextButton>{i18n.t('shared.cancel')}</TextButton>
+                <TextButton onPress={toggleModal}>{i18n.t('shared.cancel')}</TextButton>
                 <TextButton onPress={handleApplyTheme} style={{marginLeft: 40}}>{i18n.t('shared.apply')}</TextButton>
             </View>
         </View>

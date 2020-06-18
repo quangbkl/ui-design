@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
-import {Text} from 'native-base';
 import {SelectListItemCheck} from 'components';
+import Text from "../../../components/Text/Text";
 
 const ThemeListItem = (props) => {
     const {name, color, ...rest} = props;

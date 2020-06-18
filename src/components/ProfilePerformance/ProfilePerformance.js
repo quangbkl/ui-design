@@ -1,9 +1,12 @@
 import React from 'react';
 import {View, StyleSheet} from "react-native";
-import {BaseColor} from "config/color";
 import Text from "../Text/Text";
+import useApp from "../../hooks/app/useApp";
 
 const ProfilePerformance = (props) => {
+    const {state: appState} = useApp();
+    const {colors} = appState;
+
     const {
         style,
         contentLeft,
@@ -13,6 +16,37 @@ const ProfilePerformance = (props) => {
         type,
         flexDirection
     } = props;
+
+    const styles = StyleSheet.create({
+        contain: {
+            height: 60,
+            flexDirection: "row",
+            backgroundColor: colors.backgroundSecondaryColor,
+            paddingLeft: 20,
+            paddingRight: 20
+        },
+        contentLeft: {
+            flex: 1,
+            alignItems: "flex-start",
+            justifyContent: "center"
+        },
+        contentCenter: {
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center"
+        },
+        contentRight: {
+            flex: 1,
+            alignItems: "flex-end",
+            justifyContent: "center"
+        },
+        itemInfor: {
+            flexDirection: "row",
+            flex: 1,
+            justifyContent: "space-between",
+            alignItems: "center"
+        }
+    });
 
     const renderValue = (type, value) => {
         switch (type) {
@@ -65,7 +99,7 @@ const ProfilePerformance = (props) => {
             return (
                 <View style={[styles.contain, style]}>
                     {data.map((item, index) => {
-                        if (index == 0) {
+                        if (index === 0) {
                             return (
                                 <View
                                     style={[
@@ -78,7 +112,7 @@ const ProfilePerformance = (props) => {
                                     {renderTitle(type, item.title)}
                                 </View>
                             );
-                        } else if (index == data.length - 1) {
+                        } else if (index === data.length - 1) {
                             return (
                                 <View
                                     style={[
@@ -126,37 +160,6 @@ const ProfilePerformance = (props) => {
             );
     }
 };
-
-const styles = StyleSheet.create({
-    contain: {
-        height: 60,
-        flexDirection: "row",
-        backgroundColor: BaseColor.fieldColor,
-        paddingLeft: 20,
-        paddingRight: 20
-    },
-    contentLeft: {
-        flex: 1,
-        alignItems: "flex-start",
-        justifyContent: "center"
-    },
-    contentCenter: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center"
-    },
-    contentRight: {
-        flex: 1,
-        alignItems: "flex-end",
-        justifyContent: "center"
-    },
-    itemInfor: {
-        flexDirection: "row",
-        flex: 1,
-        justifyContent: "space-between",
-        alignItems: "center"
-    }
-});
 
 ProfilePerformance.defaultProps = {
     flexDirection: "row",

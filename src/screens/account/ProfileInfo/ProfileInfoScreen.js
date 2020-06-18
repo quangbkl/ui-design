@@ -17,9 +17,14 @@ import {
     ListItemAngleRight
 } from 'components';
 import appRoutes from 'navigations/appRoutes';
+import useApp from "../../../hooks/app/useApp";
 
 const ProfileInfoScreen = (props) => {
+    const {state: appState} = useApp();
+    const {colors} = appState;
+
     const {navigation} = props;
+
     const userData = {
         id: '@quangbkl',
         image: 'https://trello-attachments.s3.amazonaws.com/5ee64471abdc5c3a24cac01a/150x150/edb78704b0c18ce6a06669ba40367d58/biker-helmet.png',
@@ -40,9 +45,28 @@ const ProfileInfoScreen = (props) => {
         return navigation.navigate(route);
     };
 
+    const styles = StyleSheet.create({
+        performanceContainer: {
+            backgroundColor: colors.backgroundSecondaryColor,
+            marginTop: 20,
+            marginBottom: 20
+        },
+        contentTitle: {
+            alignItems: 'flex-start',
+            width: '100%',
+            height: 32,
+            justifyContent: 'center'
+        },
+        contain: {
+            alignItems: 'center',
+            padding: 20,
+            width: '100%'
+        }
+    });
+
     return (
         <SafeAreaView
-            style={{flex: 1}}
+            style={{flex: 1, backgroundColor: colors.backgroundPrimaryColor}}
             forceInset={{top: 'always'}}>
             <Header title="Profile"/>
             <ScrollView>
@@ -53,7 +77,7 @@ const ProfileInfoScreen = (props) => {
                         point={userData.point}
                         textSecond={userData.address}
                         textThird={userData.id}
-                        onPress={handleNavigate('')}
+                        onPress={handleNavigate(appRoutes.PROFILE_EDIT)}
                     />
                     <ProfilePerformance
                         data={userData.performance}
@@ -66,10 +90,10 @@ const ProfileInfoScreen = (props) => {
                         <ListItemAngleRight onPress={handleNavigate(appRoutes.CHANGE_PASSWORD)}>
                             <Text>Change Password</Text>
                         </ListItemAngleRight>
-                        <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_CURRENCY)} value="VND">
+                        <ListItemAngleRight value="VND">
                             <Text>Currency</Text>
                         </ListItemAngleRight>
-                        <ListItemAngleRight onPress={handleNavigate('')}>
+                        <ListItemAngleRight>
                             <Text>My Cart</Text>
                         </ListItemAngleRight>
                         <ListItemAngleRight onPress={handleNavigate(appRoutes.PROFILE_SETTING)}>
@@ -87,24 +111,5 @@ const ProfileInfoScreen = (props) => {
         </SafeAreaView>
     );
 };
-
-const styles = StyleSheet.create({
-    performanceContainer: {
-        backgroundColor: '#E8E8E8',
-        marginTop: 20,
-        marginBottom: 20
-    },
-    contentTitle: {
-        alignItems: 'flex-start',
-        width: '100%',
-        height: 32,
-        justifyContent: 'center'
-    },
-    contain: {
-        alignItems: 'center',
-        padding: 20,
-        width: '100%'
-    }
-});
 
 export default ProfileInfoScreen;

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {BaseColor} from 'config/color';
 import {
     Text,
     Header,
@@ -14,6 +13,7 @@ import {
     TextInput,
     FlatList,
 } from 'react-native';
+import useApp from "../../../hooks/app/useApp";
 
 const LanguageData = [
     {
@@ -28,6 +28,9 @@ const LanguageData = [
 ];
 
 const ChangeLanguageScreen = () => {
+    const {state: appState} = useApp();
+    const {colors} = appState;
+
     const currentLang = 'en';
     const [language, setLanguage] = useState(LanguageData.map(lang => {
         return {
@@ -52,6 +55,30 @@ const ChangeLanguageScreen = () => {
         }));
     };
 
+    const styles = StyleSheet.create({
+        textInput: {
+            height: 46,
+            backgroundColor: colors.backgroundSecondaryColor,
+            borderRadius: 5,
+            padding: 10,
+            width: '100%',
+        },
+        contain: {
+            alignItems: 'center',
+            padding: 20,
+            width: '100%',
+        },
+        item: {
+            paddingTop: 15,
+            paddingBottom: 15,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            borderBottomWidth: 1,
+            borderBottomColor: colors.backgroundSecondaryColor,
+        },
+    });
+
     const renderListItem = ({item}) => {
         return (
             <Touchable
@@ -64,7 +91,7 @@ const ChangeLanguageScreen = () => {
                         item.checked
                             ? {
                                 color:
-                                BaseColor.primaryColor,
+                                colors.primaryColor,
                             }
                             : {}
                     }
@@ -75,7 +102,7 @@ const ChangeLanguageScreen = () => {
                     <CustomIcon
                         name="check"
                         size={14}
-                        color={BaseColor.primaryColor}
+                        color={colors.primaryColor}
                     />
                 )}
             </Touchable>
@@ -92,7 +119,7 @@ const ChangeLanguageScreen = () => {
 
     return (
         <SafeAreaView
-            style={{flex: 1}}
+            style={{flex: 1, backgroundColor: colors.backgroundPrimaryColor}}
             forceInset={{top: 'always'}}
         >
             <Header
@@ -117,29 +144,5 @@ const ChangeLanguageScreen = () => {
         </SafeAreaView>
     );
 };
-
-const styles = StyleSheet.create({
-    textInput: {
-        height: 46,
-        backgroundColor: BaseColor.fieldColor,
-        borderRadius: 5,
-        padding: 10,
-        width: '100%',
-    },
-    contain: {
-        alignItems: 'center',
-        padding: 20,
-        width: '100%',
-    },
-    item: {
-        paddingTop: 15,
-        paddingBottom: 15,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        borderBottomWidth: 1,
-        borderBottomColor: BaseColor.fieldColor,
-    },
-});
 
 export default ChangeLanguageScreen;

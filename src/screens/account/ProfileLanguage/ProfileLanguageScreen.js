@@ -8,7 +8,7 @@ import Text from '../../../components/Text/Text';
 
 const ProfileLanguageScreen = () => {
     const {state: appState, actions: appActions} = useApp();
-    const {i18n, locale} = appState;
+    const {i18n, locale, colors} = appState;
     const {changeLanguage} = appActions;
 
     const [selectedLanguage, setSelectedLanguage] = useState(locale);
@@ -27,13 +27,24 @@ const ProfileLanguageScreen = () => {
         );
     };
 
+    const styles = StyleSheet.create({
+        main: {
+            backgroundColor: colors.backgroundPrimaryColor
+        },
+        scrollView: {
+            paddingLeft: 20,
+            paddingRight: 20,
+            flex: 1
+        }
+    });
+
     return (
         <Container style={styles.main}>
             <Header
                 title={i18n.t('main.account.profile_language.change_language')}
                 RightComponent={<HeaderRightComponent/>}
             />
-            <ScrollView style={{flex: 1}}>
+            <ScrollView style={styles.scrollView}>
                 <SelectList value={selectedLanguage} onChange={handleSelectLanguage}>
                     <SelectListItemCheck value="en">
                         <Text>{i18n.t('locale.en')}</Text>
@@ -46,13 +57,6 @@ const ProfileLanguageScreen = () => {
         </Container>
     );
 };
-
-const styles = StyleSheet.create({
-    main: {
-        paddingLeft: 20,
-        paddingRight: 20
-    }
-});
 
 ProfileLanguageScreen.propTypes = {};
 
