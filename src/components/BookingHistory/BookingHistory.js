@@ -29,7 +29,7 @@ const BookingHistory = (props) => {
             </View>
             <View style={styles.footer}>
                 <Text>
-                    Chờ thanh toán ...
+                    Chờ xác thực ...
                 </Text>
                 <Text style={{right: 2}}>{price} VNĐ</Text>
             </View>

@@ -11,7 +11,11 @@ export default {
             booking: 'Đặt trước',
             change_to: 'Thay đổi thành %{lang}',
             book_room: 'Lịch sử đặt phòng',
-            booking_history: 'Lịch sử đặt vé',
+            book_hotel: 'Lịch sử đặt phòng',
+            book_tour: 'Lịch sử đặt tour',
+            booking_history: 'Lịch sử mua vé',
+            booking_hotel: 'Đặt Phòng',
+            booking_tour: 'Đặt Tour',
             payment_method: {
                 pay_now: 'Thanh toán'
             }

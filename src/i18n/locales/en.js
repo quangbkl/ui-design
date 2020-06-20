@@ -14,7 +14,11 @@ export default {
             booking: 'Booking',
             change_to: 'Change to %{lang}',
             book_room: 'Book now',
+            book_hotel: 'Book hotel',
+            book_tour: 'Book tour',
             booking_history: 'Booking History',
+            booking_hotel: 'Booking Hotel',
+            booking_tour: 'Booking Tour',
             payment_method: {
                 pay_now: 'Pay now'
             }
