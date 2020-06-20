@@ -6,17 +6,13 @@ import {
   View,
   TextInput,
 } from "react-native";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { Card, CardItem, Icon, Left, Right } from "native-base";
 import { Button, CustomIcon, Separator, Text } from "components";
 import { useForm, Controller } from "react-hook-form";
 import useApp from "hooks/app/useApp";
 import { BaseColor } from "config/color";
 import moment from "moment";
-
-const calculateGrandTotal = (informationBooking) => {
-  const { rooms, room } = informationBooking;
-  return rooms * room.price * (1 + room.tax / 100);
-};
 
 const numberWithDots = (x) => {
   if (!x) return "";
@@ -26,29 +22,22 @@ const numberWithDots = (x) => {
 };
 
 const Step1 = (props) => {
-  const { onNextStep2, informationBooking } = props;
-  console.log(informationBooking);
+  const { onNextStep2, informationBooking, userInfo, setUserInfo } = props;
   const { state: appState } = useApp();
   const { i18n } = appState;
   const { color } = appState;
   const [expandPriceDetail, setExpandPriceDetail] = useState(false);
-  const { register, setValue, handleSubmit, formState } = useForm();
-
-  console.log(formState);
+  const { control, handleSubmit, errors } = useForm({
+    defaultValues: userInfo,
+  });
 
   const submitForm = () => {
     onNextStep2(() => {});
   };
 
-  useEffect(() => {
-    register({ name: "name" });
-    register({ name: "email" });
-    register({ name: "phoneNumber" });
-  }, [register]);
-
   return (
     <>
-      <ScrollView style={styles.container}>
+      <KeyboardAwareScrollView style={styles.container}>
         <View style={styles.content}>
           <View style={styles.hotelIn4}>
             <View style={{ flexDirection: "row" }}>
@@ -124,7 +113,7 @@ const Step1 = (props) => {
                   }}
                 >
                   <Text>
-                    {numberWithDots(calculateGrandTotal(informationBooking))}{" "}
+                    {numberWithDots(informationBooking.grandTotal)}{" "}
                     VND{" "}
                   </Text>
                   {expandPriceDetail ? (
@@ -169,7 +158,7 @@ const Step1 = (props) => {
           )}
         </View>
 
-        <View style={{ marginTop: 8 }}>
+        <View style={{ marginTop: 8, marginBottom: 10 }}>
           <Text
             style={{
               fontSize: 20,
@@ -180,23 +169,51 @@ const Step1 = (props) => {
           >
             Thông tin đặt phòng
           </Text>
-          <TextInput
+          <Controller
             style={styles.textInput}
+            as={TextInput}
+            control={control}
+            name="name"
+            onChangeText={name => setUserInfo({...userInfo, name })}
+            onChange={args => args[0].nativeEvent.text}
+            rules={{ required: true }}
             placeholder="Nhập họ tên"
-            onChangeText={(text) => setValue("name", text)}
           />
-          <TextInput
+          {errors.name && <Text errorColor caption1 style={{ marginLeft: 20 }}>Vui lòng nhập họ tên</Text>}
+          <Controller
             style={styles.textInput}
+            as={TextInput}
+            control={control}
+            name="email"
+            onChangeText={email => setUserInfo({...userInfo, email })}
+            onChange={args => args[0].nativeEvent.text}
+            rules={{ required: true }}
             placeholder="Nhập email"
-            onChangeText={(text) => setValue("email", text)}
           />
-          <TextInput
+          {errors.email && <Text errorColor caption1 style={{ marginLeft: 20 }}>Vui lòng nhập email</Text>}
+          <Controller
             style={styles.textInput}
+            as={TextInput}
+            control={control}
+            name="phoneNumber"
+            onChangeText={phoneNumber => setUserInfo({...userInfo, phoneNumber })}
+            onChange={args => args[0].nativeEvent.text}
+            rules={{ required: true }}
             placeholder="Nhập SĐT"
-            onChangeText={(text) => setValue("phoneNumber", text)}
+            keyboardType="number-pad"
+          />
+          {errors.phoneNumber && <Text errorColor caption1 style={{ marginLeft: 20 }}>Vui lòng nhập SDDT</Text>}
+          <Controller
+            style={styles.textInput}
+            as={TextInput}
+            control={control}
+            name="note"
+            onChangeText={note => setUserInfo({...userInfo, note })}
+            onChange={args => args[0].nativeEvent.text}
+            placeholder="Nhập ghi chú"
           />
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
       <View style={{ padding: 10 }}>
         <Button onPress={handleSubmit(submitForm)}>
           <Text whiteColor>Tiếp tục</Text>

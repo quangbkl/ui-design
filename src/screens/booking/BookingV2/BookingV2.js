@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, SafeAreaView, Alert } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Alert, AsyncStorage } from "react-native";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import { Container, Toast } from "native-base";
 import { useNavigation } from "@react-navigation/native";
@@ -12,6 +12,12 @@ import Step2 from "./Step2";
 import Step3 from "./Step3";
 import _ from "lodash";
 import appRoutes from "../../../navigations/appRoutes";
+import Touchable from 'components/Touchable/Touchable';
+import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import Spinner from 'react-native-loading-spinner-overlay';
+import { v4 as uuidv4 } from 'react-native-uuid';
+import bookingServices from "../../../services/bookingServices";
+import moment from 'moment';
 
 const thirdIndicatorStyles = {
   stepIndicatorSize: 25,
@@ -37,14 +43,42 @@ const thirdIndicatorStyles = {
   currentStepLabelColor: "#7eaec4",
 };
 
+const LeftComponent = ({ onPrev }) => {
+  const {state: appState} = useApp();
+  const {color} = appState;
+  return (
+      <Touchable onPress={onPrev}>
+          <FontAwesome5Icon
+              name="arrow-left"
+              color={color.primaryColor}
+              size={18}
+          />
+      </Touchable>
+  );
+};
+
+const calculateGrandTotal = (informationBooking) => {
+  const { rooms, room } = informationBooking;
+  return rooms * room.price * (1 + room.tax / 100);
+};
+
 const BookingV2 = (props) => {
   const informationBooking = _.get(props, [
     "route",
     "params",
     "informationBooking",
   ]);
+  informationBooking.grandTotal = calculateGrandTotal(informationBooking);
   const navigation = useNavigation();
   const [step, setStep] = useState(0);
+  const [userInfo, setUserInfo] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    note: '',
+  })
+  const [loading, setLoading] = useState(false);
+  const [bookingId, setBookingId] = useState();
   const onStepPress = (position) => {
     setStep(position);
   };
@@ -55,16 +89,71 @@ const BookingV2 = (props) => {
   };
 
   const onNextStep3 = () => {
-    setStep(2);
+    handleSaveHotelBooking();
   };
 
   const onComplete = () => {
     navigation.navigate(appRoutes.BOOKING_AUTHENTICATE);
   };
 
+  const handleSaveHotelBooking = async () => {
+    let userId = await AsyncStorage.getItem('userId');
+
+    if (!userId) {
+      userId = uuidv4();
+      AsyncStorage.setItem('userId', userId);
+    }
+    console.log(userId)
+    const params = {
+      hotelId: informationBooking.hotel.id,
+      checkinDate: informationBooking.checkinDate,
+      checkoutDate: moment(informationBooking.checkinDate, 'DD-mm-YYYY').add(informationBooking.night, 'days').format('DD-mm-YYYY'),
+      roomType: informationBooking.room.type,
+      roomPrice: informationBooking.room.price,
+      roomTax: informationBooking.room.tax,
+      rooms: informationBooking.rooms,
+      grandTotal: informationBooking.grandTotal,
+      guests: informationBooking.guest,
+      guestName: userInfo.name,
+      guestEmail: userInfo.email,
+      guestPhoneNumber: userInfo.phoneNumber,
+      note: userInfo.note,
+      userId,
+    };
+    setLoading(true);
+    bookingServices.createBookingHotel(params)
+      .then((res) => {
+        setBookingId(res.result.id);
+        setStep(2);
+      })
+      .catch((err) => {
+        console.log(err);
+        Toast.show({
+          text: 'Đặt phòng không thành công',
+          type: 'danger',
+          position: 'top'
+        });
+      })
+      .finally(() => setLoading(false));
+  }
+
+  const onPrev = () => {
+    if (step === 0 || bookingId) {
+      navigation.goBack();
+      return;
+    } else {
+      setStep(step - 1);
+    }
+  }
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Header title="Đặt Phòng" />
+      <Spinner
+          visible={loading}
+          textContent={'Vui lòng chờ...'}
+          textStyle={styles.spinnerTextStyle}
+      />
+      <Header title="Đặt Phòng" LeftComponent={<LeftComponent onPrev={onPrev} />} />
       <View style={styles.container}>
         <View style={styles.stepIndicator}>
           <StepIndicator
@@ -79,12 +168,15 @@ const BookingV2 = (props) => {
           <Step1
             informationBooking={informationBooking}
             onNextStep2={onNextStep2}
+            userInfo={userInfo}
+            setUserInfo={setUserInfo}
           />
         )}
         {step === 1 && (
           <Step2
             informationBooking={informationBooking}
             onNextStep3={onNextStep3}
+            userInfo={userInfo}
           />
         )}
         {step === 2 && (
@@ -123,6 +215,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "500",
     color: BaseColor.bluePrimaryColor,
+  },
+  spinnerTextStyle: {
+    color: '#FFF'
   },
 });
 

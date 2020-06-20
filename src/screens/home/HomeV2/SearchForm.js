@@ -50,7 +50,7 @@ const renderIconService = (icons) => {
 }
 
 const icons1 = [
-    {icon: "calendar-alt", name: "Hotel", route: appRoutes.HOTEL_SEARCH},
+    {icon: "calendar-alt", name: "Hotel", route: appRoutes.SEARCH_HOTEL},
     {icon: "map-marker-alt", name: "Tour", route: appRoutes.TOURS},
     {icon: "car-alt", name: "Car", route: ""},
     {icon: "plane", name: "Flight", route: appRoutes.FLIGHT_SEARCH}
@@ -98,7 +98,7 @@ const SearchForm = () => {
                 ]}
             >
                 <TouchableOpacity
-                    onPress={() => navigation.navigate(appRoutes.HOTEL_SEARCH)}
+                    onPress={() => navigation.navigate(appRoutes.SEARCH_HOTEL)}
                     activeOpacity={0.9}
                 >
                     <View style={[BaseStyle.textInput, {backgroundColor: colors.backgroundSecondaryColor}]}>

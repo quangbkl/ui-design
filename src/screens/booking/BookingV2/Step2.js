@@ -12,11 +12,6 @@ import useApp from "hooks/app/useApp";
 import { BaseColor } from "config/color";
 import moment from "moment";
 
-const calculateGrandTotal = (informationBooking) => {
-  const { rooms, room } = informationBooking;
-  return rooms * room.price * (1 + room.tax / 100);
-};
-
 const numberWithDots = (x) => {
   if (!x) return "";
   const [number, decimal] = x.toString().split(".");
@@ -25,7 +20,7 @@ const numberWithDots = (x) => {
 };
 
 const Step2 = (props) => {
-  const { onNextStep3, informationBooking } = props;
+  const { onNextStep3, informationBooking, userInfo } = props;
   const { state: appState } = useApp();
   const { i18n } = appState;
   const { color } = appState;
@@ -158,18 +153,18 @@ const Step2 = (props) => {
               <View style={{ marginTop: 8 }}>
                 <Text style={styles.Text15}>Tên khách hàng</Text>
                 <Text style={{ fontSize: 15, marginTop: 5 }}>
-                  Đoàn Văn Quang
+                  {userInfo.name}
                 </Text>
               </View>
               <View style={{ marginTop: 8 }}>
                 <Text style={styles.Text15}>Email</Text>
                 <Text style={{ fontSize: 15, marginTop: 5 }}>
-                  quangdv99@gmail.com
+                  {userInfo.email}
                 </Text>
               </View>
               <View style={{ marginTop: 8 }}>
                 <Text style={styles.Text15}>SĐT</Text>
-                <Text style={{ fontSize: 15, marginTop: 5 }}>0362897165</Text>
+                <Text style={{ fontSize: 15, marginTop: 5 }}>{userInfo.phoneNumber}</Text>
               </View>
             </View>
           </View>
@@ -203,7 +198,7 @@ const Step2 = (props) => {
               </Text>
               <Right style={{ flex: 1 }}>
                 <Text>
-                  {numberWithDots(calculateGrandTotal(informationBooking))} VND
+                  {numberWithDots(informationBooking.grandTotal)} VND
                 </Text>
               </Right>
             </CardItem>
@@ -212,7 +207,7 @@ const Step2 = (props) => {
       </ScrollView>
       <View style={{ padding: 10 }}>
         <Button onPress={() => onNextStep3()}>
-          <Text whiteColor>Thanh toán</Text>
+          <Text whiteColor>Đặt phòng</Text>
         </Button>
       </View>
     </>

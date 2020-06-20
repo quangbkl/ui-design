@@ -4,6 +4,13 @@ import Button from "../Button/Button";
 import Touchable from "../Touchable/Touchable";
 import useApp from "hooks/app/useApp";
 
+const numberWithDots = (x) => {
+  if (!x) return '';
+  const [number, decimal] = x.toString().split('.');
+  const separateNumber = number.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return decimal ? [separateNumber, decimal].join() : separateNumber;
+};
+
 const RoomType = (props) => {
   const { onBookNow, item } = props;
   const { type, image, price, roomAvailable } = item;
@@ -28,7 +35,7 @@ const RoomType = (props) => {
       >
         <View style={styles.childrenContainer}>
           <Text style={styles.country}> {renderType()} </Text>
-          <Text style={styles.title}> {price} </Text>
+          <Text style={styles.title}> {numberWithDots(price)} </Text>
           <Text style={styles.title}> {`Còn ${roomAvailable} phòng`} </Text>
         </View>
       </ImageBackground>

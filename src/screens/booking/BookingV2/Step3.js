@@ -8,7 +8,7 @@ import {
     Clipboard,
     Alert,
 } from "react-native";
-import {Card, CardItem, Left, Right} from "native-base";
+import {Card, CardItem, Left, Right, Toast } from "native-base";
 import {Button, CustomIcon, Separator, Text, SelectList} from "components";
 import useApp from "hooks/app/useApp";
 import {BaseColor} from "config/color";
@@ -18,33 +18,50 @@ import {
     TouchableOpacity,
 } from "react-native-gesture-handler";
 
+const numberWithDots = (x) => {
+    if (!x) return "";
+    const [number, decimal] = x.toString().split(".");
+    const separateNumber = number.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return decimal ? [separateNumber, decimal].join() : separateNumber;
+};
+  
+
+const allBanks = [
+    {
+        image:
+            "https://tienaoplus.com/wp-content/uploads/2020/02/y-nghia-logo-ngan-hang-viettinbank-4.png",
+        name: "Vietinbank",
+        value: "VIETINBANK",
+    },
+    {
+        image:
+            "https://vietcombank-vaytheoluong.com/wp-content/uploads/2019/11/vpbank.jpg",
+        name: "VP Bank",
+        value: "VIETCOMBANK",
+    },
+    {
+        image:
+            "https://m.thebank.vn/uploads/2020/03/04/thebank_logobidv_1583313052.jpg",
+        name: "BIDV",
+        value: "BIDV",
+    },
+];
+
 const Step2 = (props) => {
-    const {onComplete} = props;
+    const {onComplete, informationBooking} = props;
     const [selectedBank, setSelectedBank] = useState();
-    const banks = [
-        {
-            image:
-                "https://tienaoplus.com/wp-content/uploads/2020/02/y-nghia-logo-ngan-hang-viettinbank-4.png",
-            name: "Vietinbank",
-            value: "vietinbank",
-        },
-        {
-            image:
-                "https://vietcombank-vaytheoluong.com/wp-content/uploads/2019/11/vpbank.jpg",
-            name: "VP Bank",
-            value: "vpbank",
-        },
-        {
-            image:
-                "https://m.thebank.vn/uploads/2020/03/04/thebank_logobidv_1583313052.jpg",
-            name: "BIDV",
-            value: "bidv",
-        },
-    ];
+    const banks = allBanks.filter(el => informationBooking.hotel.paymentInformations.map(x => x.bankCode).includes(el.value));
+    const [currentBank, setCurrentBank] = useState();
+
+
 
     const handleCopy = (text) => {
         Clipboard.setString(text);
-        Alert.alert("Copy to Clipboard");
+        Toast.show({
+            text: 'Copy to Clipboard',
+            type: 'success',
+            position: 'top'
+        })
     };
 
     return (
@@ -59,7 +76,11 @@ const Step2 = (props) => {
                         </CardItem>
                         <Separator style={{marginLeft: 15, marginRight: 15}}/>
                         <View style={{marginLeft: 15, marginRight: 15}}>
-                            <SelectList value={selectedBank} onChange={setSelectedBank}>
+                            <SelectList value={selectedBank} onChange={(value) => {
+                                setSelectedBank(value);
+                                const curr = informationBooking.hotel.paymentInformations.find(x => x.bankCode === value);
+                                setCurrentBank(curr);
+                            }}>
                                 {banks.map((el) => (
                                     <BankListItem
                                         key={el.value}
@@ -71,7 +92,7 @@ const Step2 = (props) => {
                             </SelectList>
                         </View>
                     </Card>
-                    {selectedBank && (
+                    {currentBank && (
                         <Card style={{marginTop: 0, marginLeft: 15, marginRight: 15}}>
                             <CardItem style={{flex: 1}}>
                                 <Text style={{fontWeight: "700"}}>
@@ -83,15 +104,15 @@ const Step2 = (props) => {
                                 <Text style={{fontSize: 15, fontWeight: "600", opacity: 0.7}}>
                                     Ngân hàng thanh toán
                                 </Text>
-                                <Text style={{fontSize: 15, marginTop: 5}}>VIETCOMBANK</Text>
+                                <Text style={{fontSize: 15, marginTop: 5}}>{currentBank.bankCode}</Text>
                             </CardItem>
                             <CardItem style={{flex: 1, flexDirection: "column"}}>
                                 <Text style={{fontSize: 15, fontWeight: "600", opacity: 0.7}}>
                                     Tên chủ tài khoản
                                 </Text>
-                                <TouchableOpacity onPress={() => handleCopy("DOAN VAN QUANG")}>
+                                <TouchableOpacity onPress={() => handleCopy(currentBank.accountNumber)}>
                                     <Text style={{fontSize: 15, marginTop: 5}}>
-                                        DOAN VAN QUANG
+                                        {currentBank.accountName}
                                     </Text>
                                 </TouchableOpacity>
                             </CardItem>
@@ -99,9 +120,9 @@ const Step2 = (props) => {
                                 <Text style={{fontSize: 15, fontWeight: "600", opacity: 0.7}}>
                                     Số tài khoản
                                 </Text>
-                                <TouchableOpacity onPress={() => handleCopy("0491000170492")}>
+                                <TouchableOpacity onPress={() => handleCopy(currentBank.accountNumber)}>
                                     <Text style={{fontSize: 15, marginTop: 5}}>
-                                        0491000170492
+                                        {currentBank.accountNumber}
                                     </Text>
                                 </TouchableOpacity>
                             </CardItem>
@@ -117,7 +138,7 @@ const Step2 = (props) => {
                                 Tổng giá tiền:
                             </Text>
                             <Right style={{flex: 1}}>
-                                <Text>300.000 VND</Text>
+                                <Text>{numberWithDots(informationBooking.grandTotal)} VND</Text>
                             </Right>
                         </CardItem>
                     </Card>
@@ -125,7 +146,7 @@ const Step2 = (props) => {
             </ScrollView>
             <View style={{padding: 10}}>
                 <Button onPress={() => onComplete()}>
-                    <Text whiteColor>Hoàn thành</Text>
+                    <Text whiteColor>Xong</Text>
                 </Button>
             </View>
         </>
