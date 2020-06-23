@@ -11,7 +11,7 @@ import useApp from "hooks/app/useApp";
 import {getRouterParam} from "helpers/common";
 import appRoutes from "navigations/appRoutes";
 import {hotelAvailable} from "../../../__mocks__/db/hotel-db";
-import {searchHotels} from '../../../services/hotelServices';
+import {searchHotels} from 'services/hotelServices';
 
 // TODO: Code HotelItem component first
 const HotelsScreen = (props) => {
@@ -62,7 +62,7 @@ const HotelsScreen = (props) => {
             <FilterSort view={view} onChangeView={setView}/>
 
             {loading ? (
-                <ActivityIndicator size="large" color="#0000ff"/>
+                <ActivityIndicator size="large" color={`${color.primaryColor}`}/>
             ) : (
                 <FlatList
                     style={view === "block" ? {} : styles.container}

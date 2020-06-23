@@ -5,7 +5,7 @@ import {CustomIcon, ListItem, Text} from 'components/index';
 import {BaseColor} from 'config/color';
 
 const Gallery = ({item}) => {
-    const {gallery} = item;
+    const {images} = item;
     return (
         <View style={styles.gallery}>
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -15,7 +15,7 @@ const Gallery = ({item}) => {
             <View style={styles.galleryContent}>
                 <View style={styles.galleryLeft}>
                     <ImageBackground
-                        source={{uri: gallery[0]}}
+                        source={{uri: images[0]}}
                         style={{width: '100%', height: '100%'}}
                         imageStyle={{borderRadius: 10}}
                     >
@@ -25,7 +25,7 @@ const Gallery = ({item}) => {
                 <View style={styles.galleryRight}>
                     <View style={styles.galleryRightTop}>
                         <ImageBackground
-                            source={{uri: gallery[1]}}
+                            source={{uri: images[1]}}
                             style={{width: '100%', height: '100%'}}
                             imageStyle={{borderRadius: 10}}
                         >
@@ -36,7 +36,7 @@ const Gallery = ({item}) => {
                     <View style={styles.galleryRightBottom}>
                         <View style={styles.galleryRightBottomLeft}>
                             <ImageBackground
-                                source={{uri: gallery[1]}}
+                                source={{uri: images[0]}}
                                 style={{width: '100%', height: '100%'}}
                                 imageStyle={{borderRadius: 10}}
                             >
@@ -45,7 +45,7 @@ const Gallery = ({item}) => {
                         </View>
                         <View style={styles.galleryRightBottomRight}>
                             <ImageBackground
-                                source={{uri: gallery[1]}}
+                                source={{uri: images[1]}}
                                 style={{width: '100%', height: '100%'}}
                                 imageStyle={{borderRadius: 10}}
                             >

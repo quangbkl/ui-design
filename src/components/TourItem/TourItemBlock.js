@@ -7,11 +7,11 @@ import {Button} from '../index';
 import appRoutes from 'navigations/appRoutes';
 import {useNavigation} from '@react-navigation/native';
 import useApp from 'hooks/app/useApp';
+import {formatPrice} from "../../helpers/tour";
 
 const TourItemBlock = ({item}) => {
     const navigation = useNavigation();
-    const {title, author, ratePercent} = item;
-    const {name, avatar} = author;
+
     const {state: appState} = useApp();
     const {color} = appState;
     return (
@@ -28,20 +28,20 @@ const TourItemBlock = ({item}) => {
                 <Button style={{
                     ...styles.buttonPrice,
                     backgroundColor: color.primaryColor
-                }}>{getPricePerParticipant(item)}</Button>
+                }}>{formatPrice(item)}</Button>
             </View>
             <View>
                 <View style={styles.information}>
                     <ImageBackground
-                        source={{uri: avatar}}
+                        source={{uri: item.organizerAvatar}}
                         style={styles.avatar}
                         imageStyle={{borderRadius: 30}}
                     >
                         <Text style={{...styles.score, backgroundColor: color.primaryColor}}>9.5</Text>
                     </ImageBackground>
                     <View style={{marginLeft: 15}}>
-                        <Text style={{fontSize: 20, fontWeight: '600'}}>{title}</Text>
-                        <Text>by {name}</Text>
+                        <Text style={{fontSize: 20, fontWeight: '600'}}>{item.name}</Text>
+                        <Text>by {item.organizerName}</Text>
                     </View>
                 </View>
                 <View style={styles.ratingContainer}>
@@ -58,7 +58,7 @@ const TourItemBlock = ({item}) => {
                             style={styles.rating}
                         />
                         <Text style={{color: BaseColor.textPrimaryColor, opacity: 0.6}}>Rating </Text>
-                        <Text style={{color: color.primaryColor}}>{ratePercent} of 100</Text>
+                        <Text style={{color: color.primaryColor}}>85 of 100</Text>
                     </View>
                     <Button
                         style={{...styles.bookNow, borderColor: color.primaryColor, color: color.primaryColor}}
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         height: 40,
         top: 20,
         left: 20,
-        color: 'white',
+        color: BaseColor.whiteColor,
         fontWeight: '700'
     },
     information: {

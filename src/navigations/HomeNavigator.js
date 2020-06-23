@@ -16,6 +16,7 @@ const PaymentMethods = React.lazy(() => import('screens/booking/Payment/PaymentM
 const PaymentMethod = React.lazy(() => import('screens/booking/Payment/PaymentMethodScreen'));
 const TourDetailScreen = React.lazy(() => import('screens/home/TourDetail/TourDetailScreen'));
 const ToursScreen = React.lazy(() => import('screens/home/Tours/ToursScreen'));
+const SearchTourScreen = React.lazy(() => import('screens/home/SearchTour/SearchTourScreen'));
 const BookingDetailScreen = React.lazy(() => import('screens/booking/BookingDetail/BookingDetailScreen'));
 const FlightSearchScreen = React.lazy(() => import('screens/home/FlightSearch/FlightSearchScreen'));
 const SelectFlightScreen = React.lazy(() => import('screens/home/SelectFlight/SelectFlightScreen'));
@@ -43,6 +44,7 @@ const HomeNavigator = () => {
             <Stack.Screen name={appRoutes.PAYMENT_METHODS} component={PaymentMethods}/>
             <Stack.Screen name={appRoutes.PAYMENT_METHOD} component={PaymentMethod}/>
             <Stack.Screen name={appRoutes.TOUR_DETAIL} component={TourDetailScreen}/>
+            <Stack.Screen name={appRoutes.SEARCH_TOUR} component={SearchTourScreen}/>
             <Stack.Screen name={appRoutes.TOURS} component={withSafeAreaView(ToursScreen)}/>
             <Stack.Screen name={appRoutes.BOOKING_DETAIL} component={BookingDetailScreen}/>
             <Stack.Screen name={appRoutes.FLIGHT_SEARCH} component={FlightSearchScreen}/>

@@ -36,7 +36,8 @@ const appRoutes = {
     FLIGHT_SUMMARY: 'Flight Summary',
     FLIGHT_TICKET: 'Flight Ticket',
     PREVIEW_BOOKING: 'Preview Booking',
-
+	
+	SEARCH_TOUR: 'Search Tour',
     TOURS: 'Tours',
     TOUR_DETAIL: 'Tour Detail',
     TOUR_OPEN: 'Tour Open',
