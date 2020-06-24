@@ -4,34 +4,52 @@ import PropTypes from "prop-types";
 import {Touchable} from "../index";
 import {BaseColor} from "config/color";
 import useApp from "hooks/app/useApp";
+import { status } from '../../constants/booking';
+import { useNavigation } from '@react-navigation/native';
+import appRoutes from "../../navigations/appRoutes";
+
+const numberWithDots = (x) => {
+    if (!x) return "";
+    const [number, decimal] = x.toString().split(".");
+    const separateNumber = number.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return decimal ? [separateNumber, decimal].join() : separateNumber;
+  };
+
+const renderStatus = (code) => {
+    const stt = status.find(x => x.code === code);
+    return stt && stt.name;
+}
 
 const BookingHistory = (props) => {
-    const {onPress, item} = props;
-    const {checkIn, checkOut, guest, room, noOfRooms, hotel, price} = item;
+    const {item} = props;
     const {state: appState} = useApp();
+    const navigation = useNavigation();
     const {color} = appState;
+    const onPress = () => {
+        navigation.navigate(appRoutes.BOOKING_AUTHENTICATE, { bookingId: item.id })
+    }
     return (
         <Touchable
             onPress={onPress}
             style={{...styles.container, backgroundColor: color.primaryColor}}
         >
-            <Text style={styles.header}>{hotel}</Text>
-            <Text style={styles.header}>{room} (x{noOfRooms}) - {guest} khách</Text>
+            <Text style={styles.header}>{item.hotel.name}</Text>
+            <Text style={styles.header}>{item.roomType === 'standard' ? 'Phòng tiêu chuẩn' : 'Phòng cao cấp'} (x{item.rooms}) - {item.guests} khách</Text>
             <View style={styles.content}>
                 <View style={styles.checkInOut}>
                     <Text style={styles.checkInOutProperty}>Check In</Text>
                     <Text style={styles.checkInOutProperty}>Check Out</Text>
                 </View>
                 <View style={styles.checkInOut}>
-                    <Text style={styles.checkInOutValue}>{checkIn}</Text>
-                    <Text style={styles.checkInOutValue}>{checkOut}</Text>
+                    <Text style={styles.checkInOutValue}>{item.checkinDate}</Text>
+                    <Text style={styles.checkInOutValue}>{item.checkoutDate}</Text>
                 </View>
             </View>
             <View style={styles.footer}>
                 <Text>
-                    Chờ xác thực ...
+                    {renderStatus(item.status)}
                 </Text>
-                <Text style={{right: 2}}>{price} VNĐ</Text>
+                <Text style={{right: 2}}>{numberWithDots(item.grandTotal)} VNĐ</Text>
             </View>
         </Touchable>
     );
