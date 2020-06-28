@@ -26,7 +26,9 @@ const BookingHistory = (props) => {
     const navigation = useNavigation();
     const {color} = appState;
     const onPress = () => {
-        navigation.navigate(appRoutes.BOOKING_AUTHENTICATE, { bookingId: item.id })
+        if (item.status === 'pending_payment' || item.status === 'pending_confirm') {
+            navigation.navigate(appRoutes.BOOKING_AUTHENTICATE, { bookingId: item.id })
+        }
     }
     return (
         <Touchable

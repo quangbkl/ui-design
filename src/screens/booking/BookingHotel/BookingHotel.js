@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, SafeAreaView, AsyncStorage } from 'react-native';
+import { Toast } from 'native-base';
 import useApp from 'hooks/app/useApp';
 import {BookingHistory, Header} from 'components';
 import bookingServices from '../../../services/bookingServices';
@@ -23,13 +24,16 @@ const BookingHotelScreen = (props) => {
 	};
 	const getBooking = async () => {
 		const userId = await AsyncStorage.getItem('userId');
+		const userLoginId = await AsyncStorage.getItem('userLoginId');
 		setLoading(true);
 		try {
-			const { result } = await bookingServices.getBookingHotels({ userId, page: 1, pageSize: 100 });
+			const { result } = await bookingServices.getBookingHotels({ userId: userLoginId || userId, page: 1, pageSize: 100 });
             setHotelBookings(result.hotelBookings);
-            console.log("sdfsdf")
 		} catch {
-
+			Toast.show({
+				text: 'Có lỗi xảy ra',
+				type: 'danger',
+			})
 		} finally {
 			setLoading(false);
 		}

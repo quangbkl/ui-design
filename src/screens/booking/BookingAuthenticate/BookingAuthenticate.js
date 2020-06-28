@@ -66,6 +66,10 @@ const BookingAuthentication = (props) => {
       );
       setBooking(hotel_booking);
     } catch {
+      Toast.show({
+        text: 'Có lỗi xảy ra',
+        type: 'danger',
+      })
     } finally {
       setLoading(false);
     }
@@ -112,7 +116,7 @@ const BookingAuthentication = (props) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Header title="Xác thực đặt phòng" RightComponent={null} />
+      <Header title="Xác thực đặt phòng" />
       <Spinner
         visible={loading}
         textContent={"Vui lòng chờ..."}
