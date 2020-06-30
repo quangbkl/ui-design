@@ -36,6 +36,7 @@ const appRoutes = {
     FLIGHT_SUMMARY: 'Flight Summary',
     FLIGHT_TICKET: 'Flight Ticket',
     PREVIEW_BOOKING: 'Preview Booking',
+	BOOKING_TOUR_V2: 'BookingTourV2',
 	
 	SEARCH_TOUR: 'Search Tour',
     TOURS: 'Tours',
@@ -66,7 +67,8 @@ const appRoutes = {
     CHECKOUT_REVIEW: 'Checkout Review',
     CHECKOUT: 'Checkout',
     PAYMENT_METHODS: 'Payment Methods',
-    PAYMENT_METHOD: 'Payment Method'
+    PAYMENT_METHOD: 'Payment Method',
+	
 };
 
 export default appRoutes;

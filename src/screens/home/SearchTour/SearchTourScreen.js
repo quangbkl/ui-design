@@ -32,13 +32,12 @@ const selectGuests = [...Array(32).keys()].map((el) => ({
 
 const SearchTourScreen = (props) => {
     const [location, setLocation] = useState({
-        code: '03',
-        name: 'Thành phố Đà Nẵng',
+        code: '01',
+        name: 'Thành phố Hà Nội',
     });
     const [checkinDate, setCheckinDate] = useState(moment().toDate());
     const [day, setDay] = useState(3);
     const [guest, setGuest] = useState(3);
-    const [rooms, setRooms] = useState(1);
     const navigation = useNavigation();
     const {state: appState} = useApp();
     const {color} = appState;
@@ -50,7 +49,6 @@ const SearchTourScreen = (props) => {
                 checkinDate: moment(checkinDate).format("DD-MM-YYYY"),
 	            day,
                 guest,
-                rooms,
             }
         })
     }

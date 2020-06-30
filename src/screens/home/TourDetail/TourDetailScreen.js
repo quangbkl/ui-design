@@ -16,6 +16,7 @@ import Review from 'components/TourItem/Tabs/Review';
 import useApp from 'hooks/app/useApp';
 import {getRouterParam} from "../../../helpers/common";
 import {getTour} from "../../../services/tourService";
+import {formatPrice} from "../../../helpers/tour";
 
 const TourDetailScreen = (props) => {
     // const item = tourDB.tours[0];
@@ -27,6 +28,7 @@ const TourDetailScreen = (props) => {
 	const [tour, setTour] = useState();
 	const [loading, setLoading] = useState(false);
 	const navigation = useNavigation();
+	const [visible, setVisible] = useState(false);
     const tabBarUnderlineStyle = {
         backgroundColor: color.primaryColor,
         height: 1,
@@ -43,7 +45,16 @@ const TourDetailScreen = (props) => {
 			.finally(() => setLoading(false));
 		}
 	}, [tourId]);
-    
+	
+	const handleBooking = (tour) => {
+		setVisible(false);
+		const informationBooking = {
+			tour,
+			...bookInfo,
+		};
+		navigation.navigate("BookingTourV2", { informationBooking });
+	};
+	
     return (
         <>
 	            <Header title={'Travel Agency'}/>
@@ -101,11 +112,12 @@ const TourDetailScreen = (props) => {
 				                {/*<Review tabLabel="    Review   " item={item}/>*/}
 				            </ScrollableTabView>
 				            <ProgressBooking
-				                headerContext={'2 Day / 1 Night'}
-				                middleContext={'$399.99'}
-				                footerContext={'2 Adults / 1 Children'}
+				                headerContext={tour.duration + ' days'}
+				                middleContext={formatPrice(tour)}
+				                footerContext={tour.minSize + ' - ' + tour.maxSize + ' peoples'}
 				                children={'Book Now'}
-				                onPress={() => navigation.navigate(appRoutes.CHECKOUT_REVIEW, {promosId: 1})}
+				                // onPress={() => navigation.navigate(appRoutes.BOOKING_TOUR_V2, {tour: tour, bookInfo: bookInfo})}
+				                onPress={() => handleBooking(tour)}
 				            />
 				        </>
 			        )
