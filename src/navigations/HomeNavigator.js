@@ -29,6 +29,7 @@ const PreviewBookingScreen = React.lazy(() => import('screens/home/PreviewBookin
 const HotelSearchScreen = React.lazy(() => import('screens/home/HotelSearch/HotelSearchScreen'));
 const SelectProvinceScreen = React.lazy(() => import('screens/home/SelectProvince'));
 const BookingHotelScreen = React.lazy(() => import('screens/booking/BookingHotel'));
+const BookingTourScreen = React.lazy(() => import('screens/booking/BookingTour'));
 
 const Stack = createStackNavigator();
 
@@ -61,6 +62,7 @@ const HomeNavigator = () => {
             <Stack.Screen name={appRoutes.HOTEL_SEARCH} component={HotelSearchScreen}/>
             <Stack.Screen name={appRoutes.SELECT_PROVINCE} component={SelectProvinceScreen}/>
             <Stack.Screen name={appRoutes.BOOKING_HOTEL} component={BookingHotelScreen}/>
+            <Stack.Screen name={appRoutes.BOOKING_TOUR} component={BookingTourScreen}/>
         </Stack.Navigator>
     );
 };

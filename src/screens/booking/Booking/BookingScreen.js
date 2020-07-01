@@ -27,7 +27,7 @@ const BookingScreen = (props) => {
     <SafeAreaView style={{ flex: 1 }}>
       <Header title="Lịch sử" RightComponent={null} LeftComponent={null} />
       <Button onPress={() => navigation.navigate(appRoutes.BOOKING_HOTEL)} style={{ margin: 15 }}>Lịch sử đặt phòng</Button>
-      <Button style={{ margin: 15 }}>Lịch sử đặt tour</Button>
+      <Button onPress={() => navigation.navigate(appRoutes.BOOKING_TOUR)} style={{ margin: 15 }}>Lịch sử đặt tour</Button>
     </SafeAreaView>
   );
 };

@@ -39,6 +39,7 @@ const BookingTourHistory = (props) => {
         >
             <Text style={styles.header}>{item.tour.name}</Text>
             <Text style={styles.header}>Số lượng khách: {item.guests} khách</Text>
+            <Text style={styles.header}>Người đại diện: {item.guestName}</Text>
             <View style={styles.content}>
                 <View style={styles.checkInOut}>
                     <Text style={styles.checkInOutProperty}>Check In</Text>
@@ -69,11 +70,11 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         marginRight: 15,
         borderRadius: 10,
-        maxHeight: 185,
+        maxHeight: 250,
     },
     header: {
         width: "100%",
-        height: 35,
+        height: 40,
         padding: 10,
         alignItems: "center",
         borderBottomWidth: 1,

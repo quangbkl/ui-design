@@ -69,7 +69,8 @@ const appRoutes = {
     CHECKOUT: 'Checkout',
     PAYMENT_METHODS: 'Payment Methods',
     PAYMENT_METHOD: 'Payment Method',
-	BOOKING_HOTEL: 'Booking Hotel'
+	BOOKING_HOTEL: 'Booking Hotel',
+	BOOKING_TOUR: 'Booking Tour'
 };
 
 export default appRoutes;
