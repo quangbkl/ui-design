@@ -8,6 +8,7 @@ const SearchHotelScreen = React.lazy(() => import('screens/home/SearchHotel/Sear
 const BookingV2Screen = React.lazy(() => import('screens/booking/BookingV2/BookingV2'));
 const BookingTourV2Screen = React.lazy(() => import('screens/booking/BookingTourV2/BookingTourV2'));
 const BookingAuthenticateScreen = React.lazy(() => import('screens/booking/BookingAuthenticate/BookingAuthenticate'));
+const BookingTourAuthenticateScreen = React.lazy(() => import('screens/booking/BookingAuthenticate/BookingTourAuthenticate'));
 const HotelsScreen = React.lazy(() => import('screens/home/Hotels/HotelsScreen'));
 const HotelDetailScreen = React.lazy(() => import('screens/home/HotelDetail/HotelDetailScreen'));
 const PreviewGGMapScreen = React.lazy(() => import('screens/home/HotelDetail/PreviewGGMap'));
@@ -27,6 +28,7 @@ const FlightTicketScreen = React.lazy(() => import('screens/home/FlightTicket/Fl
 const PreviewBookingScreen = React.lazy(() => import('screens/home/PreviewBooking/PreviewBookingScreen'));
 const HotelSearchScreen = React.lazy(() => import('screens/home/HotelSearch/HotelSearchScreen'));
 const SelectProvinceScreen = React.lazy(() => import('screens/home/SelectProvince'));
+const BookingHotelScreen = React.lazy(() => import('screens/booking/BookingHotel'));
 
 const Stack = createStackNavigator();
 
@@ -36,7 +38,6 @@ const HomeNavigator = () => {
             <Stack.Screen name={appRoutes.HOME} component={HomeScreen}/>
             <Stack.Screen name={appRoutes.SEARCH_HOTEL} component={SearchHotelScreen}/>
             <Stack.Screen name={appRoutes.BOOKINGV2} component={BookingV2Screen}/>
-            <Stack.Screen name={appRoutes.BOOKING_TOUR_V2} component={BookingTourV2Screen}/>
             <Stack.Screen name={appRoutes.BOOKING_AUTHENTICATE} component={BookingAuthenticateScreen}/>
             <Stack.Screen name={appRoutes.HOTELS} component={withSafeAreaView(HotelsScreen)}/>
             <Stack.Screen name={appRoutes.HOTEL_DETAIL} component={HotelDetailScreen}/>
@@ -47,6 +48,8 @@ const HomeNavigator = () => {
             <Stack.Screen name={appRoutes.PAYMENT_METHOD} component={PaymentMethod}/>
             <Stack.Screen name={appRoutes.TOUR_DETAIL} component={TourDetailScreen}/>
             <Stack.Screen name={appRoutes.SEARCH_TOUR} component={SearchTourScreen}/>
+	        <Stack.Screen name={appRoutes.BOOKING_TOUR_V2} component={BookingTourV2Screen}/>
+	        <Stack.Screen name={appRoutes.BOOKING_TOUR_AUTHENTICATE} component={BookingTourAuthenticateScreen}/>
             <Stack.Screen name={appRoutes.TOURS} component={withSafeAreaView(ToursScreen)}/>
             <Stack.Screen name={appRoutes.BOOKING_DETAIL} component={BookingDetailScreen}/>
             <Stack.Screen name={appRoutes.FLIGHT_SEARCH} component={FlightSearchScreen}/>
@@ -57,6 +60,7 @@ const HomeNavigator = () => {
             <Stack.Screen name={appRoutes.PREVIEW_BOOKING} component={PreviewBookingScreen}/>
             <Stack.Screen name={appRoutes.HOTEL_SEARCH} component={HotelSearchScreen}/>
             <Stack.Screen name={appRoutes.SELECT_PROVINCE} component={SelectProvinceScreen}/>
+            <Stack.Screen name={appRoutes.BOOKING_HOTEL} component={BookingHotelScreen}/>
         </Stack.Navigator>
     );
 };

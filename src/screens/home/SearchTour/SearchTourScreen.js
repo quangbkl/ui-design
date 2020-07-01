@@ -32,8 +32,8 @@ const selectGuests = [...Array(32).keys()].map((el) => ({
 
 const SearchTourScreen = (props) => {
     const [location, setLocation] = useState({
-        code: '01',
-        name: 'Thành phố Hà Nội',
+        code: '48',
+        name: 'Thành phố Đà Nẵng',
     });
     const [checkinDate, setCheckinDate] = useState(moment().toDate());
     const [day, setDay] = useState(3);

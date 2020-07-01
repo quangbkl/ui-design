@@ -92,7 +92,7 @@ const BookingTourV2 = (props) => {
 	};
 	
 	const onComplete = () => {
-		navigation.navigate(appRoutes.BOOKING_AUTHENTICATE);
+		navigation.navigate(appRoutes.BOOKING_TOUR_AUTHENTICATE, { bookingId });
 	};
 	
 	const handleSaveTourBooking = async () => {

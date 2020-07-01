@@ -1,14 +1,13 @@
 import React, {useState} from "react";
 import {
-    Image,
     ScrollView,
     StyleSheet,
     View,
     Clipboard,
-    Alert,
+    
 } from "react-native";
-import {Card, CardItem, Left, Right, Toast } from "native-base";
-import {Button, CustomIcon, Separator, Text, SelectList} from "components";
+import {Card, CardItem, Right, Toast } from "native-base";
+import {Button, Separator, Text, SelectList} from "components";
 import BankListItem from "../BookingV2/BankListItem";
 import {
     TouchableHighlight,

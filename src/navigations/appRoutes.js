@@ -30,6 +30,7 @@ const appRoutes = {
     HOTEL_GALLERY: 'Hotel Gallery',
     BOOKINGV2: 'BookingV2',
     BOOKING_AUTHENTICATE: 'Booking Authenticate',
+    BOOKING_TOUR_AUTHENTICATE: 'Booking Tour Authenticate',
     FLIGHT_SEARCH: 'Flight Search',
     SELECT_FLIGHT: 'Select Flight',
     FLIGHT_RESULT: 'Flight Result',
@@ -68,7 +69,7 @@ const appRoutes = {
     CHECKOUT: 'Checkout',
     PAYMENT_METHODS: 'Payment Methods',
     PAYMENT_METHOD: 'Payment Method',
-	
+	BOOKING_HOTEL: 'Booking Hotel'
 };
 
 export default appRoutes;

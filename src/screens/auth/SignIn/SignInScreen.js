@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView, TextInput} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView, TextInput, AsyncStorage} from 'react-native';
 import appRoutes from 'navigations/appRoutes';
 import {useNavigation} from '@react-navigation/native';
 import useApp from 'hooks/app/useApp';
@@ -9,6 +9,7 @@ import Button from 'components-v2/Button/Button';
 import {getErrorMessage} from 'helpers/response';
 import SignInHeader from "./SignInHeader";
 import {validateEmail, validatePassword} from "helpers/common";
+import firebase from 'firebase';
 
 const SignInScreen = (props) => {
     const {state: appState, actions: appActions} = useApp();
@@ -35,15 +36,15 @@ const SignInScreen = (props) => {
         if (_errorEmail || _errorPassword) return false;
 
         setSigningIn(true);
-
         try {
             await handleSignIn({email, password});
             navigation.navigate(appRoutes.MAIN);
         } catch (e) {
             const msg = getErrorMessage(e);
             setError(msg);
+        } finally {
+            setSigningIn(false);
         }
-        setSigningIn(false);
     };
 
 

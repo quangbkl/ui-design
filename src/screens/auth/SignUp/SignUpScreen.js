@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, TextInput, ScrollView, SafeAreaView} from 'react-native';
+import { Toast } from 'native-base';
 import useApp from "hooks/app/useApp";
 import {useNavigation} from "@react-navigation/native";
 import {BaseStyle} from "config/theme";
@@ -10,6 +11,7 @@ import appRoutes from "navigations/appRoutes";
 import Button from "components-v2/Button/Button";
 import Text from "../../../components/Text/Text";
 import {validateFullName} from "../../../helpers/common";
+import firebase from 'firebase';
 
 const SignUpScreen = () => {
     const {state: appState} = useApp();
@@ -37,12 +39,36 @@ const SignUpScreen = () => {
         setErrorFullName(_errorFullName);
 
         if (_errorEmail || _errorPassword || _errorFullName) return false;
-
         setSigningUp(true);
-        setTimeout(() => {
-            setSigningUp(false);
-            navigation.navigate(appRoutes.SIGN_IN);
-        }, 1000);
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(userCredentials => {
+                userCredentials.user
+                .updateProfile({
+                  displayName: fullName
+                })
+                .then(() => {
+                    Toast.show({
+                        text: 'Tạo tài khoản thành công',
+                        type: 'success',
+                    })
+                    navigation.navigate(appRoutes.SIGN_IN);
+                });
+            })
+            .catch(() => {
+                Toast.show({
+                    text: 'Có lỗi xảy ra. Vui lòng thử lại!',
+                    type: 'danger',
+                })
+            })
+            .finally(() => setSigningUp(false))
+
+        // setSigningUp(true);
+        // setTimeout(() => {
+        //     setSigningUp(false);
+        //     navigation.navigate(appRoutes.SIGN_IN);
+        // }, 1000);
     }
 
     const styles = StyleSheet.create({
