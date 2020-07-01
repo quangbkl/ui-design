@@ -44,6 +44,7 @@ const SignUpScreen = () => {
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then(userCredentials => {
+                console.log("sdfsdf")
                 userCredentials.user
                 .updateProfile({
                   displayName: fullName

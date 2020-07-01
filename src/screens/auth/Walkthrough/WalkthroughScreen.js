@@ -1,13 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, SafeAreaView, ScrollView, Image, TouchableOpacity} from 'react-native';
 import Swiper from 'react-native-swiper';
-import appRoutes from 'navigations/appRoutes';
+import appRoutes from '../../../navigations/appRoutes';
 import scaleWithPixel from 'helpers/scaleWithPixel';
 import {BaseStyle} from 'config/theme';
 import useApp from 'hooks/app/useApp';
 import {useNavigation} from '@react-navigation/native';
 import Text from '../../../components/Text/Text';
 import Button from 'components-v2/Button/Button';
+import firebase from 'firebase';
 
 const WalkthroughScreen = (props) => {
     const {state: appState} = useApp();
@@ -66,6 +67,18 @@ const WalkthroughScreen = (props) => {
             marginTop: 30
         }
     });
+
+    const checkUser = async () => {
+        console.log("sdfsdf")
+        const user = await firebase.auth().currentUser;
+        if (user) {
+            navigation.navigate(appRoutes.MAIN)
+        }
+    }
+
+    useEffect(() => {
+        checkUser()
+    }, [])
 
     return (
         <SafeAreaView
