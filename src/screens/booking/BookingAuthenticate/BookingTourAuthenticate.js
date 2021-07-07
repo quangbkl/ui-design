@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView, View, StyleSheet, Image, TextInput } from "react-native";
-import { BookingHistory, Button, Header, Text } from "components";
-import bookingHistoryDB from "__mocks__/db/booking-history-db";
+import { Button, Header, Text } from "components";
 import { getRouterParam } from "helpers/common";
 import * as ImagePicker from "expo-image-picker";
 import Constants from "expo-constants";
@@ -16,13 +15,13 @@ import Spinner from "react-native-loading-spinner-overlay";
 import { uploadImage } from "../../../services/imgur";
 import { v4 as uuidv4 } from "react-native-uuid";
 import { Toast } from "native-base";
+import BookingTourHistory from "components/BookingHistory/BookingTourHistory";
 
-const BookingAuthentication = (props) => {
+const BookingTourAuthentication = (props) => {
   const navigation = useNavigation();
 
   const bookingId = getRouterParam(props, "bookingId");
   const [booking, setBooking] = useState();
-  const [cameraType, setCameraType] = useState();
   const [image, setImage] = useState();
   const [modalVisible, setModalVisible] = useState(false);
   const [confirming, setConfirming] = useState(false);
@@ -61,10 +60,10 @@ const BookingAuthentication = (props) => {
   const fetchBooking = async () => {
     setLoading(true);
     try {
-      const { hotel_booking } = await bookingServices.getBookingHotel(
+      const { tour_booking } = await bookingServices.getBookingTour(
         bookingId
       );
-      setBooking(hotel_booking);
+      setBooking(tour_booking);
     } catch {
       Toast.show({
         text: 'Có lỗi xảy ra',
@@ -84,7 +83,7 @@ const BookingAuthentication = (props) => {
           status: "pending_confirm",
         };
         bookingServices
-          .updateBookingHotel(bookingId, params)
+          .updateBookingTour(bookingId, params)
           .then(() => {
             setConfirming(false);
             setModalVisible(true);
@@ -116,7 +115,7 @@ const BookingAuthentication = (props) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Header title="Xác thực đặt phòng" />
+      <Header title="Xác thực đặt tour" />
       <Spinner
         visible={loading}
         textContent={"Vui lòng chờ..."}
@@ -125,11 +124,8 @@ const BookingAuthentication = (props) => {
       {booking ? (
         <>
           <ScrollView>
-            <BookingHistory item={booking} />
+            <BookingTourHistory item={booking} />
             <View style={{ flex: 1, flexDirection: "row", margin: 15 }}>
-              {/* <Button style={styles.buttonPickImage} onPress={chooseImage}>
-                <Text whiteColor>Chụp ảnh</Text>
-              </Button> */}
               <Button style={styles.buttonPickImage} onPress={chooseImage}>
                 <Text whiteColor>{image || booking.imageWitness ? "Thay đổi ảnh" : "Tải ảnh lên"}</Text>
               </Button>
@@ -164,7 +160,6 @@ const BookingAuthentication = (props) => {
               animationOutTiming={600}
               backdropTransitionInTiming={600}
               backdropTransitionOutTiming={600}
-              // onBackdropPress={setModalVisible(false)}
             >
               <View
                 style={{
@@ -231,4 +226,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BookingAuthentication;
+export default BookingTourAuthentication;

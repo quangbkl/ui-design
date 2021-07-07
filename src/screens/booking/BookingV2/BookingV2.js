@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, SafeAreaView, Alert, AsyncStorage } from "react-native";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import { Container, Toast } from "native-base";
@@ -18,6 +18,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import { v4 as uuidv4 } from 'react-native-uuid';
 import bookingServices from "../../../services/bookingServices";
 import moment from 'moment';
+import firebase from 'firebase';
 
 const thirdIndicatorStyles = {
   stepIndicatorSize: 25,
@@ -93,17 +94,17 @@ const BookingV2 = (props) => {
   };
 
   const onComplete = () => {
-    navigation.navigate(appRoutes.BOOKING_AUTHENTICATE);
+    navigation.navigate(appRoutes.BOOKING_AUTHENTICATE, { bookingId });
   };
 
   const handleSaveHotelBooking = async () => {
     let userId = await AsyncStorage.getItem('userId');
+    let userLoginId = await AsyncStorage.getItem('userLoginId');
 
     if (!userId) {
       userId = uuidv4();
       AsyncStorage.setItem('userId', userId);
     }
-    console.log(userId)
     const params = {
       hotelId: informationBooking.hotel.id,
       checkinDate: informationBooking.checkinDate,
@@ -118,11 +119,16 @@ const BookingV2 = (props) => {
       guestEmail: userInfo.email,
       guestPhoneNumber: userInfo.phoneNumber,
       note: userInfo.note,
-      userId,
+      userId: userLoginId || userId,
     };
     setLoading(true);
     bookingServices.createBookingHotel(params)
       .then((res) => {
+        Toast.show({
+          text: 'Đặt phòng thành công',
+          type: 'success',
+          position: 'top'
+        });
         setBookingId(res.result.id);
         setStep(2);
       })
@@ -160,7 +166,7 @@ const BookingV2 = (props) => {
             stepCount={3}
             customStyles={thirdIndicatorStyles}
             currentPosition={step}
-            onPress={onStepPress}
+            // onPress={onStepPress}
             labels={["Đặt chỗ", "Xem lại", "Thanh toán"]}
           />
         </View>

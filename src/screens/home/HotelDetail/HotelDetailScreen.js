@@ -21,6 +21,7 @@ import { getRouterParam } from "helpers/common";
 import { BaseColor } from "config/color";
 import RoomType from "../../../components/RoomType/RoomType";
 import { getHotel } from "../../../services/hotelServices";
+import useApp from "../../../hooks/app/useApp";
 
 const allServices = [
   { code: "wifi", name: "Wifi" },
@@ -58,6 +59,8 @@ const getRoomTypes = (hotel) => {
 const HotelDetailScreen = (props) => {
   const hotelId = getRouterParam(props, "hotelId");
   const bookInfo = getRouterParam(props, "bookInfo");
+  const {state: appState} = useApp();
+  const {color} = appState;
   const [hotel, setHotel] = useState();
   const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
@@ -117,7 +120,7 @@ const HotelDetailScreen = (props) => {
       <SafeAreaView style={styles.fill}>
         <Header title="Thông tin khách sạn" />
         {loading ? (
-          <ActivityIndicator size="large" color="#0000ff" />
+          <ActivityIndicator size="large" color={`${color.primaryColor}`} />
         ) : (
           hotel && (
             <>

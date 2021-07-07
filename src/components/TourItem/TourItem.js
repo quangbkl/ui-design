@@ -6,7 +6,7 @@ import TourItemList from './TourItemList';
 import TourItemGrid from './TourItemGrid';
 import Touchable from '../Touchable/Touchable';
 
-const TourItem = ({view, item, ...rest}) => {
+const TourItem = ({view, item, onViewTour, ...rest}) => {
     const navigation = useNavigation();
     const Items = {
         block: TourItemBlock,
@@ -17,7 +17,7 @@ const TourItem = ({view, item, ...rest}) => {
     const Item = Items[view || 'block'] || Items.block;
 
     return (
-        <Touchable onPress={() => navigation.navigate(appRoutes.TOUR_DETAIL, {tourId: item.id})}>
+        <Touchable onPress={() => onViewTour()}>
             <Item item={item} {...rest} />
         </Touchable>
     );

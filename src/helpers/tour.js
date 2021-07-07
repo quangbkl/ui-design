@@ -1,26 +1,37 @@
+import tourDB from "../__mocks__/db/tours-db";
+
 export const getImageTour = tour => {
-    if (tour.image) {
-        return tour.image;
+    if (tour.images[0]) {
+        return tour.images[0];
     }
     return '';
 };
 
 export const getPricePerParticipant = tour => {
-    if (tour.generalInformation.pricePerParticipant) {
-        return tour.generalInformation.pricePerParticipant;
+    if (tour.pricePerParticipant) {
+        return tour.pricePerParticipant;
     }
     return '';
 };
 export const getDuration = tour => {
-    if (tour.generalInformation.duration) {
-        return tour.generalInformation.duration;
+    if (tour.duration) {
+        return tour.duration;
     }
     return '';
 };
 
 export const getRatePerFive = tour => {
-    const {ratePercent} = tour;
-    return ratePercent / 20;
+    return 4.5;
+};
+
+
+export const formatPrice = tour => {
+	let price = tour.pricePerParticipant;
+	console.log(price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'}));
+	return price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'}) + '';
+};
+export const getTransportation = tour => {
+	return tour.transportations.join(', ');
 };
 
 export const getRateReviewPerFive = scores => {

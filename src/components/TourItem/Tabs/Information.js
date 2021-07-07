@@ -5,47 +5,48 @@ import {Container} from 'native-base';
 import {ListItem, Text} from 'components/index';
 import {BaseColor} from 'config/color';
 import Gallery from './Gallery';
+import {formatPrice, getTransportation} from "../../../helpers/tour";
 
 const Information = ({item}) => {
-    const {generalInformation, includes, excludes} = item;
+    const {commonAddress, duration, description, minSize, maxSize} = item;
     return (
         <Container>
             <ScrollView>
                 <View style={styles.container}>
                     <ListItem style={styles.listItem}>
                         <Text style={styles.ListItemProperty}>Location</Text>
-                        <Text style={styles.ListItemValue}>{generalInformation.location}</Text>
+                        <Text style={styles.ListItemValue}>{commonAddress}</Text>
                     </ListItem>
                     <ListItem style={styles.listItem}>
                         <Text style={styles.ListItemProperty}>Duration</Text>
-                        <Text style={styles.ListItemValue}>{generalInformation.duration}</Text>
+                        <Text style={styles.ListItemValue}>{duration} ngày</Text>
                     </ListItem>
-                    <ListItem style={styles.listItem}>
+                    {/*<ListItem style={styles.listItem}>
                         <Text style={styles.ListItemProperty}>Departure</Text>
-                        <Text style={styles.ListItemValue}>{generalInformation.departure}</Text>
-                    </ListItem>
+                        <Text style={styles.ListItemValue}>{departure}</Text>
+                    </ListItem>*/}
                     <ListItem style={styles.listItem}>
                         <Text style={styles.ListItemProperty}>Price per Participant</Text>
-                        <Text style={styles.ListItemValue}>{generalInformation.pricePerParticipant}</Text>
+                        <Text style={styles.ListItemValue}>{formatPrice(item)}</Text>
                     </ListItem>
                     <ListItem style={styles.listItem}>
                         <Text style={styles.ListItemProperty}>Group size</Text>
-                        <Text style={styles.ListItemValue}>{generalInformation.groupSize}</Text>
+                        <Text style={styles.ListItemValue}>{minSize} - {maxSize} người</Text>
                     </ListItem>
                     <ListItem style={styles.listItem}>
                         <Text style={styles.ListItemProperty}>Transportation</Text>
-                        <Text style={styles.ListItemValue}>{generalInformation.transportation}</Text>
+                        <Text style={styles.ListItemValue}>{getTransportation(item)}</Text>
                     </ListItem>
 
                     <Gallery item={item}/>
                     <View>
-                        <Text style={styles.titleBoot}>Includes</Text>
-                        <Text style={styles.contentBoot}>{includes}</Text>
+                        <Text style={styles.titleBoot}>Mô tả</Text>
+                        <Text style={styles.contentBoot}>{description}</Text>
                     </View>
-                    <View>
+                    {/*<View>
                         <Text style={styles.titleBoot}>Excludes</Text>
                         <Text style={styles.contentBoot}>{excludes}</Text>
-                    </View>
+                    </View>*/}
                 </View>
             </ScrollView>
         </Container>

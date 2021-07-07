@@ -1,64 +1,77 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
 import {v4 as uuidv4} from 'react-native-uuid';
-import {useFilterDynamic} from 'hooks/common';
-import {getTours} from 'services/tourService';
-import {FilterSort} from 'components';
+import {FilterSort, HotelItem} from 'components';
 import Header from 'components/Header/Header';
 import CustomIcon from 'components/Icon/CustomIcon';
 import TourItem from 'components/TourItem/TourItem';
 import useApp from 'hooks/app/useApp';
+import {getRouterParam} from "helpers/common";
+import {useNavigation} from "@react-navigation/native";
+import appRoutes from "navigations/appRoutes";
+import {searchTours} from "services/tourService";
 
 const ToursScreen = props => {
-    const {state: appState} = useApp();
-    const {color} = appState;
-    const defaultFilters = {
-        page: 1,
-        limit: 20
-    };
-
-    const [view, setView] = useState('block');
-    const loadDataTours = params =>
-        getTours(params).then(res => res.data.tours);
-    const {
-        loading: loadingTours,
-        list: listTours,
-        fetchData,
-        refreshPage,
-        fetchNext,
-    } = useFilterDynamic(defaultFilters, loadDataTours);
-
-    const renderItem = ({item}) => {
-        return (
-            <View style={styles.eachItem}>
-                <TourItem view={view} item={item}/>
-            </View>
-        );
-    };
-
-    useEffect(() => {
-        fetchData();
-    }, []);
+	const searchParams = getRouterParam(props, "searchParams");
+	const navigation = useNavigation();
+	const {state: appState} = useApp();
+	const {color} = appState;
+	const [view, setView] = useState("block");
+	const [tours, setTours] = useState([]);
+	const [loading, setLoading] = useState(false);
+	
+	const renderItem = ({item}) => {
+		const detailTour = () => {
+			navigation.navigate(appRoutes.TOUR_DETAIL, {
+				tourId: item.id,
+				bookInfo: searchParams,
+			});
+		};
+		
+		return (
+			<View style={styles.eachItem}>
+				<TourItem onViewTour={detailTour} view={view} item={item}/>
+			</View>
+		);
+	};
+	
+	useEffect(() => {
+		setLoading(true);
+		console.log(searchParams)
+		searchTours(searchParams)
+		.then(res => {
+			const {result} = res.data;
+			console.log("tour list: ",result)
+			setTours(result.tours)
+		})
+		.finally(() => setLoading(false))
+		
+	}, []);
+    
+    
     return (
         <>
             <Header
-                title="Tour"
-                description="30 April 2020, 2 Nights, 1 Room"
+	            title={searchParams.location.name}
+	            description={`${searchParams.checkinDate}, ${searchParams.day} ngày`}
                 RightComponent={<CustomIcon type="search" color={color.primaryColor}/>}
             />
             <FilterSort view={view} onChangeView={setView}/>
-            <FlatList
-                style={view === 'block' ? {} : styles.container}
-                data={listTours}
-                refreshing={loadingTours}
-                onRefresh={refreshPage}
-                onEndReached={fetchNext}
-                renderItem={renderItem}
-                key={uuidv4()}
-                keyExtractor={() => uuidv4()}
-                columnWrapperStyle={view === 'grid' ? styles.spaceCol : null}
-                numColumns={view === 'grid' ? 2 : 1}
-            />
+	
+	        {loading ? (
+		        <ActivityIndicator size="large" color={`${color.primaryColor}`}/>
+	        ) : (
+		        <FlatList
+			        style={view === 'block' ? {} : styles.container}
+			        data={tours}
+			        renderItem={renderItem}
+			        key={uuidv4()}
+			        keyExtractor={() => uuidv4()}
+			        columnWrapperStyle={view === 'grid' ? styles.spaceCol : null}
+			        numColumns={view === 'grid' ? 2 : 1}
+		        />
+	        )}
+         
         </>
     );
 };

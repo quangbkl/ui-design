@@ -30,13 +30,16 @@ const appRoutes = {
     HOTEL_GALLERY: 'Hotel Gallery',
     BOOKINGV2: 'BookingV2',
     BOOKING_AUTHENTICATE: 'Booking Authenticate',
+    BOOKING_TOUR_AUTHENTICATE: 'Booking Tour Authenticate',
     FLIGHT_SEARCH: 'Flight Search',
     SELECT_FLIGHT: 'Select Flight',
     FLIGHT_RESULT: 'Flight Result',
     FLIGHT_SUMMARY: 'Flight Summary',
     FLIGHT_TICKET: 'Flight Ticket',
     PREVIEW_BOOKING: 'Preview Booking',
-
+	BOOKING_TOUR_V2: 'BookingTourV2',
+	
+	SEARCH_TOUR: 'Search Tour',
     TOURS: 'Tours',
     TOUR_DETAIL: 'Tour Detail',
     TOUR_OPEN: 'Tour Open',
@@ -65,7 +68,9 @@ const appRoutes = {
     CHECKOUT_REVIEW: 'Checkout Review',
     CHECKOUT: 'Checkout',
     PAYMENT_METHODS: 'Payment Methods',
-    PAYMENT_METHOD: 'Payment Method'
+    PAYMENT_METHOD: 'Payment Method',
+	BOOKING_HOTEL: 'Booking Hotel',
+	BOOKING_TOUR: 'Booking Tour'
 };
 
 export default appRoutes;

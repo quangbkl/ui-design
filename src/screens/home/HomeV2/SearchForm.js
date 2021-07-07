@@ -6,6 +6,7 @@ import useApp from "../../../hooks/app/useApp";
 import {useNavigation} from "@react-navigation/native";
 import appRoutes from "../../../navigations/appRoutes";
 import Icon from "../../../components-v2/Icon/Icon";
+import SearchTourScreen from "../SearchTour/SearchTourScreen";
 
 const renderIconService = (icons) => {
     const {state: appState} = useApp();
@@ -51,7 +52,7 @@ const renderIconService = (icons) => {
 
 const icons1 = [
     {icon: "calendar-alt", name: "Hotel", route: appRoutes.SEARCH_HOTEL},
-    {icon: "map-marker-alt", name: "Tour", route: appRoutes.TOURS},
+    {icon: "map-marker-alt", name: "Tour", route: appRoutes.SEARCH_TOUR},
     {icon: "car-alt", name: "Car", route: ""},
     {icon: "plane", name: "Flight", route: appRoutes.FLIGHT_SEARCH}
 ];

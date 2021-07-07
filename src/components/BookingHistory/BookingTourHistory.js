@@ -7,6 +7,8 @@ import useApp from "hooks/app/useApp";
 import { status } from '../../constants/booking';
 import { useNavigation } from '@react-navigation/native';
 import appRoutes from "../../navigations/appRoutes";
+import moment from "moment";
+import {getTransportation} from "../../helpers/tour";
 
 const numberWithDots = (x) => {
     if (!x) return "";
@@ -20,14 +22,14 @@ const renderStatus = (code) => {
     return stt && stt.name;
 }
 
-const BookingHistory = (props) => {
+const BookingTourHistory = (props) => {
     const {item} = props;
     const {state: appState} = useApp();
     const navigation = useNavigation();
     const {color} = appState;
     const onPress = () => {
         if (item.status === 'pending_payment' || item.status === 'pending_confirm') {
-            navigation.navigate(appRoutes.BOOKING_AUTHENTICATE, { bookingId: item.id })
+            navigation.navigate(appRoutes.BOOKING_TOUR_AUTHENTICATE, { bookingId: item.id })
         }
     }
     return (
@@ -35,16 +37,20 @@ const BookingHistory = (props) => {
             onPress={onPress}
             style={{...styles.container, backgroundColor: color.primaryColor}}
         >
-            <Text style={styles.header}>{item.hotel.name}</Text>
-            <Text style={styles.header}>{item.roomType === 'standard' ? 'Phòng tiêu chuẩn' : 'Phòng cao cấp'} (x{item.rooms}) - {item.guests} khách</Text>
+            <Text style={styles.header}>{item.tour.name}</Text>
+            <Text style={styles.header}>Số lượng khách: {item.guests} khách</Text>
+            <Text style={styles.header}>Người đại diện: {item.guestName}</Text>
             <View style={styles.content}>
                 <View style={styles.checkInOut}>
                     <Text style={styles.checkInOutProperty}>Check In</Text>
                     <Text style={styles.checkInOutProperty}>Check Out</Text>
                 </View>
                 <View style={styles.checkInOut}>
-                    <Text style={styles.checkInOutValue}>{item.checkinDate}</Text>
-                    <Text style={styles.checkInOutValue}>{item.checkoutDate}</Text>
+                    <Text style={styles.checkInOutValue}>{moment(item.startDate, "DD-mm-YYYY")
+                    .format("ddd, MMM Do")}</Text>
+                    <Text style={styles.checkInOutValue}>{moment(item.startDate, "DD-mm-YYYY")
+                    .add(item.day, "days")
+                    .format("ddd, MMM Do")}</Text>
                 </View>
             </View>
             <View style={styles.footer}>
@@ -64,11 +70,11 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         marginRight: 15,
         borderRadius: 10,
-        maxHeight: 185,
+        maxHeight: 250,
     },
     header: {
         width: "100%",
-        height: 35,
+        height: 40,
         padding: 10,
         alignItems: "center",
         borderBottomWidth: 1,
@@ -109,7 +115,7 @@ const styles = StyleSheet.create({
     },
 });
 
-BookingHistory.propTypes = {
+BookingTourHistory.propTypes = {
     name: PropTypes.string.isRequired,
     checkIn: PropTypes.string,
     checkOut: PropTypes.string,
@@ -118,4 +124,4 @@ BookingHistory.propTypes = {
     style: ViewPropTypes.style,
 };
 
-export default BookingHistory;
+export default BookingTourHistory;
